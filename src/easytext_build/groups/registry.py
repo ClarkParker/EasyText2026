@@ -1,8 +1,8 @@
 """Reihenfolge der Gruppen-Builder. Abhängigkeiten (Untergruppen) stehen vor ihren Nutzern."""
 
-from . import et_lines_join, et_text_mesh
+from . import et_bevel, et_finish, et_lines_join, et_outline, et_solid, et_text_mesh, et_text_source, et_uv
 
-MODULES = [et_lines_join, et_text_mesh]
+MODULES = [et_lines_join, et_text_source, et_outline, et_solid, et_bevel, et_uv, et_finish, et_text_mesh]
 MAIN = et_text_mesh.NAME
 
 

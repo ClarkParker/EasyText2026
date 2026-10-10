@@ -1,7 +1,7 @@
 """Dünne Helferschicht über bpy zum deterministischen Bauen von Node-Gruppen.
 
 Absichtlich klein gehalten: Nodes anlegen, Inputs setzen oder verlinken, Interface mit Panels,
-automatisches Spalten-Layout und Asset-Markierung. Alles andere bleibt reines bpy.
+Frames mit Block-Layout, lokale Group-Input-Kopien und Asset-Markierung. Alles andere bleibt reines bpy.
 """
 
 from __future__ import annotations
@@ -32,8 +32,11 @@ SOCKET_ALIASES = {
     "font": "NodeSocketFont",
 }
 
-X_GAP = 280
-Y_GAP = 40
+COLUMN_GAP = 70  # Abstand zwischen Spalten innerhalb eines Blocks
+ROW_GAP = 30  # Abstand zwischen Nodes einer Spalte
+BLOCK_GAP = 160  # Abstand zwischen Frames
+FRAME_PAD = 40  # Rand, den Blender um Frame-Kinder legt (nur für die Blockbreite geschätzt)
+PROP_IDS = {"operation", "data_type", "domain", "mode", "input_type", "warning_type"}
 
 
 def socket_type(alias: str) -> str:
@@ -105,7 +108,7 @@ class GroupBuilder:
         is_tool: bool = False,
         color_tag: str | None = None,
         catalog: catalog_mod.Catalog | None = None,
-        default_width: int | None = None,
+        default_width: int | None = 200,
     ):
         old = bpy.data.node_groups.get(name)
         if old is not None:
@@ -127,6 +130,9 @@ class GroupBuilder:
         self.group_out.is_active_output = True
         self._panels: list[bpy.types.NodeTreeInterfacePanel] = []
         self._menu_defaults: dict[str, str] = {}
+        self._frames: list[bpy.types.Node] = []
+        self._frame_order: list[bpy.types.Node] = []
+        self._input_sockets: dict[str, str] = {}  # Name -> Identifier (erste Definition gewinnt)
 
     # ---------------------------------------------------------------- interface
     @contextlib.contextmanager
@@ -176,6 +182,7 @@ class GroupBuilder:
             sock.default_input = default_input
         if panel_toggle:
             sock.is_panel_toggle = True
+        self._input_sockets.setdefault(name, sock.identifier)
         return SocketRef(self.group_in, sock.identifier, True)
 
     def menu_default(self, name: str, value: str) -> None:
@@ -191,6 +198,39 @@ class GroupBuilder:
     def set_output(self, key, value) -> None:
         self._connect(SocketRef(self.group_out, key, False), value)
 
+    def inputs(self, *names: str, label: str | None = None) -> dict[str, SocketRef]:
+        """Lokale Kopie des Group Input im aktuellen Frame, nur mit den genannten Sockets sichtbar."""
+        node = self.tree.nodes.new("NodeGroupInput")
+        node.name = f"Group Input ({label or ', '.join(names)})"
+        node.parent = self._frames[-1] if self._frames else None
+        wanted = {self._input_sockets.get(n, n) for n in names}
+        for sock in node.outputs:
+            try:
+                sock.hide = sock.identifier not in wanted
+            except Exception:  # virtueller __extend__-Socket
+                pass
+        return {n: SocketRef(node, self._input_sockets.get(n, n), True) for n in names}
+
+    # ---------------------------------------------------------------- frames
+    @contextlib.contextmanager
+    def frame(self, label: str, *, color: tuple | None = None, label_size: int = 20):
+        node = self.tree.nodes.new("NodeFrame")
+        node.name = label
+        node.label = label
+        node.label_size = label_size
+        node.shrink = True
+        if color is not None:
+            node.use_custom_color = True
+            node.color = color
+        if self._frames:
+            node.parent = self._frames[-1]
+        self._frames.append(node)
+        self._frame_order.append(node)
+        try:
+            yield node
+        finally:
+            self._frames.pop()
+
     # ---------------------------------------------------------------- nodes
     def node(
         self,
@@ -201,6 +241,7 @@ class GroupBuilder:
         inputs: dict | None = None,
         props: dict | None = None,
         hide: bool = False,
+        width: float | None = None,
     ) -> NodeRef:
         node = self.tree.nodes.new(idname)
         if name:
@@ -208,6 +249,9 @@ class GroupBuilder:
         if label:
             node.label = label
         node.hide = hide
+        if width:
+            node.width = width
+        node.parent = self._frames[-1] if self._frames else None
         for key, value in (props or {}).items():
             setattr(node, key, value)
         ref = NodeRef(node)
@@ -215,11 +259,12 @@ class GroupBuilder:
             self.set_input(ref, key, value)
         return ref
 
-    def group(self, tree_or_name, name: str | None = None, *, inputs: dict | None = None) -> NodeRef:
+    def group(self, tree_or_name, name: str | None = None, *, inputs: dict | None = None, label=None) -> NodeRef:
         tree = tree_or_name if isinstance(tree_or_name, bpy.types.NodeTree) else bpy.data.node_groups[tree_or_name]
         idname = {"GeometryNodeTree": "GeometryNodeGroup", "ShaderNodeTree": "ShaderNodeGroup"}[tree.bl_idname]
-        ref = self.node(idname, name or tree.name)
+        ref = self.node(idname, name or tree.name.lstrip("."), label=label)
         ref.node.node_tree = tree
+        ref.node.width = tree.default_group_node_width
         for key, value in (inputs or {}).items():
             self.set_input(ref, key, value)
         return ref
@@ -334,9 +379,12 @@ class GroupBuilder:
 
     # ---------------------------------------------------------------- finish
     def finish(self) -> bpy.types.NodeTree:
-        self._layout()
         for name, value in self._menu_defaults.items():
             self.tree.interface.items_tree[name].default_value = value
+        if not any(link.from_node == self.group_in for link in self.tree.links):
+            self.tree.nodes.remove(self.group_in)  # alle Inputs laufen über lokale Kopien
+            self.group_in = None
+        self._layout()
         if self.catalog is not None:
             self.tree.asset_mark()
             self.tree.asset_data.catalog_id = self.catalog.uuid
@@ -345,12 +393,45 @@ class GroupBuilder:
             self.tree.asset_data.license = "CC0-1.0"
         return self.tree
 
+    # ---------------------------------------------------------------- layout
     def _layout(self) -> None:
-        """Einfaches Spalten-Layout: Spalte = längster Pfad von einer Quelle, Group Output ganz rechts."""
-        nodes = list(self.tree.nodes)
-        preds: dict[str, set[str]] = {n.name: set() for n in nodes}
+        """Block-Layout: jeder Top-Level-Frame ist ein Block (eigene Spalten), Blöcke stehen in Datenflussreihenfolge
+        nebeneinander. Nodes ohne Frame bilden einen Block am Anfang (Group Input) bzw. am Ende (Rest)."""
+        nodes = [n for n in self.tree.nodes if n.bl_idname != "NodeFrame"]
+        top_frames = [f for f in self._frame_order if f.parent is None]
+
+        def top_frame(node):
+            parent = node.parent
+            while parent is not None and parent.parent is not None:
+                parent = parent.parent
+            return parent
+
+        blocks: list[list] = []
+        head = [n for n in nodes if top_frame(n) is None and n == self.group_in]
+        if head:
+            blocks.append(head)
+        for frame in top_frames:
+            members = [n for n in nodes if top_frame(n) == frame]
+            if members:
+                blocks.append(members)
+        tail = [n for n in nodes if top_frame(n) is None and n != self.group_in]
+        if tail:
+            blocks.append(tail)
+
+        x_cursor = 0.0
+        for block in blocks:
+            width = self._layout_block(block, x_cursor)
+            x_cursor += width + BLOCK_GAP
+
+    def _layout_block(self, block: list, x_start: float) -> float:
+        names = {n.name for n in block}
+        preds: dict[str, list] = {n.name: [] for n in block}
+        succs: dict[str, list] = {n.name: [] for n in block}
         for link in self.tree.links:
-            preds[link.to_node.name].add(link.from_node.name)
+            a, b = link.from_node.name, link.to_node.name
+            if a in names and b in names:
+                preds[b].append(a)
+                succs[a].append(b)
         depth: dict[str, int] = {}
 
         def resolve(name: str) -> int:
@@ -360,26 +441,65 @@ class GroupBuilder:
             depth[name] = 1 + max((resolve(p) for p in preds[name]), default=-1)
             return depth[name]
 
-        for n in nodes:
+        for n in block:
             resolve(n.name)
-        max_depth = max((d for k, d in depth.items() if k != self.group_out.name), default=0)
-        depth[self.group_out.name] = max_depth + 1
+        # Quellen (ohne Vorgänger im Block) direkt vor ihre Verbraucher ziehen
+        for n in block:
+            if not preds[n.name] and succs[n.name]:
+                depth[n.name] = min(depth[s] for s in succs[n.name]) - 1
+        if self.group_out in block:
+            depth[self.group_out.name] = max(depth.values()) + 1
+        min_depth = min(depth.values())
         columns: dict[int, list] = {}
-        for n in nodes:
-            columns.setdefault(depth[n.name], []).append(n)
-        for col, members in columns.items():
-            members.sort(key=lambda n: (n.name != self.group_in.name, n.name))
+        for n in block:
+            columns.setdefault(depth[n.name] - min_depth, []).append(n)
+
+        # Reihenfolge je Spalte: Schwerpunkt der Vorgänger (zwei Durchläufe, zweiter rückwärts für Quellen)
+        rank: dict[str, float] = {}
+        for col in sorted(columns):
+            members = columns[col]
+            for i, n in enumerate(members):
+                linked = [rank[p] for p in preds[n.name] if p in rank]
+                rank[n.name] = sum(linked) / len(linked) if linked else float(i)
+            members.sort(key=lambda n: (rank[n.name], n.name))
+            for i, n in enumerate(members):
+                rank[n.name] = float(i)
+        for col in sorted(columns, reverse=True):
+            members = columns[col]
+            for n in members:
+                if not preds[n.name] and succs[n.name]:
+                    linked = [rank[s] for s in succs[n.name] if s in rank]
+                    if linked:
+                        rank[n.name] = sum(linked) / len(linked) - 0.01
+            members.sort(key=lambda n: (rank[n.name], n.name))
+            for i, n in enumerate(members):
+                rank[n.name] = float(i)
+
+        x = x_start
+        for col in sorted(columns):
+            members = columns[col]
+            col_width = max(_node_width(n) for n in members)
             y = 0.0
             for n in members:
-                n.location = (col * X_GAP, y)
-                y -= _node_height(n) + Y_GAP
+                n.location_absolute = (x, y)
+                y -= _node_height(n) + ROW_GAP
+            x += col_width + COLUMN_GAP
+        return x - x_start - COLUMN_GAP + (2 * FRAME_PAD if any(n.parent for n in block) else 0)
+
+
+def _node_width(node: bpy.types.Node) -> float:
+    return float(node.width)
 
 
 def _node_height(node: bpy.types.Node) -> float:
+    if node.hide:
+        return 32.0
     visible = [s for s in node.inputs if s.enabled and not s.hide] + [
         s for s in node.outputs if s.enabled and not s.hide
     ]
-    return 60 + 22 * len(visible)
+    props = sum(1 for p in node.bl_rna.properties if p.identifier in PROP_IDS)
+    extra = 24 if node.bl_idname in ("GeometryNodeInputNamedAttribute", "GeometryNodeStringToCurves") else 0
+    return 34 + 22 * len(visible) + 24 * props + extra
 
 
 def builtin_font() -> bpy.types.VectorFont:

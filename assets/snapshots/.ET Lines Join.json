@@ -3,7 +3,7 @@
  "description": "Vier Zeilen zu einem String mit Zeilenumbrüchen; leere Zeilen entfallen.",
  "flags": {
   "color_tag": "NONE",
-  "default_group_node_width": 140,
+  "default_group_node_width": 200,
   "is_modifier": false,
   "is_tool": false
  },
@@ -277,7 +277,7 @@
    },
    "label": "",
    "location": [
-    280,
+    510,
     0
    ],
    "mute": false,
@@ -303,8 +303,8 @@
    },
    "label": "",
    "location": [
-    280,
-    -166
+    510,
+    -130
    ],
    "mute": false,
    "name": "Break + Line 3",
@@ -329,8 +329,8 @@
    },
    "label": "",
    "location": [
-    280,
-    -332
+    510,
+    -260
    ],
    "mute": false,
    "name": "Break + Line 4",
@@ -375,7 +375,7 @@
    },
    "label": "",
    "location": [
-    1680,
+    1350,
     0
    ],
    "mute": false,
@@ -402,8 +402,8 @@
    },
    "label": "",
    "location": [
-    560,
-    0
+    510,
+    -390
    ],
    "mute": false,
    "name": "Has Text 2",
@@ -433,8 +433,8 @@
    },
    "label": "",
    "location": [
-    560,
-    -166
+    510,
+    -592
    ],
    "mute": false,
    "name": "Has Text 3",
@@ -464,8 +464,8 @@
    },
    "label": "",
    "location": [
-    560,
-    -332
+    510,
+    -794
    ],
    "mute": false,
    "name": "Has Text 4",
@@ -495,7 +495,7 @@
    },
    "label": "",
    "location": [
-    1120,
+    930,
     0
    ],
    "mute": false,
@@ -517,8 +517,8 @@
    },
    "label": "",
    "location": [
-    280,
-    -498
+    300,
+    -108
    ],
    "mute": false,
    "name": "Length 2",
@@ -539,8 +539,8 @@
    },
    "label": "",
    "location": [
-    280,
-    -642
+    300,
+    -216
    ],
    "mute": false,
    "name": "Length 3",
@@ -561,8 +561,8 @@
    },
    "label": "",
    "location": [
-    280,
-    -786
+    300,
+    -324
    ],
    "mute": false,
    "name": "Length 4",
@@ -578,8 +578,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    0,
-    -210
+    300,
+    0
    ],
    "mute": false,
    "name": "Line Break",
@@ -617,7 +617,7 @@
    },
    "label": "",
    "location": [
-    1400,
+    1140,
     0
    ],
    "mute": false,
@@ -647,7 +647,7 @@
    },
    "label": "",
    "location": [
-    840,
+    720,
     0
    ],
    "mute": false,
@@ -680,8 +680,8 @@
    },
    "label": "",
    "location": [
-    840,
-    -188
+    720,
+    -176
    ],
    "mute": false,
    "name": "Use Line 3",
@@ -713,8 +713,8 @@
    },
    "label": "",
    "location": [
-    840,
-    -376
+    720,
+    -352
    ],
    "mute": false,
    "name": "Use Line 4",

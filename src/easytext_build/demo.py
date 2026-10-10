@@ -52,3 +52,11 @@ def populate_scene(scene) -> None:
     scene.world = world
     scene.render.resolution_x = 1920
     scene.render.resolution_y = 1080
+
+    # Beim Öffnen: Textobjekt aktiv und im Properties-Editor der Modifier-Reiter
+    bpy.context.view_layer.objects.active = text_ob
+    text_ob.select_set(True)
+    for screen in bpy.data.screens:
+        for area in screen.areas:
+            if area.type == "PROPERTIES":
+                area.spaces[0].context = "MODIFIER"

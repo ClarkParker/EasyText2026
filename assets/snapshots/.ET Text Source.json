@@ -1,0 +1,1028 @@
+{
+ "asset_catalog_id": null,
+ "description": "Bis zu vier Zeilen Text als realisierte Glyphenkurven mit et_char_index.",
+ "flags": {
+  "color_tag": "NONE",
+  "default_group_node_width": 200,
+  "is_modifier": false,
+  "is_tool": false
+ },
+ "interface": [
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_15",
+   "in_out": "OUTPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Curves",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketGeometry",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0,
+   "description": "Zeichenzahl des zusammengesetzten Textes.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_16",
+   "in_out": "OUTPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 2147483647,
+   "menu_expanded": false,
+   "min_value": -2147483648,
+   "name": "Zeichen",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketInt",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": "Easy Text",
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_0",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Text",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketString",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": "",
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_1",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Zeile 2",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketString",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": "",
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_2",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Zeile 3",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketString",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": "",
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_3",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Zeile 4",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketString",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": {
+    "id": "Bfont Regular",
+    "type": "VectorFont"
+   },
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_4",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Font",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketFont",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 1.0,
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_5",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 100.0,
+   "menu_expanded": false,
+   "min_value": 0.001,
+   "name": "Größe",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": "Center",
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_6",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Ausrichtung X",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketMenu",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": "Middle",
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_7",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Ausrichtung Y",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketMenu",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": "Midpoint",
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_8",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Pivot",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketMenu",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 1.0,
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_9",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 10.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
+   "name": "Zeichenabstand",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 1.0,
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_10",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 10.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
+   "name": "Wortabstand",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 1.0,
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_11",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 10.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
+   "name": "Zeilenabstand",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.0,
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_12",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 1000.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
+   "name": "Breite",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.0,
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_13",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 1000.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
+   "name": "Höhe",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": "Overflow",
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_14",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Überlauf",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketMenu",
+   "structure_type": "AUTO"
+  }
+ ],
+ "links": [
+  [
+   "Font Fallback",
+   "Output",
+   "String to Curves",
+   "Font"
+  ],
+  [
+   "Font Is None",
+   "Result",
+   "Font Fallback",
+   "Switch"
+  ],
+  [
+   "Group Input (Font)",
+   "Socket_4",
+   "Font Fallback",
+   "False"
+  ],
+  [
+   "Group Input (Font)",
+   "Socket_4",
+   "Font Is None",
+   "A"
+  ],
+  [
+   "Group Input (Typografie)",
+   "Socket_10",
+   "String to Curves",
+   "Word Spacing"
+  ],
+  [
+   "Group Input (Typografie)",
+   "Socket_11",
+   "String to Curves",
+   "Line Spacing"
+  ],
+  [
+   "Group Input (Typografie)",
+   "Socket_12",
+   "String to Curves",
+   "Text Box Width"
+  ],
+  [
+   "Group Input (Typografie)",
+   "Socket_13",
+   "String to Curves",
+   "Text Box Height"
+  ],
+  [
+   "Group Input (Typografie)",
+   "Socket_14",
+   "String to Curves",
+   "Overflow"
+  ],
+  [
+   "Group Input (Typografie)",
+   "Socket_5",
+   "String to Curves",
+   "Size"
+  ],
+  [
+   "Group Input (Typografie)",
+   "Socket_6",
+   "String to Curves",
+   "Align X"
+  ],
+  [
+   "Group Input (Typografie)",
+   "Socket_7",
+   "String to Curves",
+   "Align Y"
+  ],
+  [
+   "Group Input (Typografie)",
+   "Socket_8",
+   "String to Curves",
+   "Pivot Point"
+  ],
+  [
+   "Group Input (Typografie)",
+   "Socket_9",
+   "String to Curves",
+   "Character Spacing"
+  ],
+  [
+   "Group Input (Zeilen)",
+   "Socket_0",
+   "Lines Join",
+   "Socket_0"
+  ],
+  [
+   "Group Input (Zeilen)",
+   "Socket_1",
+   "Lines Join",
+   "Socket_1"
+  ],
+  [
+   "Group Input (Zeilen)",
+   "Socket_2",
+   "Lines Join",
+   "Socket_2"
+  ],
+  [
+   "Group Input (Zeilen)",
+   "Socket_3",
+   "Lines Join",
+   "Socket_3"
+  ],
+  [
+   "Index",
+   "Index",
+   "Store et_char_index",
+   "Value"
+  ],
+  [
+   "Lines Join",
+   "Socket_4",
+   "String to Curves",
+   "String"
+  ],
+  [
+   "Lines Join",
+   "Socket_4",
+   "Text Length",
+   "String"
+  ],
+  [
+   "Realize Glyphs",
+   "Geometry",
+   "Group Output",
+   "Socket_15"
+  ],
+  [
+   "Store et_char_index",
+   "Geometry",
+   "Realize Glyphs",
+   "Geometry"
+  ],
+  [
+   "String to Curves",
+   "Curve Instances",
+   "Store et_char_index",
+   "Geometry"
+  ],
+  [
+   "Text Length",
+   "Length",
+   "Group Output",
+   "Socket_16"
+  ]
+ ],
+ "name": ".ET Text Source",
+ "nodes": [
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Font",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "Font",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSwitch",
+   "inputs": {
+    "False": {
+     "linked": true,
+     "name": "False"
+    },
+    "Switch": {
+     "linked": true,
+     "name": "Switch"
+    },
+    "True": {
+     "name": "True",
+     "value": {
+      "id": "Bfont Regular",
+      "type": "VectorFont"
+     }
+    }
+   },
+   "label": "",
+   "location": [
+    1280,
+    0
+   ],
+   "mute": false,
+   "name": "Font Fallback",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "Font",
+   "props": {
+    "input_type": "FONT"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "FunctionNodeCompare",
+   "inputs": {
+    "A": {
+     "linked": true,
+     "name": "A"
+    },
+    "B": {
+     "name": "B",
+     "value": null
+    }
+   },
+   "label": "",
+   "location": [
+    1070,
+    0
+   ],
+   "mute": false,
+   "name": "Font Is None",
+   "outputs": [
+    "Result"
+   ],
+   "parent": "Font",
+   "props": {
+    "data_type": "FONT",
+    "mode": "ELEMENT",
+    "operation": "EQUAL"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    860,
+    0
+   ],
+   "mute": false,
+   "name": "Group Input (Font)",
+   "outputs": [
+    "Socket_0",
+    "Socket_1",
+    "Socket_2",
+    "Socket_3",
+    "Socket_4",
+    "Socket_5",
+    "Socket_6",
+    "Socket_7",
+    "Socket_8",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_12",
+    "Socket_13",
+    "Socket_14",
+    "__extend__"
+   ],
+   "parent": "Font",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    1660,
+    0
+   ],
+   "mute": false,
+   "name": "Group Input (Typografie)",
+   "outputs": [
+    "Socket_0",
+    "Socket_1",
+    "Socket_2",
+    "Socket_3",
+    "Socket_4",
+    "Socket_5",
+    "Socket_6",
+    "Socket_7",
+    "Socket_8",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_12",
+    "Socket_13",
+    "Socket_14",
+    "__extend__"
+   ],
+   "parent": "Satz",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "Group Input (Zeilen)",
+   "outputs": [
+    "Socket_0",
+    "Socket_1",
+    "Socket_2",
+    "Socket_3",
+    "Socket_4",
+    "Socket_5",
+    "Socket_6",
+    "Socket_7",
+    "Socket_8",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_12",
+    "Socket_13",
+    "Socket_14",
+    "__extend__"
+   ],
+   "parent": "Zeilen",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupOutput",
+   "inputs": {
+    "Socket_15": {
+     "linked": true,
+     "name": "Curves"
+    },
+    "Socket_16": {
+     "linked": true,
+     "name": "Zeichen"
+    },
+    "__extend__": {
+     "name": ""
+    }
+   },
+   "label": "",
+   "location": [
+    3130,
+    0
+   ],
+   "mute": false,
+   "name": "Group Output",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "is_active_output": true
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeInputIndex",
+   "inputs": {},
+   "label": "",
+   "location": [
+    2310,
+    0
+   ],
+   "mute": false,
+   "name": "Index",
+   "outputs": [
+    "Index"
+   ],
+   "parent": "Instanzen",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Instanzen",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "Instanzen",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeGroup",
+   "inputs": {
+    "Socket_0": {
+     "linked": true,
+     "name": "Line 1"
+    },
+    "Socket_1": {
+     "linked": true,
+     "name": "Line 2"
+    },
+    "Socket_2": {
+     "linked": true,
+     "name": "Line 3"
+    },
+    "Socket_3": {
+     "linked": true,
+     "name": "Line 4"
+    }
+   },
+   "label": "",
+   "location": [
+    210,
+    0
+   ],
+   "mute": false,
+   "name": "Lines Join",
+   "outputs": [
+    "Socket_4"
+   ],
+   "parent": "Zeilen",
+   "props": {
+    "node_tree": {
+     "id": ".ET Lines Join",
+     "type": "GeometryNodeTree"
+    }
+   },
+   "width": 200.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeRealizeInstances",
+   "inputs": {
+    "Depth": {
+     "name": "Depth",
+     "value": 0
+    },
+    "Geometry": {
+     "linked": true,
+     "name": "Geometry"
+    },
+    "Realize All": {
+     "name": "Realize All",
+     "value": true
+    },
+    "Selection": {
+     "name": "Selection",
+     "value": true
+    }
+   },
+   "label": "",
+   "location": [
+    2750,
+    0
+   ],
+   "mute": false,
+   "name": "Realize Glyphs",
+   "outputs": [
+    "Geometry"
+   ],
+   "parent": "Instanzen",
+   "props": {
+    "realize_to_point_domain": false
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Satz",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "Satz",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeStoreNamedAttribute",
+   "inputs": {
+    "Geometry": {
+     "linked": true,
+     "name": "Geometry"
+    },
+    "Name": {
+     "name": "Name",
+     "value": "et_char_index"
+    },
+    "Selection": {
+     "name": "Selection",
+     "value": true
+    },
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "",
+   "location": [
+    2520,
+    0
+   ],
+   "mute": false,
+   "name": "Store et_char_index",
+   "outputs": [
+    "Geometry"
+   ],
+   "parent": "Instanzen",
+   "props": {
+    "data_type": "INT",
+    "domain": "INSTANCE"
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeStringToCurves",
+   "inputs": {
+    "Align X": {
+     "linked": true,
+     "name": "Align X"
+    },
+    "Align Y": {
+     "linked": true,
+     "name": "Align Y"
+    },
+    "Character Spacing": {
+     "linked": true,
+     "name": "Character Spacing"
+    },
+    "Font": {
+     "linked": true,
+     "name": "Font"
+    },
+    "Line Spacing": {
+     "linked": true,
+     "name": "Line Spacing"
+    },
+    "Overflow": {
+     "linked": true,
+     "name": "Overflow"
+    },
+    "Pivot Point": {
+     "linked": true,
+     "name": "Pivot Point"
+    },
+    "Size": {
+     "linked": true,
+     "name": "Size"
+    },
+    "String": {
+     "linked": true,
+     "name": "String"
+    },
+    "Text Box Height": {
+     "linked": true,
+     "name": "Text Box Height"
+    },
+    "Text Box Width": {
+     "linked": true,
+     "name": "Text Box Width"
+    },
+    "Word Spacing": {
+     "linked": true,
+     "name": "Word Spacing"
+    }
+   },
+   "label": "",
+   "location": [
+    1870,
+    0
+   ],
+   "mute": false,
+   "name": "String to Curves",
+   "outputs": [
+    "Curve Instances",
+    "Remainder",
+    "Line",
+    "Word",
+    "Pivot Point"
+   ],
+   "parent": "Satz",
+   "width": 200.0
+  },
+  {
+   "hide": false,
+   "idname": "FunctionNodeStringLength",
+   "inputs": {
+    "String": {
+     "linked": true,
+     "name": "String"
+    }
+   },
+   "label": "",
+   "location": [
+    480,
+    0
+   ],
+   "mute": false,
+   "name": "Text Length",
+   "outputs": [
+    "Length"
+   ],
+   "parent": "Zeilen",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Zeilen",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "Zeilen",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  }
+ ],
+ "tree_type": "GeometryNodeTree"
+}

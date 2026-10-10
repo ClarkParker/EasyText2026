@@ -1,0 +1,968 @@
+{
+ "asset_catalog_id": null,
+ "description": "Mesh Bevel auf den Grenzkanten der Flächengruppen; neue Flächen werden Gruppe 3 (Bevel).",
+ "flags": {
+  "color_tag": "NONE",
+  "default_group_node_width": 200,
+  "is_modifier": false,
+  "is_tool": false
+ },
+ "interface": [
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_6",
+   "in_out": "OUTPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Mesh",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketGeometry",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.0,
+   "description": "Wirksamer Bevel-Radius (0 wenn aus).",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_7",
+   "in_out": "OUTPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 3.4028234663852886e+38,
+   "menu_expanded": false,
+   "min_value": -3.4028234663852886e+38,
+   "name": "Radius",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": false,
+   "description": "True, wenn die Breite auf die halbe Tiefe begrenzt wurde.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_8",
+   "in_out": "OUTPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Begrenzt",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketBool",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_0",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Mesh",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketGeometry",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": false,
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_1",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Bevel",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketBool",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.01,
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_2",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 1.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
+   "name": "Breite",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 3,
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_3",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 16,
+   "menu_expanded": false,
+   "min_value": 1,
+   "name": "Segmente",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketInt",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.5,
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_4",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 1.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
+   "name": "Profil",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "FACTOR"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.1,
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_5",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 10.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
+   "name": "Tiefe",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  }
+ ],
+ "links": [
+  [
+   "Bevel Faces",
+   "Boolean",
+   "Group Bevel",
+   "Selection"
+  ],
+  [
+   "Cap Edges",
+   "Boundary Edges",
+   "Mesh Bevel.001",
+   "Selection"
+  ],
+  [
+   "Clamp Max",
+   "Value",
+   "Clamp Min",
+   "Value"
+  ],
+  [
+   "Clamp Min",
+   "Value",
+   "Mesh Bevel.001",
+   "End Left Offset"
+  ],
+  [
+   "Clamp Min",
+   "Value",
+   "Mesh Bevel.001",
+   "End Right Offset"
+  ],
+  [
+   "Clamp Min",
+   "Value",
+   "Mesh Bevel.001",
+   "Offset"
+  ],
+  [
+   "Clamp Min",
+   "Value",
+   "Mesh Bevel.001",
+   "Start Left Offset"
+  ],
+  [
+   "Clamp Min",
+   "Value",
+   "Mesh Bevel.001",
+   "Start Right Offset"
+  ],
+  [
+   "Clamp Min",
+   "Value",
+   "Radius.001",
+   "True"
+  ],
+  [
+   "Face Group",
+   "Attribute",
+   "Cap Edges",
+   "Face Set"
+  ],
+  [
+   "Group Bevel",
+   "Geometry",
+   "Use Bevel",
+   "True"
+  ],
+  [
+   "Group Input (Bevel, Breite, Tiefe)",
+   "Socket_1",
+   "Limited",
+   "Boolean"
+  ],
+  [
+   "Group Input (Bevel, Breite, Tiefe)",
+   "Socket_1",
+   "Radius.001",
+   "Switch"
+  ],
+  [
+   "Group Input (Bevel, Breite, Tiefe)",
+   "Socket_2",
+   "Clamp Max",
+   "Value"
+  ],
+  [
+   "Group Input (Bevel, Breite, Tiefe)",
+   "Socket_2",
+   "Too Wide",
+   "A"
+  ],
+  [
+   "Group Input (Bevel, Breite, Tiefe)",
+   "Socket_5",
+   "Half Depth",
+   "Value"
+  ],
+  [
+   "Group Input (Mesh, Bevel, Segmente, Profil)",
+   "Socket_0",
+   "Mesh Bevel.001",
+   "Mesh"
+  ],
+  [
+   "Group Input (Mesh, Bevel, Segmente, Profil)",
+   "Socket_0",
+   "Use Bevel",
+   "False"
+  ],
+  [
+   "Group Input (Mesh, Bevel, Segmente, Profil)",
+   "Socket_1",
+   "Use Bevel",
+   "Switch"
+  ],
+  [
+   "Group Input (Mesh, Bevel, Segmente, Profil)",
+   "Socket_3",
+   "Mesh Bevel.001",
+   "Segments"
+  ],
+  [
+   "Group Input (Mesh, Bevel, Segmente, Profil)",
+   "Socket_4",
+   "Mesh Bevel.001",
+   "Shape"
+  ],
+  [
+   "Half Depth",
+   "Value",
+   "Max Radius",
+   "Value"
+  ],
+  [
+   "Limited",
+   "Boolean",
+   "Group Output",
+   "Socket_8"
+  ],
+  [
+   "Max Radius",
+   "Value",
+   "Clamp Max",
+   "Value_001"
+  ],
+  [
+   "Max Radius",
+   "Value",
+   "Too Wide",
+   "B"
+  ],
+  [
+   "Mesh Bevel.001",
+   "Edge Face",
+   "Bevel Faces",
+   "Boolean"
+  ],
+  [
+   "Mesh Bevel.001",
+   "Mesh",
+   "Group Bevel",
+   "Geometry"
+  ],
+  [
+   "Mesh Bevel.001",
+   "Vertex Face",
+   "Bevel Faces",
+   "Boolean_001"
+  ],
+  [
+   "Radius.001",
+   "Output",
+   "Group Output",
+   "Socket_7"
+  ],
+  [
+   "Too Wide",
+   "Result",
+   "Limited",
+   "Boolean_001"
+  ],
+  [
+   "Use Bevel",
+   "Output",
+   "Group Output",
+   "Socket_6"
+  ]
+ ],
+ "name": ".ET Bevel",
+ "nodes": [
+  {
+   "hide": false,
+   "idname": "FunctionNodeBooleanMath",
+   "inputs": {
+    "Boolean": {
+     "linked": true,
+     "name": "Boolean"
+    },
+    "Boolean_001": {
+     "linked": true,
+     "name": "Boolean"
+    }
+   },
+   "label": "",
+   "location": [
+    2500,
+    0
+   ],
+   "mute": false,
+   "name": "Bevel Faces",
+   "outputs": [
+    "Boolean"
+   ],
+   "parent": "Mesh Bevel",
+   "props": {
+    "operation": "OR"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeMeshFaceSetBoundaries",
+   "inputs": {
+    "Face Set": {
+     "linked": true,
+     "name": "Face Group ID"
+    }
+   },
+   "label": "",
+   "location": [
+    1640,
+    0
+   ],
+   "mute": false,
+   "name": "Cap Edges",
+   "outputs": [
+    "Boundary Edges"
+   ],
+   "parent": "Kanten",
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "",
+   "location": [
+    630,
+    0
+   ],
+   "mute": false,
+   "name": "Clamp Max",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "Radius",
+   "props": {
+    "operation": "MINIMUM",
+    "use_clamp": false
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "name": "Value",
+     "value": 0.0
+    }
+   },
+   "label": "",
+   "location": [
+    840,
+    0
+   ],
+   "mute": false,
+   "name": "Clamp Min",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "Radius",
+   "props": {
+    "operation": "MAXIMUM",
+    "use_clamp": false
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeInputNamedAttribute",
+   "inputs": {
+    "Name": {
+     "name": "Name",
+     "value": "et_face_group"
+    }
+   },
+   "label": "",
+   "location": [
+    1430,
+    0
+   ],
+   "mute": false,
+   "name": "Face Group",
+   "outputs": [
+    "Attribute",
+    "Exists"
+   ],
+   "parent": "Kanten",
+   "props": {
+    "data_type": "INT"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeStoreNamedAttribute",
+   "inputs": {
+    "Geometry": {
+     "linked": true,
+     "name": "Geometry"
+    },
+    "Name": {
+     "name": "Name",
+     "value": "et_face_group"
+    },
+    "Selection": {
+     "linked": true,
+     "name": "Selection"
+    },
+    "Value": {
+     "name": "Value",
+     "value": 3
+    }
+   },
+   "label": "",
+   "location": [
+    2710,
+    0
+   ],
+   "mute": false,
+   "name": "Group Bevel",
+   "outputs": [
+    "Geometry"
+   ],
+   "parent": "Mesh Bevel",
+   "props": {
+    "data_type": "INT",
+    "domain": "FACE"
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "Group Input (Bevel, Breite, Tiefe)",
+   "outputs": [
+    "Socket_0",
+    "Socket_1",
+    "Socket_2",
+    "Socket_3",
+    "Socket_4",
+    "Socket_5",
+    "__extend__"
+   ],
+   "parent": "Radius",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    2040,
+    0
+   ],
+   "mute": false,
+   "name": "Group Input (Mesh, Bevel, Segmente, Profil)",
+   "outputs": [
+    "Socket_0",
+    "Socket_1",
+    "Socket_2",
+    "Socket_3",
+    "Socket_4",
+    "Socket_5",
+    "__extend__"
+   ],
+   "parent": "Mesh Bevel",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupOutput",
+   "inputs": {
+    "Socket_6": {
+     "linked": true,
+     "name": "Mesh"
+    },
+    "Socket_7": {
+     "linked": true,
+     "name": "Radius"
+    },
+    "Socket_8": {
+     "linked": true,
+     "name": "Begrenzt"
+    },
+    "__extend__": {
+     "name": ""
+    }
+   },
+   "label": "",
+   "location": [
+    3320,
+    0
+   ],
+   "mute": false,
+   "name": "Group Output",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "is_active_output": true
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "name": "Value",
+     "value": 0.5
+    }
+   },
+   "label": "",
+   "location": [
+    210,
+    0
+   ],
+   "mute": false,
+   "name": "Half Depth",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "Radius",
+   "props": {
+    "operation": "MULTIPLY",
+    "use_clamp": false
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Kanten",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "Kanten",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "FunctionNodeBooleanMath",
+   "inputs": {
+    "Boolean": {
+     "linked": true,
+     "name": "Boolean"
+    },
+    "Boolean_001": {
+     "linked": true,
+     "name": "Boolean"
+    }
+   },
+   "label": "",
+   "location": [
+    840,
+    -154
+   ],
+   "mute": false,
+   "name": "Limited",
+   "outputs": [
+    "Boolean"
+   ],
+   "parent": "Radius",
+   "props": {
+    "operation": "AND"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "name": "Value",
+     "value": 0.0001
+    }
+   },
+   "label": "",
+   "location": [
+    420,
+    0
+   ],
+   "mute": false,
+   "name": "Max Radius",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "Radius",
+   "props": {
+    "operation": "SUBTRACT",
+    "use_clamp": false
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Mesh Bevel",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "Mesh Bevel",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeMeshBevel",
+   "inputs": {
+    "Affect Kind": {
+     "name": "Affect Kind",
+     "value": "Edges"
+    },
+    "End Left Offset": {
+     "linked": true,
+     "name": "End Left Offset"
+    },
+    "End Right Offset": {
+     "linked": true,
+     "name": "End Right Offset"
+    },
+    "Mesh": {
+     "linked": true,
+     "name": "Mesh"
+    },
+    "Miter": {
+     "name": "Miter",
+     "value": false
+    },
+    "Offset": {
+     "linked": true,
+     "name": "Offset"
+    },
+    "Profile": {
+     "name": "Profile"
+    },
+    "Segments": {
+     "linked": true,
+     "name": "Segments"
+    },
+    "Selection": {
+     "linked": true,
+     "name": "Selection"
+    },
+    "Shape": {
+     "linked": true,
+     "name": "Shape"
+    },
+    "Spread": {
+     "name": "Spread",
+     "value": 0.1
+    },
+    "Start Left Offset": {
+     "linked": true,
+     "name": "Start Left Offset"
+    },
+    "Start Right Offset": {
+     "linked": true,
+     "name": "Start Right Offset"
+    }
+   },
+   "label": "",
+   "location": [
+    2250,
+    0
+   ],
+   "mute": false,
+   "name": "Mesh Bevel.001",
+   "outputs": [
+    "Mesh",
+    "Vertex Face",
+    "Edge Face",
+    "Outer Edge",
+    "Mid Edge"
+   ],
+   "parent": "Mesh Bevel",
+   "width": 180.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Radius",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "Radius",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSwitch",
+   "inputs": {
+    "False": {
+     "name": "False",
+     "value": 0.0
+    },
+    "Switch": {
+     "linked": true,
+     "name": "Switch"
+    },
+    "True": {
+     "linked": true,
+     "name": "True"
+    }
+   },
+   "label": "",
+   "location": [
+    1050,
+    0
+   ],
+   "mute": false,
+   "name": "Radius.001",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "Radius",
+   "props": {
+    "input_type": "FLOAT"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "FunctionNodeCompare",
+   "inputs": {
+    "A": {
+     "linked": true,
+     "name": "A"
+    },
+    "B": {
+     "linked": true,
+     "name": "B"
+    }
+   },
+   "label": "",
+   "location": [
+    630,
+    -154
+   ],
+   "mute": false,
+   "name": "Too Wide",
+   "outputs": [
+    "Result"
+   ],
+   "parent": "Radius",
+   "props": {
+    "data_type": "FLOAT",
+    "mode": "ELEMENT",
+    "operation": "GREATER_THAN"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSwitch",
+   "inputs": {
+    "False": {
+     "linked": true,
+     "name": "False"
+    },
+    "Switch": {
+     "linked": true,
+     "name": "Switch"
+    },
+    "True": {
+     "linked": true,
+     "name": "True"
+    }
+   },
+   "label": "",
+   "location": [
+    2940,
+    0
+   ],
+   "mute": false,
+   "name": "Use Bevel",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "Mesh Bevel",
+   "props": {
+    "input_type": "GEOMETRY"
+   },
+   "width": 140.0
+  }
+ ],
+ "tree_type": "GeometryNodeTree"
+}

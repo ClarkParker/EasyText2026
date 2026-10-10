@@ -3,7 +3,7 @@
  "description": "Text als sauberes Mesh mit Extrusion, Bevel, Materialien und exportfähigen UVs.",
  "flags": {
   "color_tag": "GEOMETRY",
-  "default_group_node_width": 220,
+  "default_group_node_width": 240,
   "is_modifier": true,
   "is_tool": false
  },
@@ -791,1276 +791,280 @@
  ],
  "links": [
   [
-   "Band UV",
-   "Vector",
-   "UV",
+   "ET Bevel",
+   "Socket_6",
+   "ET Text UV",
+   "Socket_0"
+  ],
+  [
+   "ET Bevel",
+   "Socket_6",
+   "Use UV",
    "False"
   ],
   [
-   "Band V",
-   "Output",
-   "Math.042",
-   "Value"
+   "ET Bevel",
+   "Socket_7",
+   "ET Text UV",
+   "Socket_2"
   ],
   [
-   "Bevel",
-   "Edge Face",
-   "Bevel Faces",
-   "Boolean"
-  ],
-  [
-   "Bevel",
-   "Mesh",
-   "Group Bevel",
-   "Geometry"
-  ],
-  [
-   "Bevel",
-   "Vertex Face",
-   "Bevel Faces",
-   "Boolean_001"
-  ],
-  [
-   "Bevel Faces",
-   "Boolean",
-   "Group Bevel",
-   "Selection"
-  ],
-  [
-   "Bevel Material Fallback",
-   "Output",
-   "Material Bevel",
-   "Material"
-  ],
-  [
-   "Bevel Material Is None",
-   "Result",
-   "Bevel Material Fallback",
-   "Switch"
-  ],
-  [
-   "Bevel Radius",
-   "Output",
-   "Compare.001",
-   "B"
-  ],
-  [
-   "Bevel Radius",
-   "Output",
-   "Math.013",
-   "Value"
-  ],
-  [
-   "Bevel Radius",
-   "Output",
-   "Math.014",
-   "Value"
-  ],
-  [
-   "Bevel Radius",
-   "Output",
-   "Math.020",
-   "Value_001"
-  ],
-  [
-   "Bevel Radius",
-   "Output",
-   "Math.021",
-   "Value_001"
-  ],
-  [
-   "Bevel Radius",
-   "Output",
-   "Math.027",
-   "Value"
-  ],
-  [
-   "Bevel Radius",
-   "Output",
-   "Math.030",
-   "Value"
-  ],
-  [
-   "Bevel Radius",
-   "Output",
-   "Math.031",
-   "Value_001"
-  ],
-  [
-   "Bevel Radius",
-   "Output",
-   "Quarter Arc",
-   "Value"
-  ],
-  [
-   "Bevel Radius",
-   "Output",
-   "V Back Bevel",
-   "Value"
-  ],
-  [
-   "Bevel Width Clamped",
-   "Value",
-   "Bevel",
-   "End Left Offset"
-  ],
-  [
-   "Bevel Width Clamped",
-   "Value",
-   "Bevel",
-   "End Right Offset"
-  ],
-  [
-   "Bevel Width Clamped",
-   "Value",
-   "Bevel",
-   "Offset"
-  ],
-  [
-   "Bevel Width Clamped",
-   "Value",
-   "Bevel",
-   "Start Left Offset"
-  ],
-  [
-   "Bevel Width Clamped",
-   "Value",
-   "Bevel",
-   "Start Right Offset"
-  ],
-  [
-   "Bevel Width Clamped",
-   "Value",
-   "Bevel Radius",
-   "True"
-  ],
-  [
-   "Boolean Math",
-   "Boolean",
-   "Remove Point",
-   "Boolean_001"
-  ],
-  [
-   "Boolean Math.001",
-   "Boolean",
-   "Remove Point",
-   "Boolean"
-  ],
-  [
-   "Boolean Math.002",
-   "Boolean",
-   "U Unwrapped",
-   "Switch"
-  ],
-  [
-   "Boolean Math.003",
-   "Boolean",
-   "Sharp Edges",
-   "Shade Smooth"
-  ],
-  [
-   "Boolean Math.004",
-   "Boolean",
+   "ET Bevel",
+   "Socket_8",
    "Warn Bevel",
    "Show"
   ],
   [
-   "Boolean Math.005",
-   "Boolean",
+   "ET Finish",
+   "Socket_5",
    "Output",
-   "Switch"
-  ],
-  [
-   "Bounds Max",
-   "X",
-   "Math.005",
-   "Value"
-  ],
-  [
-   "Bounds Max",
-   "Y",
-   "Math.006",
-   "Value"
-  ],
-  [
-   "Bounds Min",
-   "X",
-   "Math.005",
-   "Value_001"
-  ],
-  [
-   "Bounds Min",
-   "X",
-   "Math.009",
-   "Value_001"
-  ],
-  [
-   "Bounds Min",
-   "Y",
-   "Math.006",
-   "Value_001"
-  ],
-  [
-   "Bounds Min",
-   "Y",
-   "Math.011",
-   "Value_001"
-  ],
-  [
-   "Cap Edges",
-   "Boundary Edges",
-   "Bevel",
-   "Selection"
-  ],
-  [
-   "Cap UV",
-   "Vector",
-   "UV",
-   "True"
-  ],
-  [
-   "Close Solid",
-   "Geometry",
-   "Bevel",
-   "Mesh"
-  ],
-  [
-   "Close Solid",
-   "Geometry",
-   "Text Bounds",
-   "Geometry"
-  ],
-  [
-   "Close Solid",
-   "Geometry",
-   "Use Bevel",
    "False"
   ],
   [
-   "Compare",
-   "Result",
-   "Face +Z",
-   "Selection"
-  ],
-  [
-   "Compare.001",
-   "Result",
-   "Switch.001",
-   "Switch"
-  ],
-  [
-   "Compare.002",
-   "Result",
-   "Band V",
-   "Switch"
-  ],
-  [
-   "Compare.003",
-   "Result",
-   "Boolean Math.002",
-   "Boolean_001"
-  ],
-  [
-   "Compare.004",
-   "Result",
-   "Is Cap",
-   "Boolean"
-  ],
-  [
-   "Compare.005",
-   "Result",
-   "Is Cap",
-   "Boolean_001"
-  ],
-  [
-   "Compare.006",
-   "Result",
-   "Material Side",
-   "Selection"
-  ],
-  [
-   "Compare.007",
-   "Result",
-   "Material Bevel",
-   "Selection"
-  ],
-  [
-   "Compare.008",
-   "Result",
-   "Warn Empty",
-   "Show"
-  ],
-  [
-   "Compare.009",
-   "Result",
-   "Boolean Math.004",
-   "Boolean_001"
-  ],
-  [
-   "Corner 0",
-   "Corner Index",
-   "U of Corner 0",
-   "Index"
-  ],
-  [
-   "Corner 1",
-   "Corner Index",
-   "U of Corner 1",
-   "Index"
-  ],
-  [
-   "Corner 2",
-   "Corner Index",
-   "U of Corner 2",
-   "Index"
-  ],
-  [
-   "Corner 3",
-   "Corner Index",
-   "U of Corner 3",
-   "Index"
-  ],
-  [
-   "Dir In",
-   "Vector",
-   "Vector Math",
-   "Vector"
-  ],
-  [
-   "Dir In",
-   "Vector",
-   "Vector Math.002",
-   "Vector"
-  ],
-  [
-   "Dir Out",
-   "Vector",
-   "Vector Math.001",
-   "Vector"
-  ],
-  [
-   "Dot",
-   "Value",
-   "Math",
-   "Value"
-  ],
-  [
-   "Edge Angle",
-   "Unsigned Angle",
-   "Is Sharp",
-   "A"
-  ],
-  [
-   "Extrude",
-   "Mesh",
-   "Group Front",
-   "Geometry"
-  ],
-  [
-   "Extrude",
-   "Side",
-   "Group Side",
-   "Selection"
-  ],
-  [
-   "Extrude",
-   "Top",
-   "Group Front",
-   "Selection"
-  ],
-  [
-   "Face +Z",
-   "Mesh",
-   "Material Front",
-   "Geometry"
-  ],
-  [
-   "Face Group",
-   "Attribute",
-   "Cap Edges",
-   "Face Set"
-  ],
-  [
-   "Face Group",
-   "Attribute",
-   "Compare.004",
-   "A"
-  ],
-  [
-   "Face Group",
-   "Attribute",
-   "Compare.005",
-   "A"
-  ],
-  [
-   "Face Group",
-   "Attribute",
-   "Compare.006",
-   "A"
-  ],
-  [
-   "Face Group",
-   "Attribute",
-   "Compare.007",
-   "A"
-  ],
-  [
-   "Face Wraps",
-   "Result",
-   "Boolean Math.002",
-   "Boolean"
-  ],
-  [
-   "Face of Corner",
-   "Face Index",
-   "Corner 0",
-   "Face Index"
-  ],
-  [
-   "Face of Corner",
-   "Face Index",
-   "Corner 1",
-   "Face Index"
-  ],
-  [
-   "Face of Corner",
-   "Face Index",
-   "Corner 2",
-   "Face Index"
-  ],
-  [
-   "Face of Corner",
-   "Face Index",
-   "Corner 3",
-   "Face Index"
-  ],
-  [
-   "Fetch et_char_index",
-   "Value",
-   "Store et_char_index",
-   "Value"
-  ],
-  [
-   "Fetch et_loop_len",
-   "Value",
-   "Store et_loop_len",
-   "Value"
-  ],
-  [
-   "Fetch et_u",
-   "Value",
-   "Store et_u",
-   "Value"
-  ],
-  [
-   "Fill",
-   "Mesh",
-   "Face +Z",
-   "Mesh"
-  ],
-  [
-   "Flip Back",
-   "Mesh",
-   "Join Solid",
-   "Geometry"
-  ],
-  [
-   "Font Fallback",
+   "ET Finish",
+   "Socket_5",
    "Output",
-   "String to Curves",
-   "Font"
-  ],
-  [
-   "Font Is None",
-   "Result",
-   "Font Fallback",
-   "Switch"
-  ],
-  [
-   "Front Material Fallback",
-   "Output",
-   "Material Front",
-   "Material"
-  ],
-  [
-   "Front Material Is None",
-   "Result",
-   "Front Material Fallback",
-   "Switch"
-  ],
-  [
-   "Group Back",
-   "Geometry",
-   "Extrude",
-   "Mesh"
-  ],
-  [
-   "Group Back",
-   "Geometry",
-   "Flip Back",
-   "Mesh"
-  ],
-  [
-   "Group Bevel",
-   "Geometry",
-   "Use Bevel",
    "True"
   ],
   [
-   "Group Front",
-   "Geometry",
-   "Group Side",
-   "Geometry"
-  ],
-  [
-   "Group Input",
-   "Socket_1",
-   "Lines",
+   "ET Outline Clean",
+   "Socket_3",
+   "ET Solid",
    "Socket_0"
   ],
   [
-   "Group Input",
-   "Socket_10",
-   "String to Curves",
-   "Pivot Point"
+   "ET Solid",
+   "Socket_5",
+   "ET Bevel",
+   "Socket_0"
   ],
   [
-   "Group Input",
-   "Socket_11",
-   "String to Curves",
-   "Character Spacing"
-  ],
-  [
-   "Group Input",
-   "Socket_12",
-   "String to Curves",
-   "Word Spacing"
-  ],
-  [
-   "Group Input",
-   "Socket_13",
-   "String to Curves",
-   "Line Spacing"
-  ],
-  [
-   "Group Input",
+   "ET Text Source",
    "Socket_15",
-   "String to Curves",
-   "Text Box Width"
+   "ET Outline Clean",
+   "Socket_0"
   ],
   [
-   "Group Input",
+   "ET Text Source",
    "Socket_16",
-   "String to Curves",
-   "Text Box Height"
+   "No Text",
+   "A"
   ],
   [
-   "Group Input",
-   "Socket_17",
-   "String to Curves",
-   "Overflow"
+   "ET Text UV",
+   "Socket_5",
+   "Use UV",
+   "True"
   ],
   [
-   "Group Input",
+   "Group Input (Auflösung, Vereinfachen)",
    "Socket_19",
-   "Set Resolution",
-   "Resolution"
-  ],
-  [
-   "Group Input",
-   "Socket_2",
-   "Lines",
+   "ET Outline Clean",
    "Socket_1"
   ],
   [
-   "Group Input",
+   "Group Input (Auflösung, Vereinfachen)",
    "Socket_20",
-   "Is Straight",
-   "B"
-  ],
-  [
-   "Group Input",
-   "Socket_21",
-   "Fill",
-   "Mode"
-  ],
-  [
-   "Group Input",
-   "Socket_22",
-   "Fill",
-   "Fill Rule"
-  ],
-  [
-   "Group Input",
-   "Socket_24",
-   "Extrude",
-   "Offset Scale"
-  ],
-  [
-   "Group Input",
-   "Socket_24",
-   "Math.003",
-   "Value"
-  ],
-  [
-   "Group Input",
-   "Socket_24",
-   "Math.021",
-   "Value"
-  ],
-  [
-   "Group Input",
-   "Socket_24",
-   "Math.028",
-   "Value"
-  ],
-  [
-   "Group Input",
-   "Socket_24",
-   "Math.031",
-   "Value"
-  ],
-  [
-   "Group Input",
-   "Socket_26",
-   "Bevel Radius",
-   "Switch"
-  ],
-  [
-   "Group Input",
-   "Socket_26",
-   "Boolean Math.004",
-   "Boolean"
-  ],
-  [
-   "Group Input",
-   "Socket_26",
-   "Use Bevel",
-   "Switch"
-  ],
-  [
-   "Group Input",
-   "Socket_27",
-   "Compare.009",
-   "A"
-  ],
-  [
-   "Group Input",
-   "Socket_27",
-   "Math.004",
-   "Value"
-  ],
-  [
-   "Group Input",
-   "Socket_28",
-   "Bevel",
-   "Segments"
-  ],
-  [
-   "Group Input",
-   "Socket_29",
-   "Bevel",
-   "Shape"
-  ],
-  [
-   "Group Input",
-   "Socket_3",
-   "Lines",
+   "ET Outline Clean",
    "Socket_2"
   ],
   [
-   "Group Input",
+   "Group Input (Ausgabe)",
    "Socket_30",
-   "Math.043",
-   "Value"
+   "ET Finish",
+   "Socket_3"
   ],
   [
-   "Group Input",
-   "Socket_32",
-   "Front Material Fallback",
-   "False"
-  ],
-  [
-   "Group Input",
-   "Socket_32",
-   "Front Material Is None",
-   "A"
-  ],
-  [
-   "Group Input",
+   "Group Input (Ausgabe)",
    "Socket_33",
-   "Side Material Fallback",
-   "False"
+   "ET Finish",
+   "Socket_1"
   ],
   [
-   "Group Input",
-   "Socket_33",
-   "Side Material Is None",
-   "A"
-  ],
-  [
-   "Group Input",
+   "Group Input (Ausgabe)",
    "Socket_34",
-   "Bevel Material Fallback",
-   "False"
+   "ET Finish",
+   "Socket_2"
   ],
   [
-   "Group Input",
-   "Socket_34",
-   "Bevel Material Is None",
-   "A"
+   "Group Input (Ausgabe)",
+   "Socket_40",
+   "ET Finish",
+   "Socket_4"
   ],
   [
-   "Group Input",
+   "Group Input (Bevel Breite)",
+   "Socket_27",
+   "ET Bevel",
+   "Socket_2"
+  ],
+  [
+   "Group Input (Bevel)",
+   "Socket_24",
+   "ET Bevel",
+   "Socket_5"
+  ],
+  [
+   "Group Input (Bevel)",
+   "Socket_26",
+   "ET Bevel",
+   "Socket_1"
+  ],
+  [
+   "Group Input (Bevel)",
+   "Socket_28",
+   "ET Bevel",
+   "Socket_3"
+  ],
+  [
+   "Group Input (Bevel)",
+   "Socket_29",
+   "ET Bevel",
+   "Socket_4"
+  ],
+  [
+   "Group Input (Text)",
+   "Socket_1",
+   "ET Text Source",
+   "Socket_0"
+  ],
+  [
+   "Group Input (Text)",
+   "Socket_10",
+   "ET Text Source",
+   "Socket_8"
+  ],
+  [
+   "Group Input (Text)",
+   "Socket_11",
+   "ET Text Source",
+   "Socket_9"
+  ],
+  [
+   "Group Input (Text)",
+   "Socket_12",
+   "ET Text Source",
+   "Socket_10"
+  ],
+  [
+   "Group Input (Text)",
+   "Socket_13",
+   "ET Text Source",
+   "Socket_11"
+  ],
+  [
+   "Group Input (Text)",
+   "Socket_16",
+   "ET Text Source",
+   "Socket_13"
+  ],
+  [
+   "Group Input (Text)",
+   "Socket_17",
+   "ET Text Source",
+   "Socket_14"
+  ],
+  [
+   "Group Input (Text)",
+   "Socket_2",
+   "ET Text Source",
+   "Socket_1"
+  ],
+  [
+   "Group Input (Text)",
+   "Socket_3",
+   "ET Text Source",
+   "Socket_2"
+  ],
+  [
+   "Group Input (Text)",
+   "Socket_4",
+   "ET Text Source",
+   "Socket_3"
+  ],
+  [
+   "Group Input (Text)",
+   "Socket_6",
+   "ET Text Source",
+   "Socket_4"
+  ],
+  [
+   "Group Input (Text)",
+   "Socket_7",
+   "ET Text Source",
+   "Socket_5"
+  ],
+  [
+   "Group Input (Text)",
+   "Socket_8",
+   "ET Text Source",
+   "Socket_6"
+  ],
+  [
+   "Group Input (Text)",
+   "Socket_9",
+   "ET Text Source",
+   "Socket_7"
+  ],
+  [
+   "Group Input (Textbox Breite)",
+   "Socket_15",
+   "ET Text Source",
+   "Socket_12"
+  ],
+  [
+   "Group Input (Tiefe, Füllung, Füllregel, Vorderseite)",
+   "Socket_21",
+   "ET Solid",
+   "Socket_2"
+  ],
+  [
+   "Group Input (Tiefe, Füllung, Füllregel, Vorderseite)",
+   "Socket_22",
+   "ET Solid",
+   "Socket_3"
+  ],
+  [
+   "Group Input (Tiefe, Füllung, Füllregel, Vorderseite)",
+   "Socket_24",
+   "ET Solid",
+   "Socket_1"
+  ],
+  [
+   "Group Input (Tiefe, Füllung, Füllregel, Vorderseite)",
+   "Socket_32",
+   "ET Solid",
+   "Socket_4"
+  ],
+  [
+   "Group Input (UV)",
+   "Socket_24",
+   "ET Text UV",
+   "Socket_1"
+  ],
+  [
+   "Group Input (UV)",
    "Socket_36",
    "Use UV",
    "Switch"
   ],
   [
-   "Group Input",
+   "Group Input (UV)",
    "Socket_37",
-   "Switch",
-   "Switch"
-  ],
-  [
-   "Group Input",
-   "Socket_38",
-   "UV Factor",
-   "Value_001"
-  ],
-  [
-   "Group Input",
-   "Socket_4",
-   "Lines",
+   "ET Text UV",
    "Socket_3"
   ],
   [
-   "Group Input",
-   "Socket_40",
-   "Keep Attributes",
-   "Switch"
+   "Group Input (UV)",
+   "Socket_38",
+   "ET Text UV",
+   "Socket_4"
   ],
   [
-   "Group Input",
-   "Socket_6",
-   "Font Fallback",
-   "False"
-  ],
-  [
-   "Group Input",
-   "Socket_6",
-   "Font Is None",
-   "A"
-  ],
-  [
-   "Group Input",
-   "Socket_7",
-   "String to Curves",
-   "Size"
-  ],
-  [
-   "Group Input",
-   "Socket_8",
-   "String to Curves",
-   "Align X"
-  ],
-  [
-   "Group Input",
-   "Socket_9",
-   "String to Curves",
-   "Align Y"
-  ],
-  [
-   "Group Side",
-   "Geometry",
-   "Join Solid",
-   "Geometry"
-  ],
-  [
-   "Index",
-   "Index",
-   "Face of Corner",
-   "Corner Index"
-  ],
-  [
-   "Index",
-   "Index",
-   "Next Point",
-   "Point Index"
-  ],
-  [
-   "Index",
-   "Index",
-   "Prev Point",
-   "Point Index"
-  ],
-  [
-   "Index",
-   "Index",
-   "Store Char Index",
-   "Value"
-  ],
-  [
-   "Is Cap",
-   "Boolean",
-   "UV",
-   "Switch"
-  ],
-  [
-   "Is Duplicate",
+   "No Text",
    "Result",
-   "Boolean Math.001",
-   "Boolean_001"
-  ],
-  [
-   "Is Sharp",
-   "Result",
-   "Boolean Math.003",
-   "Boolean"
-  ],
-  [
-   "Is Straight",
-   "Result",
-   "Boolean Math.001",
-   "Boolean"
-  ],
-  [
-   "Join Solid",
-   "Geometry",
-   "Close Solid",
-   "Geometry"
-  ],
-  [
-   "Keep Attributes",
-   "Output",
-   "Output",
-   "False"
-  ],
-  [
-   "Keep Attributes",
-   "Output",
-   "Output",
-   "True"
-  ],
-  [
-   "Lines",
-   "Socket_4",
-   "String to Curves",
-   "String"
-  ],
-  [
-   "Lines",
-   "Socket_4",
-   "Text Length",
-   "String"
-  ],
-  [
-   "Loop Length",
-   "Attribute",
-   "Math.038",
-   "Value"
-  ],
-  [
-   "Loop Length",
-   "Attribute",
-   "Math.040",
-   "Value_001"
-  ],
-  [
-   "Material Bevel",
-   "Geometry",
-   "Smooth Faces",
-   "Geometry"
-  ],
-  [
-   "Material Front",
-   "Geometry",
-   "Store et_u",
-   "Geometry"
-  ],
-  [
-   "Material Side",
-   "Geometry",
-   "Material Bevel",
-   "Geometry"
-  ],
-  [
-   "Math",
-   "Value",
-   "Math.001",
-   "Value"
-  ],
-  [
-   "Math.001",
-   "Value",
-   "Math.002",
-   "Value"
-  ],
-  [
-   "Math.002",
-   "Value",
-   "Turn Angle",
-   "Value"
-  ],
-  [
-   "Math.003",
-   "Value",
-   "Max Bevel",
-   "Value"
-  ],
-  [
-   "Math.004",
-   "Value",
-   "Bevel Width Clamped",
-   "Value"
-  ],
-  [
-   "Math.005",
-   "Value",
-   "Text Extent",
-   "Value"
-  ],
-  [
-   "Math.006",
-   "Value",
-   "Text Extent",
-   "Value_001"
-  ],
-  [
-   "Math.007",
-   "Value",
-   "Math.008",
-   "Value_001"
-  ],
-  [
-   "Math.008",
-   "Value",
-   "Switch",
-   "True"
-  ],
-  [
-   "Math.009",
-   "Value",
-   "Math.010",
-   "Value"
-  ],
-  [
-   "Math.010",
-   "Value",
-   "Cap UV",
-   "X"
-  ],
-  [
-   "Math.011",
-   "Value",
-   "Math.012",
-   "Value"
-  ],
-  [
-   "Math.012",
-   "Value",
-   "Cap UV",
-   "Y"
-  ],
-  [
-   "Math.013",
-   "Value",
-   "Math.015",
-   "Value_001"
-  ],
-  [
-   "Math.013",
-   "Value",
-   "Math.023",
-   "Value_001"
-  ],
-  [
-   "Math.014",
-   "Value",
-   "Math.015",
-   "Value"
-  ],
-  [
-   "Math.015",
-   "Value",
-   "Math.016",
-   "Value"
-  ],
-  [
-   "Math.016",
-   "Value",
-   "Math.017",
-   "Value"
-  ],
-  [
-   "Math.017",
-   "Value",
-   "Math.018",
-   "Value"
-  ],
-  [
-   "Math.018",
-   "Value",
-   "Math.019",
-   "Value_001"
-  ],
-  [
-   "Math.019",
-   "Value",
-   "V Back Bevel",
-   "Value_001"
-  ],
-  [
-   "Math.020",
-   "Value",
-   "V Side",
-   "Value_001"
-  ],
-  [
-   "Math.021",
-   "Value",
-   "Math.022",
-   "Value_001"
-  ],
-  [
-   "Math.022",
-   "Value",
-   "Math.023",
-   "Value"
-  ],
-  [
-   "Math.023",
-   "Value",
-   "Math.024",
-   "Value"
-  ],
-  [
-   "Math.024",
-   "Value",
-   "Math.025",
-   "Value"
-  ],
-  [
-   "Math.025",
-   "Value",
-   "Math.026",
-   "Value"
-  ],
-  [
-   "Math.026",
-   "Value",
-   "Math.030",
-   "Value_001"
-  ],
-  [
-   "Math.027",
-   "Value",
-   "Math.028",
-   "Value_001"
-  ],
-  [
-   "Math.028",
-   "Value",
-   "Math.029",
-   "Value_001"
-  ],
-  [
-   "Math.029",
-   "Value",
-   "V Front Bevel",
-   "Value"
-  ],
-  [
-   "Math.030",
-   "Value",
-   "V Front Bevel",
-   "Value_001"
-  ],
-  [
-   "Math.031",
-   "Value",
-   "Compare.002",
-   "B"
-  ],
-  [
-   "Math.032",
-   "Value",
-   "Math.034",
-   "Value"
-  ],
-  [
-   "Math.033",
-   "Value",
-   "Math.035",
-   "Value"
-  ],
-  [
-   "Math.034",
-   "Value",
-   "Math.036",
-   "Value"
-  ],
-  [
-   "Math.035",
-   "Value",
-   "Math.037",
-   "Value"
-  ],
-  [
-   "Math.036",
-   "Value",
-   "Math.039",
-   "Value_001"
-  ],
-  [
-   "Math.037",
-   "Value",
-   "Math.039",
-   "Value"
-  ],
-  [
-   "Math.038",
-   "Value",
-   "Compare.003",
-   "B"
-  ],
-  [
-   "Math.038",
-   "Value",
-   "Face Wraps",
-   "B"
-  ],
-  [
-   "Math.039",
-   "Value",
-   "Face Wraps",
-   "A"
-  ],
-  [
-   "Math.040",
-   "Value",
-   "U Unwrapped",
-   "True"
-  ],
-  [
-   "Math.041",
-   "Value",
-   "Band UV",
-   "X"
-  ],
-  [
-   "Math.042",
-   "Value",
-   "Band UV",
-   "Y"
-  ],
-  [
-   "Math.043",
-   "Value",
-   "Is Sharp",
-   "B"
-  ],
-  [
-   "Max Bevel",
-   "Value",
-   "Compare.009",
-   "B"
-  ],
-  [
-   "Max Bevel",
-   "Value",
-   "Math.004",
-   "Value_001"
-  ],
-  [
-   "Named Attribute",
-   "Attribute",
-   "Fetch et_u",
-   "Value"
-  ],
-  [
-   "Named Attribute.001",
-   "Attribute",
-   "Fetch et_loop_len",
-   "Value"
-  ],
-  [
-   "Named Attribute.002",
-   "Attribute",
-   "Fetch et_char_index",
-   "Value"
-  ],
-  [
-   "Nearest Outline Point",
-   "Index",
-   "Fetch et_char_index",
-   "Index"
-  ],
-  [
-   "Nearest Outline Point",
-   "Index",
-   "Fetch et_loop_len",
-   "Index"
-  ],
-  [
-   "Nearest Outline Point",
-   "Index",
-   "Fetch et_u",
-   "Index"
-  ],
-  [
-   "Next Point",
-   "Is Valid Offset",
-   "Boolean Math",
-   "Boolean_001"
-  ],
-  [
-   "Next Point",
-   "Point Index",
-   "Next Position",
-   "Index"
-  ],
-  [
-   "Next Position",
-   "Value",
-   "Dir Out",
-   "Vector"
-  ],
-  [
-   "Normal",
-   "Normal",
-   "Normal XYZ",
-   "Vector"
-  ],
-  [
-   "Normal XYZ",
-   "Z",
-   "Compare",
-   "A"
-  ],
-  [
-   "Outline Points",
-   "Points",
-   "Fetch et_char_index",
-   "Geometry"
-  ],
-  [
-   "Outline Points",
-   "Points",
-   "Fetch et_loop_len",
-   "Geometry"
-  ],
-  [
-   "Outline Points",
-   "Points",
-   "Fetch et_u",
-   "Geometry"
-  ],
-  [
-   "Outline Points",
-   "Points",
-   "Nearest Outline Point",
-   "Geometry"
+   "Warn Empty",
+   "Show"
   ],
   [
    "Output",
@@ -2069,2221 +1073,372 @@
    "Socket_41"
   ],
   [
-   "Position",
-   "Position",
-   "Dir In",
-   "Vector"
-  ],
-  [
-   "Position",
-   "Position",
-   "Dir Out",
-   "Vector_001"
-  ],
-  [
-   "Position",
-   "Position",
-   "Nearest Outline Point",
-   "Sample Position"
-  ],
-  [
-   "Position",
-   "Position",
-   "Next Position",
-   "Value"
-  ],
-  [
-   "Position",
-   "Position",
-   "Position XYZ",
-   "Vector"
-  ],
-  [
-   "Position",
-   "Position",
-   "Prev Position",
-   "Value"
-  ],
-  [
-   "Position XYZ",
-   "X",
-   "Math.009",
-   "Value"
-  ],
-  [
-   "Position XYZ",
-   "Y",
-   "Math.011",
-   "Value"
-  ],
-  [
-   "Position XYZ",
-   "Z",
-   "Compare.001",
-   "A"
-  ],
-  [
-   "Position XYZ",
-   "Z",
-   "Compare.002",
-   "A"
-  ],
-  [
-   "Position XYZ",
-   "Z",
-   "Math.014",
-   "Value_001"
-  ],
-  [
-   "Position XYZ",
-   "Z",
-   "Math.020",
-   "Value"
-  ],
-  [
-   "Position XYZ",
-   "Z",
-   "Math.022",
-   "Value"
-  ],
-  [
-   "Prev Point",
-   "Is Valid Offset",
-   "Boolean Math",
-   "Boolean"
-  ],
-  [
-   "Prev Point",
-   "Point Index",
-   "Prev Position",
-   "Index"
-  ],
-  [
-   "Prev Position",
-   "Value",
-   "Dir In",
-   "Vector_001"
-  ],
-  [
-   "Quarter Arc",
-   "Value",
-   "Math.029",
-   "Value"
-  ],
-  [
-   "Quarter Arc",
-   "Value",
-   "V Side",
-   "Value"
-  ],
-  [
-   "Realize Glyphs",
-   "Geometry",
-   "Set Resolution",
-   "Geometry"
-  ],
-  [
-   "Remove Helpers",
-   "Geometry",
-   "Keep Attributes",
-   "False"
-  ],
-  [
-   "Remove Point",
-   "Boolean",
-   "Simplify Outline",
-   "Selection"
-  ],
-  [
-   "Set Resolution",
-   "Geometry",
-   "To Polyline",
-   "Curve"
-  ],
-  [
-   "Sharp Edges",
-   "Geometry",
-   "Keep Attributes",
-   "True"
-  ],
-  [
-   "Sharp Edges",
-   "Geometry",
-   "Remove Helpers",
-   "Geometry"
-  ],
-  [
-   "Side Material Fallback",
-   "Output",
-   "Material Side",
-   "Material"
-  ],
-  [
-   "Side Material Is None",
-   "Result",
-   "Side Material Fallback",
-   "Switch"
-  ],
-  [
-   "Simplify Outline",
-   "Geometry",
-   "Store U",
-   "Geometry"
-  ],
-  [
-   "Smooth Faces",
-   "Geometry",
-   "Sharp Edges",
-   "Geometry"
-  ],
-  [
-   "Spline Length",
-   "Length",
-   "Store Loop Length",
-   "Value"
-  ],
-  [
-   "Spline Parameter",
-   "Length",
-   "Store U",
-   "Value"
-  ],
-  [
-   "Store Char Index",
-   "Geometry",
-   "Realize Glyphs",
-   "Geometry"
-  ],
-  [
-   "Store Loop Length",
-   "Geometry",
-   "Fill",
-   "Curve"
-  ],
-  [
-   "Store Loop Length",
-   "Geometry",
-   "Outline Points",
-   "Curve"
-  ],
-  [
-   "Store U",
-   "Geometry",
-   "Store Loop Length",
-   "Geometry"
-  ],
-  [
-   "Store UVMap",
-   "Geometry",
-   "Use UV",
-   "True"
-  ],
-  [
-   "Store et_char_index",
-   "Geometry",
-   "Group Back",
-   "Geometry"
-  ],
-  [
-   "Store et_loop_len",
-   "Geometry",
-   "Store et_char_index",
-   "Geometry"
-  ],
-  [
-   "Store et_u",
-   "Geometry",
-   "Store et_loop_len",
-   "Geometry"
-  ],
-  [
-   "String to Curves",
-   "Curve Instances",
-   "Store Char Index",
-   "Geometry"
-  ],
-  [
-   "Switch",
-   "Output",
-   "UV Factor",
-   "Value"
-  ],
-  [
-   "Switch.001",
-   "Output",
-   "Band V",
-   "False"
-  ],
-  [
-   "Text Bounds",
-   "Max",
-   "Bounds Max",
-   "Vector"
-  ],
-  [
-   "Text Bounds",
-   "Min",
-   "Bounds Min",
-   "Vector"
-  ],
-  [
-   "Text Extent",
-   "Value",
-   "Math.007",
-   "Value"
-  ],
-  [
-   "Text Length",
-   "Length",
-   "Compare.008",
-   "A"
-  ],
-  [
-   "To Polyline",
-   "Curve",
-   "Next Position",
-   "Geometry"
-  ],
-  [
-   "To Polyline",
-   "Curve",
-   "Prev Position",
-   "Geometry"
-  ],
-  [
-   "To Polyline",
-   "Curve",
-   "Simplify Outline",
-   "Geometry"
-  ],
-  [
-   "Turn Angle",
-   "Value",
-   "Is Straight",
-   "A"
-  ],
-  [
-   "U",
-   "Attribute",
-   "Compare.003",
-   "A"
-  ],
-  [
-   "U",
-   "Attribute",
-   "Math.040",
-   "Value"
-  ],
-  [
-   "U",
-   "Attribute",
-   "U Unwrapped",
-   "False"
-  ],
-  [
-   "U",
-   "Attribute",
-   "U of Corner 0",
-   "Value"
-  ],
-  [
-   "U",
-   "Attribute",
-   "U of Corner 1",
-   "Value"
-  ],
-  [
-   "U",
-   "Attribute",
-   "U of Corner 2",
-   "Value"
-  ],
-  [
-   "U",
-   "Attribute",
-   "U of Corner 3",
-   "Value"
-  ],
-  [
-   "U Unwrapped",
-   "Output",
-   "Math.041",
-   "Value"
-  ],
-  [
-   "U of Corner 0",
-   "Value",
-   "Math.032",
-   "Value"
-  ],
-  [
-   "U of Corner 0",
-   "Value",
-   "Math.033",
-   "Value"
-  ],
-  [
-   "U of Corner 1",
-   "Value",
-   "Math.032",
-   "Value_001"
-  ],
-  [
-   "U of Corner 1",
-   "Value",
-   "Math.033",
-   "Value_001"
-  ],
-  [
-   "U of Corner 2",
-   "Value",
-   "Math.034",
-   "Value_001"
-  ],
-  [
-   "U of Corner 2",
-   "Value",
-   "Math.035",
-   "Value_001"
-  ],
-  [
-   "U of Corner 3",
-   "Value",
-   "Math.036",
-   "Value_001"
-  ],
-  [
-   "U of Corner 3",
-   "Value",
-   "Math.037",
-   "Value_001"
-  ],
-  [
-   "UV",
-   "Output",
-   "Store UVMap",
-   "Value"
-  ],
-  [
-   "UV Factor",
-   "Value",
-   "Math.010",
-   "Value_001"
-  ],
-  [
-   "UV Factor",
-   "Value",
-   "Math.012",
-   "Value_001"
-  ],
-  [
-   "UV Factor",
-   "Value",
-   "Math.041",
-   "Value_001"
-  ],
-  [
-   "UV Factor",
-   "Value",
-   "Math.042",
-   "Value_001"
-  ],
-  [
-   "Use Bevel",
-   "Output",
-   "Store UVMap",
-   "Geometry"
-  ],
-  [
-   "Use Bevel",
-   "Output",
-   "U of Corner 0",
-   "Geometry"
-  ],
-  [
-   "Use Bevel",
-   "Output",
-   "U of Corner 1",
-   "Geometry"
-  ],
-  [
-   "Use Bevel",
-   "Output",
-   "U of Corner 2",
-   "Geometry"
-  ],
-  [
-   "Use Bevel",
-   "Output",
-   "U of Corner 3",
-   "Geometry"
-  ],
-  [
-   "Use Bevel",
-   "Output",
-   "Use UV",
-   "False"
-  ],
-  [
    "Use UV",
    "Output",
-   "Material Side",
-   "Geometry"
-  ],
-  [
-   "V Back Bevel",
-   "Value",
-   "Switch.001",
-   "True"
-  ],
-  [
-   "V Front Bevel",
-   "Value",
-   "Band V",
-   "True"
-  ],
-  [
-   "V Side",
-   "Value",
-   "Switch.001",
-   "False"
-  ],
-  [
-   "Vector Math",
-   "Vector",
-   "Dot",
-   "Vector"
-  ],
-  [
-   "Vector Math.001",
-   "Vector",
-   "Dot",
-   "Vector_001"
-  ],
-  [
-   "Vector Math.002",
-   "Value",
-   "Is Duplicate",
-   "A"
+   "ET Finish",
+   "Socket_0"
   ],
   [
    "Warn Bevel",
    "Show",
-   "Boolean Math.005",
+   "Warnings",
    "Boolean_001"
   ],
   [
    "Warn Empty",
    "Show",
-   "Boolean Math.005",
+   "Warnings",
    "Boolean"
+  ],
+  [
+   "Warnings",
+   "Boolean",
+   "Output",
+   "Switch"
   ]
  ],
  "name": "ET Text Mesh",
  "nodes": [
   {
    "hide": false,
-   "idname": "ShaderNodeCombineXYZ",
-   "inputs": {
-    "X": {
-     "linked": true,
-     "name": "X"
-    },
-    "Y": {
-     "linked": true,
-     "name": "Y"
-    },
-    "Z": {
-     "name": "Z",
-     "value": 0.0
-    }
-   },
-   "label": "",
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Ausgabe",
    "location": [
-    13160,
+    0,
     0
    ],
    "mute": false,
-   "name": "Band UV",
-   "outputs": [
-    "Vector"
-   ],
-   "parent": null,
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeSwitch",
-   "inputs": {
-    "False": {
-     "linked": true,
-     "name": "False"
-    },
-    "Switch": {
-     "linked": true,
-     "name": "Switch"
-    },
-    "True": {
-     "linked": true,
-     "name": "True"
-    }
-   },
-   "label": "",
-   "location": [
-    3920,
-    0
-   ],
-   "mute": false,
-   "name": "Band V",
-   "outputs": [
-    "Output"
-   ],
+   "name": "Ausgabe",
+   "outputs": [],
    "parent": null,
    "props": {
-    "input_type": "FLOAT"
+    "label_size": 20,
+    "shrink": true
    },
-   "width": 140.0
+   "width": 160.0
   },
   {
    "hide": false,
-   "idname": "GeometryNodeMeshBevel",
-   "inputs": {
-    "Affect Kind": {
-     "name": "Affect Kind",
-     "value": "Edges"
-    },
-    "End Left Offset": {
-     "linked": true,
-     "name": "End Left Offset"
-    },
-    "End Right Offset": {
-     "linked": true,
-     "name": "End Right Offset"
-    },
-    "Mesh": {
-     "linked": true,
-     "name": "Mesh"
-    },
-    "Miter": {
-     "name": "Miter",
-     "value": false
-    },
-    "Offset": {
-     "linked": true,
-     "name": "Offset"
-    },
-    "Profile": {
-     "name": "Profile"
-    },
-    "Segments": {
-     "linked": true,
-     "name": "Segments"
-    },
-    "Selection": {
-     "linked": true,
-     "name": "Selection"
-    },
-    "Shape": {
-     "linked": true,
-     "name": "Shape"
-    },
-    "Spread": {
-     "name": "Spread",
-     "value": 0.1
-    },
-    "Start Left Offset": {
-     "linked": true,
-     "name": "Start Left Offset"
-    },
-    "Start Right Offset": {
-     "linked": true,
-     "name": "Start Right Offset"
-    }
-   },
-   "label": "",
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Bevel",
    "location": [
-    9520,
+    0,
     0
    ],
    "mute": false,
    "name": "Bevel",
-   "outputs": [
-    "Mesh",
-    "Vertex Face",
-    "Edge Face",
-    "Outer Edge",
-    "Mid Edge"
-   ],
-   "parent": null,
-   "width": 180.0
-  },
-  {
-   "hide": false,
-   "idname": "FunctionNodeBooleanMath",
-   "inputs": {
-    "Boolean": {
-     "linked": true,
-     "name": "Boolean"
-    },
-    "Boolean_001": {
-     "linked": true,
-     "name": "Boolean"
-    }
-   },
-   "label": "",
-   "location": [
-    9800,
-    0
-   ],
-   "mute": false,
-   "name": "Bevel Faces",
-   "outputs": [
-    "Boolean"
-   ],
+   "outputs": [],
    "parent": null,
    "props": {
-    "operation": "OR"
+    "label_size": 20,
+    "shrink": true
    },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeSwitch",
-   "inputs": {
-    "False": {
-     "linked": true,
-     "name": "False"
-    },
-    "Switch": {
-     "linked": true,
-     "name": "Switch"
-    },
-    "True": {
-     "name": "True",
-     "value": {
-      "id": "ET Bevel",
-      "type": "Material"
-     }
-    }
-   },
-   "label": "",
-   "location": [
-    560,
-    0
-   ],
-   "mute": false,
-   "name": "Bevel Material Fallback",
-   "outputs": [
-    "Output"
-   ],
-   "parent": null,
-   "props": {
-    "input_type": "MATERIAL"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "FunctionNodeCompare",
-   "inputs": {
-    "A": {
-     "linked": true,
-     "name": "A"
-    },
-    "B": {
-     "name": "B",
-     "value": null
-    }
-   },
-   "label": "",
-   "location": [
-    280,
-    0
-   ],
-   "mute": false,
-   "name": "Bevel Material Is None",
-   "outputs": [
-    "Result"
-   ],
-   "parent": null,
-   "props": {
-    "data_type": "MATERIAL",
-    "mode": "ELEMENT",
-    "operation": "EQUAL"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeSwitch",
-   "inputs": {
-    "False": {
-     "name": "False",
-     "value": 0.0
-    },
-    "Switch": {
-     "linked": true,
-     "name": "Switch"
-    },
-    "True": {
-     "linked": true,
-     "name": "True"
-    }
-   },
-   "label": "",
-   "location": [
-    1400,
-    0
-   ],
-   "mute": false,
-   "name": "Bevel Radius",
-   "outputs": [
-    "Output"
-   ],
-   "parent": null,
-   "props": {
-    "input_type": "FLOAT"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "name": "Value",
-     "value": 0.0
-    }
-   },
-   "label": "",
-   "location": [
-    1120,
-    0
-   ],
-   "mute": false,
-   "name": "Bevel Width Clamped",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "MAXIMUM",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "FunctionNodeBooleanMath",
-   "inputs": {
-    "Boolean": {
-     "linked": true,
-     "name": "Boolean"
-    },
-    "Boolean_001": {
-     "linked": true,
-     "name": "Boolean"
-    }
-   },
-   "label": "",
-   "location": [
-    560,
-    -188
-   ],
-   "mute": false,
-   "name": "Boolean Math",
-   "outputs": [
-    "Boolean"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "AND"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "FunctionNodeBooleanMath",
-   "inputs": {
-    "Boolean": {
-     "linked": true,
-     "name": "Boolean"
-    },
-    "Boolean_001": {
-     "linked": true,
-     "name": "Boolean"
-    }
-   },
-   "label": "",
-   "location": [
-    4760,
-    0
-   ],
-   "mute": false,
-   "name": "Boolean Math.001",
-   "outputs": [
-    "Boolean"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "OR"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "FunctionNodeBooleanMath",
-   "inputs": {
-    "Boolean": {
-     "linked": true,
-     "name": "Boolean"
-    },
-    "Boolean_001": {
-     "linked": true,
-     "name": "Boolean"
-    }
-   },
-   "label": "",
-   "location": [
-    12320,
-    0
-   ],
-   "mute": false,
-   "name": "Boolean Math.002",
-   "outputs": [
-    "Boolean"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "AND"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "FunctionNodeBooleanMath",
-   "inputs": {
-    "Boolean": {
-     "linked": true,
-     "name": "Boolean"
-    }
-   },
-   "label": "",
-   "location": [
-    840,
-    0
-   ],
-   "mute": false,
-   "name": "Boolean Math.003",
-   "outputs": [
-    "Boolean"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "NOT"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "FunctionNodeBooleanMath",
-   "inputs": {
-    "Boolean": {
-     "linked": true,
-     "name": "Boolean"
-    },
-    "Boolean_001": {
-     "linked": true,
-     "name": "Boolean"
-    }
-   },
-   "label": "",
-   "location": [
-    1120,
-    -166
-   ],
-   "mute": false,
-   "name": "Boolean Math.004",
-   "outputs": [
-    "Boolean"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "AND"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "FunctionNodeBooleanMath",
-   "inputs": {
-    "Boolean": {
-     "linked": true,
-     "name": "Boolean"
-    },
-    "Boolean_001": {
-     "linked": true,
-     "name": "Boolean"
-    }
-   },
-   "label": "",
-   "location": [
-    1680,
-    0
-   ],
-   "mute": false,
-   "name": "Boolean Math.005",
-   "outputs": [
-    "Boolean"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "OR"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeSeparateXYZ",
-   "inputs": {
-    "Vector": {
-     "linked": true,
-     "name": "Vector"
-    }
-   },
-   "label": "",
-   "location": [
-    9800,
-    -166
-   ],
-   "mute": false,
-   "name": "Bounds Max",
-   "outputs": [
-    "X",
-    "Y",
-    "Z"
-   ],
-   "parent": null,
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeSeparateXYZ",
-   "inputs": {
-    "Vector": {
-     "linked": true,
-     "name": "Vector"
-    }
-   },
-   "label": "",
-   "location": [
-    9800,
-    -354
-   ],
-   "mute": false,
-   "name": "Bounds Min",
-   "outputs": [
-    "X",
-    "Y",
-    "Z"
-   ],
-   "parent": null,
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeMeshFaceSetBoundaries",
-   "inputs": {
-    "Face Set": {
-     "linked": true,
-     "name": "Face Group ID"
-    }
-   },
-   "label": "",
-   "location": [
-    280,
-    -166
-   ],
-   "mute": false,
-   "name": "Cap Edges",
-   "outputs": [
-    "Boundary Edges"
-   ],
-   "parent": null,
    "width": 160.0
   },
   {
    "hide": false,
-   "idname": "ShaderNodeCombineXYZ",
+   "idname": "GeometryNodeGroup",
    "inputs": {
-    "X": {
-     "linked": true,
-     "name": "X"
-    },
-    "Y": {
-     "linked": true,
-     "name": "Y"
-    },
-    "Z": {
-     "name": "Z",
-     "value": 0.0
-    }
-   },
-   "label": "",
-   "location": [
-    12040,
-    0
-   ],
-   "mute": false,
-   "name": "Cap UV",
-   "outputs": [
-    "Vector"
-   ],
-   "parent": null,
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeMergeByDistance",
-   "inputs": {
-    "Distance": {
-     "name": "Distance",
-     "value": 1e-05
-    },
-    "Geometry": {
-     "linked": true,
-     "name": "Geometry"
-    },
-    "Mode": {
-     "name": "Mode",
-     "value": "All"
-    },
-    "Selection": {
-     "name": "Selection",
-     "value": true
-    }
-   },
-   "label": "",
-   "location": [
-    9240,
-    0
-   ],
-   "mute": false,
-   "name": "Close Solid",
-   "outputs": [
-    "Geometry"
-   ],
-   "parent": null,
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "FunctionNodeCompare",
-   "inputs": {
-    "A": {
-     "linked": true,
-     "name": "A"
-    },
-    "B": {
-     "name": "B",
-     "value": 0.0
-    }
-   },
-   "label": "",
-   "location": [
-    560,
-    -354
-   ],
-   "mute": false,
-   "name": "Compare",
-   "outputs": [
-    "Result"
-   ],
-   "parent": null,
-   "props": {
-    "data_type": "FLOAT",
-    "mode": "ELEMENT",
-    "operation": "LESS_THAN"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "FunctionNodeCompare",
-   "inputs": {
-    "A": {
-     "linked": true,
-     "name": "A"
-    },
-    "B": {
-     "linked": true,
-     "name": "B"
-    }
-   },
-   "label": "",
-   "location": [
-    1680,
-    -166
-   ],
-   "mute": false,
-   "name": "Compare.001",
-   "outputs": [
-    "Result"
-   ],
-   "parent": null,
-   "props": {
-    "data_type": "FLOAT",
-    "mode": "ELEMENT",
-    "operation": "LESS_THAN"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "FunctionNodeCompare",
-   "inputs": {
-    "A": {
-     "linked": true,
-     "name": "A"
-    },
-    "B": {
-     "linked": true,
-     "name": "B"
-    }
-   },
-   "label": "",
-   "location": [
-    1960,
-    0
-   ],
-   "mute": false,
-   "name": "Compare.002",
-   "outputs": [
-    "Result"
-   ],
-   "parent": null,
-   "props": {
-    "data_type": "FLOAT",
-    "mode": "ELEMENT",
-    "operation": "GREATER_THAN"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "FunctionNodeCompare",
-   "inputs": {
-    "A": {
-     "linked": true,
-     "name": "A"
-    },
-    "B": {
-     "linked": true,
-     "name": "B"
-    }
-   },
-   "label": "",
-   "location": [
-    560,
-    -520
-   ],
-   "mute": false,
-   "name": "Compare.003",
-   "outputs": [
-    "Result"
-   ],
-   "parent": null,
-   "props": {
-    "data_type": "FLOAT",
-    "mode": "ELEMENT",
-    "operation": "LESS_THAN"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "FunctionNodeCompare",
-   "inputs": {
-    "A": {
-     "linked": true,
-     "name": "A"
-    },
-    "B": {
-     "name": "B",
-     "value": 1
-    }
-   },
-   "label": "",
-   "location": [
-    280,
-    -310
-   ],
-   "mute": false,
-   "name": "Compare.004",
-   "outputs": [
-    "Result"
-   ],
-   "parent": null,
-   "props": {
-    "data_type": "INT",
-    "mode": "ELEMENT",
-    "operation": "EQUAL"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "FunctionNodeCompare",
-   "inputs": {
-    "A": {
-     "linked": true,
-     "name": "A"
-    },
-    "B": {
-     "name": "B",
-     "value": 2
-    }
-   },
-   "label": "",
-   "location": [
-    280,
-    -476
-   ],
-   "mute": false,
-   "name": "Compare.005",
-   "outputs": [
-    "Result"
-   ],
-   "parent": null,
-   "props": {
-    "data_type": "INT",
-    "mode": "ELEMENT",
-    "operation": "EQUAL"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "FunctionNodeCompare",
-   "inputs": {
-    "A": {
-     "linked": true,
-     "name": "A"
-    },
-    "B": {
-     "name": "B",
-     "value": 0
-    }
-   },
-   "label": "",
-   "location": [
-    280,
-    -642
-   ],
-   "mute": false,
-   "name": "Compare.006",
-   "outputs": [
-    "Result"
-   ],
-   "parent": null,
-   "props": {
-    "data_type": "INT",
-    "mode": "ELEMENT",
-    "operation": "EQUAL"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "FunctionNodeCompare",
-   "inputs": {
-    "A": {
-     "linked": true,
-     "name": "A"
-    },
-    "B": {
-     "name": "B",
-     "value": 3
-    }
-   },
-   "label": "",
-   "location": [
-    280,
-    -808
-   ],
-   "mute": false,
-   "name": "Compare.007",
-   "outputs": [
-    "Result"
-   ],
-   "parent": null,
-   "props": {
-    "data_type": "INT",
-    "mode": "ELEMENT",
-    "operation": "EQUAL"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "FunctionNodeCompare",
-   "inputs": {
-    "A": {
-     "linked": true,
-     "name": "A"
-    },
-    "B": {
-     "name": "B",
-     "value": 0
-    }
-   },
-   "label": "",
-   "location": [
-    840,
-    -144
-   ],
-   "mute": false,
-   "name": "Compare.008",
-   "outputs": [
-    "Result"
-   ],
-   "parent": null,
-   "props": {
-    "data_type": "INT",
-    "mode": "ELEMENT",
-    "operation": "EQUAL"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "FunctionNodeCompare",
-   "inputs": {
-    "A": {
-     "linked": true,
-     "name": "A"
-    },
-    "B": {
-     "linked": true,
-     "name": "B"
-    }
-   },
-   "label": "",
-   "location": [
-    840,
-    -310
-   ],
-   "mute": false,
-   "name": "Compare.009",
-   "outputs": [
-    "Result"
-   ],
-   "parent": null,
-   "props": {
-    "data_type": "FLOAT",
-    "mode": "ELEMENT",
-    "operation": "GREATER_THAN"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeCornersOfFace",
-   "inputs": {
-    "Face Index": {
-     "linked": true,
-     "name": "Face Index"
-    },
-    "Sort Index": {
-     "name": "Sort Index",
-     "value": 0
-    },
-    "Weights": {
-     "name": "Weights",
-     "value": 0.0
-    }
-   },
-   "label": "",
-   "location": [
-    560,
-    -686
-   ],
-   "mute": false,
-   "name": "Corner 0",
-   "outputs": [
-    "Corner Index",
-    "Total"
-   ],
-   "parent": null,
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeCornersOfFace",
-   "inputs": {
-    "Face Index": {
-     "linked": true,
-     "name": "Face Index"
-    },
-    "Sort Index": {
-     "name": "Sort Index",
-     "value": 1
-    },
-    "Weights": {
-     "name": "Weights",
-     "value": 0.0
-    }
-   },
-   "label": "",
-   "location": [
-    560,
-    -896
-   ],
-   "mute": false,
-   "name": "Corner 1",
-   "outputs": [
-    "Corner Index",
-    "Total"
-   ],
-   "parent": null,
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeCornersOfFace",
-   "inputs": {
-    "Face Index": {
-     "linked": true,
-     "name": "Face Index"
-    },
-    "Sort Index": {
-     "name": "Sort Index",
-     "value": 2
-    },
-    "Weights": {
-     "name": "Weights",
-     "value": 0.0
-    }
-   },
-   "label": "",
-   "location": [
-    560,
-    -1106
-   ],
-   "mute": false,
-   "name": "Corner 2",
-   "outputs": [
-    "Corner Index",
-    "Total"
-   ],
-   "parent": null,
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeCornersOfFace",
-   "inputs": {
-    "Face Index": {
-     "linked": true,
-     "name": "Face Index"
-    },
-    "Sort Index": {
-     "name": "Sort Index",
-     "value": 3
-    },
-    "Weights": {
-     "name": "Weights",
-     "value": 0.0
-    }
-   },
-   "label": "",
-   "location": [
-    560,
-    -1316
-   ],
-   "mute": false,
-   "name": "Corner 3",
-   "outputs": [
-    "Corner Index",
-    "Total"
-   ],
-   "parent": null,
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeVectorMath",
-   "inputs": {
-    "Vector": {
-     "linked": true,
-     "name": "Vector"
-    },
-    "Vector_001": {
-     "linked": true,
-     "name": "Vector"
-    }
-   },
-   "label": "",
-   "location": [
-    2520,
-    0
-   ],
-   "mute": false,
-   "name": "Dir In",
-   "outputs": [
-    "Vector"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "SUBTRACT"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeVectorMath",
-   "inputs": {
-    "Vector": {
-     "linked": true,
-     "name": "Vector"
-    },
-    "Vector_001": {
-     "linked": true,
-     "name": "Vector"
-    }
-   },
-   "label": "",
-   "location": [
-    2520,
-    -166
-   ],
-   "mute": false,
-   "name": "Dir Out",
-   "outputs": [
-    "Vector"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "SUBTRACT"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeVectorMath",
-   "inputs": {
-    "Vector": {
-     "linked": true,
-     "name": "Vector"
-    },
-    "Vector_001": {
-     "linked": true,
-     "name": "Vector"
-    }
-   },
-   "label": "",
-   "location": [
-    3080,
-    0
-   ],
-   "mute": false,
-   "name": "Dot",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "DOT_PRODUCT"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeInputMeshEdgeAngle",
-   "inputs": {},
-   "label": "",
-   "location": [
-    0,
-    -826
-   ],
-   "mute": false,
-   "name": "Edge Angle",
-   "outputs": [
-    "Unsigned Angle",
-    "Signed Angle"
-   ],
-   "parent": null,
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeExtrudeMesh",
-   "inputs": {
-    "Individual": {
-     "name": "Individual",
-     "value": false
-    },
-    "Mesh": {
+    "Socket_0": {
      "linked": true,
      "name": "Mesh"
     },
-    "Offset": {
-     "name": "Offset",
-     "value": [
-      0.0,
-      0.0,
-      0.0
-     ]
-    },
-    "Offset Scale": {
+    "Socket_1": {
      "linked": true,
-     "name": "Offset Scale"
+     "name": "Bevel"
     },
-    "Selection": {
-     "name": "Selection",
-     "value": true
+    "Socket_2": {
+     "linked": true,
+     "name": "Breite"
+    },
+    "Socket_3": {
+     "linked": true,
+     "name": "Segmente"
+    },
+    "Socket_4": {
+     "linked": true,
+     "name": "Profil"
+    },
+    "Socket_5": {
+     "linked": true,
+     "name": "Tiefe"
     }
    },
    "label": "",
    "location": [
-    8120,
+    2160,
     0
    ],
    "mute": false,
-   "name": "Extrude",
+   "name": "ET Bevel",
    "outputs": [
-    "Mesh",
-    "Top",
-    "Side"
+    "Socket_6",
+    "Socket_7",
+    "Socket_8"
    ],
-   "parent": null,
+   "parent": "Bevel",
    "props": {
-    "mode": "FACES"
+    "node_tree": {
+     "id": ".ET Bevel",
+     "type": "GeometryNodeTree"
+    }
    },
-   "width": 140.0
+   "width": 200.0
   },
   {
    "hide": false,
-   "idname": "GeometryNodeFlipFaces",
+   "idname": "GeometryNodeGroup",
    "inputs": {
-    "Mesh": {
+    "Socket_0": {
      "linked": true,
      "name": "Mesh"
     },
-    "Selection": {
+    "Socket_1": {
      "linked": true,
-     "name": "Selection"
+     "name": "Seite"
+    },
+    "Socket_2": {
+     "linked": true,
+     "name": "Bevelfläche"
+    },
+    "Socket_3": {
+     "linked": true,
+     "name": "Glättungswinkel"
+    },
+    "Socket_4": {
+     "linked": true,
+     "name": "Hilfsattribute behalten"
     }
    },
    "label": "",
    "location": [
-    6440,
+    3670,
+    -154
+   ],
+   "mute": false,
+   "name": "ET Finish",
+   "outputs": [
+    "Socket_5"
+   ],
+   "parent": "Ausgabe",
+   "props": {
+    "node_tree": {
+     "id": ".ET Finish",
+     "type": "GeometryNodeTree"
+    }
+   },
+   "width": 200.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeGroup",
+   "inputs": {
+    "Socket_0": {
+     "linked": true,
+     "name": "Curves"
+    },
+    "Socket_1": {
+     "linked": true,
+     "name": "Auflösung"
+    },
+    "Socket_2": {
+     "linked": true,
+     "name": "Vereinfachen"
+    }
+   },
+   "label": "",
+   "location": [
+    860,
     0
    ],
    "mute": false,
-   "name": "Face +Z",
+   "name": "ET Outline Clean",
    "outputs": [
-    "Mesh"
+    "Socket_3"
    ],
-   "parent": null,
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeInputNamedAttribute",
-   "inputs": {
-    "Name": {
-     "name": "Name",
-     "value": "et_face_group"
-    }
-   },
-   "label": "",
-   "location": [
-    0,
-    -970
-   ],
-   "mute": false,
-   "name": "Face Group",
-   "outputs": [
-    "Attribute",
-    "Exists"
-   ],
-   "parent": null,
+   "parent": "Kontur",
    "props": {
-    "data_type": "INT"
+    "node_tree": {
+     "id": ".ET Outline Clean",
+     "type": "GeometryNodeTree"
+    }
    },
-   "width": 140.0
+   "width": 200.0
   },
   {
    "hide": false,
-   "idname": "FunctionNodeCompare",
+   "idname": "GeometryNodeGroup",
    "inputs": {
-    "A": {
+    "Socket_0": {
      "linked": true,
-     "name": "A"
+     "name": "Curves"
     },
-    "B": {
+    "Socket_1": {
      "linked": true,
-     "name": "B"
+     "name": "Tiefe"
+    },
+    "Socket_2": {
+     "linked": true,
+     "name": "Füllung"
+    },
+    "Socket_3": {
+     "linked": true,
+     "name": "Füllregel"
+    },
+    "Socket_4": {
+     "linked": true,
+     "name": "Front Material"
     }
    },
    "label": "",
    "location": [
-    12040,
-    -188
-   ],
-   "mute": false,
-   "name": "Face Wraps",
-   "outputs": [
-    "Result"
-   ],
-   "parent": null,
-   "props": {
-    "data_type": "FLOAT",
-    "mode": "ELEMENT",
-    "operation": "GREATER_THAN"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeFaceOfCorner",
-   "inputs": {
-    "Corner Index": {
-     "linked": true,
-     "name": "Corner Index"
-    }
-   },
-   "label": "",
-   "location": [
-    280,
-    -974
-   ],
-   "mute": false,
-   "name": "Face of Corner",
-   "outputs": [
-    "Face Index",
-    "Index in Face"
-   ],
-   "parent": null,
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeSampleIndex",
-   "inputs": {
-    "Geometry": {
-     "linked": true,
-     "name": "Geometry"
-    },
-    "Index": {
-     "linked": true,
-     "name": "Index"
-    },
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    6720,
+    1510,
     0
    ],
    "mute": false,
-   "name": "Fetch et_char_index",
+   "name": "ET Solid",
    "outputs": [
-    "Value"
+    "Socket_5"
    ],
-   "parent": null,
+   "parent": "Körper",
    "props": {
-    "clamp": false,
-    "data_type": "INT",
-    "domain": "POINT"
+    "node_tree": {
+     "id": ".ET Solid",
+     "type": "GeometryNodeTree"
+    }
    },
-   "width": 140.0
+   "width": 200.0
   },
   {
    "hide": false,
-   "idname": "GeometryNodeSampleIndex",
+   "idname": "GeometryNodeGroup",
    "inputs": {
-    "Geometry": {
+    "Socket_0": {
      "linked": true,
-     "name": "Geometry"
+     "name": "Text"
     },
-    "Index": {
+    "Socket_1": {
      "linked": true,
-     "name": "Index"
+     "name": "Zeile 2"
     },
-    "Value": {
+    "Socket_10": {
      "linked": true,
-     "name": "Value"
+     "name": "Wortabstand"
+    },
+    "Socket_11": {
+     "linked": true,
+     "name": "Zeilenabstand"
+    },
+    "Socket_12": {
+     "linked": true,
+     "name": "Breite"
+    },
+    "Socket_13": {
+     "linked": true,
+     "name": "Höhe"
+    },
+    "Socket_14": {
+     "linked": true,
+     "name": "Überlauf"
+    },
+    "Socket_2": {
+     "linked": true,
+     "name": "Zeile 3"
+    },
+    "Socket_3": {
+     "linked": true,
+     "name": "Zeile 4"
+    },
+    "Socket_4": {
+     "linked": true,
+     "name": "Font"
+    },
+    "Socket_5": {
+     "linked": true,
+     "name": "Größe"
+    },
+    "Socket_6": {
+     "linked": true,
+     "name": "Ausrichtung X"
+    },
+    "Socket_7": {
+     "linked": true,
+     "name": "Ausrichtung Y"
+    },
+    "Socket_8": {
+     "linked": true,
+     "name": "Pivot"
+    },
+    "Socket_9": {
+     "linked": true,
+     "name": "Zeichenabstand"
     }
    },
    "label": "",
    "location": [
-    6720,
-    -188
-   ],
-   "mute": false,
-   "name": "Fetch et_loop_len",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "clamp": false,
-    "data_type": "FLOAT",
-    "domain": "POINT"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeSampleIndex",
-   "inputs": {
-    "Geometry": {
-     "linked": true,
-     "name": "Geometry"
-    },
-    "Index": {
-     "linked": true,
-     "name": "Index"
-    },
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    6720,
-    -376
-   ],
-   "mute": false,
-   "name": "Fetch et_u",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "clamp": false,
-    "data_type": "FLOAT",
-    "domain": "POINT"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeFillCurve",
-   "inputs": {
-    "Curve": {
-     "linked": true,
-     "name": "Curve"
-    },
-    "Fill Rule": {
-     "linked": true,
-     "name": "Fill Rule"
-    },
-    "Group ID": {
-     "name": "Group ID",
-     "value": 0
-    },
-    "Mode": {
-     "linked": true,
-     "name": "Mode"
-    }
-   },
-   "label": "",
-   "location": [
-    6160,
+    210,
     0
    ],
    "mute": false,
-   "name": "Fill",
+   "name": "ET Text Source",
    "outputs": [
-    "Mesh"
+    "Socket_15",
+    "Socket_16"
    ],
-   "parent": null,
-   "width": 140.0
+   "parent": "Text",
+   "props": {
+    "node_tree": {
+     "id": ".ET Text Source",
+     "type": "GeometryNodeTree"
+    }
+   },
+   "width": 200.0
   },
   {
    "hide": false,
-   "idname": "GeometryNodeFlipFaces",
+   "idname": "GeometryNodeGroup",
    "inputs": {
-    "Mesh": {
+    "Socket_0": {
      "linked": true,
      "name": "Mesh"
     },
-    "Selection": {
-     "name": "Selection",
-     "value": true
+    "Socket_1": {
+     "linked": true,
+     "name": "Tiefe"
+    },
+    "Socket_2": {
+     "linked": true,
+     "name": "Radius"
+    },
+    "Socket_3": {
+     "linked": true,
+     "name": "Auf Text normieren"
+    },
+    "Socket_4": {
+     "linked": true,
+     "name": "Maßstab"
     }
    },
    "label": "",
    "location": [
-    8120,
-    -276
-   ],
-   "mute": false,
-   "name": "Flip Back",
-   "outputs": [
-    "Mesh"
-   ],
-   "parent": null,
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeSwitch",
-   "inputs": {
-    "False": {
-     "linked": true,
-     "name": "False"
-    },
-    "Switch": {
-     "linked": true,
-     "name": "Switch"
-    },
-    "True": {
-     "name": "True",
-     "value": {
-      "id": "Bfont Regular",
-      "type": "VectorFont"
-     }
-    }
-   },
-   "label": "",
-   "location": [
-    560,
-    -1526
-   ],
-   "mute": false,
-   "name": "Font Fallback",
-   "outputs": [
-    "Output"
-   ],
-   "parent": null,
-   "props": {
-    "input_type": "FONT"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "FunctionNodeCompare",
-   "inputs": {
-    "A": {
-     "linked": true,
-     "name": "A"
-    },
-    "B": {
-     "name": "B",
-     "value": null
-    }
-   },
-   "label": "",
-   "location": [
-    280,
-    -1140
-   ],
-   "mute": false,
-   "name": "Font Is None",
-   "outputs": [
-    "Result"
-   ],
-   "parent": null,
-   "props": {
-    "data_type": "FONT",
-    "mode": "ELEMENT",
-    "operation": "EQUAL"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeSwitch",
-   "inputs": {
-    "False": {
-     "linked": true,
-     "name": "False"
-    },
-    "Switch": {
-     "linked": true,
-     "name": "Switch"
-    },
-    "True": {
-     "name": "True",
-     "value": {
-      "id": "ET Front",
-      "type": "Material"
-     }
-    }
-   },
-   "label": "",
-   "location": [
-    560,
-    -1714
-   ],
-   "mute": false,
-   "name": "Front Material Fallback",
-   "outputs": [
-    "Output"
-   ],
-   "parent": null,
-   "props": {
-    "input_type": "MATERIAL"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "FunctionNodeCompare",
-   "inputs": {
-    "A": {
-     "linked": true,
-     "name": "A"
-    },
-    "B": {
-     "name": "B",
-     "value": null
-    }
-   },
-   "label": "",
-   "location": [
-    280,
-    -1306
-   ],
-   "mute": false,
-   "name": "Front Material Is None",
-   "outputs": [
-    "Result"
-   ],
-   "parent": null,
-   "props": {
-    "data_type": "MATERIAL",
-    "mode": "ELEMENT",
-    "operation": "EQUAL"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeStoreNamedAttribute",
-   "inputs": {
-    "Geometry": {
-     "linked": true,
-     "name": "Geometry"
-    },
-    "Name": {
-     "name": "Name",
-     "value": "et_face_group"
-    },
-    "Selection": {
-     "name": "Selection",
-     "value": true
-    },
-    "Value": {
-     "name": "Value",
-     "value": 2
-    }
-   },
-   "label": "",
-   "location": [
-    7840,
+    2810,
     0
    ],
    "mute": false,
-   "name": "Group Back",
+   "name": "ET Text UV",
    "outputs": [
-    "Geometry"
+    "Socket_5"
    ],
-   "parent": null,
+   "parent": "UV",
    "props": {
-    "data_type": "INT",
-    "domain": "FACE"
-   },
-   "width": 160.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeStoreNamedAttribute",
-   "inputs": {
-    "Geometry": {
-     "linked": true,
-     "name": "Geometry"
-    },
-    "Name": {
-     "name": "Name",
-     "value": "et_face_group"
-    },
-    "Selection": {
-     "linked": true,
-     "name": "Selection"
-    },
-    "Value": {
-     "name": "Value",
-     "value": 3
+    "node_tree": {
+     "id": ".ET Text UV",
+     "type": "GeometryNodeTree"
     }
    },
-   "label": "",
-   "location": [
-    10080,
-    0
-   ],
-   "mute": false,
-   "name": "Group Bevel",
-   "outputs": [
-    "Geometry"
-   ],
-   "parent": null,
-   "props": {
-    "data_type": "INT",
-    "domain": "FACE"
-   },
-   "width": 160.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeStoreNamedAttribute",
-   "inputs": {
-    "Geometry": {
-     "linked": true,
-     "name": "Geometry"
-    },
-    "Name": {
-     "name": "Name",
-     "value": "et_face_group"
-    },
-    "Selection": {
-     "linked": true,
-     "name": "Selection"
-    },
-    "Value": {
-     "name": "Value",
-     "value": 1
-    }
-   },
-   "label": "",
-   "location": [
-    8400,
-    0
-   ],
-   "mute": false,
-   "name": "Group Front",
-   "outputs": [
-    "Geometry"
-   ],
-   "parent": null,
-   "props": {
-    "data_type": "INT",
-    "domain": "FACE"
-   },
-   "width": 160.0
+   "width": 200.0
   },
   {
    "hide": false,
@@ -4291,11 +1446,11 @@
    "inputs": {},
    "label": "",
    "location": [
-    0,
+    650,
     0
    ],
    "mute": false,
-   "name": "Group Input",
+   "name": "Group Input (Auflösung, Vereinfachen)",
    "outputs": [
     "Socket_1",
     "Socket_2",
@@ -4331,7 +1486,350 @@
     "Socket_40",
     "__extend__"
    ],
-   "parent": null,
+   "parent": "Kontur",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    3460,
+    0
+   ],
+   "mute": false,
+   "name": "Group Input (Ausgabe)",
+   "outputs": [
+    "Socket_1",
+    "Socket_2",
+    "Socket_3",
+    "Socket_4",
+    "Socket_6",
+    "Socket_7",
+    "Socket_8",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_12",
+    "Socket_13",
+    "Socket_15",
+    "Socket_16",
+    "Socket_17",
+    "Socket_19",
+    "Socket_20",
+    "Socket_21",
+    "Socket_22",
+    "Socket_24",
+    "Socket_30",
+    "Socket_26",
+    "Socket_27",
+    "Socket_28",
+    "Socket_29",
+    "Socket_32",
+    "Socket_33",
+    "Socket_34",
+    "Socket_36",
+    "Socket_37",
+    "Socket_38",
+    "Socket_40",
+    "__extend__"
+   ],
+   "parent": "Ausgabe",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    1950,
+    0
+   ],
+   "mute": false,
+   "name": "Group Input (Bevel Breite)",
+   "outputs": [
+    "Socket_1",
+    "Socket_2",
+    "Socket_3",
+    "Socket_4",
+    "Socket_6",
+    "Socket_7",
+    "Socket_8",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_12",
+    "Socket_13",
+    "Socket_15",
+    "Socket_16",
+    "Socket_17",
+    "Socket_19",
+    "Socket_20",
+    "Socket_21",
+    "Socket_22",
+    "Socket_24",
+    "Socket_30",
+    "Socket_26",
+    "Socket_27",
+    "Socket_28",
+    "Socket_29",
+    "Socket_32",
+    "Socket_33",
+    "Socket_34",
+    "Socket_36",
+    "Socket_37",
+    "Socket_38",
+    "Socket_40",
+    "__extend__"
+   ],
+   "parent": "Bevel",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    1950,
+    -86
+   ],
+   "mute": false,
+   "name": "Group Input (Bevel)",
+   "outputs": [
+    "Socket_1",
+    "Socket_2",
+    "Socket_3",
+    "Socket_4",
+    "Socket_6",
+    "Socket_7",
+    "Socket_8",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_12",
+    "Socket_13",
+    "Socket_15",
+    "Socket_16",
+    "Socket_17",
+    "Socket_19",
+    "Socket_20",
+    "Socket_21",
+    "Socket_22",
+    "Socket_24",
+    "Socket_30",
+    "Socket_26",
+    "Socket_27",
+    "Socket_28",
+    "Socket_29",
+    "Socket_32",
+    "Socket_33",
+    "Socket_34",
+    "Socket_36",
+    "Socket_37",
+    "Socket_38",
+    "Socket_40",
+    "__extend__"
+   ],
+   "parent": "Bevel",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "Group Input (Text)",
+   "outputs": [
+    "Socket_1",
+    "Socket_2",
+    "Socket_3",
+    "Socket_4",
+    "Socket_6",
+    "Socket_7",
+    "Socket_8",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_12",
+    "Socket_13",
+    "Socket_15",
+    "Socket_16",
+    "Socket_17",
+    "Socket_19",
+    "Socket_20",
+    "Socket_21",
+    "Socket_22",
+    "Socket_24",
+    "Socket_30",
+    "Socket_26",
+    "Socket_27",
+    "Socket_28",
+    "Socket_29",
+    "Socket_32",
+    "Socket_33",
+    "Socket_34",
+    "Socket_36",
+    "Socket_37",
+    "Socket_38",
+    "Socket_40",
+    "__extend__"
+   ],
+   "parent": "Text",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    0,
+    -372
+   ],
+   "mute": false,
+   "name": "Group Input (Textbox Breite)",
+   "outputs": [
+    "Socket_1",
+    "Socket_2",
+    "Socket_3",
+    "Socket_4",
+    "Socket_6",
+    "Socket_7",
+    "Socket_8",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_12",
+    "Socket_13",
+    "Socket_15",
+    "Socket_16",
+    "Socket_17",
+    "Socket_19",
+    "Socket_20",
+    "Socket_21",
+    "Socket_22",
+    "Socket_24",
+    "Socket_30",
+    "Socket_26",
+    "Socket_27",
+    "Socket_28",
+    "Socket_29",
+    "Socket_32",
+    "Socket_33",
+    "Socket_34",
+    "Socket_36",
+    "Socket_37",
+    "Socket_38",
+    "Socket_40",
+    "__extend__"
+   ],
+   "parent": "Text",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    1300,
+    0
+   ],
+   "mute": false,
+   "name": "Group Input (Tiefe, Füllung, Füllregel, Vorderseite)",
+   "outputs": [
+    "Socket_1",
+    "Socket_2",
+    "Socket_3",
+    "Socket_4",
+    "Socket_6",
+    "Socket_7",
+    "Socket_8",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_12",
+    "Socket_13",
+    "Socket_15",
+    "Socket_16",
+    "Socket_17",
+    "Socket_19",
+    "Socket_20",
+    "Socket_21",
+    "Socket_22",
+    "Socket_24",
+    "Socket_30",
+    "Socket_26",
+    "Socket_27",
+    "Socket_28",
+    "Socket_29",
+    "Socket_32",
+    "Socket_33",
+    "Socket_34",
+    "Socket_36",
+    "Socket_37",
+    "Socket_38",
+    "Socket_40",
+    "__extend__"
+   ],
+   "parent": "Körper",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    2600,
+    0
+   ],
+   "mute": false,
+   "name": "Group Input (UV)",
+   "outputs": [
+    "Socket_1",
+    "Socket_2",
+    "Socket_3",
+    "Socket_4",
+    "Socket_6",
+    "Socket_7",
+    "Socket_8",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_12",
+    "Socket_13",
+    "Socket_15",
+    "Socket_16",
+    "Socket_17",
+    "Socket_19",
+    "Socket_20",
+    "Socket_21",
+    "Socket_22",
+    "Socket_24",
+    "Socket_30",
+    "Socket_26",
+    "Socket_27",
+    "Socket_28",
+    "Socket_29",
+    "Socket_32",
+    "Socket_33",
+    "Socket_34",
+    "Socket_36",
+    "Socket_37",
+    "Socket_38",
+    "Socket_40",
+    "__extend__"
+   ],
+   "parent": "UV",
    "width": 140.0
   },
   {
@@ -4348,7 +1846,7 @@
    },
    "label": "",
    "location": [
-    16240,
+    4530,
     0
    ],
    "mute": false,
@@ -4362,2355 +1860,68 @@
   },
   {
    "hide": false,
-   "idname": "GeometryNodeStoreNamedAttribute",
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Kontur",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "Kontur",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Körper",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "Körper",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "FunctionNodeCompare",
    "inputs": {
-    "Geometry": {
+    "A": {
      "linked": true,
-     "name": "Geometry"
+     "name": "A"
     },
-    "Name": {
-     "name": "Name",
-     "value": "et_face_group"
-    },
-    "Selection": {
-     "linked": true,
-     "name": "Selection"
-    },
-    "Value": {
-     "name": "Value",
+    "B": {
+     "name": "B",
      "value": 0
     }
    },
    "label": "",
    "location": [
-    8680,
-    0
+    3460,
+    -152
    ],
    "mute": false,
-   "name": "Group Side",
+   "name": "No Text",
    "outputs": [
-    "Geometry"
+    "Result"
    ],
-   "parent": null,
+   "parent": "Ausgabe",
    "props": {
     "data_type": "INT",
-    "domain": "FACE"
-   },
-   "width": 160.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeInputIndex",
-   "inputs": {},
-   "label": "",
-   "location": [
-    0,
-    -1136
-   ],
-   "mute": false,
-   "name": "Index",
-   "outputs": [
-    "Index"
-   ],
-   "parent": null,
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "FunctionNodeBooleanMath",
-   "inputs": {
-    "Boolean": {
-     "linked": true,
-     "name": "Boolean"
-    },
-    "Boolean_001": {
-     "linked": true,
-     "name": "Boolean"
-    }
-   },
-   "label": "",
-   "location": [
-    560,
-    -1902
-   ],
-   "mute": false,
-   "name": "Is Cap",
-   "outputs": [
-    "Boolean"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "OR"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "FunctionNodeCompare",
-   "inputs": {
-    "A": {
-     "linked": true,
-     "name": "A"
-    },
-    "B": {
-     "name": "B",
-     "value": 0.0
-    }
-   },
-   "label": "",
-   "location": [
-    3080,
-    -166
-   ],
-   "mute": false,
-   "name": "Is Duplicate",
-   "outputs": [
-    "Result"
-   ],
-   "parent": null,
-   "props": {
-    "data_type": "FLOAT",
-    "mode": "ELEMENT",
-    "operation": "LESS_THAN"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "FunctionNodeCompare",
-   "inputs": {
-    "A": {
-     "linked": true,
-     "name": "A"
-    },
-    "B": {
-     "linked": true,
-     "name": "B"
-    }
-   },
-   "label": "",
-   "location": [
-    560,
-    -2068
-   ],
-   "mute": false,
-   "name": "Is Sharp",
-   "outputs": [
-    "Result"
-   ],
-   "parent": null,
-   "props": {
-    "data_type": "FLOAT",
-    "mode": "ELEMENT",
-    "operation": "GREATER_THAN"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "FunctionNodeCompare",
-   "inputs": {
-    "A": {
-     "linked": true,
-     "name": "A"
-    },
-    "B": {
-     "linked": true,
-     "name": "B"
-    }
-   },
-   "label": "",
-   "location": [
-    4480,
-    0
-   ],
-   "mute": false,
-   "name": "Is Straight",
-   "outputs": [
-    "Result"
-   ],
-   "parent": null,
-   "props": {
-    "data_type": "FLOAT",
-    "mode": "ELEMENT",
-    "operation": "LESS_THAN"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeJoinGeometry",
-   "inputs": {
-    "Geometry": {
-     "linked": true,
-     "name": "Geometry"
-    }
-   },
-   "label": "",
-   "location": [
-    8960,
-    0
-   ],
-   "mute": false,
-   "name": "Join Solid",
-   "outputs": [
-    "Geometry"
-   ],
-   "parent": null,
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeSwitch",
-   "inputs": {
-    "False": {
-     "linked": true,
-     "name": "False"
-    },
-    "Switch": {
-     "linked": true,
-     "name": "Switch"
-    },
-    "True": {
-     "linked": true,
-     "name": "True"
-    }
-   },
-   "label": "",
-   "location": [
-    15680,
-    0
-   ],
-   "mute": false,
-   "name": "Keep Attributes",
-   "outputs": [
-    "Output"
-   ],
-   "parent": null,
-   "props": {
-    "input_type": "GEOMETRY"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeGroup",
-   "inputs": {
-    "Socket_0": {
-     "linked": true,
-     "name": "Line 1"
-    },
-    "Socket_1": {
-     "linked": true,
-     "name": "Line 2"
-    },
-    "Socket_2": {
-     "linked": true,
-     "name": "Line 3"
-    },
-    "Socket_3": {
-     "linked": true,
-     "name": "Line 4"
-    }
-   },
-   "label": "",
-   "location": [
-    280,
-    -1472
-   ],
-   "mute": false,
-   "name": "Lines",
-   "outputs": [
-    "Socket_4"
-   ],
-   "parent": null,
-   "props": {
-    "node_tree": {
-     "id": ".ET Lines Join",
-     "type": "GeometryNodeTree"
-    }
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeInputNamedAttribute",
-   "inputs": {
-    "Name": {
-     "name": "Name",
-     "value": "et_loop_len"
-    }
-   },
-   "label": "",
-   "location": [
-    0,
-    -1258
-   ],
-   "mute": false,
-   "name": "Loop Length",
-   "outputs": [
-    "Attribute",
-    "Exists"
-   ],
-   "parent": null,
-   "props": {
-    "data_type": "FLOAT"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeSetMaterial",
-   "inputs": {
-    "Geometry": {
-     "linked": true,
-     "name": "Geometry"
-    },
-    "Material": {
-     "linked": true,
-     "name": "Material"
-    },
-    "Selection": {
-     "linked": true,
-     "name": "Selection"
-    }
-   },
-   "label": "",
-   "location": [
-    14560,
-    0
-   ],
-   "mute": false,
-   "name": "Material Bevel",
-   "outputs": [
-    "Geometry"
-   ],
-   "parent": null,
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeSetMaterial",
-   "inputs": {
-    "Geometry": {
-     "linked": true,
-     "name": "Geometry"
-    },
-    "Material": {
-     "linked": true,
-     "name": "Material"
-    },
-    "Selection": {
-     "name": "Selection",
-     "value": true
-    }
-   },
-   "label": "",
-   "location": [
-    6720,
-    -564
-   ],
-   "mute": false,
-   "name": "Material Front",
-   "outputs": [
-    "Geometry"
-   ],
-   "parent": null,
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeSetMaterial",
-   "inputs": {
-    "Geometry": {
-     "linked": true,
-     "name": "Geometry"
-    },
-    "Material": {
-     "linked": true,
-     "name": "Material"
-    },
-    "Selection": {
-     "linked": true,
-     "name": "Selection"
-    }
-   },
-   "label": "",
-   "location": [
-    14280,
-    0
-   ],
-   "mute": false,
-   "name": "Material Side",
-   "outputs": [
-    "Geometry"
-   ],
-   "parent": null,
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "name": "Value",
-     "value": -1.0
-    }
-   },
-   "label": "",
-   "location": [
-    3360,
-    0
-   ],
-   "mute": false,
-   "name": "Math",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "MAXIMUM",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "name": "Value",
-     "value": 1.0
-    }
-   },
-   "label": "",
-   "location": [
-    3640,
-    0
-   ],
-   "mute": false,
-   "name": "Math.001",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "MINIMUM",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    3920,
-    -188
-   ],
-   "mute": false,
-   "name": "Math.002",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "ARCCOSINE",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "name": "Value",
-     "value": 0.5
-    }
-   },
-   "label": "",
-   "location": [
-    280,
-    -1682
-   ],
-   "mute": false,
-   "name": "Math.003",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "MULTIPLY",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    840,
-    -476
-   ],
-   "mute": false,
-   "name": "Math.004",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "MINIMUM",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    10080,
-    -210
-   ],
-   "mute": false,
-   "name": "Math.005",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "SUBTRACT",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    10080,
-    -376
-   ],
-   "mute": false,
-   "name": "Math.006",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "SUBTRACT",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "name": "Value",
-     "value": 0.0
-    }
-   },
-   "label": "",
-   "location": [
-    10640,
-    0
-   ],
-   "mute": false,
-   "name": "Math.007",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "MAXIMUM",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "name": "Value",
-     "value": 1.0
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    10920,
-    0
-   ],
-   "mute": false,
-   "name": "Math.008",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "DIVIDE",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    10080,
-    -542
-   ],
-   "mute": false,
-   "name": "Math.009",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "SUBTRACT",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    11760,
-    0
-   ],
-   "mute": false,
-   "name": "Math.010",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "MULTIPLY",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    10080,
-    -708
-   ],
-   "mute": false,
-   "name": "Math.011",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "SUBTRACT",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    11760,
-    -166
-   ],
-   "mute": false,
-   "name": "Math.012",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "MULTIPLY",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "name": "Value",
-     "value": 0.0
-    }
-   },
-   "label": "",
-   "location": [
-    1680,
-    -332
-   ],
-   "mute": false,
-   "name": "Math.013",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "MAXIMUM",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    1680,
-    -498
-   ],
-   "mute": false,
-   "name": "Math.014",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "SUBTRACT",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    1960,
-    -166
-   ],
-   "mute": false,
-   "name": "Math.015",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "DIVIDE",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "name": "Value",
-     "value": 0.0
-    }
-   },
-   "label": "",
-   "location": [
-    2240,
-    0
-   ],
-   "mute": false,
-   "name": "Math.016",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "MAXIMUM",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "name": "Value",
-     "value": 1.0
-    }
-   },
-   "label": "",
-   "location": [
-    2520,
-    -332
-   ],
-   "mute": false,
-   "name": "Math.017",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "MINIMUM",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    2800,
-    0
-   ],
-   "mute": false,
-   "name": "Math.018",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "ARCSINE",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "name": "Value",
-     "value": 1.5708
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    3080,
-    -332
-   ],
-   "mute": false,
-   "name": "Math.019",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "SUBTRACT",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    1680,
-    -664
-   ],
-   "mute": false,
-   "name": "Math.020",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "SUBTRACT",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    1680,
-    -830
-   ],
-   "mute": false,
-   "name": "Math.021",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "SUBTRACT",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    1960,
-    -332
-   ],
-   "mute": false,
-   "name": "Math.022",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "SUBTRACT",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    2240,
-    -166
-   ],
-   "mute": false,
-   "name": "Math.023",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "DIVIDE",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "name": "Value",
-     "value": 0.0
-    }
-   },
-   "label": "",
-   "location": [
-    2520,
-    -498
-   ],
-   "mute": false,
-   "name": "Math.024",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "MAXIMUM",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "name": "Value",
-     "value": 1.0
-    }
-   },
-   "label": "",
-   "location": [
-    2800,
-    -144
-   ],
-   "mute": false,
-   "name": "Math.025",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "MINIMUM",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    3080,
-    -498
-   ],
-   "mute": false,
-   "name": "Math.026",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "ARCSINE",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "name": "Value",
-     "value": 2.0
-    }
-   },
-   "label": "",
-   "location": [
-    1680,
-    -996
-   ],
-   "mute": false,
-   "name": "Math.027",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "MULTIPLY",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    1960,
-    -498
-   ],
-   "mute": false,
-   "name": "Math.028",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "SUBTRACT",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    2240,
-    -332
-   ],
-   "mute": false,
-   "name": "Math.029",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "ADD",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    3360,
-    -166
-   ],
-   "mute": false,
-   "name": "Math.030",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "MULTIPLY",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    1680,
-    -1162
-   ],
-   "mute": false,
-   "name": "Math.031",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "SUBTRACT",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    10920,
-    -166
-   ],
-   "mute": false,
-   "name": "Math.032",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "MINIMUM",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    10920,
-    -332
-   ],
-   "mute": false,
-   "name": "Math.033",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "MAXIMUM",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    11200,
-    0
-   ],
-   "mute": false,
-   "name": "Math.034",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "MINIMUM",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    11200,
-    -166
-   ],
-   "mute": false,
-   "name": "Math.035",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "MAXIMUM",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    11480,
-    0
-   ],
-   "mute": false,
-   "name": "Math.036",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "MINIMUM",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    11480,
-    -166
-   ],
-   "mute": false,
-   "name": "Math.037",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "MAXIMUM",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "name": "Value",
-     "value": 0.5
-    }
-   },
-   "label": "",
-   "location": [
-    280,
-    -1848
-   ],
-   "mute": false,
-   "name": "Math.038",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "MULTIPLY",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    11760,
-    -332
-   ],
-   "mute": false,
-   "name": "Math.039",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "SUBTRACT",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    280,
-    -2014
-   ],
-   "mute": false,
-   "name": "Math.040",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "ADD",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    12880,
-    0
-   ],
-   "mute": false,
-   "name": "Math.041",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "MULTIPLY",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    11760,
-    -498
-   ],
-   "mute": false,
-   "name": "Math.042",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "MULTIPLY",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    280,
-    -2180
-   ],
-   "mute": false,
-   "name": "Math.043",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "RADIANS",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "name": "Value",
-     "value": 0.0001
-    }
-   },
-   "label": "",
-   "location": [
-    560,
-    -2234
-   ],
-   "mute": false,
-   "name": "Max Bevel",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "SUBTRACT",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeInputNamedAttribute",
-   "inputs": {
-    "Name": {
-     "name": "Name",
-     "value": "et_u"
-    }
-   },
-   "label": "",
-   "location": [
-    0,
-    -1424
-   ],
-   "mute": false,
-   "name": "Named Attribute",
-   "outputs": [
-    "Attribute",
-    "Exists"
-   ],
-   "parent": null,
-   "props": {
-    "data_type": "FLOAT"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeInputNamedAttribute",
-   "inputs": {
-    "Name": {
-     "name": "Name",
-     "value": "et_loop_len"
-    }
-   },
-   "label": "",
-   "location": [
-    0,
-    -1590
-   ],
-   "mute": false,
-   "name": "Named Attribute.001",
-   "outputs": [
-    "Attribute",
-    "Exists"
-   ],
-   "parent": null,
-   "props": {
-    "data_type": "FLOAT"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeInputNamedAttribute",
-   "inputs": {
-    "Name": {
-     "name": "Name",
-     "value": "et_char_index"
-    }
-   },
-   "label": "",
-   "location": [
-    0,
-    -1756
-   ],
-   "mute": false,
-   "name": "Named Attribute.002",
-   "outputs": [
-    "Attribute",
-    "Exists"
-   ],
-   "parent": null,
-   "props": {
-    "data_type": "INT"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeSampleNearest",
-   "inputs": {
-    "Geometry": {
-     "linked": true,
-     "name": "Geometry"
-    },
-    "Sample Position": {
-     "linked": true,
-     "name": "Sample Position"
-    }
-   },
-   "label": "",
-   "location": [
-    6440,
-    -166
-   ],
-   "mute": false,
-   "name": "Nearest Outline Point",
-   "outputs": [
-    "Index"
-   ],
-   "parent": null,
-   "props": {
-    "domain": "POINT"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeOffsetPointInCurve",
-   "inputs": {
-    "Offset": {
-     "name": "Offset",
-     "value": 1
-    },
-    "Point Index": {
-     "linked": true,
-     "name": "Point Index"
-    }
-   },
-   "label": "",
-   "location": [
-    280,
-    -2324
-   ],
-   "mute": false,
-   "name": "Next Point",
-   "outputs": [
-    "Is Valid Offset",
-    "Point Index"
-   ],
-   "parent": null,
-   "width": 160.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeSampleIndex",
-   "inputs": {
-    "Geometry": {
-     "linked": true,
-     "name": "Geometry"
-    },
-    "Index": {
-     "linked": true,
-     "name": "Index"
-    },
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    2240,
-    -498
-   ],
-   "mute": false,
-   "name": "Next Position",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "clamp": false,
-    "data_type": "FLOAT_VECTOR",
-    "domain": "POINT"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeInputNormal",
-   "inputs": {},
-   "label": "",
-   "location": [
-    0,
-    -1922
-   ],
-   "mute": false,
-   "name": "Normal",
-   "outputs": [
-    "Normal",
-    "True Normal"
-   ],
-   "parent": null,
-   "props": {
-    "legacy_corner_normals": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeSeparateXYZ",
-   "inputs": {
-    "Vector": {
-     "linked": true,
-     "name": "Vector"
-    }
-   },
-   "label": "",
-   "location": [
-    280,
-    -2512
-   ],
-   "mute": false,
-   "name": "Normal XYZ",
-   "outputs": [
-    "X",
-    "Y",
-    "Z"
-   ],
-   "parent": null,
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeCurveToPoints",
-   "inputs": {
-    "Curve": {
-     "linked": true,
-     "name": "Curve"
-    }
-   },
-   "label": "",
-   "location": [
-    6160,
-    -210
-   ],
-   "mute": false,
-   "name": "Outline Points",
-   "outputs": [
-    "Points",
-    "Tangent",
-    "Normal",
-    "Rotation"
-   ],
-   "parent": null,
-   "props": {
-    "mode": "EVALUATED"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeSwitch",
-   "inputs": {
-    "False": {
-     "linked": true,
-     "name": "False"
-    },
-    "Switch": {
-     "linked": true,
-     "name": "Switch"
-    },
-    "True": {
-     "linked": true,
-     "name": "True"
-    }
-   },
-   "label": "",
-   "location": [
-    15960,
-    0
-   ],
-   "mute": false,
-   "name": "Output",
-   "outputs": [
-    "Output"
-   ],
-   "parent": null,
-   "props": {
-    "input_type": "GEOMETRY"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeInputPosition",
-   "inputs": {},
-   "label": "",
-   "location": [
-    0,
-    -2066
-   ],
-   "mute": false,
-   "name": "Position",
-   "outputs": [
-    "Position"
-   ],
-   "parent": null,
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeSeparateXYZ",
-   "inputs": {
-    "Vector": {
-     "linked": true,
-     "name": "Vector"
-    }
-   },
-   "label": "",
-   "location": [
-    280,
-    -2700
-   ],
-   "mute": false,
-   "name": "Position XYZ",
-   "outputs": [
-    "X",
-    "Y",
-    "Z"
-   ],
-   "parent": null,
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeOffsetPointInCurve",
-   "inputs": {
-    "Offset": {
-     "name": "Offset",
-     "value": -1
-    },
-    "Point Index": {
-     "linked": true,
-     "name": "Point Index"
-    }
-   },
-   "label": "",
-   "location": [
-    280,
-    -2888
-   ],
-   "mute": false,
-   "name": "Prev Point",
-   "outputs": [
-    "Is Valid Offset",
-    "Point Index"
-   ],
-   "parent": null,
-   "width": 160.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeSampleIndex",
-   "inputs": {
-    "Geometry": {
-     "linked": true,
-     "name": "Geometry"
-    },
-    "Index": {
-     "linked": true,
-     "name": "Index"
-    },
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    2240,
-    -686
-   ],
-   "mute": false,
-   "name": "Prev Position",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "clamp": false,
-    "data_type": "FLOAT_VECTOR",
-    "domain": "POINT"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "name": "Value",
-     "value": 1.5708
-    }
-   },
-   "label": "",
-   "location": [
-    1680,
-    -1328
-   ],
-   "mute": false,
-   "name": "Quarter Arc",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "MULTIPLY",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeRealizeInstances",
-   "inputs": {
-    "Depth": {
-     "name": "Depth",
-     "value": 0
-    },
-    "Geometry": {
-     "linked": true,
-     "name": "Geometry"
-    },
-    "Realize All": {
-     "name": "Realize All",
-     "value": true
-    },
-    "Selection": {
-     "name": "Selection",
-     "value": true
-    }
-   },
-   "label": "",
-   "location": [
-    1400,
-    -188
-   ],
-   "mute": false,
-   "name": "Realize Glyphs",
-   "outputs": [
-    "Geometry"
-   ],
-   "parent": null,
-   "props": {
-    "realize_to_point_domain": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeRemoveAttribute",
-   "inputs": {
-    "Geometry": {
-     "linked": true,
-     "name": "Geometry"
-    },
-    "Name": {
-     "name": "Name",
-     "value": "et_*"
-    },
-    "Pattern Mode": {
-     "name": "Pattern Mode",
-     "value": "Wildcard"
-    }
-   },
-   "label": "",
-   "location": [
-    15400,
-    0
-   ],
-   "mute": false,
-   "name": "Remove Helpers",
-   "outputs": [
-    "Geometry"
-   ],
-   "parent": null,
-   "width": 180.0
-  },
-  {
-   "hide": false,
-   "idname": "FunctionNodeBooleanMath",
-   "inputs": {
-    "Boolean": {
-     "linked": true,
-     "name": "Boolean"
-    },
-    "Boolean_001": {
-     "linked": true,
-     "name": "Boolean"
-    }
-   },
-   "label": "",
-   "location": [
-    5040,
-    0
-   ],
-   "mute": false,
-   "name": "Remove Point",
-   "outputs": [
-    "Boolean"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "AND"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeSetSplineResolution",
-   "inputs": {
-    "Geometry": {
-     "linked": true,
-     "name": "Curve"
-    },
-    "Resolution": {
-     "linked": true,
-     "name": "Resolution"
-    },
-    "Selection": {
-     "name": "Selection",
-     "value": true
-    }
-   },
-   "label": "",
-   "location": [
-    1680,
-    -1494
-   ],
-   "mute": false,
-   "name": "Set Resolution",
-   "outputs": [
-    "Geometry"
-   ],
-   "parent": null,
-   "width": 160.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeSetShadeSmooth",
-   "inputs": {
-    "Geometry": {
-     "linked": true,
-     "name": "Mesh"
-    },
-    "Selection": {
-     "name": "Selection",
-     "value": true
-    },
-    "Shade Smooth": {
-     "linked": true,
-     "name": "Shade Smooth"
-    }
-   },
-   "label": "",
-   "location": [
-    15120,
-    0
-   ],
-   "mute": false,
-   "name": "Sharp Edges",
-   "outputs": [
-    "Geometry"
-   ],
-   "parent": null,
-   "props": {
-    "domain": "EDGE"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeSwitch",
-   "inputs": {
-    "False": {
-     "linked": true,
-     "name": "False"
-    },
-    "Switch": {
-     "linked": true,
-     "name": "Switch"
-    },
-    "True": {
-     "name": "True",
-     "value": {
-      "id": "ET Side",
-      "type": "Material"
-     }
-    }
-   },
-   "label": "",
-   "location": [
-    560,
-    -2400
-   ],
-   "mute": false,
-   "name": "Side Material Fallback",
-   "outputs": [
-    "Output"
-   ],
-   "parent": null,
-   "props": {
-    "input_type": "MATERIAL"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "FunctionNodeCompare",
-   "inputs": {
-    "A": {
-     "linked": true,
-     "name": "A"
-    },
-    "B": {
-     "name": "B",
-     "value": null
-    }
-   },
-   "label": "",
-   "location": [
-    280,
-    -3076
-   ],
-   "mute": false,
-   "name": "Side Material Is None",
-   "outputs": [
-    "Result"
-   ],
-   "parent": null,
-   "props": {
-    "data_type": "MATERIAL",
     "mode": "ELEMENT",
     "operation": "EQUAL"
    },
@@ -6718,475 +1929,6 @@
   },
   {
    "hide": false,
-   "idname": "GeometryNodeDeleteGeometry",
-   "inputs": {
-    "Geometry": {
-     "linked": true,
-     "name": "Geometry"
-    },
-    "Selection": {
-     "linked": true,
-     "name": "Selection"
-    }
-   },
-   "label": "",
-   "location": [
-    5320,
-    0
-   ],
-   "mute": false,
-   "name": "Simplify Outline",
-   "outputs": [
-    "Geometry"
-   ],
-   "parent": null,
-   "props": {
-    "domain": "POINT",
-    "mode": "ALL"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeSetShadeSmooth",
-   "inputs": {
-    "Geometry": {
-     "linked": true,
-     "name": "Mesh"
-    },
-    "Selection": {
-     "name": "Selection",
-     "value": true
-    },
-    "Shade Smooth": {
-     "name": "Shade Smooth",
-     "value": true
-    }
-   },
-   "label": "",
-   "location": [
-    14840,
-    0
-   ],
-   "mute": false,
-   "name": "Smooth Faces",
-   "outputs": [
-    "Geometry"
-   ],
-   "parent": null,
-   "props": {
-    "domain": "FACE"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeSplineLength",
-   "inputs": {},
-   "label": "",
-   "location": [
-    0,
-    -2188
-   ],
-   "mute": false,
-   "name": "Spline Length",
-   "outputs": [
-    "Length",
-    "Point Count"
-   ],
-   "parent": null,
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeSplineParameter",
-   "inputs": {},
-   "label": "",
-   "location": [
-    0,
-    -2332
-   ],
-   "mute": false,
-   "name": "Spline Parameter",
-   "outputs": [
-    "Factor",
-    "Length",
-    "Index"
-   ],
-   "parent": null,
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeStoreNamedAttribute",
-   "inputs": {
-    "Geometry": {
-     "linked": true,
-     "name": "Geometry"
-    },
-    "Name": {
-     "name": "Name",
-     "value": "et_char_index"
-    },
-    "Selection": {
-     "name": "Selection",
-     "value": true
-    },
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    1120,
-    -332
-   ],
-   "mute": false,
-   "name": "Store Char Index",
-   "outputs": [
-    "Geometry"
-   ],
-   "parent": null,
-   "props": {
-    "data_type": "INT",
-    "domain": "INSTANCE"
-   },
-   "width": 160.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeStoreNamedAttribute",
-   "inputs": {
-    "Geometry": {
-     "linked": true,
-     "name": "Geometry"
-    },
-    "Name": {
-     "name": "Name",
-     "value": "et_loop_len"
-    },
-    "Selection": {
-     "name": "Selection",
-     "value": true
-    },
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    5880,
-    0
-   ],
-   "mute": false,
-   "name": "Store Loop Length",
-   "outputs": [
-    "Geometry"
-   ],
-   "parent": null,
-   "props": {
-    "data_type": "FLOAT",
-    "domain": "POINT"
-   },
-   "width": 160.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeStoreNamedAttribute",
-   "inputs": {
-    "Geometry": {
-     "linked": true,
-     "name": "Geometry"
-    },
-    "Name": {
-     "name": "Name",
-     "value": "et_u"
-    },
-    "Selection": {
-     "name": "Selection",
-     "value": true
-    },
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    5600,
-    0
-   ],
-   "mute": false,
-   "name": "Store U",
-   "outputs": [
-    "Geometry"
-   ],
-   "parent": null,
-   "props": {
-    "data_type": "FLOAT",
-    "domain": "POINT"
-   },
-   "width": 160.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeStoreNamedAttribute",
-   "inputs": {
-    "Geometry": {
-     "linked": true,
-     "name": "Geometry"
-    },
-    "Name": {
-     "name": "Name",
-     "value": "UVMap"
-    },
-    "Selection": {
-     "name": "Selection",
-     "value": true
-    },
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    13720,
-    0
-   ],
-   "mute": false,
-   "name": "Store UVMap",
-   "outputs": [
-    "Geometry"
-   ],
-   "parent": null,
-   "props": {
-    "data_type": "FLOAT2",
-    "domain": "CORNER"
-   },
-   "width": 160.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeStoreNamedAttribute",
-   "inputs": {
-    "Geometry": {
-     "linked": true,
-     "name": "Geometry"
-    },
-    "Name": {
-     "name": "Name",
-     "value": "et_char_index"
-    },
-    "Selection": {
-     "name": "Selection",
-     "value": true
-    },
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    7560,
-    0
-   ],
-   "mute": false,
-   "name": "Store et_char_index",
-   "outputs": [
-    "Geometry"
-   ],
-   "parent": null,
-   "props": {
-    "data_type": "INT",
-    "domain": "POINT"
-   },
-   "width": 160.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeStoreNamedAttribute",
-   "inputs": {
-    "Geometry": {
-     "linked": true,
-     "name": "Geometry"
-    },
-    "Name": {
-     "name": "Name",
-     "value": "et_loop_len"
-    },
-    "Selection": {
-     "name": "Selection",
-     "value": true
-    },
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    7280,
-    0
-   ],
-   "mute": false,
-   "name": "Store et_loop_len",
-   "outputs": [
-    "Geometry"
-   ],
-   "parent": null,
-   "props": {
-    "data_type": "FLOAT",
-    "domain": "POINT"
-   },
-   "width": 160.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeStoreNamedAttribute",
-   "inputs": {
-    "Geometry": {
-     "linked": true,
-     "name": "Geometry"
-    },
-    "Name": {
-     "name": "Name",
-     "value": "et_u"
-    },
-    "Selection": {
-     "name": "Selection",
-     "value": true
-    },
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    7000,
-    0
-   ],
-   "mute": false,
-   "name": "Store et_u",
-   "outputs": [
-    "Geometry"
-   ],
-   "parent": null,
-   "props": {
-    "data_type": "FLOAT",
-    "domain": "POINT"
-   },
-   "width": 160.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeStringToCurves",
-   "inputs": {
-    "Align X": {
-     "linked": true,
-     "name": "Align X"
-    },
-    "Align Y": {
-     "linked": true,
-     "name": "Align Y"
-    },
-    "Character Spacing": {
-     "linked": true,
-     "name": "Character Spacing"
-    },
-    "Font": {
-     "linked": true,
-     "name": "Font"
-    },
-    "Line Spacing": {
-     "linked": true,
-     "name": "Line Spacing"
-    },
-    "Overflow": {
-     "linked": true,
-     "name": "Overflow"
-    },
-    "Pivot Point": {
-     "linked": true,
-     "name": "Pivot Point"
-    },
-    "Size": {
-     "linked": true,
-     "name": "Size"
-    },
-    "String": {
-     "linked": true,
-     "name": "String"
-    },
-    "Text Box Height": {
-     "linked": true,
-     "name": "Text Box Height"
-    },
-    "Text Box Width": {
-     "linked": true,
-     "name": "Text Box Width"
-    },
-    "Word Spacing": {
-     "linked": true,
-     "name": "Word Spacing"
-    }
-   },
-   "label": "",
-   "location": [
-    840,
-    -642
-   ],
-   "mute": false,
-   "name": "String to Curves",
-   "outputs": [
-    "Curve Instances",
-    "Remainder",
-    "Line",
-    "Word",
-    "Pivot Point"
-   ],
-   "parent": null,
-   "width": 200.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeSwitch",
-   "inputs": {
-    "False": {
-     "name": "False",
-     "value": 1.0
-    },
-    "Switch": {
-     "linked": true,
-     "name": "Switch"
-    },
-    "True": {
-     "linked": true,
-     "name": "True"
-    }
-   },
-   "label": "",
-   "location": [
-    11200,
-    -332
-   ],
-   "mute": false,
-   "name": "Switch",
-   "outputs": [
-    "Output"
-   ],
-   "parent": null,
-   "props": {
-    "input_type": "FLOAT"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
    "idname": "GeometryNodeSwitch",
    "inputs": {
     "False": {
@@ -7204,457 +1946,15 @@
    },
    "label": "",
    "location": [
-    3640,
-    -166
-   ],
-   "mute": false,
-   "name": "Switch.001",
-   "outputs": [
-    "Output"
-   ],
-   "parent": null,
-   "props": {
-    "input_type": "FLOAT"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeBoundBox",
-   "inputs": {
-    "Geometry": {
-     "linked": true,
-     "name": "Geometry"
-    },
-    "Use Radius": {
-     "name": "Use Radius",
-     "value": true
-    }
-   },
-   "label": "",
-   "location": [
-    9520,
-    -496
-   ],
-   "mute": false,
-   "name": "Text Bounds",
-   "outputs": [
-    "Bounding Box",
-    "Min",
-    "Max"
-   ],
-   "parent": null,
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    10360,
+    4150,
     0
    ],
    "mute": false,
-   "name": "Text Extent",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "MAXIMUM",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "FunctionNodeStringLength",
-   "inputs": {
-    "String": {
-     "linked": true,
-     "name": "String"
-    }
-   },
-   "label": "",
-   "location": [
-    560,
-    -2588
-   ],
-   "mute": false,
-   "name": "Text Length",
-   "outputs": [
-    "Length"
-   ],
-   "parent": null,
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeResampleCurve",
-   "inputs": {
-    "Count": {
-     "name": "Count",
-     "value": 10
-    },
-    "Curve": {
-     "linked": true,
-     "name": "Curve"
-    },
-    "Length": {
-     "name": "Length",
-     "value": 0.1
-    },
-    "Mode": {
-     "name": "Mode",
-     "value": "Evaluated"
-    },
-    "Selection": {
-     "name": "Selection",
-     "value": true
-    }
-   },
-   "label": "",
-   "location": [
-    1960,
-    -664
-   ],
-   "mute": false,
-   "name": "To Polyline",
-   "outputs": [
-    "Curve"
-   ],
-   "parent": null,
-   "props": {
-    "keep_last_segment": true
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    4200,
-    0
-   ],
-   "mute": false,
-   "name": "Turn Angle",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "DEGREES",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeInputNamedAttribute",
-   "inputs": {
-    "Name": {
-     "name": "Name",
-     "value": "et_u"
-    }
-   },
-   "label": "",
-   "location": [
-    0,
-    -2498
-   ],
-   "mute": false,
-   "name": "U",
-   "outputs": [
-    "Attribute",
-    "Exists"
-   ],
-   "parent": null,
-   "props": {
-    "data_type": "FLOAT"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeSwitch",
-   "inputs": {
-    "False": {
-     "linked": true,
-     "name": "False"
-    },
-    "Switch": {
-     "linked": true,
-     "name": "Switch"
-    },
-    "True": {
-     "linked": true,
-     "name": "True"
-    }
-   },
-   "label": "",
-   "location": [
-    12600,
-    0
-   ],
-   "mute": false,
-   "name": "U Unwrapped",
+   "name": "Output",
    "outputs": [
     "Output"
    ],
-   "parent": null,
-   "props": {
-    "input_type": "FLOAT"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeSampleIndex",
-   "inputs": {
-    "Geometry": {
-     "linked": true,
-     "name": "Geometry"
-    },
-    "Index": {
-     "linked": true,
-     "name": "Index"
-    },
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    10640,
-    -166
-   ],
-   "mute": false,
-   "name": "U of Corner 0",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "clamp": false,
-    "data_type": "FLOAT",
-    "domain": "CORNER"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeSampleIndex",
-   "inputs": {
-    "Geometry": {
-     "linked": true,
-     "name": "Geometry"
-    },
-    "Index": {
-     "linked": true,
-     "name": "Index"
-    },
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    10640,
-    -354
-   ],
-   "mute": false,
-   "name": "U of Corner 1",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "clamp": false,
-    "data_type": "FLOAT",
-    "domain": "CORNER"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeSampleIndex",
-   "inputs": {
-    "Geometry": {
-     "linked": true,
-     "name": "Geometry"
-    },
-    "Index": {
-     "linked": true,
-     "name": "Index"
-    },
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    10640,
-    -542
-   ],
-   "mute": false,
-   "name": "U of Corner 2",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "clamp": false,
-    "data_type": "FLOAT",
-    "domain": "CORNER"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeSampleIndex",
-   "inputs": {
-    "Geometry": {
-     "linked": true,
-     "name": "Geometry"
-    },
-    "Index": {
-     "linked": true,
-     "name": "Index"
-    },
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    10640,
-    -730
-   ],
-   "mute": false,
-   "name": "U of Corner 3",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "clamp": false,
-    "data_type": "FLOAT",
-    "domain": "CORNER"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeSwitch",
-   "inputs": {
-    "False": {
-     "linked": true,
-     "name": "False"
-    },
-    "Switch": {
-     "linked": true,
-     "name": "Switch"
-    },
-    "True": {
-     "linked": true,
-     "name": "True"
-    }
-   },
-   "label": "",
-   "location": [
-    13440,
-    0
-   ],
-   "mute": false,
-   "name": "UV",
-   "outputs": [
-    "Output"
-   ],
-   "parent": null,
-   "props": {
-    "input_type": "VECTOR"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    11480,
-    -332
-   ],
-   "mute": false,
-   "name": "UV Factor",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "MULTIPLY",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeSwitch",
-   "inputs": {
-    "False": {
-     "linked": true,
-     "name": "False"
-    },
-    "Switch": {
-     "linked": true,
-     "name": "Switch"
-    },
-    "True": {
-     "linked": true,
-     "name": "True"
-    }
-   },
-   "label": "",
-   "location": [
-    10360,
-    -166
-   ],
-   "mute": false,
-   "name": "Use Bevel",
-   "outputs": [
-    "Output"
-   ],
-   "parent": null,
+   "parent": "Ausgabe",
    "props": {
     "input_type": "GEOMETRY"
    },
@@ -7662,6 +1962,44 @@
   },
   {
    "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Text",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "Text",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "UV",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "UV",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
    "idname": "GeometryNodeSwitch",
    "inputs": {
     "False": {
@@ -7679,7 +2017,7 @@
    },
    "label": "",
    "location": [
-    14000,
+    3080,
     0
    ],
    "mute": false,
@@ -7687,174 +2025,9 @@
    "outputs": [
     "Output"
    ],
-   "parent": null,
+   "parent": "UV",
    "props": {
     "input_type": "GEOMETRY"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    3360,
-    -332
-   ],
-   "mute": false,
-   "name": "V Back Bevel",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "MULTIPLY",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    3640,
-    -354
-   ],
-   "mute": false,
-   "name": "V Front Bevel",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "ADD",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    1960,
-    -896
-   ],
-   "mute": false,
-   "name": "V Side",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "ADD",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeVectorMath",
-   "inputs": {
-    "Vector": {
-     "linked": true,
-     "name": "Vector"
-    }
-   },
-   "label": "",
-   "location": [
-    2800,
-    -310
-   ],
-   "mute": false,
-   "name": "Vector Math",
-   "outputs": [
-    "Vector"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "NORMALIZE"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeVectorMath",
-   "inputs": {
-    "Vector": {
-     "linked": true,
-     "name": "Vector"
-    }
-   },
-   "label": "",
-   "location": [
-    2800,
-    -454
-   ],
-   "mute": false,
-   "name": "Vector Math.001",
-   "outputs": [
-    "Vector"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "NORMALIZE"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeVectorMath",
-   "inputs": {
-    "Vector": {
-     "linked": true,
-     "name": "Vector"
-    }
-   },
-   "label": "",
-   "location": [
-    2800,
-    -598
-   ],
-   "mute": false,
-   "name": "Vector Math.002",
-   "outputs": [
-    "Value"
-   ],
-   "parent": null,
-   "props": {
-    "operation": "LENGTH"
    },
    "width": 140.0
   },
@@ -7873,15 +2046,15 @@
    },
    "label": "",
    "location": [
-    1400,
-    -398
+    3670,
+    0
    ],
    "mute": false,
    "name": "Warn Bevel",
    "outputs": [
     "Show"
    ],
-   "parent": null,
+   "parent": "Ausgabe",
    "props": {
     "warning_type": "INFO"
    },
@@ -7902,17 +2075,46 @@
    },
    "label": "",
    "location": [
-    1120,
-    -542
+    3670,
+    -350
    ],
    "mute": false,
    "name": "Warn Empty",
    "outputs": [
     "Show"
    ],
-   "parent": null,
+   "parent": "Ausgabe",
    "props": {
     "warning_type": "WARNING"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "FunctionNodeBooleanMath",
+   "inputs": {
+    "Boolean": {
+     "linked": true,
+     "name": "Boolean"
+    },
+    "Boolean_001": {
+     "linked": true,
+     "name": "Boolean"
+    }
+   },
+   "label": "",
+   "location": [
+    3940,
+    0
+   ],
+   "mute": false,
+   "name": "Warnings",
+   "outputs": [
+    "Boolean"
+   ],
+   "parent": "Ausgabe",
+   "props": {
+    "operation": "OR"
    },
    "width": 140.0
   }
