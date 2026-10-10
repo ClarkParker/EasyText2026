@@ -1,0 +1,130 @@
+# Architecture v3 (Draft for Phases 1 and 2)
+
+As of: 2026-10-10. Builds on `02-target-v3.md`; makes groups, attribute contract and modifier UI concrete.
+
+**Priority change after consultation:** The main reason for the tool is clean mesh topology and usable UVs
+for text. Therefore Phase 1 is the group `ET Text Mesh` (implemented, see `src/easytext_build/groups/et_text_mesh.py`);
+animation (selectors/animators) follows afterwards. Sections 2 to 4 still describe the target vision for the animation phase.
+
+## 0. Implemented: ET Text Mesh (Phase 1)
+
+```
+Join lines (.ET Lines Join) → String to Curves → store instance index → Realize
+→ Set Spline Resolution → Resample (Evaluated) → delete collinear and duplicate points
+→ store contour length (et_u) and loop length (et_loop_len)
+→ Fill Curve (Mode/Fill Rule) → normals to +Z → Front Material → fetch attributes via Sample Nearest
+→ back side (Flip) + Extrude (Faces) → Join → Merge by Distance   [et_face_group: 0 side, 1 front, 2 back, 3 bevel]
+→ Mesh Bevel on face-group boundary edges (all five offsets = radius) → new faces = group 3
+→ UVMap (Face Corner, 2D): cap faces planar from XY, band from U = et_u (unfolded by loop length at the seam quad)
+   and V(z) = arc length across back bevel, side, front bevel; scaling normalized to the text box or in meters
+→ Side/Bevel materials via selection → Shade Smooth + hard edges by angle → remove et_* attributes (optional)
+→ Warning nodes (empty text, bevel clamped)
+```
+
+Known limits: bevel radius ≥ half the stroke width produces overlaps (like the Bevel modifier without clamp);
+overlapping glyphs fill each other out (Even-Odd); true quad cap faces are not included.
+
+## 1. Pipeline
+
+```
+Text (String, "\n" allowed)  ──► ET Text Source ──► character instances (curves) + attributes
+                                                      │
+                                     ET Glyph Mesh:   │  Realize → Fill Curve → Extrude → Mesh Bevel
+                                                      │  → Split to Instances (et_char_index)
+                                                      ▼
+                        character instances (meshes, pivot known) ──► selectors (write et_weight)
+                                                      │               ──► animators (read et_weight)
+                                                      ▼
+                                     Realize → materials → Shade Smooth → output
+```
+
+Why Realize before the Fill and Split again afterwards: `Fill Curve` and `Extrude Mesh` work on the
+realized mesh in one go (fast, one thread pool), and `Split to Instances` (4.1) restores the
+per-character instances via the previously stored `et_char_index`. Instance attributes survive
+`Realize Instances` as point attributes, so pivot and indices are preserved. Only at the very end is the
+final realize done. This replaces the three Realize steps and the Instance/Realize switch from v2.1.
+
+## 2. Attribute contract
+
+All attributes live on the instance domain of the character instances (after the Fill on the point domain
+and after the Split on instances again).
+
+| Attribute | Type | Source | Purpose |
+|---|---|---|---|
+| `et_char_index` | int | Index of the glyph instance (spaces create no instance) | Basis of every selection, split key |
+| `et_word_index` | int | String to Curves "Word" | Selection by words |
+| `et_line_index` | int | String to Curves "Line" | Selection by lines |
+| `et_char_in_word` | int | Accumulate Field (Leading, Group ID = word) | Stagger within a word |
+| `et_char_in_line` | int | Accumulate Field (Leading, Group ID = line) | Stagger within a line |
+| `et_char_count`, `et_word_count`, `et_line_count` | int (uniform) | Attribute Statistic (Max + 1) | Percent units in selectors |
+| `et_pivot` | vector | String to Curves "Pivot Point" | Rotation/scale around baseline or center |
+| `et_weight` | float 0..1 | Selectors | Strength of the animation per element; default 1 |
+| `et_time` | float | ET Time | local, normalized time 0..1 per element |
+
+The Python shaping path (v3.1) delivers the same attributes plus `et_glyph_id`; the animators
+remain unchanged.
+
+## 3. Group inventory
+
+| Group | Catalog | Phase | Content |
+|---|---|---|---|
+| `ET Text` | Easy Text | 1 | Main modifier for users without a node editor. Encapsulates source, mesh, material, output; from Phase 2 an animation panel with preset menu. |
+| `ET Text Source` | Text | 1 | Line join, String to Curves (all options as inputs), attribute contract. |
+| `.ET Lines Join` | internal | 1 | 4 string inputs → one string with Line Break, empty lines skipped (String Length > 0). |
+| `ET Glyph Mesh` | Mesh | 1 | Realize → Fill (Mode/Fill Rule) → Extrude → optional Mesh Bevel → Split to Instances; outputs: instances, Front/Side/Bevel selections as attributes. |
+| `ET Finish` | Mesh | 1 | Realize, Set Material (Front/Side/Bevel), Merge by Distance (optional), Shade Smooth by Angle. |
+| `ET Time` | Animators | 2 | Frame (default input SCENE_FRAME), Start, Duration, Stagger, Order (Index/Random/Reverse/From Center), Easing menu, Loop/Ping-Pong → `et_time`. |
+| `ET Select Range` | Selectors | 2 | AE model: Start/End/Offset, Unit (Percent/Index), Basis (Character/Word/Line), Shape, Ease, Random + Seed, Mode → `et_weight`. |
+| `ET Select Transition` | Selectors | 2 | Cavalry model: Completion 0..1 + Width + Direction → `et_weight`. Centerpiece of the reveals. |
+| `ET Select Field` | Selectors | 2 | Falloff around object (Box/Sphere/Linear), Invert, Strength. |
+| `ET Select Noise` | Selectors | 2 | Time/space-dependent noise weight (Wiggly Selector). |
+| `ET Select Sound` | Selectors | 2 | Sample Sound Frequencies → weight per band or index. |
+| `ET Animate Transform` | Animators | 2 | Position/Rotation/Scale × `et_weight` around `et_pivot`, pivot mode (Character/Word/Line/All). |
+| `ET Animate Visibility` | Animators | 2 | Alpha attribute (`et_alpha`) for material, optional Delete Geometry at 0. |
+| `ET Animate Tracking` | Animators | 2 | Animated character/line spacing (displacement along the baseline). |
+| `ET Typewriter` | Animators | 2 | Visible character count from `et_time`; cursor optional. |
+| `ET Scramble` | Animators | 2 | Replace characters with random characters before fading in (string nodes, Index Switch). |
+| `ET Plate` | Mesh | 5 | Base plate with rounding via Mesh to SDF Grid → Offset → Grid to Mesh, Bake. |
+| `ET Outline` | Mesh | 5 | Outline via Curve to Mesh (profile) or SDF. |
+| `ET Fit Camera` | Scene | 3 | Helper group: bounding box → distance/ortho scale for the camera operator (Camera Info). |
+
+Presets in `ET Text` are fixed combinations: a preset menu (Menu Switch) selects selector + animator parameters.
+Users with a node editor assemble the groups directly.
+
+## 4. Modifier UI of `ET Text Mesh` (Phase 1, as built)
+
+```
+Text
+  Text, Line 2 … Line 4      (String; the extension writes multi-line text with "\n" into Text)
+Typography
+  Font (font socket), Size, Align X (menu), Align Y (menu), Pivot (menu)
+  Character Spacing, Word Spacing, Line Spacing
+  Text Box: Box Width, Box Height, Overflow (menu)         [subpanel, closed by default]
+Outline
+  Resolution, Simplify, Fill Mode, Fill Rule
+Shape
+  Depth (planned: linear gizmo)
+  Bevel [panel toggle]: Bevel Width, Segments, Profile
+  Smooth Angle
+Material
+  Front Material, Side Material, Bevel Material
+UV
+  UV, Normalize to Text, UV Scale
+Output
+  Keep Helper Attributes                                    [closed by default]
+```
+
+Warnings via `Warning` node: empty text, bevel larger than half the depth (planned: more than 2000 characters).
+
+## 5. Open implementation questions
+
+1. Characters without geometry (spaces): The index runs only over glyphs. For the typewriter the
+   extension counts the characters in the string, the group maps via `et_char_index`. To be checked whether 5.2
+   really delivers no instance for spaces.
+2. Pivot after Split to Instances: the instance origin is then at the world origin; `ET Animate Transform`
+   computes rotation/scale explicitly around `et_pivot` (translate → rotate → translate back) via
+   Set Instance Transform with matrix nodes.
+3. Fill Curve over all glyphs at once: overlapping glyphs (negative tracking) fill each other out with
+   Even-Odd. Option: Fill inside a For Each zone per instance (slower) as a switch "Allow overlap".
+4. Materials belong as CC0 assets in the same .blend (Front/Side/Bevel with Attribute node for `et_alpha`
+   and color gradient by `et_char_index`).
