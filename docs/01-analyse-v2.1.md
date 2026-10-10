@@ -1,6 +1,6 @@
 # Easy Text Geometry Node – Analyse der Version 2.1 (Blender 3.2)
 
-Stand: 2026-10-10. Grundlage: die hochgeladene Datei `easy-text-geometry-node.blend`
+Teil 1 von 2 (Teil 2: `02-zielbild-v3.md`). Stand: 2026-10-10. Grundlage: die hochgeladene Datei `easy-text-geometry-node.blend`
 (zstd-komprimiert, Header `BLENDER-v302`, also gespeichert mit Blender 3.2 aus dem Jahr 2022).
 Die Datei wurde ohne Blender mit einem eigenen Parser ausgelesen
 (`tools/dump_blend.py`, Rohdumps in `docs/reference/v2.1-dump/`).
@@ -57,7 +57,7 @@ String ×4 (fest: "Easy", "Text", "Geometry", "Node")
 5. **Bevel-Platte skaliert quadratisch.** Grid mit `Subdivision²` Vertices (Default 300² = 90 000, erlaubt bis 2000² = 4 Mio.) plus Geometry Proximity pro Vertex. Daher die "Danger"-Labels. Heute macht man das mit SDF-Volume-Grids (Mesh to SDF Grid → Grid to Mesh) oder Mesh Boolean und bekommt eine echte Rundung bei konstanten Kosten.
 6. **Animation ist nicht zeitbasiert und nicht selektiv.** Kein Scene Time, kein Typewriter, keine Auswahl nach Zeichen/Wort/Zeile, kein Offset/Stagger, kein Ease-In/Out pro Zeichen. Der Nutzer muss einen Vektor keyframen. Die "Bounce"-Skalierung ist von der Weltposition der Buchstaben abhängig (Position → Separate XYZ), nicht vom Zeichenindex, verhält sich also bei Verschieben des Objekts anders.
 7. **Streu-Keyframe in der Node-Gruppe.** Der einzige Keyframe (Frame 96) liegt als Action auf `Geo_MeshGenerationNodeGroup`, also auf der Gruppe selbst. Jeder, der die Gruppe appendet, bekommt diese Animation mit.
-8. **Font ist eine Node-Eigenschaft, kein Socket.** `String to Curves` trägt den Font als Node-Property; ein Font-Wechsel ist im Modifier-UI nicht möglich. (Das gilt auch in 4.x/5.x, siehe Teil 2.)
+8. **Font ist eine Node-Eigenschaft, kein Socket.** `String to Curves` trägt den Font in 3.2 als Node-Property; ein Font-Wechsel ist im Modifier-UI nicht möglich. (Erst seit Blender 5.1 gibt es einen Font-Socket, siehe Teil 2.)
 9. **Materialien sind Legacy-EEVEE / Principled 3.x.** Sockets wie `Subsurface Color`, `Specular`, `Clearcoat` existieren seit 4.0 anders (Versioning fängt es ab, aber man sollte neu aufbauen). Kein World, kein Licht, keine Kamera: das Rendering ist nicht Teil des Pakets, obwohl das Ziel von v3 ist.
 10. **Drei Realize-Instances-Schritte**, Merge by Distance auf dem Gesamtmesh und Resample "Evaluated" auf allen Glyphen: funktioniert, kostet aber bei langen Texten unnötig.
 11. **Kleinigkeiten.** Typos in Socket-Namen (`Bevel With`, `Bevel Hight`), keine Tooltips/Descriptions, keine Min/Max an den meisten Floats, `Shade Smooth` hat `default_attribute_name = "1"` (Zufallswert).
