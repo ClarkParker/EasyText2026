@@ -1,7 +1,7 @@
-"""Dünne Helferschicht über bpy zum deterministischen Bauen von Node-Gruppen.
+"""Thin helper layer over bpy for building node groups deterministically.
 
-Absichtlich klein gehalten: Nodes anlegen, Inputs setzen oder verlinken, Interface mit Panels,
-Frames mit Block-Layout, lokale Group-Input-Kopien und Asset-Markierung. Alles andere bleibt reines bpy.
+Deliberately small: create nodes, set or link inputs, interface with panels, frames with a block layout,
+local Group Input copies and asset marking. Everything else stays plain bpy.
 """
 
 from __future__ import annotations
@@ -32,11 +32,26 @@ SOCKET_ALIASES = {
     "font": "NodeSocketFont",
 }
 
-COLUMN_GAP = 70  # Abstand zwischen Spalten innerhalb eines Blocks
-ROW_GAP = 30  # Abstand zwischen Nodes einer Spalte
-BLOCK_GAP = 160  # Abstand zwischen Frames
-FRAME_PAD = 40  # Rand, den Blender um Frame-Kinder legt (nur für die Blockbreite geschätzt)
+COLUMN_GAP = 50  # gap between columns inside a block (Essentials: ~40-60)
+ROW_GAP = 36  # gap between nodes in a column
+BLOCK_GAP = 140  # gap between frame columns
+BLOCK_VGAP = 110  # gap between stacked frames
+FRAME_PAD = 40  # padding Blender draws around frame children (estimate for the block width)
 PROP_IDS = {"operation", "data_type", "domain", "mode", "input_type", "warning_type"}
+HEADER_H = 30.0  # node header
+SOCKET_H = 22.0  # height of one socket row
+PROP_H = 24.0  # height of one property row (dropdown)
+COLLAPSED_H = 32.0
+REROUTE_SIZE = 16.0
+GROUP_INPUT_COLOR = (0.510, 0.208, 0.298)  # theme Input class colour, as used by Blender's Essentials
+COMPACT_TYPES = {
+    "ShaderNodeMath",
+    "ShaderNodeVectorMath",
+    "FunctionNodeBooleanMath",
+    "FunctionNodeCompare",
+    "ShaderNodeSeparateXYZ",
+    "ShaderNodeCombineXYZ",
+}
 
 
 def socket_type(alias: str) -> str:
@@ -44,7 +59,7 @@ def socket_type(alias: str) -> str:
 
 
 def find_socket(sockets, key):
-    """Socket per Index, Identifier oder (als Fallback) Name finden. Bevorzugt verfügbare Sockets."""
+    """Find a socket by index, identifier or (as fallback) name. Prefers available sockets."""
     if isinstance(key, int):
         return sockets[key]
     for sock in sockets:
@@ -57,11 +72,11 @@ def find_socket(sockets, key):
         if sock.name == key:
             return sock
     names = [f"{s.name}({s.identifier})" for s in sockets]
-    raise KeyError(f"Kein Socket {key!r}; vorhanden: {names}")
+    raise KeyError(f"No socket {key!r}; available: {names}")
 
 
 class SocketRef:
-    """Verweis auf einen Socket, erst beim Verlinken aufgelöst (Sockets können sich bei Updates ändern)."""
+    """Reference to a socket, resolved when linking (sockets can change during updates)."""
 
     __slots__ = ("node", "key", "is_output")
 
@@ -76,7 +91,7 @@ class SocketRef:
 
 
 class NodeRef:
-    """Wrapper um einen bpy-Node mit bequemem Socket-Zugriff."""
+    """Wrapper around a bpy node with convenient socket access."""
 
     __slots__ = ("node",)
 
@@ -109,7 +124,11 @@ class GroupBuilder:
         color_tag: str | None = None,
         catalog: catalog_mod.Catalog | None = None,
         default_width: int | None = 200,
+        compact: bool = True,
+        reroutes: bool = False,
     ):
+        self.compact = compact  # draw small math nodes collapsed (as in Blender's Essentials)
+        self.reroutes = reroutes  # fallback layout only: route long links through reroute stations
         old = bpy.data.node_groups.get(name)
         if old is not None:
             bpy.data.node_groups.remove(old)
@@ -132,7 +151,7 @@ class GroupBuilder:
         self._menu_defaults: dict[str, str] = {}
         self._frames: list[bpy.types.Node] = []
         self._frame_order: list[bpy.types.Node] = []
-        self._input_sockets: dict[str, str] = {}  # Name -> Identifier (erste Definition gewinnt)
+        self._input_sockets: dict[str, str] = {}  # name -> identifier (first definition wins)
 
     # ---------------------------------------------------------------- interface
     @contextlib.contextmanager
@@ -186,7 +205,7 @@ class GroupBuilder:
         return SocketRef(self.group_in, sock.identifier, True)
 
     def menu_default(self, name: str, value: str) -> None:
-        """Default eines Menü-Inputs; wird in finish() gesetzt, wenn die Menü-Einträge über Links bekannt sind."""
+        """Default of a menu input; applied in finish() once the menu items are known through links."""
         self._menu_defaults[name] = value
 
     def output(self, name: str, type: str, *, description: str = "") -> SocketRef:
@@ -199,29 +218,35 @@ class GroupBuilder:
         self._connect(SocketRef(self.group_out, key, False), value)
 
     def inputs(self, *names: str, label: str | None = None) -> dict[str, SocketRef]:
-        """Lokale Kopie des Group Input im aktuellen Frame, nur mit den genannten Sockets sichtbar."""
+        """Local copy of the Group Input in the current frame, showing only the named sockets."""
         node = self.tree.nodes.new("NodeGroupInput")
         node.name = f"Group Input ({label or ', '.join(names)})"
         node.parent = self._frames[-1] if self._frames else None
+        node.use_custom_color = True
+        node.color = GROUP_INPUT_COLOR
         wanted = {self._input_sockets.get(n, n) for n in names}
         for sock in node.outputs:
             try:
                 sock.hide = sock.identifier not in wanted
-            except Exception:  # virtueller __extend__-Socket
+            except Exception:  # virtual __extend__ socket
                 pass
         return {n: SocketRef(node, self._input_sockets.get(n, n), True) for n in names}
 
     # ---------------------------------------------------------------- frames
     @contextlib.contextmanager
-    def frame(self, label: str, *, color: tuple | None = None, label_size: int = 20):
+    def frame(self, label: str, *, color: tuple | None = None, label_size: int = 20, text: str | None = None):
         node = self.tree.nodes.new("NodeFrame")
-        node.name = label
+        node.name = f"[{label}]"  # frames share the node namespace; keep the plain name free for nodes
         node.label = label
         node.label_size = label_size
         node.shrink = True
         if color is not None:
             node.use_custom_color = True
             node.color = color
+        if text:
+            note = bpy.data.texts.new(f"{self.tree.name} – {label}")
+            note.write(text)
+            node.text = note
         if self._frames:
             node.parent = self._frames[-1]
         self._frames.append(node)
@@ -244,11 +269,14 @@ class GroupBuilder:
         width: float | None = None,
     ) -> NodeRef:
         node = self.tree.nodes.new(idname)
+        default_name = node.name.split(".")[0]
         if name:
             node.name = name
+            if label is None and name != default_name and idname not in ("NodeGroupInput", "NodeGroupOutput"):
+                label = name  # visible header = intent, not node type
         if label:
             node.label = label
-        node.hide = hide
+        node.hide = hide or (self.compact and idname in COMPACT_TYPES)
         if width:
             node.width = width
         node.parent = self._frames[-1] if self._frames else None
@@ -284,12 +312,12 @@ class GroupBuilder:
         elif isinstance(value, bpy.types.NodeSocket):
             self.tree.links.new(value, sock)
         elif isinstance(value, list | tuple) and value and isinstance(value[0], SocketRef | NodeRef):
-            for item in value:  # Multi-Input-Socket (z. B. Join Geometry)
+            for item in value:  # multi-input socket (e.g. Join Geometry)
                 self._connect(target, item)
         else:
             sock.default_value = value
 
-    # ---------------------------------------------------------------- Kurzformen für häufige Nodes
+    # ---------------------------------------------------------------- shortcuts for common nodes
     def math(self, op: str, a, b=None, c=None, *, name: str | None = None, clamp: bool = False) -> NodeRef:
         inputs = {"Value": a}
         if b is not None:
@@ -326,9 +354,9 @@ class GroupBuilder:
         )
 
     def fallback(self, type: str, value, default, *, name: str | None = None) -> SocketRef:
-        """Datablock-Input mit Ersatzwert: Ist `value` leer (None), wird `default` als Node-Default verwendet.
+        """Data-block input with fallback: when `value` is empty (None), `default` is used as the node default.
 
-        Nötig, weil Blender 5.2.0 Datablock-Defaults am Group-Interface nicht in den Modifier übernimmt.
+        Needed because Blender 5.2.0 does not copy interface data-block defaults into the modifier.
         """
         is_none = self.node(
             "FunctionNodeCompare",
@@ -382,9 +410,10 @@ class GroupBuilder:
         for name, value in self._menu_defaults.items():
             self.tree.interface.items_tree[name].default_value = value
         if not any(link.from_node == self.group_in for link in self.tree.links):
-            self.tree.nodes.remove(self.group_in)  # alle Inputs laufen über lokale Kopien
+            self.tree.nodes.remove(self.group_in)  # all inputs go through local copies
             self.group_in = None
-        self._layout()
+        if not self._arrange():
+            self._layout()
         if self.catalog is not None:
             self.tree.asset_mark()
             self.tree.asset_data.catalog_id = self.catalog.uuid
@@ -394,9 +423,28 @@ class GroupBuilder:
         return self.tree
 
     # ---------------------------------------------------------------- layout
+    def _arrange(self) -> bool:
+        """Sugiyama layout from nodebpy (headless port of the Node Arrange add-on). Returns False if unavailable."""
+        try:
+            from nodebpy.layout import api, config
+        except ImportError:
+            return False
+        options = config.SugiyamaOptions(
+            margin=(40.0, 30.0),
+            socket_alignment="MODERATE",
+            reroutes="blocked",
+            fit_collapsed_widths=True,
+        )
+        api.arrange(self.tree, options)
+        return True
+
     def _layout(self) -> None:
-        """Block-Layout: jeder Top-Level-Frame ist ein Block (eigene Spalten), Blöcke stehen in Datenflussreihenfolge
-        nebeneinander. Nodes ohne Frame bilden einen Block am Anfang (Group Input) bzw. am Ende (Rest)."""
+        """Block layout: every top-level frame is a block with its own columns; blocks are arranged in data-flow
+        order, independent blocks stacked vertically. Nodes without a frame form a block at the start (Group
+        Input) or at the end (rest)."""
+        for node in self.tree.nodes:
+            if node.hide and node.bl_idname not in ("NodeFrame", "NodeReroute"):
+                node.width = _collapsed_width(node)
         nodes = [n for n in self.tree.nodes if n.bl_idname != "NodeFrame"]
         top_frames = [f for f in self._frame_order if f.parent is None]
 
@@ -418,20 +466,56 @@ class GroupBuilder:
         if tail:
             blocks.append(tail)
 
-        x_cursor = 0.0
-        for block in blocks:
-            width = self._layout_block(block, x_cursor)
-            x_cursor += width + BLOCK_GAP
+        # blocks in columns by dependency; independent blocks of one column are stacked
+        block_of = {n.name: i for i, block in enumerate(blocks) for n in block}
+        block_preds: dict[int, set[int]] = {i: set() for i in range(len(blocks))}
+        for link in self.tree.links:
+            a, b = block_of.get(link.from_node.name), block_of.get(link.to_node.name)
+            if a is not None and b is not None and a != b:
+                block_preds[b].add(a)
+        block_depth: dict[int, int] = {}
 
-    def _layout_block(self, block: list, x_start: float) -> float:
+        def resolve_block(i: int) -> int:
+            if i in block_depth:
+                return block_depth[i]
+            block_depth[i] = 0
+            block_depth[i] = 1 + max((resolve_block(p) for p in block_preds[i]), default=-1)
+            return block_depth[i]
+
+        for i in range(len(blocks)):
+            resolve_block(i)
+        x_cursor = 0.0
+        top: dict[str, float] = {}
+        for col in sorted(set(block_depth.values())):
+            members = [i for i in range(len(blocks)) if block_depth[i] == col]
+            col_width = 0.0
+            y_shift = 0.0
+            for i in members:
+                block = blocks[i]
+                width = self._layout_block(block, x_cursor, top)
+                col_width = max(col_width, width)
+                if y_shift:
+                    for n in block:
+                        n.location_absolute = (n.location_absolute.x, n.location_absolute.y - y_shift)
+                        top[n.name] -= y_shift
+                lowest = min(n.location_absolute.y - _node_height(n) for n in block)
+                y_shift = -lowest + BLOCK_VGAP
+            x_cursor += col_width + BLOCK_GAP
+
+    def _layout_block(self, block: list, x_start: float, top: dict[str, float]) -> float:
         names = {n.name for n in block}
+        by_name = {n.name: n for n in block}
+
+        def block_links():
+            return [lk for lk in self.tree.links if lk.from_node.name in names and lk.to_node.name in names]
+
         preds: dict[str, list] = {n.name: [] for n in block}
         succs: dict[str, list] = {n.name: [] for n in block}
-        for link in self.tree.links:
-            a, b = link.from_node.name, link.to_node.name
-            if a in names and b in names:
-                preds[b].append(a)
-                succs[a].append(b)
+        for link in block_links():
+            preds[link.to_node.name].append(link.from_node.name)
+            succs[link.from_node.name].append(link.to_node.name)
+
+        # 1. columns: longest path; sources right before their consumers
         depth: dict[str, int] = {}
 
         def resolve(name: str) -> int:
@@ -443,24 +527,76 @@ class GroupBuilder:
 
         for n in block:
             resolve(n.name)
-        # Quellen (ohne Vorgänger im Block) direkt vor ihre Verbraucher ziehen
         for n in block:
             if not preds[n.name] and succs[n.name]:
                 depth[n.name] = min(depth[s] for s in succs[n.name]) - 1
         if self.group_out in block:
             depth[self.group_out.name] = max(depth.values()) + 1
         min_depth = min(depth.values())
+        for n in block:
+            depth[n.name] -= min_depth
+
+        # 2. route long links through reroutes (one station after the source, one before the target)
+        if self.reroutes:
+            for link in list(block_links()):
+                a, b = link.from_node, link.to_node
+                span = depth[b.name] - depth[a.name]
+                if span < 2 or a.bl_idname == "NodeReroute" or b.bl_idname == "NodeReroute":
+                    continue
+                from_sock, to_sock = link.from_socket, link.to_socket
+                self.tree.links.remove(link)
+                prev_sock = from_sock
+                stations = [depth[a.name] + 1]
+                if span >= 3:
+                    stations.append(depth[b.name] - 1)
+                for col in stations:
+                    rr = self.tree.nodes.new("NodeReroute")
+                    rr.name = f"→ {from_sock.name}"
+                    rr.label = from_sock.name if col == stations[0] else ""
+                    rr.parent = a.parent if a.parent == b.parent else b.parent
+                    self.tree.links.new(prev_sock, rr.inputs[0])
+                    prev_sock = rr.outputs[0]
+                    block.append(rr)
+                    names.add(rr.name)
+                    by_name[rr.name] = rr
+                    depth[rr.name] = col
+                    preds[rr.name] = []
+                    succs[rr.name] = []
+                self.tree.links.new(prev_sock, to_sock)
+            preds = {n.name: [] for n in block}
+            succs = {n.name: [] for n in block}
+            for link in block_links():
+                preds[link.to_node.name].append(link.from_node.name)
+                succs[link.from_node.name].append(link.to_node.name)
+
         columns: dict[int, list] = {}
         for n in block:
-            columns.setdefault(depth[n.name] - min_depth, []).append(n)
+            columns.setdefault(depth[n.name], []).append(n)
 
-        # Reihenfolge je Spalte: Schwerpunkt der Vorgänger (zwei Durchläufe, zweiter rückwärts für Quellen)
+        # 3. order per column: geometry chain first, then barycenter of predecessors
         rank: dict[str, float] = {}
+        link_by_target: dict[str, list] = {}
+        for link in block_links():
+            link_by_target.setdefault(link.to_node.name, []).append(link)
+
+        def primary_link(node):
+            links = link_by_target.get(node.name, [])
+            if not links:
+                return None
+            geo = [lk for lk in links if lk.to_socket.bl_idname == "NodeSocketGeometry"]
+            if geo:
+                return geo[0]
+            return min(links, key=lambda lk: _socket_index(lk.to_node, lk.to_socket))
+
         for col in sorted(columns):
             members = columns[col]
             for i, n in enumerate(members):
                 linked = [rank[p] for p in preds[n.name] if p in rank]
-                rank[n.name] = sum(linked) / len(linked) if linked else float(i)
+                base = sum(linked) / len(linked) if linked else float(i) + 100.0
+                pl = primary_link(n)
+                if pl is not None and pl.to_socket.bl_idname == "NodeSocketGeometry":
+                    base -= 0.5
+                rank[n.name] = base
             members.sort(key=lambda n: (rank[n.name], n.name))
             for i, n in enumerate(members):
                 rank[n.name] = float(i)
@@ -475,39 +611,100 @@ class GroupBuilder:
             for i, n in enumerate(members):
                 rank[n.name] = float(i)
 
+        # 4. coordinates column by column; desired y keeps the primary link horizontal
         x = x_start
+        col_x: dict[int, float] = {}
         for col in sorted(columns):
             members = columns[col]
-            col_width = max(_node_width(n) for n in members)
-            y = 0.0
+            col_x[col] = x
+            desired: dict[str, float] = {}
             for n in members:
-                n.location_absolute = (x, y)
-                y -= _node_height(n) + ROW_GAP
+                pl = primary_link(n)
+                if pl is not None and pl.from_node.name in top:
+                    src = pl.from_node
+                    src_sock_y = top[src.name] - _socket_offset(src, pl.from_socket, output=True)
+                    desired[n.name] = src_sock_y + _socket_offset(n, pl.to_socket, output=False)
+                else:
+                    desired[n.name] = None
+            placed: list = []
+            y_cursor = None
+            ordered = sorted(members, key=lambda n: rank[n.name])
+            for n in ordered:
+                want = desired[n.name]
+                if want is None:
+                    want = 0.0 if y_cursor is None else y_cursor
+                y = want if y_cursor is None else min(want, y_cursor)
+                top[n.name] = y
+                y_cursor = y - _node_height(n) - ROW_GAP
+                placed.append(n)
+
+            col_width = max(_node_width(n) for n in members)
+            for n in members:
+                n.location_absolute = (
+                    x + (col_width - _node_width(n)) / 2 if n.bl_idname == "NodeReroute" else x,
+                    top[n.name],
+                )
             x += col_width + COLUMN_GAP
+        # right-align sources (Group Input copies, constants) to their column
+        for n in block:
+            if not preds[n.name] and succs[n.name] and n.bl_idname != "NodeReroute":
+                col = depth[n.name]
+                col_width = max(_node_width(m) for m in columns[col])
+                n.location_absolute = (col_x[col] + col_width - _node_width(n), top[n.name])
         return x - x_start - COLUMN_GAP + (2 * FRAME_PAD if any(n.parent for n in block) else 0)
 
 
+def _socket_index(node, socket) -> int:
+    sockets = node.outputs if socket.is_output else node.inputs
+    return next((i for i, s in enumerate(sockets) if s == socket), 0)
+
+
+def _socket_offset(node, socket, *, output: bool) -> float:
+    """Distance of the socket centre from the node top (estimated like Blender draws it)."""
+    if node.bl_idname == "NodeReroute":
+        return REROUTE_SIZE / 2
+    if node.hide:
+        return COLLAPSED_H / 2
+    outputs = [s for s in node.outputs if s.enabled and not s.hide]
+    inputs = [s for s in node.inputs if s.enabled and not s.hide]
+    if output:
+        idx = next((i for i, s in enumerate(outputs) if s == socket), 0)
+        return HEADER_H + SOCKET_H * idx + SOCKET_H / 2
+    props = sum(1 for p in node.bl_rna.properties if p.identifier in PROP_IDS)
+    idx = next((i for i, s in enumerate(inputs) if s == socket), 0)
+    return HEADER_H + SOCKET_H * len(outputs) + PROP_H * props + SOCKET_H * idx + SOCKET_H / 2
+
+
+def _collapsed_width(node) -> float:
+    text = node.label or node.name
+    return max(90.0, min(220.0, 7.0 * len(text) + 50.0))
+
+
 def _node_width(node: bpy.types.Node) -> float:
+    if node.bl_idname == "NodeReroute":
+        return REROUTE_SIZE
     return float(node.width)
 
 
 def _node_height(node: bpy.types.Node) -> float:
+    if node.bl_idname == "NodeReroute":
+        return REROUTE_SIZE
     if node.hide:
-        return 32.0
+        return COLLAPSED_H
     visible = [s for s in node.inputs if s.enabled and not s.hide] + [
         s for s in node.outputs if s.enabled and not s.hide
     ]
     props = sum(1 for p in node.bl_rna.properties if p.identifier in PROP_IDS)
     extra = 24 if node.bl_idname in ("GeometryNodeInputNamedAttribute", "GeometryNodeStringToCurves") else 0
-    return 34 + 22 * len(visible) + 24 * props + extra
+    return HEADER_H + SOCKET_H * len(visible) + PROP_H * props + extra + 6
 
 
 def builtin_font() -> bpy.types.VectorFont:
-    """Blenders eingebauter Font (Bfont Regular); wird bei Bedarf geladen."""
+    """Blender's built-in font (Bfont Regular); loaded on demand."""
     font = bpy.data.fonts.get("Bfont Regular")
     if font is None:
         font = bpy.data.fonts.load("<builtin>")
-    # Nur als Socket-Default referenziert zählt in 5.2.0 nicht als Nutzer: ohne Fake-User fehlt der Font nach dem Laden.
+    # A reference from a socket default does not count as a user in 5.2.0: without a fake user the font is lost on load.
     font.use_fake_user = True
     return font
 

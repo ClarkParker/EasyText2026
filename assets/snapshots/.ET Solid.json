@@ -1,6 +1,6 @@
 {
  "asset_catalog_id": null,
- "description": "Konturen füllen und zu einem geschlossenen Mesh extrudieren; et_face_group: 0 Seite, 1 Front, 2 Rück.",
+ "description": "Fill the outlines and extrude them into a closed mesh; et_face_group: 0 side, 1 front, 2 back.",
  "flags": {
   "color_tag": "NONE",
   "default_group_node_width": 200,
@@ -62,7 +62,7 @@
    "max_value": 10.0,
    "menu_expanded": false,
    "min_value": 0.0,
-   "name": "Tiefe",
+   "name": "Depth",
    "optional_label": false,
    "parent": null,
    "socket_type": "NodeSocketFloat",
@@ -83,7 +83,7 @@
    "item_type": "SOCKET",
    "layer_selection_field": false,
    "menu_expanded": false,
-   "name": "Füllung",
+   "name": "Fill Mode",
    "optional_label": false,
    "parent": null,
    "socket_type": "NodeSocketMenu",
@@ -103,7 +103,7 @@
    "item_type": "SOCKET",
    "layer_selection_field": false,
    "menu_expanded": false,
-   "name": "Füllregel",
+   "name": "Fill Rule",
    "optional_label": false,
    "parent": null,
    "socket_type": "NodeSocketMenu",
@@ -149,8 +149,8 @@
   [
    "Extrude",
    "Side",
-   "Group Side",
-   "Selection"
+   "Reroute.005",
+   "Input"
   ],
   [
    "Extrude",
@@ -161,7 +161,7 @@
   [
    "Face +Z",
    "Mesh",
-   "Material Front",
+   "Set Front Material",
    "Geometry"
   ],
   [
@@ -173,8 +173,8 @@
   [
    "Fetch et_char_index",
    "Value",
-   "Store et_char_index",
-   "Value"
+   "Reroute.004",
+   "Input"
   ],
   [
    "Fetch et_loop_len",
@@ -189,7 +189,7 @@
    "Value"
   ],
   [
-   "Fill.001",
+   "Fill",
    "Mesh",
    "Face +Z",
    "Mesh"
@@ -203,7 +203,7 @@
   [
    "Front Material Fallback",
    "Output",
-   "Material Front",
+   "Set Front Material",
    "Material"
   ],
   [
@@ -237,37 +237,37 @@
    "Curve"
   ],
   [
-   "Group Input (Curves, Füllung, Füllregel, Front Material)",
+   "Group Input (Curves, Fill Mode, Fill Rule, Front Material)",
    "Socket_0",
-   "Fill.001",
+   "Fill",
    "Curve"
   ],
   [
-   "Group Input (Curves, Füllung, Füllregel, Front Material)",
+   "Group Input (Curves, Fill Mode, Fill Rule, Front Material)",
    "Socket_2",
-   "Fill.001",
+   "Fill",
    "Mode"
   ],
   [
-   "Group Input (Curves, Füllung, Füllregel, Front Material)",
+   "Group Input (Curves, Fill Mode, Fill Rule, Front Material)",
    "Socket_3",
-   "Fill.001",
+   "Fill",
    "Fill Rule"
   ],
   [
-   "Group Input (Curves, Füllung, Füllregel, Front Material)",
-   "Socket_4",
-   "Front Material Fallback",
-   "False"
-  ],
-  [
-   "Group Input (Curves, Füllung, Füllregel, Front Material)",
+   "Group Input (Curves, Fill Mode, Fill Rule, Front Material)",
    "Socket_4",
    "Front Material Is None",
    "A"
   ],
   [
-   "Group Input (Tiefe)",
+   "Group Input (Curves, Fill Mode, Fill Rule, Front Material)",
+   "Socket_4",
+   "Reroute.002",
+   "Input"
+  ],
+  [
+   "Group Input (Depth)",
    "Socket_1",
    "Extrude",
    "Offset Scale"
@@ -282,12 +282,6 @@
    "Join Solid",
    "Geometry",
    "Close Solid",
-   "Geometry"
-  ],
-  [
-   "Material Front",
-   "Geometry",
-   "Store et_u",
    "Geometry"
   ],
   [
@@ -323,32 +317,86 @@
   [
    "Outline Points",
    "Points",
-   "Fetch et_char_index",
-   "Geometry"
-  ],
-  [
-   "Outline Points",
-   "Points",
-   "Fetch et_loop_len",
-   "Geometry"
-  ],
-  [
-   "Outline Points",
-   "Points",
-   "Fetch et_u",
-   "Geometry"
-  ],
-  [
-   "Outline Points",
-   "Points",
    "Nearest Outline Point",
    "Geometry"
+  ],
+  [
+   "Outline Points",
+   "Points",
+   "Reroute",
+   "Input"
   ],
   [
    "Position",
    "Position",
    "Nearest Outline Point",
    "Sample Position"
+  ],
+  [
+   "Reroute",
+   "Output",
+   "Fetch et_loop_len",
+   "Geometry"
+  ],
+  [
+   "Reroute",
+   "Output",
+   "Reroute.001",
+   "Input"
+  ],
+  [
+   "Reroute.001",
+   "Output",
+   "Fetch et_char_index",
+   "Geometry"
+  ],
+  [
+   "Reroute.001",
+   "Output",
+   "Fetch et_u",
+   "Geometry"
+  ],
+  [
+   "Reroute.002",
+   "Output",
+   "Reroute.003",
+   "Input"
+  ],
+  [
+   "Reroute.003",
+   "Output",
+   "Front Material Fallback",
+   "False"
+  ],
+  [
+   "Reroute.004",
+   "Output",
+   "Store et_char_index",
+   "Value"
+  ],
+  [
+   "Reroute.005",
+   "Output",
+   "Reroute.006",
+   "Input"
+  ],
+  [
+   "Reroute.006",
+   "Output",
+   "Group Side",
+   "Selection"
+  ],
+  [
+   "Reroute.007",
+   "Output",
+   "Store et_u",
+   "Geometry"
+  ],
+  [
+   "Set Front Material",
+   "Geometry",
+   "Reroute.007",
+   "Input"
   ],
   [
    "Store et_char_index",
@@ -391,25 +439,6 @@
  "nodes": [
   {
    "hide": false,
-   "idname": "NodeFrame",
-   "inputs": {},
-   "label": "Attribute übernehmen",
-   "location": [
-    0,
-    0
-   ],
-   "mute": false,
-   "name": "Attribute übernehmen",
-   "outputs": [],
-   "parent": null,
-   "props": {
-    "label_size": 20,
-    "shrink": true
-   },
-   "width": 160.0
-  },
-  {
-   "hide": false,
    "idname": "GeometryNodeMergeByDistance",
    "inputs": {
     "Distance": {
@@ -429,17 +458,17 @@
      "value": true
     }
    },
-   "label": "",
+   "label": "Close Solid",
    "location": [
-    4030,
-    0
+    1960,
+    80
    ],
    "mute": false,
    "name": "Close Solid",
    "outputs": [
     "Geometry"
    ],
-   "parent": "Rückseite + Extrusion",
+   "parent": "[Back Face + Extrude]",
    "width": 140.0
   },
   {
@@ -471,10 +500,10 @@
      "value": true
     }
    },
-   "label": "",
+   "label": "Extrude",
    "location": [
-    3150,
-    0
+    1180,
+    20
    ],
    "mute": false,
    "name": "Extrude",
@@ -483,7 +512,7 @@
     "Top",
     "Side"
    ],
-   "parent": "Rückseite + Extrusion",
+   "parent": "[Back Face + Extrude]",
    "props": {
     "mode": "FACES"
    },
@@ -502,21 +531,21 @@
      "name": "Selection"
     }
    },
-   "label": "",
+   "label": "Face +Z",
    "location": [
-    630,
-    0
+    -1120,
+    120
    ],
    "mute": false,
    "name": "Face +Z",
    "outputs": [
     "Mesh"
    ],
-   "parent": "Fill",
+   "parent": "[Fill]",
    "width": 140.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "FunctionNodeCompare",
    "inputs": {
     "A": {
@@ -528,23 +557,23 @@
      "value": 0.0
     }
    },
-   "label": "",
+   "label": "Faces Down",
    "location": [
-    420,
-    -176
+    -1320,
+    -60
    ],
    "mute": false,
    "name": "Faces Down",
    "outputs": [
     "Result"
    ],
-   "parent": "Fill",
+   "parent": "[Fill]",
    "props": {
     "data_type": "FLOAT",
     "mode": "ELEMENT",
     "operation": "LESS_THAN"
    },
-   "width": 140.0
+   "width": 111.0
   },
   {
    "hide": false,
@@ -563,17 +592,17 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "Fetch et_char_index",
    "location": [
-    1850,
-    -400
+    0,
+    -300
    ],
    "mute": false,
    "name": "Fetch et_char_index",
    "outputs": [
     "Value"
    ],
-   "parent": "Attribute übernehmen",
+   "parent": "[Transfer Attributes]",
    "props": {
     "clamp": false,
     "data_type": "INT",
@@ -598,17 +627,17 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "Fetch et_loop_len",
    "location": [
-    1850,
-    -200
+    0,
+    80
    ],
    "mute": false,
    "name": "Fetch et_loop_len",
    "outputs": [
     "Value"
    ],
-   "parent": "Attribute übernehmen",
+   "parent": "[Transfer Attributes]",
    "props": {
     "clamp": false,
     "data_type": "FLOAT",
@@ -633,42 +662,23 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "Fetch et_u",
    "location": [
-    1850,
-    0
+    0,
+    300
    ],
    "mute": false,
    "name": "Fetch et_u",
    "outputs": [
     "Value"
    ],
-   "parent": "Attribute übernehmen",
+   "parent": "[Transfer Attributes]",
    "props": {
     "clamp": false,
     "data_type": "FLOAT",
     "domain": "POINT"
    },
    "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeFrame",
-   "inputs": {},
-   "label": "Fill",
-   "location": [
-    0,
-    0
-   ],
-   "mute": false,
-   "name": "Fill",
-   "outputs": [],
-   "parent": null,
-   "props": {
-    "label_size": 20,
-    "shrink": true
-   },
-   "width": 160.0
   },
   {
    "hide": false,
@@ -691,17 +701,17 @@
      "name": "Mode"
     }
    },
-   "label": "",
+   "label": "Fill",
    "location": [
-    210,
-    0
+    -1320,
+    120
    ],
    "mute": false,
-   "name": "Fill.001",
+   "name": "Fill",
    "outputs": [
     "Mesh"
    ],
-   "parent": "Fill",
+   "parent": "[Fill]",
    "width": 140.0
   },
   {
@@ -717,17 +727,17 @@
      "value": true
     }
    },
-   "label": "",
+   "label": "Flip Back",
    "location": [
-    3150,
-    -264
+    1180,
+    120
    ],
    "mute": false,
    "name": "Flip Back",
    "outputs": [
     "Mesh"
    ],
-   "parent": "Rückseite + Extrusion",
+   "parent": "[Back Face + Extrude]",
    "width": 140.0
   },
   {
@@ -750,24 +760,24 @@
      }
     }
    },
-   "label": "",
+   "label": "Front Material Fallback",
    "location": [
-    420,
-    0
+    -1120,
+    -60
    ],
    "mute": false,
    "name": "Front Material Fallback",
    "outputs": [
     "Output"
    ],
-   "parent": "Fill",
+   "parent": "[Fill]",
    "props": {
     "input_type": "MATERIAL"
    },
    "width": 140.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "FunctionNodeCompare",
    "inputs": {
     "A": {
@@ -779,23 +789,23 @@
      "value": null
     }
    },
-   "label": "",
+   "label": "Front Material Is None",
    "location": [
-    210,
-    -174
+    -1340,
+    -120
    ],
    "mute": false,
    "name": "Front Material Is None",
    "outputs": [
     "Result"
    ],
-   "parent": "Fill",
+   "parent": "[Fill]",
    "props": {
     "data_type": "MATERIAL",
     "mode": "ELEMENT",
     "operation": "EQUAL"
    },
-   "width": 140.0
+   "width": 165.0
   },
   {
    "hide": false,
@@ -818,17 +828,17 @@
      "value": 2
     }
    },
-   "label": "",
+   "label": "Group Back",
    "location": [
-    2920,
-    -86
+    980,
+    80
    ],
    "mute": false,
    "name": "Group Back",
    "outputs": [
     "Geometry"
    ],
-   "parent": "Rückseite + Extrusion",
+   "parent": "[Back Face + Extrude]",
    "props": {
     "data_type": "INT",
     "domain": "FACE"
@@ -856,17 +866,17 @@
      "value": 1
     }
    },
-   "label": "",
+   "label": "Group Front",
    "location": [
-    3360,
-    0
+    1360,
+    20
    ],
    "mute": false,
    "name": "Group Front",
    "outputs": [
     "Geometry"
    ],
-   "parent": "Rückseite + Extrusion",
+   "parent": "[Back Face + Extrude]",
    "props": {
     "data_type": "INT",
     "domain": "FACE"
@@ -879,8 +889,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    1220,
-    0
+    -600,
+    -100
    ],
    "mute": false,
    "name": "Group Input (Curves)",
@@ -892,7 +902,7 @@
     "Socket_4",
     "__extend__"
    ],
-   "parent": "Attribute übernehmen",
+   "parent": "[Transfer Attributes]",
    "width": 140.0
   },
   {
@@ -901,11 +911,11 @@
    "inputs": {},
    "label": "",
    "location": [
-    0,
-    0
+    -1540,
+    120
    ],
    "mute": false,
-   "name": "Group Input (Curves, Füllung, Füllregel, Front Material)",
+   "name": "Group Input (Curves, Fill Mode, Fill Rule, Front Material)",
    "outputs": [
     "Socket_0",
     "Socket_1",
@@ -914,7 +924,7 @@
     "Socket_4",
     "__extend__"
    ],
-   "parent": "Fill",
+   "parent": "[Fill]",
    "width": 140.0
   },
   {
@@ -923,11 +933,11 @@
    "inputs": {},
    "label": "",
    "location": [
-    2920,
-    0
+    980,
+    -120
    ],
    "mute": false,
-   "name": "Group Input (Tiefe)",
+   "name": "Group Input (Depth)",
    "outputs": [
     "Socket_0",
     "Socket_1",
@@ -936,7 +946,7 @@
     "Socket_4",
     "__extend__"
    ],
-   "parent": "Rückseite + Extrusion",
+   "parent": "[Back Face + Extrude]",
    "width": 140.0
   },
   {
@@ -953,8 +963,8 @@
    },
    "label": "",
    "location": [
-    4410,
-    0
+    2160,
+    80
    ],
    "mute": false,
    "name": "Group Output",
@@ -986,17 +996,17 @@
      "value": 0
     }
    },
-   "label": "",
+   "label": "Group Side",
    "location": [
-    3590,
-    0
+    1580,
+    20
    ],
    "mute": false,
    "name": "Group Side",
    "outputs": [
     "Geometry"
    ],
-   "parent": "Rückseite + Extrusion",
+   "parent": "[Back Face + Extrude]",
    "props": {
     "data_type": "INT",
     "domain": "FACE"
@@ -1012,17 +1022,336 @@
      "name": "Geometry"
     }
    },
-   "label": "",
+   "label": "Join Solid",
    "location": [
-    3820,
-    0
+    1780,
+    80
    ],
    "mute": false,
    "name": "Join Solid",
    "outputs": [
     "Geometry"
    ],
-   "parent": "Rückseite + Extrusion",
+   "parent": "[Back Face + Extrude]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSampleNearest",
+   "inputs": {
+    "Geometry": {
+     "linked": true,
+     "name": "Geometry"
+    },
+    "Sample Position": {
+     "linked": true,
+     "name": "Sample Position"
+    }
+   },
+   "label": "Nearest Outline Point",
+   "location": [
+    -220,
+    -240
+   ],
+   "mute": false,
+   "name": "Nearest Outline Point",
+   "outputs": [
+    "Index"
+   ],
+   "parent": "[Transfer Attributes]",
+   "props": {
+    "domain": "POINT"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeInputNormal",
+   "inputs": {},
+   "label": "",
+   "location": [
+    -1720,
+    -40
+   ],
+   "mute": false,
+   "name": "Normal",
+   "outputs": [
+    "Normal",
+    "True Normal"
+   ],
+   "parent": "[Fill]",
+   "props": {
+    "legacy_corner_normals": false
+   },
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeSeparateXYZ",
+   "inputs": {
+    "Vector": {
+     "linked": true,
+     "name": "Vector"
+    }
+   },
+   "label": "Normal XYZ",
+   "location": [
+    -1520,
+    -80
+   ],
+   "mute": false,
+   "name": "Normal XYZ",
+   "outputs": [
+    "X",
+    "Y",
+    "Z"
+   ],
+   "parent": "[Fill]",
+   "width": 109.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeCurveToPoints",
+   "inputs": {
+    "Curve": {
+     "linked": true,
+     "name": "Curve"
+    }
+   },
+   "label": "Outline Points",
+   "location": [
+    -420,
+    -100
+   ],
+   "mute": false,
+   "name": "Outline Points",
+   "outputs": [
+    "Points",
+    "Tangent",
+    "Normal",
+    "Rotation"
+   ],
+   "parent": "[Transfer Attributes]",
+   "props": {
+    "mode": "EVALUATED"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeInputPosition",
+   "inputs": {},
+   "label": "",
+   "location": [
+    -420,
+    -300
+   ],
+   "mute": false,
+   "name": "Position",
+   "outputs": [
+    "Position"
+   ],
+   "parent": "[Transfer Attributes]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -220,
+    -46
+   ],
+   "mute": false,
+   "name": "Reroute",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Transfer Attributes]",
+   "props": {
+    "socket_idname": "NodeSocketGeometry"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -80,
+    -46
+   ],
+   "mute": false,
+   "name": "Reroute.001",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Transfer Attributes]",
+   "props": {
+    "socket_idname": "NodeSocketGeometry"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1340,
+    -181
+   ],
+   "mute": false,
+   "name": "Reroute.002",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Fill]",
+   "props": {
+    "socket_idname": "NodeSocketMaterial"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1175,
+    -181
+   ],
+   "mute": false,
+   "name": "Reroute.003",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Fill]",
+   "props": {
+    "socket_idname": "NodeSocketMaterial"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    550,
+    -335
+   ],
+   "mute": false,
+   "name": "Reroute.004",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Transfer Attributes]",
+   "props": {
+    "socket_idname": "NodeSocketInt"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    1370,
+    -210
+   ],
+   "mute": false,
+   "name": "Reroute.005",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Back Face + Extrude]",
+   "props": {
+    "socket_idname": "NodeSocketBool"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    1520,
+    -210
+   ],
+   "mute": false,
+   "name": "Reroute.006",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Back Face + Extrude]",
+   "props": {
+    "socket_idname": "NodeSocketBool"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -720,
+    341
+   ],
+   "mute": false,
+   "name": "Reroute.007",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketGeometry"
+   },
    "width": 140.0
   },
   {
@@ -1042,156 +1371,18 @@
      "value": true
     }
    },
-   "label": "",
+   "label": "Set Front Material",
    "location": [
-    840,
-    0
+    -940,
+    120
    ],
    "mute": false,
-   "name": "Material Front",
+   "name": "Set Front Material",
    "outputs": [
     "Geometry"
    ],
-   "parent": "Fill",
+   "parent": "[Fill]",
    "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeSampleNearest",
-   "inputs": {
-    "Geometry": {
-     "linked": true,
-     "name": "Geometry"
-    },
-    "Sample Position": {
-     "linked": true,
-     "name": "Sample Position"
-    }
-   },
-   "label": "",
-   "location": [
-    1640,
-    -178
-   ],
-   "mute": false,
-   "name": "Nearest Outline Point",
-   "outputs": [
-    "Index"
-   ],
-   "parent": "Attribute übernehmen",
-   "props": {
-    "domain": "POINT"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeInputNormal",
-   "inputs": {},
-   "label": "",
-   "location": [
-    0,
-    -152
-   ],
-   "mute": false,
-   "name": "Normal",
-   "outputs": [
-    "Normal",
-    "True Normal"
-   ],
-   "parent": "Fill",
-   "props": {
-    "legacy_corner_normals": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeSeparateXYZ",
-   "inputs": {
-    "Vector": {
-     "linked": true,
-     "name": "Vector"
-    }
-   },
-   "label": "",
-   "location": [
-    210,
-    -376
-   ],
-   "mute": false,
-   "name": "Normal XYZ",
-   "outputs": [
-    "X",
-    "Y",
-    "Z"
-   ],
-   "parent": "Fill",
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeCurveToPoints",
-   "inputs": {
-    "Curve": {
-     "linked": true,
-     "name": "Curve"
-    }
-   },
-   "label": "",
-   "location": [
-    1430,
-    0
-   ],
-   "mute": false,
-   "name": "Outline Points",
-   "outputs": [
-    "Points",
-    "Tangent",
-    "Normal",
-    "Rotation"
-   ],
-   "parent": "Attribute übernehmen",
-   "props": {
-    "mode": "EVALUATED"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeInputPosition",
-   "inputs": {},
-   "label": "",
-   "location": [
-    1430,
-    -198
-   ],
-   "mute": false,
-   "name": "Position",
-   "outputs": [
-    "Position"
-   ],
-   "parent": "Attribute übernehmen",
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeFrame",
-   "inputs": {},
-   "label": "Rückseite + Extrusion",
-   "location": [
-    0,
-    0
-   ],
-   "mute": false,
-   "name": "Rückseite + Extrusion",
-   "outputs": [],
-   "parent": null,
-   "props": {
-    "label_size": 20,
-    "shrink": true
-   },
-   "width": 160.0
   },
   {
    "hide": false,
@@ -1214,17 +1405,17 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "Store et_char_index",
    "location": [
-    2520,
-    0
+    600,
+    420
    ],
    "mute": false,
    "name": "Store et_char_index",
    "outputs": [
     "Geometry"
    ],
-   "parent": "Attribute übernehmen",
+   "parent": "[Transfer Attributes]",
    "props": {
     "data_type": "INT",
     "domain": "POINT"
@@ -1252,17 +1443,17 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "Store et_loop_len",
    "location": [
-    2290,
-    0
+    400,
+    420
    ],
    "mute": false,
    "name": "Store et_loop_len",
    "outputs": [
     "Geometry"
    ],
-   "parent": "Attribute übernehmen",
+   "parent": "[Transfer Attributes]",
    "props": {
     "data_type": "FLOAT",
     "domain": "POINT"
@@ -1290,20 +1481,77 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "Store et_u",
    "location": [
-    2060,
-    0
+    180,
+    420
    ],
    "mute": false,
    "name": "Store et_u",
    "outputs": [
     "Geometry"
    ],
-   "parent": "Attribute übernehmen",
+   "parent": "[Transfer Attributes]",
    "props": {
     "data_type": "FLOAT",
     "domain": "POINT"
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Back Face + Extrude",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Back Face + Extrude]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Fill",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Fill]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Transfer Attributes",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Transfer Attributes]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
    },
    "width": 160.0
   },
@@ -1316,10 +1564,10 @@
      "value": "et_char_index"
     }
    },
-   "label": "",
+   "label": "et_char_index (points)",
    "location": [
-    1640,
-    -510
+    -220,
+    -400
    ],
    "mute": false,
    "name": "et_char_index (points)",
@@ -1327,7 +1575,7 @@
     "Attribute",
     "Exists"
    ],
-   "parent": "Attribute übernehmen",
+   "parent": "[Transfer Attributes]",
    "props": {
     "data_type": "INT"
    },
@@ -1342,10 +1590,10 @@
      "value": "et_loop_len"
     }
    },
-   "label": "",
+   "label": "et_loop_len (points)",
    "location": [
-    1640,
-    -332
+    -220,
+    -80
    ],
    "mute": false,
    "name": "et_loop_len (points)",
@@ -1353,7 +1601,7 @@
     "Attribute",
     "Exists"
    ],
-   "parent": "Attribute übernehmen",
+   "parent": "[Transfer Attributes]",
    "props": {
     "data_type": "FLOAT"
    },
@@ -1368,10 +1616,10 @@
      "value": "et_u"
     }
    },
-   "label": "",
+   "label": "et_u (points)",
    "location": [
-    1640,
-    0
+    -220,
+    300
    ],
    "mute": false,
    "name": "et_u (points)",
@@ -1379,7 +1627,7 @@
     "Attribute",
     "Exists"
    ],
-   "parent": "Attribute übernehmen",
+   "parent": "[Transfer Attributes]",
    "props": {
     "data_type": "FLOAT"
    },

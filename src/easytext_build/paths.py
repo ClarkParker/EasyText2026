@@ -1,4 +1,4 @@
-"""Zentrale Pfade des Repos."""
+"""Central repository paths."""
 
 from pathlib import Path
 

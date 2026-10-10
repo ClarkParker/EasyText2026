@@ -1,4 +1,4 @@
-"""Reihenfolge der Gruppen-Builder. Abhängigkeiten (Untergruppen) stehen vor ihren Nutzern."""
+"""Order of the group builders. Dependencies (sub-groups) come before their users."""
 
 from . import et_bevel, et_finish, et_lines_join, et_outline, et_solid, et_text_mesh, et_text_source, et_uv
 

@@ -1,4 +1,4 @@
-"""Standard-Materialien, die als Defaults an den Material-Inputs der Gruppen hängen (CC0, Teil der Asset-Datei)."""
+"""Default materials used as defaults on the material inputs of the groups (CC0, part of the asset file)."""
 
 import bpy
 
@@ -28,7 +28,7 @@ def ensure(name: str) -> bpy.types.Material:
     bsdf.inputs["Roughness"].default_value = roughness
     bsdf.inputs["Metallic"].default_value = metallic
     mat.diffuse_color = color
-    mat.use_fake_user = True  # Socket-Defaults zählen nicht als Nutzer; sonst fehlen die Materialien nach dem Laden.
+    mat.use_fake_user = True  # socket defaults do not count as users; otherwise the materials are lost on load
     return mat
 
 

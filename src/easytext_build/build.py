@@ -1,8 +1,8 @@
-"""Baut assets/easytext_v3.blend, den Asset-Katalog und die JSON-Snapshots.
+"""Builds assets/easytext_v3.blend, the asset catalog and the JSON snapshots.
 
-Aufruf: python -m easytext_build.build   (mit installiertem bpy-Wheel)
-   oder: blender -b --python-expr \
-         "import sys; sys.path.insert(0, 'src'); import easytext_build.build as b; b.main()"
+Run: python -m easytext_build.build   (with the bpy wheel installed)
+ or: blender -b --python-expr \
+     "import sys; sys.path.insert(0, 'src'); import easytext_build.build as b; b.main()"
 """
 
 from __future__ import annotations
@@ -35,13 +35,13 @@ def main() -> int:
 
     bpy.ops.wm.save_as_mainfile(filepath=str(paths.BLEND_FILE), compress=True)
     print(
-        f"[build] {len(trees)} Gruppen -> {paths.BLEND_FILE.relative_to(paths.ROOT)} (Blender {bpy.app.version_string})"
+        f"[build] {len(trees)} groups -> {paths.BLEND_FILE.relative_to(paths.ROOT)} (Blender {bpy.app.version_string})"
     )
     demo.populate_scene(bpy.context.scene)
     bpy.ops.wm.save_as_mainfile(filepath=str(paths.DEMO_FILE), compress=True)
-    print(f"[build] Demo-Szene -> {paths.DEMO_FILE.relative_to(paths.ROOT)}")
+    print(f"[build] demo scene -> {paths.DEMO_FILE.relative_to(paths.ROOT)}")
     for tree in trees:
-        print(f"[build]   {tree.name}: {len(tree.nodes)} Nodes, {len(tree.links)} Links")
+        print(f"[build]   {tree.name}: {len(tree.nodes)} nodes, {len(tree.links)} links")
     return 0
 
 

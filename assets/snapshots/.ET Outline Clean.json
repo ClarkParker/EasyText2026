@@ -1,6 +1,6 @@
 {
  "asset_catalog_id": null,
- "description": "Glyphenkonturen als saubere Polylinien mit Konturlänge (et_u) und Schleifenlänge (et_loop_len).",
+ "description": "Glyph outlines as clean polylines with contour length (et_u) and loop length (et_loop_len).",
  "flags": {
   "color_tag": "NONE",
   "default_group_node_width": 200,
@@ -51,7 +51,7 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": 12,
-   "description": "Punkte pro Kurvensegment.",
+   "description": "Points per curve segment.",
    "hide_in_modifier": false,
    "hide_value": false,
    "identifier": "Socket_1",
@@ -62,7 +62,7 @@
    "max_value": 64,
    "menu_expanded": false,
    "min_value": 1,
-   "name": "Auflösung",
+   "name": "Resolution",
    "optional_label": false,
    "parent": null,
    "socket_type": "NodeSocketInt",
@@ -74,7 +74,7 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": 0.5,
-   "description": "Punkte unter diesem Richtungswinkel (Grad) entfernen. 0 = aus.",
+   "description": "Remove points whose direction changes less than this angle (degrees). 0 = off.",
    "hide_in_modifier": false,
    "hide_value": false,
    "identifier": "Socket_2",
@@ -85,7 +85,7 @@
    "max_value": 10.0,
    "menu_expanded": false,
    "min_value": 0.0,
-   "name": "Vereinfachen",
+   "name": "Simplify",
    "optional_label": false,
    "parent": null,
    "socket_type": "NodeSocketFloat",
@@ -101,15 +101,15 @@
    "Value"
   ],
   [
-   "Clamp Hi",
+   "Clamp High",
    "Value",
    "Arccos",
    "Value"
   ],
   [
-   "Clamp Lo",
+   "Clamp Low",
    "Value",
-   "Clamp Hi",
+   "Clamp High",
    "Value"
   ],
   [
@@ -119,49 +119,49 @@
    "Geometry"
   ],
   [
-   "Dir In",
+   "Direction In",
    "Vector",
    "Edge Length",
    "Vector"
   ],
   [
-   "Dir In",
+   "Direction In",
    "Vector",
-   "Norm In",
+   "Normalize In",
    "Vector"
   ],
   [
-   "Dir Out",
+   "Direction Out",
    "Vector",
-   "Norm Out",
+   "Normalize Out",
    "Vector"
   ],
   [
    "Dot",
    "Value",
-   "Clamp Lo",
+   "Clamp Low",
    "Value"
   ],
   [
    "Edge Length",
    "Value",
-   "Is Duplicate",
-   "A"
+   "Reroute",
+   "Input"
   ],
   [
-   "Group Input (Curves, Auflösung)",
+   "Group Input (Curves, Resolution)",
    "Socket_0",
    "Set Resolution",
    "Geometry"
   ],
   [
-   "Group Input (Curves, Auflösung)",
+   "Group Input (Curves, Resolution)",
    "Socket_1",
    "Set Resolution",
    "Resolution"
   ],
   [
-   "Group Input (Vereinfachen)",
+   "Group Input (Simplify)",
    "Socket_2",
    "Is Straight",
    "B"
@@ -181,19 +181,19 @@
   [
    "Index",
    "Index",
-   "Prev Point",
+   "Previous Point",
    "Point Index"
   ],
   [
    "Is Duplicate",
    "Result",
-   "Straight or Dup",
+   "Straight or Duplicate",
    "Boolean_001"
   ],
   [
    "Is Straight",
    "Result",
-   "Straight or Dup",
+   "Straight or Duplicate",
    "Boolean"
   ],
   [
@@ -211,31 +211,19 @@
   [
    "Next Position",
    "Value",
-   "Dir Out",
+   "Direction Out",
    "Vector"
   ],
   [
-   "Norm In",
+   "Normalize In",
    "Vector",
    "Dot",
    "Vector"
   ],
   [
-   "Norm Out",
+   "Normalize Out",
    "Vector",
    "Dot",
-   "Vector_001"
-  ],
-  [
-   "Position",
-   "Position",
-   "Dir In",
-   "Vector"
-  ],
-  [
-   "Position",
-   "Position",
-   "Dir Out",
    "Vector_001"
   ],
   [
@@ -247,25 +235,31 @@
   [
    "Position",
    "Position",
-   "Prev Position",
+   "Previous Position",
    "Value"
   ],
   [
-   "Prev Point",
+   "Position",
+   "Position",
+   "Reroute.001",
+   "Input"
+  ],
+  [
+   "Previous Point",
    "Is Valid Offset",
    "Has Neighbours",
    "Boolean"
   ],
   [
-   "Prev Point",
+   "Previous Point",
    "Point Index",
-   "Prev Position",
+   "Previous Position",
    "Index"
   ],
   [
-   "Prev Position",
+   "Previous Position",
    "Value",
-   "Dir In",
+   "Direction In",
    "Vector_001"
   ],
   [
@@ -273,6 +267,54 @@
    "Boolean",
    "Delete Points",
    "Selection"
+  ],
+  [
+   "Reroute",
+   "Output",
+   "Is Duplicate",
+   "A"
+  ],
+  [
+   "Reroute.001",
+   "Output",
+   "Reroute.002",
+   "Input"
+  ],
+  [
+   "Reroute.002",
+   "Output",
+   "Direction In",
+   "Vector"
+  ],
+  [
+   "Reroute.002",
+   "Output",
+   "Direction Out",
+   "Vector_001"
+  ],
+  [
+   "Reroute.003",
+   "Output",
+   "Reroute.004",
+   "Input"
+  ],
+  [
+   "Reroute.004",
+   "Output",
+   "Delete Points",
+   "Geometry"
+  ],
+  [
+   "Reroute.004",
+   "Output",
+   "Next Position",
+   "Geometry"
+  ],
+  [
+   "Reroute.004",
+   "Output",
+   "Previous Position",
+   "Geometry"
   ],
   [
    "Set Resolution",
@@ -305,7 +347,7 @@
    "Geometry"
   ],
   [
-   "Straight or Dup",
+   "Straight or Duplicate",
    "Boolean",
    "Remove Point",
    "Boolean"
@@ -313,20 +355,8 @@
   [
    "To Polyline",
    "Curve",
-   "Delete Points",
-   "Geometry"
-  ],
-  [
-   "To Polyline",
-   "Curve",
-   "Next Position",
-   "Geometry"
-  ],
-  [
-   "To Polyline",
-   "Curve",
-   "Prev Position",
-   "Geometry"
+   "Reroute.003",
+   "Input"
   ],
   [
    "Turn Angle",
@@ -338,7 +368,7 @@
  "name": ".ET Outline Clean",
  "nodes": [
   {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeMath",
    "inputs": {
     "Value": {
@@ -346,44 +376,25 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "Arccos",
    "location": [
-    2520,
-    0
+    80,
+    40
    ],
    "mute": false,
    "name": "Arccos",
    "outputs": [
     "Value"
    ],
-   "parent": "Vereinfachen",
+   "parent": "[Simplify]",
    "props": {
     "operation": "ARCCOSINE",
     "use_clamp": false
    },
-   "width": 140.0
+   "width": 100.0
   },
   {
-   "hide": false,
-   "idname": "NodeFrame",
-   "inputs": {},
-   "label": "Auflösen",
-   "location": [
-    0,
-    0
-   ],
-   "mute": false,
-   "name": "Auflösen",
-   "outputs": [],
-   "parent": null,
-   "props": {
-    "label_size": 20,
-    "shrink": true
-   },
-   "width": 160.0
-  },
-  {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeMath",
    "inputs": {
     "Value": {
@@ -395,25 +406,25 @@
      "value": 1.0
     }
    },
-   "label": "",
+   "label": "Clamp High",
    "location": [
-    2310,
-    0
+    60,
+    80
    ],
    "mute": false,
-   "name": "Clamp Hi",
+   "name": "Clamp High",
    "outputs": [
     "Value"
    ],
-   "parent": "Vereinfachen",
+   "parent": "[Simplify]",
    "props": {
     "operation": "MINIMUM",
     "use_clamp": false
    },
-   "width": 140.0
+   "width": 108.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeMath",
    "inputs": {
     "Value": {
@@ -425,22 +436,22 @@
      "value": -1.0
     }
    },
-   "label": "",
+   "label": "Clamp Low",
    "location": [
-    2100,
-    0
+    80,
+    120
    ],
    "mute": false,
-   "name": "Clamp Lo",
+   "name": "Clamp Low",
    "outputs": [
     "Value"
    ],
-   "parent": "Vereinfachen",
+   "parent": "[Simplify]",
    "props": {
     "operation": "MAXIMUM",
     "use_clamp": false
    },
-   "width": 140.0
+   "width": 105.0
   },
   {
    "hide": false,
@@ -455,17 +466,17 @@
      "name": "Selection"
     }
    },
-   "label": "",
+   "label": "Delete Points",
    "location": [
-    3570,
-    0
+    760,
+    460
    ],
    "mute": false,
    "name": "Delete Points",
    "outputs": [
     "Geometry"
    ],
-   "parent": "Vereinfachen",
+   "parent": "[Simplify]",
    "props": {
     "domain": "POINT",
     "mode": "ALL"
@@ -473,7 +484,7 @@
    "width": 140.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeVectorMath",
    "inputs": {
     "Vector": {
@@ -485,24 +496,24 @@
      "name": "Vector"
     }
    },
-   "label": "",
+   "label": "Direction In",
    "location": [
-    1470,
-    -154
+    -120,
+    220
    ],
    "mute": false,
-   "name": "Dir In",
+   "name": "Direction In",
    "outputs": [
     "Vector"
    ],
-   "parent": "Vereinfachen",
+   "parent": "[Simplify]",
    "props": {
     "operation": "SUBTRACT"
    },
-   "width": 140.0
+   "width": 109.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeVectorMath",
    "inputs": {
     "Vector": {
@@ -514,24 +525,24 @@
      "name": "Vector"
     }
    },
-   "label": "",
+   "label": "Direction Out",
    "location": [
-    1470,
-    0
+    -120,
+    -20
    ],
    "mute": false,
-   "name": "Dir Out",
+   "name": "Direction Out",
    "outputs": [
     "Vector"
    ],
-   "parent": "Vereinfachen",
+   "parent": "[Simplify]",
    "props": {
     "operation": "SUBTRACT"
    },
-   "width": 140.0
+   "width": 116.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeVectorMath",
    "inputs": {
     "Vector": {
@@ -543,24 +554,24 @@
      "name": "Vector"
     }
    },
-   "label": "",
+   "label": "Dot",
    "location": [
-    1890,
-    0
+    80,
+    180
    ],
    "mute": false,
    "name": "Dot",
    "outputs": [
     "Value"
    ],
-   "parent": "Vereinfachen",
+   "parent": "[Simplify]",
    "props": {
     "operation": "DOT_PRODUCT"
    },
-   "width": 140.0
+   "width": 100.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeVectorMath",
    "inputs": {
     "Vector": {
@@ -568,20 +579,40 @@
      "name": "Vector"
     }
    },
-   "label": "",
+   "label": "Edge Length",
    "location": [
-    1680,
-    -132
+    -120,
+    180
    ],
    "mute": false,
    "name": "Edge Length",
    "outputs": [
     "Value"
    ],
-   "parent": "Vereinfachen",
+   "parent": "[Simplify]",
    "props": {
     "operation": "LENGTH"
    },
+   "width": 113.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    -1480,
+    -20
+   ],
+   "mute": false,
+   "name": "Group Input (Curves, Resolution)",
+   "outputs": [
+    "Socket_0",
+    "Socket_1",
+    "Socket_2",
+    "__extend__"
+   ],
+   "parent": "[Resolution]",
    "width": 140.0
   },
   {
@@ -590,38 +621,18 @@
    "inputs": {},
    "label": "",
    "location": [
-    0,
-    0
+    60,
+    -80
    ],
    "mute": false,
-   "name": "Group Input (Curves, Auflösung)",
+   "name": "Group Input (Simplify)",
    "outputs": [
     "Socket_0",
     "Socket_1",
     "Socket_2",
     "__extend__"
    ],
-   "parent": "Auflösen",
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeGroupInput",
-   "inputs": {},
-   "label": "",
-   "location": [
-    2730,
-    0
-   ],
-   "mute": false,
-   "name": "Group Input (Vereinfachen)",
-   "outputs": [
-    "Socket_0",
-    "Socket_1",
-    "Socket_2",
-    "__extend__"
-   ],
-   "parent": "Vereinfachen",
+   "parent": "[Simplify]",
    "width": 140.0
   },
   {
@@ -638,8 +649,8 @@
    },
    "label": "",
    "location": [
-    4790,
-    0
+    1720,
+    20
    ],
    "mute": false,
    "name": "Group Output",
@@ -651,7 +662,7 @@
    "width": 140.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "FunctionNodeBooleanMath",
    "inputs": {
     "Boolean": {
@@ -663,21 +674,21 @@
      "name": "Boolean"
     }
    },
-   "label": "",
+   "label": "Has Neighbours",
    "location": [
-    1260,
-    -200
+    -320,
+    -320
    ],
    "mute": false,
    "name": "Has Neighbours",
    "outputs": [
     "Boolean"
    ],
-   "parent": "Vereinfachen",
+   "parent": "[Simplify]",
    "props": {
     "operation": "AND"
    },
-   "width": 140.0
+   "width": 131.0
   },
   {
    "hide": false,
@@ -685,19 +696,19 @@
    "inputs": {},
    "label": "",
    "location": [
-    820,
-    0
+    -760,
+    -340
    ],
    "mute": false,
    "name": "Index",
    "outputs": [
     "Index"
    ],
-   "parent": "Vereinfachen",
+   "parent": "[Simplify]",
    "width": 140.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "FunctionNodeCompare",
    "inputs": {
     "A": {
@@ -709,26 +720,26 @@
      "value": 0.0
     }
    },
-   "label": "",
+   "label": "Is Duplicate",
    "location": [
-    1890,
-    -154
+    240,
+    -160
    ],
    "mute": false,
    "name": "Is Duplicate",
    "outputs": [
     "Result"
    ],
-   "parent": "Vereinfachen",
+   "parent": "[Simplify]",
    "props": {
     "data_type": "FLOAT",
     "mode": "ELEMENT",
     "operation": "LESS_THAN"
    },
-   "width": 140.0
+   "width": 110.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "FunctionNodeCompare",
    "inputs": {
     "A": {
@@ -740,9 +751,9 @@
      "name": "B"
     }
    },
-   "label": "",
+   "label": "Is Straight",
    "location": [
-    2940,
+    240,
     0
    ],
    "mute": false,
@@ -750,32 +761,13 @@
    "outputs": [
     "Result"
    ],
-   "parent": "Vereinfachen",
+   "parent": "[Simplify]",
    "props": {
     "data_type": "FLOAT",
     "mode": "ELEMENT",
     "operation": "LESS_THAN"
    },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeFrame",
-   "inputs": {},
-   "label": "Konturparameter",
-   "location": [
-    0,
-    0
-   ],
-   "mute": false,
-   "name": "Konturparameter",
-   "outputs": [],
-   "parent": null,
-   "props": {
-    "label_size": 20,
-    "shrink": true
-   },
-   "width": 160.0
+   "width": 102.0
   },
   {
    "hide": false,
@@ -790,10 +782,10 @@
      "name": "Point Index"
     }
    },
-   "label": "",
+   "label": "Next Point",
    "location": [
-    1030,
-    0
+    -580,
+    -380
    ],
    "mute": false,
    "name": "Next Point",
@@ -801,7 +793,7 @@
     "Is Valid Offset",
     "Point Index"
    ],
-   "parent": "Vereinfachen",
+   "parent": "[Simplify]",
    "width": 160.0
   },
   {
@@ -821,17 +813,17 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "Next Position",
    "location": [
-    1260,
-    0
+    -320,
+    20
    ],
    "mute": false,
    "name": "Next Position",
    "outputs": [
     "Value"
    ],
-   "parent": "Vereinfachen",
+   "parent": "[Simplify]",
    "props": {
     "clamp": false,
     "data_type": "FLOAT_VECTOR",
@@ -840,7 +832,7 @@
    "width": 140.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeVectorMath",
    "inputs": {
     "Vector": {
@@ -848,24 +840,24 @@
      "name": "Vector"
     }
    },
-   "label": "",
+   "label": "Normalize In",
    "location": [
-    1680,
-    -264
+    60,
+    220
    ],
    "mute": false,
-   "name": "Norm In",
+   "name": "Normalize In",
    "outputs": [
     "Vector"
    ],
-   "parent": "Vereinfachen",
+   "parent": "[Simplify]",
    "props": {
     "operation": "NORMALIZE"
    },
-   "width": 140.0
+   "width": 114.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeVectorMath",
    "inputs": {
     "Vector": {
@@ -873,21 +865,21 @@
      "name": "Vector"
     }
    },
-   "label": "",
+   "label": "Normalize Out",
    "location": [
-    1680,
-    0
+    -120,
+    -60
    ],
    "mute": false,
-   "name": "Norm Out",
+   "name": "Normalize Out",
    "outputs": [
     "Vector"
    ],
-   "parent": "Vereinfachen",
+   "parent": "[Simplify]",
    "props": {
     "operation": "NORMALIZE"
    },
-   "width": 140.0
+   "width": 121.0
   },
   {
    "hide": false,
@@ -895,15 +887,15 @@
    "inputs": {},
    "label": "",
    "location": [
-    1030,
-    -152
+    -560,
+    -100
    ],
    "mute": false,
    "name": "Position",
    "outputs": [
     "Position"
    ],
-   "parent": "Vereinfachen",
+   "parent": "[Simplify]",
    "width": 140.0
   },
   {
@@ -919,18 +911,18 @@
      "name": "Point Index"
     }
    },
-   "label": "",
+   "label": "Previous Point",
    "location": [
-    1030,
-    -238
+    -580,
+    -220
    ],
    "mute": false,
-   "name": "Prev Point",
+   "name": "Previous Point",
    "outputs": [
     "Is Valid Offset",
     "Point Index"
    ],
-   "parent": "Vereinfachen",
+   "parent": "[Simplify]",
    "width": 160.0
   },
   {
@@ -950,17 +942,17 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "Previous Position",
    "location": [
-    1260,
-    -354
+    -320,
+    240
    ],
    "mute": false,
-   "name": "Prev Position",
+   "name": "Previous Position",
    "outputs": [
     "Value"
    ],
-   "parent": "Vereinfachen",
+   "parent": "[Simplify]",
    "props": {
     "clamp": false,
     "data_type": "FLOAT_VECTOR",
@@ -969,7 +961,7 @@
    "width": 140.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "FunctionNodeBooleanMath",
    "inputs": {
     "Boolean": {
@@ -981,19 +973,144 @@
      "name": "Boolean"
     }
    },
-   "label": "",
+   "label": "Remove Point",
    "location": [
-    3360,
-    0
+    600,
+    -200
    ],
    "mute": false,
    "name": "Remove Point",
    "outputs": [
     "Boolean"
    ],
-   "parent": "Vereinfachen",
+   "parent": "[Simplify]",
    "props": {
     "operation": "AND"
+   },
+   "width": 119.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    60,
+    -165
+   ],
+   "mute": false,
+   "name": "Reroute",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Simplify]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -320,
+    -191
+   ],
+   "mute": false,
+   "name": "Reroute.001",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Simplify]",
+   "props": {
+    "socket_idname": "NodeSocketVector"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -180,
+    -191
+   ],
+   "mute": false,
+   "name": "Reroute.002",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Simplify]",
+   "props": {
+    "socket_idname": "NodeSocketVector"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -880,
+    377
+   ],
+   "mute": false,
+   "name": "Reroute.003",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketGeometry"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -410,
+    377
+   ],
+   "mute": false,
+   "name": "Reroute.004",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Simplify]",
+   "props": {
+    "socket_idname": "NodeSocketGeometry"
    },
    "width": 140.0
   },
@@ -1014,17 +1131,17 @@
      "value": true
     }
    },
-   "label": "",
+   "label": "Set Resolution",
    "location": [
-    210,
-    0
+    -1300,
+    -20
    ],
    "mute": false,
    "name": "Set Resolution",
    "outputs": [
     "Geometry"
    ],
-   "parent": "Auflösen",
+   "parent": "[Resolution]",
    "width": 160.0
   },
   {
@@ -1033,8 +1150,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    4160,
-    0
+    1300,
+    -140
    ],
    "mute": false,
    "name": "Spline Length",
@@ -1042,7 +1159,7 @@
     "Length",
     "Point Count"
    ],
-   "parent": "Konturparameter",
+   "parent": "[Outline Parameters]",
    "width": 140.0
   },
   {
@@ -1051,8 +1168,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    3950,
-    0
+    1120,
+    -60
    ],
    "mute": false,
    "name": "Spline Parameter",
@@ -1061,7 +1178,7 @@
     "Length",
     "Index"
    ],
-   "parent": "Konturparameter",
+   "parent": "[Outline Parameters]",
    "width": 140.0
   },
   {
@@ -1085,17 +1202,17 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "Store et_loop_len",
    "location": [
-    4390,
-    0
+    1500,
+    60
    ],
    "mute": false,
    "name": "Store et_loop_len",
    "outputs": [
     "Geometry"
    ],
-   "parent": "Konturparameter",
+   "parent": "[Outline Parameters]",
    "props": {
     "data_type": "FLOAT",
     "domain": "POINT"
@@ -1123,17 +1240,17 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "Store et_u",
    "location": [
-    4160,
-    -108
+    1300,
+    60
    ],
    "mute": false,
    "name": "Store et_u",
    "outputs": [
     "Geometry"
    ],
-   "parent": "Konturparameter",
+   "parent": "[Outline Parameters]",
    "props": {
     "data_type": "FLOAT",
     "domain": "POINT"
@@ -1141,7 +1258,7 @@
    "width": 160.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "FunctionNodeBooleanMath",
    "inputs": {
     "Boolean": {
@@ -1153,21 +1270,21 @@
      "name": "Boolean"
     }
    },
-   "label": "",
+   "label": "Straight or Duplicate",
    "location": [
-    3150,
+    400,
     0
    ],
    "mute": false,
-   "name": "Straight or Dup",
+   "name": "Straight or Duplicate",
    "outputs": [
     "Boolean"
    ],
-   "parent": "Vereinfachen",
+   "parent": "[Simplify]",
    "props": {
     "operation": "OR"
    },
-   "width": 140.0
+   "width": 155.0
   },
   {
    "hide": false,
@@ -1194,9 +1311,9 @@
      "value": true
     }
    },
-   "label": "",
+   "label": "To Polyline",
    "location": [
-    440,
+    -1100,
     0
    ],
    "mute": false,
@@ -1204,14 +1321,14 @@
    "outputs": [
     "Curve"
    ],
-   "parent": "Auflösen",
+   "parent": "[Resolution]",
    "props": {
     "keep_last_segment": true
    },
    "width": 140.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeMath",
    "inputs": {
     "Value": {
@@ -1219,34 +1336,72 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "Turn Angle",
    "location": [
-    2730,
-    -86
+    80,
+    0
    ],
    "mute": false,
    "name": "Turn Angle",
    "outputs": [
     "Value"
    ],
-   "parent": "Vereinfachen",
+   "parent": "[Simplify]",
    "props": {
     "operation": "DEGREES",
     "use_clamp": false
    },
-   "width": 140.0
+   "width": 105.0
   },
   {
    "hide": false,
    "idname": "NodeFrame",
    "inputs": {},
-   "label": "Vereinfachen",
+   "label": "Outline Parameters",
    "location": [
     0,
     0
    ],
    "mute": false,
-   "name": "Vereinfachen",
+   "name": "[Outline Parameters]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Resolution",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Resolution]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Simplify",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Simplify]",
    "outputs": [],
    "parent": null,
    "props": {

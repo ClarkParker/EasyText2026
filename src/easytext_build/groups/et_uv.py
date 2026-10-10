@@ -1,4 +1,4 @@
-"""UVMap: Deckflächen planar, Seiten und Bevel als durchgehendes Band (U = Konturlänge, V = Bogenlänge)."""
+"""UVMap: planar caps, sides and bevel as one continuous band (U = contour length, V = arc length)."""
 
 import math
 
@@ -9,16 +9,16 @@ NAME = ".ET Text UV"
 
 
 def build():
-    g = GroupBuilder(NAME, description="Schreibt die UV-Map 'UVMap' auf Face Corners.")
+    g = GroupBuilder(NAME, description="Writes the UV map 'UVMap' on face corners.")
     g.input("Mesh", "geometry")
-    g.input("Tiefe", "float", 0.1, min=0.0, max=10.0, subtype="DISTANCE")
-    g.input("Radius", "float", 0.0, min=0.0, max=1.0, subtype="DISTANCE", description="Wirksamer Bevel-Radius.")
-    g.input("Auf Text normieren", "bool", True)
-    g.input("Maßstab", "float", 1.0, min=0.0001, max=1000.0)
+    g.input("Depth", "float", 0.1, min=0.0, max=10.0, subtype="DISTANCE")
+    g.input("Radius", "float", 0.0, min=0.0, max=1.0, subtype="DISTANCE", description="Effective bevel radius.")
+    g.input("Normalize to Text", "bool", True)
+    g.input("Scale", "float", 1.0, min=0.0001, max=1000.0)
     g.output("Mesh", "geometry")
 
-    with g.frame("Maßstab"):
-        gi = g.inputs("Mesh", "Auf Text normieren", "Maßstab")
+    with g.frame("Scale"):
+        gi = g.inputs("Mesh", "Normalize to Text", "Scale")
         bbox = g.node("GeometryNodeBoundBox", "Text Bounds", inputs={"Geometry": gi["Mesh"]})
         bmin = g.separate_xyz(bbox["Min"], name="Bounds Min")
         bmax = g.separate_xyz(bbox["Max"], name="Bounds Max")
@@ -33,12 +33,12 @@ def build():
         )[0]
         uv_factor = g.math(
             "MULTIPLY",
-            g.switch("FLOAT", gi["Auf Text normieren"], 1.0, norm_scale, name="Normalize")[0],
-            gi["Maßstab"],
+            g.switch("FLOAT", gi["Normalize to Text"], 1.0, norm_scale, name="Normalize")[0],
+            gi["Scale"],
             name="UV Factor",
         )[0]
 
-    with g.frame("Deckflächen"):
+    with g.frame("Caps"):
         pos_xyz = g.separate_xyz(g.node("GeometryNodeInputPosition", "Position")[0], name="Position XYZ")
         cap_uv = g.combine_xyz(
             g.math("MULTIPLY", g.math("SUBTRACT", pos_xyz["X"], bmin["X"], name="X - Min")[0], uv_factor, name="Cap U")[
@@ -52,48 +52,33 @@ def build():
         )[0]
 
     with g.frame("Band V"):
-        gi = g.inputs("Tiefe", "Radius")
+        gi = g.inputs("Depth", "Radius")
         z = pos_xyz["Z"]
-        r, depth = gi["Radius"], gi["Tiefe"]
+        r, depth = gi["Radius"], gi["Depth"]
         r_safe = g.math("MAXIMUM", r, 0.000001, name="Radius Safe")[0]
         quarter = g.math("MULTIPLY", r, math.pi / 2, name="Quarter Arc")[0]
-        back_t = g.math(
-            "ARCSINE",
-            g.math(
-                "MINIMUM",
-                g.math(
-                    "MAXIMUM", g.math("DIVIDE", g.math("SUBTRACT", r, z, name="r - z")[0], r_safe, name="/ r")[0], 0.0
-                )[0],
-                1.0,
-            )[0],
-            name="Back Angle",
+        back_ratio = g.math("DIVIDE", g.math("SUBTRACT", r, z, name="r - z")[0], r_safe, name="Back Ratio")[0]
+        back_clamped = g.math("MINIMUM", g.math("MAXIMUM", back_ratio, 0.0, name="Back ≥ 0")[0], 1.0, name="Back ≤ 1")[
+            0
+        ]
+        back_t = g.math("ARCSINE", back_clamped, name="Back Angle")[0]
+        v_back = g.math(
+            "MULTIPLY", r, g.math("SUBTRACT", math.pi / 2, back_t, name="90° - Back")[0], name="V Back Bevel"
         )[0]
-        v_back = g.math("MULTIPLY", r, g.math("SUBTRACT", math.pi / 2, back_t)[0], name="V Back Bevel")[0]
         v_side = g.math("ADD", quarter, g.math("SUBTRACT", z, r, name="z - r")[0], name="V Side")[0]
         front_start = g.math("SUBTRACT", depth, r, name="Depth - r")[0]
-        front_t = g.math(
-            "ARCSINE",
-            g.math(
-                "MINIMUM",
-                g.math(
-                    "MAXIMUM",
-                    g.math(
-                        "DIVIDE", g.math("SUBTRACT", z, front_start, name="z - (Depth - r)")[0], r_safe, name="/ r "
-                    )[0],
-                    0.0,
-                )[0],
-                1.0,
-            )[0],
-            name="Front Angle",
+        front_ratio = g.math(
+            "DIVIDE", g.math("SUBTRACT", z, front_start, name="z - (Depth - r)")[0], r_safe, name="Front Ratio"
         )[0]
+        front_clamped = g.math(
+            "MINIMUM", g.math("MAXIMUM", front_ratio, 0.0, name="Front ≥ 0")[0], 1.0, name="Front ≤ 1"
+        )[0]
+        front_t = g.math("ARCSINE", front_clamped, name="Front Angle")[0]
+        side_len = g.math("SUBTRACT", depth, g.math("MULTIPLY", r, 2.0, name="2r")[0], name="Depth - 2r")[0]
         v_front = g.math(
             "ADD",
-            g.math(
-                "ADD",
-                quarter,
-                g.math("SUBTRACT", depth, g.math("MULTIPLY", r, 2.0, name="2r")[0], name="Depth - 2r")[0],
-            )[0],
-            g.math("MULTIPLY", r, front_t)[0],
+            g.math("ADD", quarter, side_len, name="Quarter + Side")[0],
+            g.math("MULTIPLY", r, front_t, name="Front Arc")[0],
             name="V Front Bevel",
         )[0]
         in_back = g.compare("LESS_THAN", z, r, name="In Back Bevel")[0]
@@ -106,7 +91,7 @@ def build():
             name="Band V",
         )[0]
 
-    with g.frame("Band U (Naht)"):
+    with g.frame("Band U (Seam)"):
         gi = g.inputs("Mesh")
         u = g.named("et_u", name="U")["Attribute"]
         loop_len = g.named("et_loop_len", name="Loop Length")["Attribute"]
@@ -127,29 +112,21 @@ def build():
             "GREATER_THAN", g.math("SUBTRACT", u_max, u_min, name="Face U Span")[0], half, name="Face Wraps"
         )[0]
         low_side = g.compare("LESS_THAN", u, half, name="Low Side")[0]
-        u_fixed = g.switch(
-            "FLOAT",
-            g.boolean("AND", wraps, low_side, name="Shift Corner")[0],
-            u,
-            g.math("ADD", u, loop_len, name="U + Loop")[0],
-            name="U Unwrapped",
-        )[0]
+        shift = g.boolean("AND", wraps, low_side, name="Shift Corner")[0]
+        u_fixed = g.switch("FLOAT", shift, u, g.math("ADD", u, loop_len, name="U + Loop")[0], name="U Unwrapped")[0]
 
-    with g.frame("UV speichern"):
+    with g.frame("Store UV"):
         gi = g.inputs("Mesh")
         band_uv = g.combine_xyz(
-            g.math("MULTIPLY", u_fixed, uv_factor, name="Band U scaled")[0],
-            g.math("MULTIPLY", v, uv_factor, name="Band V scaled")[0],
+            g.math("MULTIPLY", u_fixed, uv_factor, name="Band U Scaled")[0],
+            g.math("MULTIPLY", v, uv_factor, name="Band V Scaled")[0],
             0.0,
             name="Band UV",
         )[0]
         face_group = g.named("et_face_group", "INT", name="Face Group")["Attribute"]
-        is_cap = g.boolean(
-            "OR",
-            g.compare("EQUAL", face_group, FACE_FRONT, data_type="INT", name="Is Front")[0],
-            g.compare("EQUAL", face_group, FACE_BACK, data_type="INT", name="Is Back")[0],
-            name="Is Cap",
-        )[0]
+        is_front = g.compare("EQUAL", face_group, FACE_FRONT, data_type="INT", name="Is Front")[0]
+        is_back = g.compare("EQUAL", face_group, FACE_BACK, data_type="INT", name="Is Back")[0]
+        is_cap = g.boolean("OR", is_front, is_back, name="Is Cap")[0]
         uv = g.switch("VECTOR", is_cap, band_uv, cap_uv, name="UV")[0]
         with_uv = g.store(gi["Mesh"], "UVMap", uv, domain="CORNER", data_type="FLOAT2", name="Store UVMap")[0]
     g.set_output("Mesh", with_uv)

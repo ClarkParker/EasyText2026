@@ -1,10 +1,10 @@
-"""Konvertierung von Blender-Werten in JSON-taugliche, deterministische Python-Werte (ohne bpy-Import)."""
+"""Convert Blender values into JSON-friendly, deterministic Python values (no bpy import)."""
 
 FLOAT_DIGITS = 5
 
 
 def convert(value):
-    """Floats runden, Vektoren/Farben/Matrizen zu Listen, IDs zu Namen."""
+    """Round floats, vectors/colors/matrices to lists, IDs to names."""
     if value is None or isinstance(value, bool | int | str):
         return value
     if isinstance(value, float):

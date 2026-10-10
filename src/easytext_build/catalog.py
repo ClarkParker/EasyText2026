@@ -1,4 +1,4 @@
-"""Asset-Katalog (blender_assets.cats.txt). Die UUIDs sind fest, damit Kataloge stabil bleiben."""
+"""Asset catalog (blender_assets.cats.txt). The UUIDs are fixed so catalogs stay stable."""
 
 from dataclasses import dataclass
 from pathlib import Path

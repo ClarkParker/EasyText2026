@@ -1,6 +1,6 @@
 {
  "asset_catalog_id": null,
- "description": "Vier Zeilen zu einem String mit Zeilenumbrüchen; leere Zeilen entfallen.",
+ "description": "Four lines to one string with line breaks; empty lines are dropped.",
  "flags": {
   "color_tag": "NONE",
   "default_group_node_width": 200,
@@ -134,46 +134,46 @@
    "True"
   ],
   [
-   "Group Input",
+   "Group Input (Lines)",
    "Socket_0",
-   "Join Lines",
-   "Strings"
+   "Reroute.003",
+   "Input"
   ],
   [
-   "Group Input",
-   "Socket_1",
-   "Break + Line 2",
-   "Strings"
-  ],
-  [
-   "Group Input",
+   "Group Input (Lines)",
    "Socket_1",
    "Length 2",
    "String"
   ],
   [
-   "Group Input",
+   "Group Input (Lines)",
+   "Socket_1",
+   "Reroute",
+   "Input"
+  ],
+  [
+   "Group Input (Lines)",
    "Socket_2",
    "Break + Line 3",
    "Strings"
   ],
   [
-   "Group Input",
+   "Group Input (Lines)",
    "Socket_2",
    "Length 3",
    "String"
   ],
   [
-   "Group Input",
-   "Socket_3",
-   "Break + Line 4",
-   "Strings"
-  ],
-  [
-   "Group Input",
+   "Group Input (Lines)",
    "Socket_3",
    "Length 4",
    "String"
+  ],
+  [
+   "Group Input (Lines)",
+   "Socket_3",
+   "Reroute.001",
+   "Input"
   ],
   [
    "Has Text 2",
@@ -194,7 +194,7 @@
    "Switch"
   ],
   [
-   "Join Lines",
+   "Join",
    "String",
    "Trim",
    "String"
@@ -233,6 +233,36 @@
    "Line Break",
    "Line Break",
    "Break + Line 4",
+   "Strings"
+  ],
+  [
+   "Reroute",
+   "Output",
+   "Break + Line 2",
+   "Strings"
+  ],
+  [
+   "Reroute.001",
+   "Output",
+   "Reroute.002",
+   "Input"
+  ],
+  [
+   "Reroute.002",
+   "Output",
+   "Break + Line 4",
+   "Strings"
+  ],
+  [
+   "Reroute.003",
+   "Output",
+   "Reroute.004",
+   "Input"
+  ],
+  [
+   "Reroute.004",
+   "Output",
+   "Join",
    "Strings"
   ],
   [
@@ -244,19 +274,19 @@
   [
    "Use Line 2",
    "Output",
-   "Join Lines",
+   "Join",
    "Strings"
   ],
   [
    "Use Line 3",
    "Output",
-   "Join Lines",
+   "Join",
    "Strings"
   ],
   [
    "Use Line 4",
    "Output",
-   "Join Lines",
+   "Join",
    "Strings"
   ]
  ],
@@ -275,17 +305,17 @@
      "name": "Strings"
     }
    },
-   "label": "",
+   "label": "Break + Line 2",
    "location": [
-    510,
-    0
+    -40,
+    140
    ],
    "mute": false,
    "name": "Break + Line 2",
    "outputs": [
     "String"
    ],
-   "parent": null,
+   "parent": "[Join Lines]",
    "width": 140.0
   },
   {
@@ -301,17 +331,17 @@
      "name": "Strings"
     }
    },
-   "label": "",
+   "label": "Break + Line 3",
    "location": [
-    510,
-    -130
+    -40,
+    -80
    ],
    "mute": false,
    "name": "Break + Line 3",
    "outputs": [
     "String"
    ],
-   "parent": null,
+   "parent": "[Join Lines]",
    "width": 140.0
   },
   {
@@ -327,17 +357,17 @@
      "name": "Strings"
     }
    },
-   "label": "",
+   "label": "Break + Line 4",
    "location": [
-    510,
-    -260
+    -40,
+    -180
    ],
    "mute": false,
    "name": "Break + Line 4",
    "outputs": [
     "String"
    ],
-   "parent": null,
+   "parent": "[Join Lines]",
    "width": 140.0
   },
   {
@@ -346,11 +376,11 @@
    "inputs": {},
    "label": "",
    "location": [
-    0,
-    0
+    -460,
+    20
    ],
    "mute": false,
-   "name": "Group Input",
+   "name": "Group Input (Lines)",
    "outputs": [
     "Socket_0",
     "Socket_1",
@@ -358,7 +388,7 @@
     "Socket_3",
     "__extend__"
    ],
-   "parent": null,
+   "parent": "[Join Lines]",
    "width": 140.0
   },
   {
@@ -375,8 +405,8 @@
    },
    "label": "",
    "location": [
-    1350,
-    0
+    740,
+    120
    ],
    "mute": false,
    "name": "Group Output",
@@ -388,7 +418,7 @@
    "width": 140.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "FunctionNodeCompare",
    "inputs": {
     "A": {
@@ -400,26 +430,26 @@
      "value": 0
     }
    },
-   "label": "",
+   "label": "Has Text 2",
    "location": [
-    510,
-    -390
+    -20,
+    180
    ],
    "mute": false,
    "name": "Has Text 2",
    "outputs": [
     "Result"
    ],
-   "parent": null,
+   "parent": "[Join Lines]",
    "props": {
     "data_type": "INT",
     "mode": "ELEMENT",
     "operation": "GREATER_THAN"
    },
-   "width": 140.0
+   "width": 102.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "FunctionNodeCompare",
    "inputs": {
     "A": {
@@ -431,26 +461,26 @@
      "value": 0
     }
    },
-   "label": "",
+   "label": "Has Text 3",
    "location": [
-    510,
-    -592
+    -20,
+    0
    ],
    "mute": false,
    "name": "Has Text 3",
    "outputs": [
     "Result"
    ],
-   "parent": null,
+   "parent": "[Join Lines]",
    "props": {
     "data_type": "INT",
     "mode": "ELEMENT",
     "operation": "GREATER_THAN"
    },
-   "width": 140.0
+   "width": 102.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "FunctionNodeCompare",
    "inputs": {
     "A": {
@@ -462,23 +492,23 @@
      "value": 0
     }
    },
-   "label": "",
+   "label": "Has Text 4",
    "location": [
-    510,
-    -794
+    -20,
+    -340
    ],
    "mute": false,
    "name": "Has Text 4",
    "outputs": [
     "Result"
    ],
-   "parent": null,
+   "parent": "[Join Lines]",
    "props": {
     "data_type": "INT",
     "mode": "ELEMENT",
     "operation": "GREATER_THAN"
    },
-   "width": 140.0
+   "width": 102.0
   },
   {
    "hide": false,
@@ -493,17 +523,17 @@
      "name": "Strings"
     }
    },
-   "label": "",
+   "label": "Join",
    "location": [
-    930,
-    0
+    360,
+    120
    ],
    "mute": false,
-   "name": "Join Lines",
+   "name": "Join",
    "outputs": [
     "String"
    ],
-   "parent": null,
+   "parent": "[Join Lines]",
    "width": 140.0
   },
   {
@@ -515,17 +545,17 @@
      "name": "String"
     }
    },
-   "label": "",
+   "label": "Length 2",
    "location": [
-    300,
-    -108
+    -220,
+    220
    ],
    "mute": false,
    "name": "Length 2",
    "outputs": [
     "Length"
    ],
-   "parent": null,
+   "parent": "[Join Lines]",
    "width": 140.0
   },
   {
@@ -537,17 +567,17 @@
      "name": "String"
     }
    },
-   "label": "",
+   "label": "Length 3",
    "location": [
-    300,
-    -216
+    -220,
+    40
    ],
    "mute": false,
    "name": "Length 3",
    "outputs": [
     "Length"
    ],
-   "parent": null,
+   "parent": "[Join Lines]",
    "width": 140.0
   },
   {
@@ -559,27 +589,27 @@
      "name": "String"
     }
    },
-   "label": "",
+   "label": "Length 4",
    "location": [
-    300,
-    -324
+    -220,
+    -300
    ],
    "mute": false,
    "name": "Length 4",
    "outputs": [
     "Length"
    ],
-   "parent": null,
+   "parent": "[Join Lines]",
    "width": 140.0
   },
   {
    "hide": false,
    "idname": "FunctionNodeInputSpecialCharacters",
    "inputs": {},
-   "label": "",
+   "label": "Line Break",
    "location": [
-    300,
-    0
+    -220,
+    -140
    ],
    "mute": false,
    "name": "Line Break",
@@ -587,7 +617,132 @@
     "Line Break",
     "Tab"
    ],
-   "parent": null,
+   "parent": "[Join Lines]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -220,
+    83
+   ],
+   "mute": false,
+   "name": "Reroute",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Join Lines]",
+   "props": {
+    "socket_idname": "NodeSocketString"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -220,
+    -266
+   ],
+   "mute": false,
+   "name": "Reroute.001",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Join Lines]",
+   "props": {
+    "socket_idname": "NodeSocketString"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -80,
+    -266
+   ],
+   "mute": false,
+   "name": "Reroute.002",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Join Lines]",
+   "props": {
+    "socket_idname": "NodeSocketString"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -220,
+    271
+   ],
+   "mute": false,
+   "name": "Reroute.003",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Join Lines]",
+   "props": {
+    "socket_idname": "NodeSocketString"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    280,
+    271
+   ],
+   "mute": false,
+   "name": "Reroute.004",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Join Lines]",
+   "props": {
+    "socket_idname": "NodeSocketString"
+   },
    "width": 140.0
   },
   {
@@ -615,17 +770,17 @@
      "value": true
     }
    },
-   "label": "",
+   "label": "Trim",
    "location": [
-    1140,
-    0
+    540,
+    120
    ],
    "mute": false,
    "name": "Trim",
    "outputs": [
     "String"
    ],
-   "parent": null,
+   "parent": "[Join Lines]",
    "width": 140.0
   },
   {
@@ -645,17 +800,17 @@
      "name": "True"
     }
    },
-   "label": "",
+   "label": "Use Line 2",
    "location": [
-    720,
-    0
+    140,
+    220
    ],
    "mute": false,
    "name": "Use Line 2",
    "outputs": [
     "Output"
    ],
-   "parent": null,
+   "parent": "[Join Lines]",
    "props": {
     "input_type": "STRING"
    },
@@ -678,17 +833,17 @@
      "name": "True"
     }
    },
-   "label": "",
+   "label": "Use Line 3",
    "location": [
-    720,
-    -176
+    140,
+    20
    ],
    "mute": false,
    "name": "Use Line 3",
    "outputs": [
     "Output"
    ],
-   "parent": null,
+   "parent": "[Join Lines]",
    "props": {
     "input_type": "STRING"
    },
@@ -711,21 +866,40 @@
      "name": "True"
     }
    },
-   "label": "",
+   "label": "Use Line 4",
    "location": [
-    720,
-    -352
+    140,
+    -200
    ],
    "mute": false,
    "name": "Use Line 4",
    "outputs": [
     "Output"
    ],
-   "parent": null,
+   "parent": "[Join Lines]",
    "props": {
     "input_type": "STRING"
    },
    "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Join Lines",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Join Lines]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
   }
  ],
  "tree_type": "GeometryNodeTree"

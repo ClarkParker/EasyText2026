@@ -1,4 +1,4 @@
-"""Materialien, Shading und Aufräumen der Hilfsattribute."""
+"""Materials, shading and cleanup of helper attributes."""
 
 from .. import materials
 from ..core import GroupBuilder
@@ -8,42 +8,34 @@ NAME = ".ET Finish"
 
 
 def build():
-    g = GroupBuilder(
-        NAME, description="Seiten- und Bevel-Material, Shade Smooth mit Winkelgrenze, et_*-Attribute entfernen."
-    )
+    g = GroupBuilder(NAME, description="Side and bevel material, smooth shading by angle, drop et_* attributes.")
     g.input("Mesh", "geometry")
-    g.input("Seite", "material", materials.ensure("ET Side"))
-    g.input("Bevelfläche", "material", materials.ensure("ET Bevel"))
-    g.input("Glättungswinkel", "float", 30.0, min=0.0, max=180.0)
-    g.input("Hilfsattribute behalten", "bool", False)
+    g.input("Side Material", "material", materials.ensure("ET Side"))
+    g.input("Bevel Material", "material", materials.ensure("ET Bevel"))
+    g.input("Smooth Angle", "float", 30.0, min=0.0, max=180.0)
+    g.input("Keep Helper Attributes", "bool", False)
     g.output("Mesh", "geometry")
 
-    with g.frame("Materialien"):
-        gi = g.inputs("Mesh", "Seite", "Bevelfläche")
-        mat_side = g.fallback("MATERIAL", gi["Seite"], materials.ensure("ET Side"), name="Side Material")
-        mat_bevel = g.fallback("MATERIAL", gi["Bevelfläche"], materials.ensure("ET Bevel"), name="Bevel Material")
+    with g.frame("Materials"):
+        gi = g.inputs("Mesh", "Side Material", "Bevel Material")
+        mat_side = g.fallback("MATERIAL", gi["Side Material"], materials.ensure("ET Side"), name="Side Material")
+        mat_bevel = g.fallback("MATERIAL", gi["Bevel Material"], materials.ensure("ET Bevel"), name="Bevel Material")
         face_group = g.named("et_face_group", "INT", name="Face Group")["Attribute"]
+        is_side = g.compare("EQUAL", face_group, FACE_SIDE, data_type="INT", name="Is Side")[0]
+        is_bevel = g.compare("EQUAL", face_group, FACE_BEVEL, data_type="INT", name="Is Bevel")[0]
         mesh = g.node(
             "GeometryNodeSetMaterial",
-            "Material Side",
-            inputs={
-                "Geometry": gi["Mesh"],
-                "Selection": g.compare("EQUAL", face_group, FACE_SIDE, data_type="INT", name="Is Side")[0],
-                "Material": mat_side,
-            },
+            "Set Side Material",
+            inputs={"Geometry": gi["Mesh"], "Selection": is_side, "Material": mat_side},
         )[0]
         mesh = g.node(
             "GeometryNodeSetMaterial",
-            "Material Bevel",
-            inputs={
-                "Geometry": mesh,
-                "Selection": g.compare("EQUAL", face_group, FACE_BEVEL, data_type="INT", name="Is Bevel")[0],
-                "Material": mat_bevel,
-            },
+            "Set Bevel Material",
+            inputs={"Geometry": mesh, "Selection": is_bevel, "Material": mat_bevel},
         )[0]
 
     with g.frame("Shading"):
-        gi = g.inputs("Glättungswinkel")
+        gi = g.inputs("Smooth Angle")
         mesh = g.node(
             "GeometryNodeSetShadeSmooth",
             "Smooth Faces",
@@ -51,9 +43,8 @@ def build():
             props={"domain": "FACE"},
         )[0]
         edge_angle = g.node("GeometryNodeInputMeshEdgeAngle", "Edge Angle")["Unsigned Angle"]
-        is_sharp = g.compare(
-            "GREATER_THAN", edge_angle, g.math("RADIANS", gi["Glättungswinkel"], name="Angle (rad)")[0], name="Is Sharp"
-        )[0]
+        threshold = g.math("RADIANS", gi["Smooth Angle"], name="Angle (rad)")[0]
+        is_sharp = g.compare("GREATER_THAN", edge_angle, threshold, name="Is Sharp")[0]
         mesh = g.node(
             "GeometryNodeSetShadeSmooth",
             "Sharp Edges",
@@ -61,13 +52,13 @@ def build():
             props={"domain": "EDGE"},
         )[0]
 
-    with g.frame("Aufräumen"):
-        gi = g.inputs("Hilfsattribute behalten")
+    with g.frame("Cleanup"):
+        gi = g.inputs("Keep Helper Attributes")
         stripped = g.node(
             "GeometryNodeRemoveAttribute",
             "Remove et_*",
             inputs={"Geometry": mesh, "Pattern Mode": "Wildcard", "Name": "et_*"},
         )[0]
-        final = g.switch("GEOMETRY", gi["Hilfsattribute behalten"], stripped, mesh, name="Keep Attributes")[0]
+        final = g.switch("GEOMETRY", gi["Keep Helper Attributes"], stripped, mesh, name="Keep Attributes")[0]
     g.set_output("Mesh", final)
     return g.finish()

@@ -1,15 +1,16 @@
 [project]
 name = "easytext-build"
 version = "3.0.0a0"
-description = "Build-Werkzeuge für die Easy Text v3 Geometry-Nodes-Assets (Blender 5.2 LTS)"
+description = "Build tooling for the Easy Text v3 Geometry Nodes assets (Blender 5.2 LTS)"
 readme = "README.md"
 requires-python = ">=3.13"
 license = { text = "GPL-3.0-or-later" }
 
 [project.optional-dependencies]
 dev = ["ruff>=0.6", "pytest>=8"]
-# Headless-Blender als Python-Modul, exakt die Zielversion (5.2.0 LTS), damit die Dateien dort sicher laden.
-bpy = ["bpy==5.2.0"]
+# Headless Blender as a Python module, pinned to the target version (5.2.0 LTS) so the files load there,
+# plus nodebpy for its headless node layout (Sugiyama, port of the Node Arrange add-on).
+bpy = ["bpy==5.2.0", "nodebpy==520.35.1"]
 
 [build-system]
 requires = ["setuptools>=68"]

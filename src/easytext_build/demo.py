@@ -1,4 +1,4 @@
-"""Demo-Szene: ein Objekt mit ET Text Mesh, Kamera und Licht, damit die Datei beim Öffnen sofort Text zeigt."""
+"""Demo scene: one object with ET Text Mesh, a camera and lights, so the file shows text right after opening."""
 
 from __future__ import annotations
 
@@ -21,7 +21,7 @@ def populate_scene(scene) -> None:
         if item.item_type == "SOCKET" and item.in_out == "INPUT":
             ids.setdefault(item.name, item.identifier)
     mod.properties.inputs[ids["Bevel"]]["value"] = 1
-    mod.properties.inputs[ids["Zeile 2"]]["value"] = "Geometry Node v3"
+    mod.properties.inputs[ids["Line 2"]]["value"] = "Geometry Node v3"
 
     cam_data = bpy.data.cameras.new("Camera")
     cam_data.lens = 50
@@ -53,7 +53,7 @@ def populate_scene(scene) -> None:
     scene.render.resolution_x = 1920
     scene.render.resolution_y = 1080
 
-    # Beim Öffnen: Textobjekt aktiv und im Properties-Editor der Modifier-Reiter
+    # On opening: text object active and the properties editor on the modifier tab
     bpy.context.view_layer.objects.active = text_ob
     text_ob.select_set(True)
     for screen in bpy.data.screens:

@@ -1,6 +1,6 @@
 {
  "asset_catalog_id": null,
- "description": "Seiten- und Bevel-Material, Shade Smooth mit Winkelgrenze, et_*-Attribute entfernen.",
+ "description": "Side and bevel material, smooth shading by angle, drop et_* attributes.",
  "flags": {
   "color_tag": "NONE",
   "default_group_node_width": 200,
@@ -63,7 +63,7 @@
    "item_type": "SOCKET",
    "layer_selection_field": false,
    "menu_expanded": false,
-   "name": "Seite",
+   "name": "Side Material",
    "optional_label": false,
    "parent": null,
    "socket_type": "NodeSocketMaterial",
@@ -86,7 +86,7 @@
    "item_type": "SOCKET",
    "layer_selection_field": false,
    "menu_expanded": false,
-   "name": "Bevelfläche",
+   "name": "Bevel Material",
    "optional_label": false,
    "parent": null,
    "socket_type": "NodeSocketMaterial",
@@ -108,7 +108,7 @@
    "max_value": 180.0,
    "menu_expanded": false,
    "min_value": 0.0,
-   "name": "Glättungswinkel",
+   "name": "Smooth Angle",
    "optional_label": false,
    "parent": null,
    "socket_type": "NodeSocketFloat",
@@ -129,7 +129,7 @@
    "item_type": "SOCKET",
    "layer_selection_field": false,
    "menu_expanded": false,
-   "name": "Hilfsattribute behalten",
+   "name": "Keep Helper Attributes",
    "optional_label": false,
    "parent": null,
    "socket_type": "NodeSocketBool",
@@ -146,8 +146,8 @@
   [
    "Bevel Material Fallback",
    "Output",
-   "Material Bevel",
-   "Material"
+   "Reroute.004",
+   "Input"
   ],
   [
    "Bevel Material Is None",
@@ -174,51 +174,51 @@
    "A"
   ],
   [
-   "Group Input (Glättungswinkel)",
-   "Socket_3",
-   "Angle (rad)",
-   "Value"
-  ],
-  [
-   "Group Input (Hilfsattribute behalten)",
+   "Group Input (Keep Helper Attributes)",
    "Socket_4",
    "Keep Attributes",
    "Switch"
   ],
   [
-   "Group Input (Mesh, Seite, Bevelfläche)",
+   "Group Input (Mesh, Side Material, Bevel Material)",
    "Socket_0",
-   "Material Side",
+   "Set Side Material",
    "Geometry"
   ],
   [
-   "Group Input (Mesh, Seite, Bevelfläche)",
+   "Group Input (Mesh, Side Material, Bevel Material)",
    "Socket_1",
-   "Side Material Fallback",
-   "False"
+   "Reroute",
+   "Input"
   ],
   [
-   "Group Input (Mesh, Seite, Bevelfläche)",
+   "Group Input (Mesh, Side Material, Bevel Material)",
    "Socket_1",
    "Side Material Is None",
    "A"
   ],
   [
-   "Group Input (Mesh, Seite, Bevelfläche)",
-   "Socket_2",
-   "Bevel Material Fallback",
-   "False"
-  ],
-  [
-   "Group Input (Mesh, Seite, Bevelfläche)",
+   "Group Input (Mesh, Side Material, Bevel Material)",
    "Socket_2",
    "Bevel Material Is None",
    "A"
   ],
   [
+   "Group Input (Mesh, Side Material, Bevel Material)",
+   "Socket_2",
+   "Reroute.002",
+   "Input"
+  ],
+  [
+   "Group Input (Smooth Angle)",
+   "Socket_3",
+   "Angle (rad)",
+   "Value"
+  ],
+  [
    "Is Bevel",
    "Result",
-   "Material Bevel",
+   "Set Bevel Material",
    "Selection"
   ],
   [
@@ -230,7 +230,7 @@
   [
    "Is Side",
    "Result",
-   "Material Side",
+   "Set Side Material",
    "Selection"
   ],
   [
@@ -238,18 +238,6 @@
    "Output",
    "Group Output",
    "Socket_5"
-  ],
-  [
-   "Material Bevel",
-   "Geometry",
-   "Smooth Faces",
-   "Geometry"
-  ],
-  [
-   "Material Side",
-   "Geometry",
-   "Material Bevel",
-   "Geometry"
   ],
   [
    "Not Sharp",
@@ -264,21 +252,75 @@
    "False"
   ],
   [
-   "Sharp Edges",
-   "Geometry",
+   "Reroute",
+   "Output",
+   "Reroute.001",
+   "Input"
+  ],
+  [
+   "Reroute.001",
+   "Output",
+   "Side Material Fallback",
+   "False"
+  ],
+  [
+   "Reroute.002",
+   "Output",
+   "Reroute.003",
+   "Input"
+  ],
+  [
+   "Reroute.003",
+   "Output",
+   "Bevel Material Fallback",
+   "False"
+  ],
+  [
+   "Reroute.004",
+   "Output",
+   "Set Bevel Material",
+   "Material"
+  ],
+  [
+   "Reroute.005",
+   "Output",
+   "Reroute.006",
+   "Input"
+  ],
+  [
+   "Reroute.006",
+   "Output",
    "Keep Attributes",
    "True"
   ],
   [
-   "Sharp Edges",
-   "Geometry",
+   "Reroute.006",
+   "Output",
    "Remove et_*",
    "Geometry"
   ],
   [
+   "Set Bevel Material",
+   "Geometry",
+   "Smooth Faces",
+   "Geometry"
+  ],
+  [
+   "Set Side Material",
+   "Geometry",
+   "Set Bevel Material",
+   "Geometry"
+  ],
+  [
+   "Sharp Edges",
+   "Geometry",
+   "Reroute.005",
+   "Input"
+  ],
+  [
    "Side Material Fallback",
    "Output",
-   "Material Side",
+   "Set Side Material",
    "Material"
   ],
   [
@@ -297,7 +339,7 @@
  "name": ".ET Finish",
  "nodes": [
   {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeMath",
    "inputs": {
     "Value": {
@@ -305,41 +347,22 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "Angle (rad)",
    "location": [
-    1430,
-    -108
+    300,
+    -80
    ],
    "mute": false,
    "name": "Angle (rad)",
    "outputs": [
     "Value"
    ],
-   "parent": "Shading",
+   "parent": "[Shading]",
    "props": {
     "operation": "RADIANS",
     "use_clamp": false
    },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeFrame",
-   "inputs": {},
-   "label": "Aufräumen",
-   "location": [
-    0,
-    0
-   ],
-   "mute": false,
-   "name": "Aufräumen",
-   "outputs": [],
-   "parent": null,
-   "props": {
-    "label_size": 20,
-    "shrink": true
-   },
-   "width": 160.0
+   "width": 105.0
   },
   {
    "hide": false,
@@ -361,24 +384,24 @@
      }
     }
    },
-   "label": "",
+   "label": "Bevel Material Fallback",
    "location": [
-    420,
-    0
+    -620,
+    -120
    ],
    "mute": false,
    "name": "Bevel Material Fallback",
    "outputs": [
     "Output"
    ],
-   "parent": "Materialien",
+   "parent": "[Materials]",
    "props": {
     "input_type": "MATERIAL"
    },
    "width": 140.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "FunctionNodeCompare",
    "inputs": {
     "A": {
@@ -390,23 +413,23 @@
      "value": null
     }
    },
-   "label": "",
+   "label": "Bevel Material Is None",
    "location": [
-    210,
-    0
+    -820,
+    -180
    ],
    "mute": false,
    "name": "Bevel Material Is None",
    "outputs": [
     "Result"
    ],
-   "parent": "Materialien",
+   "parent": "[Materials]",
    "props": {
     "data_type": "MATERIAL",
     "mode": "ELEMENT",
     "operation": "EQUAL"
    },
-   "width": 140.0
+   "width": 164.0
   },
   {
    "hide": false,
@@ -414,8 +437,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    1430,
-    0
+    280,
+    20
    ],
    "mute": false,
    "name": "Edge Angle",
@@ -423,7 +446,7 @@
     "Unsigned Angle",
     "Signed Angle"
    ],
-   "parent": "Shading",
+   "parent": "[Shading]",
    "width": 140.0
   },
   {
@@ -435,10 +458,10 @@
      "value": "et_face_group"
     }
    },
-   "label": "",
+   "label": "Face Group",
    "location": [
-    0,
-    -130
+    -820,
+    180
    ],
    "mute": false,
    "name": "Face Group",
@@ -446,7 +469,7 @@
     "Attribute",
     "Exists"
    ],
-   "parent": "Materialien",
+   "parent": "[Materials]",
    "props": {
     "data_type": "INT"
    },
@@ -458,11 +481,11 @@
    "inputs": {},
    "label": "",
    "location": [
-    1220,
-    0
+    1120,
+    100
    ],
    "mute": false,
-   "name": "Group Input (Glättungswinkel)",
+   "name": "Group Input (Keep Helper Attributes)",
    "outputs": [
     "Socket_0",
     "Socket_1",
@@ -471,7 +494,7 @@
     "Socket_4",
     "__extend__"
    ],
-   "parent": "Shading",
+   "parent": "[Cleanup]",
    "width": 140.0
   },
   {
@@ -480,11 +503,11 @@
    "inputs": {},
    "label": "",
    "location": [
-    2440,
-    0
+    -1040,
+    260
    ],
    "mute": false,
-   "name": "Group Input (Hilfsattribute behalten)",
+   "name": "Group Input (Mesh, Side Material, Bevel Material)",
    "outputs": [
     "Socket_0",
     "Socket_1",
@@ -493,7 +516,7 @@
     "Socket_4",
     "__extend__"
    ],
-   "parent": "Aufräumen",
+   "parent": "[Materials]",
    "width": 140.0
   },
   {
@@ -502,11 +525,11 @@
    "inputs": {},
    "label": "",
    "location": [
-    0,
-    0
+    100,
+    -80
    ],
    "mute": false,
-   "name": "Group Input (Mesh, Seite, Bevelfläche)",
+   "name": "Group Input (Smooth Angle)",
    "outputs": [
     "Socket_0",
     "Socket_1",
@@ -515,7 +538,7 @@
     "Socket_4",
     "__extend__"
    ],
-   "parent": "Materialien",
+   "parent": "[Shading]",
    "width": 140.0
   },
   {
@@ -532,8 +555,8 @@
    },
    "label": "",
    "location": [
-    3070,
-    0
+    1540,
+    20
    ],
    "mute": false,
    "name": "Group Output",
@@ -545,7 +568,7 @@
    "width": 140.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "FunctionNodeCompare",
    "inputs": {
     "A": {
@@ -557,26 +580,26 @@
      "value": 3
     }
    },
-   "label": "",
+   "label": "Is Bevel",
    "location": [
-    210,
-    -404
+    -420,
+    120
    ],
    "mute": false,
    "name": "Is Bevel",
    "outputs": [
     "Result"
    ],
-   "parent": "Materialien",
+   "parent": "[Materials]",
    "props": {
     "data_type": "INT",
     "mode": "ELEMENT",
     "operation": "EQUAL"
    },
-   "width": 140.0
+   "width": 100.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "FunctionNodeCompare",
    "inputs": {
     "A": {
@@ -588,26 +611,26 @@
      "name": "B"
     }
    },
-   "label": "",
+   "label": "Is Sharp",
    "location": [
-    1640,
-    0
+    460,
+    -60
    ],
    "mute": false,
    "name": "Is Sharp",
    "outputs": [
     "Result"
    ],
-   "parent": "Shading",
+   "parent": "[Shading]",
    "props": {
     "data_type": "FLOAT",
     "mode": "ELEMENT",
     "operation": "GREATER_THAN"
    },
-   "width": 140.0
+   "width": 100.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "FunctionNodeCompare",
    "inputs": {
     "A": {
@@ -619,23 +642,23 @@
      "value": 0
     }
    },
-   "label": "",
+   "label": "Is Side",
    "location": [
-    210,
-    -606
+    -600,
+    180
    ],
    "mute": false,
    "name": "Is Side",
    "outputs": [
     "Result"
    ],
-   "parent": "Materialien",
+   "parent": "[Materials]",
    "props": {
     "data_type": "INT",
     "mode": "ELEMENT",
     "operation": "EQUAL"
    },
-   "width": 140.0
+   "width": 100.0
   },
   {
    "hide": false,
@@ -654,103 +677,24 @@
      "name": "True"
     }
    },
-   "label": "",
+   "label": "Keep Attributes",
    "location": [
-    2690,
-    0
+    1320,
+    20
    ],
    "mute": false,
    "name": "Keep Attributes",
    "outputs": [
     "Output"
    ],
-   "parent": "Aufräumen",
+   "parent": "[Cleanup]",
    "props": {
     "input_type": "GEOMETRY"
    },
    "width": 140.0
   },
   {
-   "hide": false,
-   "idname": "GeometryNodeSetMaterial",
-   "inputs": {
-    "Geometry": {
-     "linked": true,
-     "name": "Geometry"
-    },
-    "Material": {
-     "linked": true,
-     "name": "Material"
-    },
-    "Selection": {
-     "linked": true,
-     "name": "Selection"
-    }
-   },
-   "label": "",
-   "location": [
-    840,
-    0
-   ],
-   "mute": false,
-   "name": "Material Bevel",
-   "outputs": [
-    "Geometry"
-   ],
-   "parent": "Materialien",
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeSetMaterial",
-   "inputs": {
-    "Geometry": {
-     "linked": true,
-     "name": "Geometry"
-    },
-    "Material": {
-     "linked": true,
-     "name": "Material"
-    },
-    "Selection": {
-     "linked": true,
-     "name": "Selection"
-    }
-   },
-   "label": "",
-   "location": [
-    630,
-    0
-   ],
-   "mute": false,
-   "name": "Material Side",
-   "outputs": [
-    "Geometry"
-   ],
-   "parent": "Materialien",
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeFrame",
-   "inputs": {},
-   "label": "Materialien",
-   "location": [
-    0,
-    0
-   ],
-   "mute": false,
-   "name": "Materialien",
-   "outputs": [],
-   "parent": null,
-   "props": {
-    "label_size": 20,
-    "shrink": true
-   },
-   "width": 160.0
-  },
-  {
-   "hide": false,
+   "hide": true,
    "idname": "FunctionNodeBooleanMath",
    "inputs": {
     "Boolean": {
@@ -758,21 +702,21 @@
      "name": "Boolean"
     }
    },
-   "label": "",
+   "label": "Not Sharp",
    "location": [
-    1850,
-    -176
+    600,
+    -60
    ],
    "mute": false,
    "name": "Not Sharp",
    "outputs": [
     "Boolean"
    ],
-   "parent": "Shading",
+   "parent": "[Shading]",
    "props": {
     "operation": "NOT"
    },
-   "width": 140.0
+   "width": 100.0
   },
   {
    "hide": false,
@@ -791,37 +735,253 @@
      "value": "Wildcard"
     }
    },
-   "label": "",
+   "label": "Remove et_*",
    "location": [
-    2440,
-    -86
+    1100,
+    20
    ],
    "mute": false,
    "name": "Remove et_*",
    "outputs": [
     "Geometry"
    ],
-   "parent": "Aufräumen",
+   "parent": "[Cleanup]",
    "width": 180.0
   },
   {
    "hide": false,
-   "idname": "NodeFrame",
-   "inputs": {},
-   "label": "Shading",
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
    "location": [
-    0,
-    0
+    -822,
+    -61
    ],
    "mute": false,
-   "name": "Shading",
-   "outputs": [],
+   "name": "Reroute",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Materials]",
+   "props": {
+    "socket_idname": "NodeSocketMaterial"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -658,
+    -61
+   ],
+   "mute": false,
+   "name": "Reroute.001",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Materials]",
+   "props": {
+    "socket_idname": "NodeSocketMaterial"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -820,
+    -241
+   ],
+   "mute": false,
+   "name": "Reroute.002",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Materials]",
+   "props": {
+    "socket_idname": "NodeSocketMaterial"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -656,
+    -241
+   ],
+   "mute": false,
+   "name": "Reroute.003",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Materials]",
+   "props": {
+    "socket_idname": "NodeSocketMaterial"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -290,
+    -155
+   ],
+   "mute": false,
+   "name": "Reroute.004",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Materials]",
+   "props": {
+    "socket_idname": "NodeSocketMaterial"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    960,
+    -105
+   ],
+   "mute": false,
+   "name": "Reroute.005",
+   "outputs": [
+    "Output"
+   ],
    "parent": null,
    "props": {
-    "label_size": 20,
-    "shrink": true
+    "socket_idname": "NodeSocketGeometry"
    },
-   "width": 160.0
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    1052,
+    -105
+   ],
+   "mute": false,
+   "name": "Reroute.006",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Cleanup]",
+   "props": {
+    "socket_idname": "NodeSocketGeometry"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSetMaterial",
+   "inputs": {
+    "Geometry": {
+     "linked": true,
+     "name": "Geometry"
+    },
+    "Material": {
+     "linked": true,
+     "name": "Material"
+    },
+    "Selection": {
+     "linked": true,
+     "name": "Selection"
+    }
+   },
+   "label": "Set Bevel Material",
+   "location": [
+    -240,
+    260
+   ],
+   "mute": false,
+   "name": "Set Bevel Material",
+   "outputs": [
+    "Geometry"
+   ],
+   "parent": "[Materials]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSetMaterial",
+   "inputs": {
+    "Geometry": {
+     "linked": true,
+     "name": "Geometry"
+    },
+    "Material": {
+     "linked": true,
+     "name": "Material"
+    },
+    "Selection": {
+     "linked": true,
+     "name": "Selection"
+    }
+   },
+   "label": "Set Side Material",
+   "location": [
+    -440,
+    260
+   ],
+   "mute": false,
+   "name": "Set Side Material",
+   "outputs": [
+    "Geometry"
+   ],
+   "parent": "[Materials]",
+   "width": 140.0
   },
   {
    "hide": false,
@@ -840,17 +1000,17 @@
      "name": "Shade Smooth"
     }
    },
-   "label": "",
+   "label": "Sharp Edges",
    "location": [
-    2060,
-    0
+    740,
+    120
    ],
    "mute": false,
    "name": "Sharp Edges",
    "outputs": [
     "Geometry"
    ],
-   "parent": "Shading",
+   "parent": "[Shading]",
    "props": {
     "domain": "EDGE"
    },
@@ -876,24 +1036,24 @@
      }
     }
    },
-   "label": "",
+   "label": "Side Material Fallback",
    "location": [
-    420,
-    -176
+    -620,
+    60
    ],
    "mute": false,
    "name": "Side Material Fallback",
    "outputs": [
     "Output"
    ],
-   "parent": "Materialien",
+   "parent": "[Materials]",
    "props": {
     "input_type": "MATERIAL"
    },
    "width": 140.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "FunctionNodeCompare",
    "inputs": {
     "A": {
@@ -905,23 +1065,23 @@
      "value": null
     }
    },
-   "label": "",
+   "label": "Side Material Is None",
    "location": [
-    210,
-    -202
+    -820,
+    0
    ],
    "mute": false,
    "name": "Side Material Is None",
    "outputs": [
     "Result"
    ],
-   "parent": "Materialien",
+   "parent": "[Materials]",
    "props": {
     "data_type": "MATERIAL",
     "mode": "ELEMENT",
     "operation": "EQUAL"
    },
-   "width": 140.0
+   "width": 159.0
   },
   {
    "hide": false,
@@ -940,21 +1100,78 @@
      "value": true
     }
    },
-   "label": "",
+   "label": "Smooth Faces",
    "location": [
-    1850,
-    0
+    100,
+    120
    ],
    "mute": false,
    "name": "Smooth Faces",
    "outputs": [
     "Geometry"
    ],
-   "parent": "Shading",
+   "parent": "[Shading]",
    "props": {
     "domain": "FACE"
    },
    "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Cleanup",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Cleanup]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Materials",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Materials]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Shading",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Shading]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
   }
  ],
  "tree_type": "GeometryNodeTree"

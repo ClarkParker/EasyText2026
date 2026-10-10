@@ -1,4 +1,4 @@
-"""Deterministische JSON-Abbilder von Node-Gruppen für Diffs und Reviews."""
+"""Deterministic JSON snapshots of node groups for diffs and reviews."""
 
 from __future__ import annotations
 

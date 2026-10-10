@@ -1,6 +1,7 @@
-"""ET Text Mesh: Text -> sauberes, exportfähiges Mesh mit UVs (Kern von Easy Text v3, ohne Animation).
+"""ET Text Mesh: text -> clean, export-ready mesh with UVs (core of Easy Text v3, no animation yet).
 
-Hauptgruppe mit sechs Frames; die Arbeit steckt in den Untergruppen Outline Clean, Solid, Bevel, Text UV, Finish.
+Main group with six frames; the work happens in the sub-groups Text Source, Outline Clean, Solid, Bevel,
+Text UV and Finish.
 """
 
 from .. import catalog, materials
@@ -9,223 +10,188 @@ from . import et_bevel, et_finish, et_outline, et_solid, et_text_source, et_uv
 
 NAME = "ET Text Mesh"
 
-COLORS = {
-    "Text": (0.22, 0.27, 0.34),
-    "Kontur": (0.24, 0.31, 0.29),
-    "Körper": (0.33, 0.30, 0.24),
-    "Bevel": (0.34, 0.27, 0.24),
-    "UV": (0.29, 0.25, 0.34),
-    "Ausgabe": (0.26, 0.26, 0.26),
-}
-
 
 def build():
     mats = materials.ensure_all()
     g = GroupBuilder(
         NAME,
-        description="Text als sauberes Mesh mit Extrusion, Bevel, Materialien und exportfähigen UVs.",
+        description="Text as a clean mesh with extrusion, bevel, materials and export-ready UVs.",
         is_modifier=True,
         catalog=catalog.TEXT,
         color_tag="GEOMETRY",
         default_width=240,
     )
 
-    # ------------------------------------------------------------------ Interface (Reihenfolge = Identifier)
-    with g.panel("Text", description="Bis zu vier Zeilen; leere Zeilen werden übersprungen."):
-        g.input("Text", "string", "Easy Text", description="Erste Zeile.")
+    # ------------------------------------------------------------------ Interface (order defines identifiers)
+    with g.panel("Text", description="Up to four lines; empty lines are skipped."):
+        g.input("Text", "string", "Easy Text", description="First line.")
         for i in (2, 3, 4):
-            g.input(f"Zeile {i}", "string", "", description=f"Zeile {i}, optional.")
-    with g.panel("Typografie"):
-        g.input("Font", "font", builtin_font(), description="Schriftart (Font-Datablock).")
-        g.input("Größe", "float", 1.0, min=0.001, max=100.0, subtype="DISTANCE", description="Schriftgröße.")
-        g.input("Ausrichtung X", "menu", description="Horizontale Ausrichtung der Zeilen.")
-        g.input("Ausrichtung Y", "menu", description="Vertikale Ausrichtung des Textblocks.")
-        g.input("Pivot", "menu", description="Ursprung des Textblocks.")
-        g.input("Zeichenabstand", "float", 1.0, min=0.0, max=10.0, description="Faktor für den Abstand der Zeichen.")
-        g.input("Wortabstand", "float", 1.0, min=0.0, max=10.0, description="Faktor für den Abstand der Wörter.")
-        g.input("Zeilenabstand", "float", 1.0, min=0.0, max=10.0, description="Faktor für den Zeilenabstand.")
-        with g.panel("Textbox", description="Umbruch und Überlauf.", default_closed=True):
-            g.input("Breite", "float", 0.0, min=0.0, max=1000.0, subtype="DISTANCE", description="0 = kein Umbruch.")
-            g.input("Höhe", "float", 0.0, min=0.0, max=1000.0, subtype="DISTANCE", description="0 = unbegrenzt.")
-            g.input("Überlauf", "menu", description="Verhalten, wenn der Text nicht in die Box passt.")
-    with g.panel("Kontur", description="Qualität der Buchstabenkonturen."):
-        g.input("Auflösung", "int", 12, min=1, max=64, description="Punkte pro Kurvensegment.")
+            g.input(f"Line {i}", "string", "", description=f"Line {i}, optional.")
+    with g.panel("Typography"):
+        g.input("Font", "font", builtin_font(), description="Font data-block.")
+        g.input("Size", "float", 1.0, min=0.001, max=100.0, subtype="DISTANCE", description="Font size.")
+        g.input("Align X", "menu", description="Horizontal alignment of the lines.")
+        g.input("Align Y", "menu", description="Vertical alignment of the text block.")
+        g.input("Pivot", "menu", description="Origin of the text block.")
+        g.input("Character Spacing", "float", 1.0, min=0.0, max=10.0, description="Spacing factor between characters.")
+        g.input("Word Spacing", "float", 1.0, min=0.0, max=10.0, description="Spacing factor between words.")
+        g.input("Line Spacing", "float", 1.0, min=0.0, max=10.0, description="Spacing factor between lines.")
+        with g.panel("Text Box", description="Wrapping and overflow.", default_closed=True):
+            g.input("Box Width", "float", 0.0, min=0.0, max=1000.0, subtype="DISTANCE", description="0 = no wrapping.")
+            g.input("Box Height", "float", 0.0, min=0.0, max=1000.0, subtype="DISTANCE", description="0 = unlimited.")
+            g.input("Overflow", "menu", description="What happens when the text does not fit the box.")
+    with g.panel("Outline", description="Quality of the glyph outlines."):
+        g.input("Resolution", "int", 12, min=1, max=64, description="Points per curve segment.")
         g.input(
-            "Vereinfachen",
+            "Simplify",
             "float",
             0.5,
             min=0.0,
             max=10.0,
-            description="Punkte entfernen, deren Richtungsänderung unter diesem Winkel (Grad) liegt. 0 = aus.",
+            description="Remove points whose direction changes less than this angle (degrees). 0 = off.",
         )
-        g.input("Füllung", "menu", description="N-Gons oder Dreiecke auf den Deckflächen.")
-        g.input("Füllregel", "menu", description="Even-Odd oder Non-Zero für überlappende Konturen.")
-    with g.panel("Form"):
-        g.input("Tiefe", "float", 0.1, min=0.0, max=10.0, subtype="DISTANCE", description="Extrusionstiefe.")
-        with g.panel("Bevel", description="Kantenrundung an Vorder- und Rückseite."):
+        g.input("Fill Mode", "menu", description="N-gons or triangles on the caps.")
+        g.input("Fill Rule", "menu", description="Even-Odd or Non-Zero for overlapping outlines.")
+    with g.panel("Shape"):
+        g.input("Depth", "float", 0.1, min=0.0, max=10.0, subtype="DISTANCE", description="Extrusion depth.")
+        with g.panel("Bevel", description="Rounded front and back edges."):
             g.input("Bevel", "bool", False, panel_toggle=True)
             g.input(
-                "Breite",
+                "Bevel Width",
                 "float",
                 0.01,
                 min=0.0,
                 max=1.0,
                 subtype="DISTANCE",
-                description="Bevel-Breite, maximal halbe Tiefe.",
+                description="Bevel width, at most half the depth.",
             )
-            g.input("Segmente", "int", 3, min=1, max=16, description="Unterteilungen des Bevels.")
-            g.input("Profil", "float", 0.5, min=0.0, max=1.0, subtype="FACTOR", description="0.5 = rund.")
+            g.input("Segments", "int", 3, min=1, max=16, description="Bevel subdivisions.")
+            g.input("Profile", "float", 0.5, min=0.0, max=1.0, subtype="FACTOR", description="0.5 = round.")
         g.input(
-            "Glättungswinkel",
+            "Smooth Angle",
             "float",
             30.0,
             min=0.0,
             max=180.0,
-            description="Kanten über diesem Winkel (Grad) bleiben hart.",
+            description="Edges above this angle (degrees) stay sharp.",
         )
     with g.panel("Material"):
-        g.input("Vorderseite", "material", mats["ET Front"], description="Auch für die Rückseite.")
-        g.input("Seite", "material", mats["ET Side"])
-        g.input("Bevelfläche", "material", mats["ET Bevel"])
-    with g.panel("UV", description="UV-Map 'UVMap': Deckflächen planar, Seiten und Bevel entlang der Kontur."):
+        g.input("Front Material", "material", mats["ET Front"], description="Also used for the back face.")
+        g.input("Side Material", "material", mats["ET Side"])
+        g.input("Bevel Material", "material", mats["ET Bevel"])
+    with g.panel("UV", description="UV map 'UVMap': planar caps, sides and bevel along the outline."):
         g.input("UV", "bool", True, panel_toggle=True)
         g.input(
-            "Auf Text normieren",
+            "Normalize to Text",
             "bool",
             True,
-            description="Deckflächen in 0..1 skalieren; aus = Blender-Einheiten (kachelbar).",
+            description="Scale the caps into 0..1; off = Blender units (tileable).",
         )
-        g.input("Maßstab", "float", 1.0, min=0.0001, max=1000.0, description="Zusätzlicher UV-Faktor.")
-    with g.panel("Ausgabe", default_closed=True):
+        g.input("UV Scale", "float", 1.0, min=0.0001, max=1000.0, description="Additional UV factor.")
+    with g.panel("Output", default_closed=True):
         g.input(
-            "Hilfsattribute behalten",
+            "Keep Helper Attributes",
             "bool",
             False,
-            description="et_*-Attribute (Zeichenindex, Konturlänge, Flächengruppe) am Mesh lassen.",
+            description="Keep the et_* attributes (character index, contour length, face group) on the mesh.",
         )
     g.output("Geometry", "geometry")
     for name, value in (
-        ("Ausrichtung X", "Center"),
-        ("Ausrichtung Y", "Middle"),
+        ("Align X", "Center"),
+        ("Align Y", "Middle"),
         ("Pivot", "Midpoint"),
-        ("Überlauf", "Overflow"),
-        ("Füllung", "N-gons"),
-        ("Füllregel", "Even-Odd"),
+        ("Overflow", "Overflow"),
+        ("Fill Mode", "N-gons"),
+        ("Fill Rule", "Even-Odd"),
     ):
         g.menu_default(name, value)
 
-    # Die Textbox-"Breite" wurde vor der Bevel-"Breite" angelegt; lokale Inputs greifen über den Identifier zu.
-    box_width_id = [
-        i.identifier for i in g.tree.interface.items_tree if i.item_type == "SOCKET" and i.name == "Breite"
-    ][0]
-    bevel_width_id = [
-        i.identifier for i in g.tree.interface.items_tree if i.item_type == "SOCKET" and i.name == "Breite"
-    ][1]
-
     # ------------------------------------------------------------------ Text
-    with g.frame("Text", color=COLORS["Text"]):
-        names = (
-            "Text",
-            "Zeile 2",
-            "Zeile 3",
-            "Zeile 4",
-            "Font",
-            "Größe",
-            "Ausrichtung X",
-            "Ausrichtung Y",
-            "Pivot",
-            "Zeichenabstand",
-            "Wortabstand",
-            "Zeilenabstand",
-            "Höhe",
-            "Überlauf",
-        )
+    with g.frame("Text"):
+        names = et_text_source.LINE_INPUTS + et_text_source.TYPOGRAPHY_INPUTS
         gi = g.inputs(*names, label="Text")
-        box_width = g.inputs(box_width_id, label="Textbox Breite")[box_width_id]
-        source = g.group(et_text_source.NAME, inputs={**{n: gi[n] for n in names}, "Breite": box_width})
-        curves, text_len = source["Curves"], source["Zeichen"]
+        source = g.group(et_text_source.NAME, inputs={n: gi[n] for n in names})
+        curves, char_count = source["Curves"], source["Character Count"]
+        # Warn where the problem arises; the pass-through switch only forces evaluation of the warning.
+        no_text = g.compare("EQUAL", char_count, 0, data_type="INT", name="No Text")[0]
+        warn_empty = g.node(
+            "GeometryNodeWarning",
+            "Warn Empty",
+            inputs={"Show": no_text, "Message": "No text."},
+            props={"warning_type": "WARNING"},
+        )["Show"]
+        curves = g.switch("GEOMETRY", warn_empty, curves, curves, name="Curves")[0]
 
-    # ------------------------------------------------------------------ Kontur
-    with g.frame("Kontur", color=COLORS["Kontur"]):
-        gi = g.inputs("Auflösung", "Vereinfachen")
+    # ------------------------------------------------------------------ Outline
+    with g.frame("Outline"):
+        gi = g.inputs("Resolution", "Simplify")
         outline = g.group(
-            et_outline.NAME, inputs={"Curves": curves, "Auflösung": gi["Auflösung"], "Vereinfachen": gi["Vereinfachen"]}
+            et_outline.NAME, inputs={"Curves": curves, "Resolution": gi["Resolution"], "Simplify": gi["Simplify"]}
         )["Curves"]
 
-    # ------------------------------------------------------------------ Körper
-    with g.frame("Körper", color=COLORS["Körper"]):
-        gi = g.inputs("Tiefe", "Füllung", "Füllregel", "Vorderseite")
+    # ------------------------------------------------------------------ Solid
+    with g.frame("Solid"):
+        gi = g.inputs("Depth", "Fill Mode", "Fill Rule", "Front Material")
         solid = g.group(
             et_solid.NAME,
             inputs={
                 "Curves": outline,
-                "Tiefe": gi["Tiefe"],
-                "Füllung": gi["Füllung"],
-                "Füllregel": gi["Füllregel"],
-                "Front Material": gi["Vorderseite"],
+                "Depth": gi["Depth"],
+                "Fill Mode": gi["Fill Mode"],
+                "Fill Rule": gi["Fill Rule"],
+                "Front Material": gi["Front Material"],
             },
         )["Mesh"]
 
     # ------------------------------------------------------------------ Bevel
-    with g.frame("Bevel", color=COLORS["Bevel"]):
-        gi = g.inputs("Bevel", "Segmente", "Profil", "Tiefe", label="Bevel")
-        bevel_width = g.inputs(bevel_width_id, label="Bevel Breite")[bevel_width_id]
+    with g.frame("Bevel"):
+        gi = g.inputs("Bevel", "Bevel Width", "Segments", "Profile", "Depth", label="Bevel")
         bevel = g.group(
             et_bevel.NAME,
             inputs={
                 "Mesh": solid,
                 "Bevel": gi["Bevel"],
-                "Breite": bevel_width,
-                "Segmente": gi["Segmente"],
-                "Profil": gi["Profil"],
-                "Tiefe": gi["Tiefe"],
+                "Width": gi["Bevel Width"],
+                "Segments": gi["Segments"],
+                "Profile": gi["Profile"],
+                "Depth": gi["Depth"],
             },
         )
+        warn_bevel = g.node(
+            "GeometryNodeWarning",
+            "Warn Bevel",
+            inputs={"Show": bevel["Limited"], "Message": "Bevel width limited to half the depth."},
+            props={"warning_type": "INFO"},
+        )["Show"]
+        bevel_mesh = g.switch("GEOMETRY", warn_bevel, bevel["Mesh"], bevel["Mesh"], name="Mesh")[0]
 
     # ------------------------------------------------------------------ UV
-    with g.frame("UV", color=COLORS["UV"]):
-        gi = g.inputs("UV", "Auf Text normieren", "Maßstab", "Tiefe", label="UV")
+    with g.frame("UV"):
+        gi = g.inputs("UV", "Normalize to Text", "UV Scale", "Depth", label="UV")
         with_uv = g.group(
             et_uv.NAME,
             inputs={
-                "Mesh": bevel["Mesh"],
-                "Tiefe": gi["Tiefe"],
+                "Mesh": bevel_mesh,
+                "Depth": gi["Depth"],
                 "Radius": bevel["Radius"],
-                "Auf Text normieren": gi["Auf Text normieren"],
-                "Maßstab": gi["Maßstab"],
+                "Normalize to Text": gi["Normalize to Text"],
+                "Scale": gi["UV Scale"],
             },
         )["Mesh"]
-        mesh = g.switch("GEOMETRY", gi["UV"], bevel["Mesh"], with_uv, name="Use UV")[0]
+        mesh = g.switch("GEOMETRY", gi["UV"], bevel_mesh, with_uv, name="Use UV")[0]
 
-    # ------------------------------------------------------------------ Ausgabe
-    with g.frame("Ausgabe", color=COLORS["Ausgabe"]):
-        gi = g.inputs("Seite", "Bevelfläche", "Glättungswinkel", "Hilfsattribute behalten", label="Ausgabe")
+    # ------------------------------------------------------------------ Output
+    with g.frame("Output"):
+        gi = g.inputs("Side Material", "Bevel Material", "Smooth Angle", "Keep Helper Attributes", label="Output")
         final = g.group(
             et_finish.NAME,
             inputs={
                 "Mesh": mesh,
-                "Seite": gi["Seite"],
-                "Bevelfläche": gi["Bevelfläche"],
-                "Glättungswinkel": gi["Glättungswinkel"],
-                "Hilfsattribute behalten": gi["Hilfsattribute behalten"],
+                "Side Material": gi["Side Material"],
+                "Bevel Material": gi["Bevel Material"],
+                "Smooth Angle": gi["Smooth Angle"],
+                "Keep Helper Attributes": gi["Keep Helper Attributes"],
             },
         )["Mesh"]
-        warn_empty = g.node(
-            "GeometryNodeWarning",
-            "Warn Empty",
-            inputs={
-                "Show": g.compare("EQUAL", text_len, 0, data_type="INT", name="No Text")[0],
-                "Message": "Kein Text.",
-            },
-            props={"warning_type": "WARNING"},
-        )["Show"]
-        warn_bevel = g.node(
-            "GeometryNodeWarning",
-            "Warn Bevel",
-            inputs={"Show": bevel["Begrenzt"], "Message": "Bevel-Breite auf halbe Tiefe begrenzt."},
-            props={"warning_type": "INFO"},
-        )["Show"]
-        hook = g.boolean("OR", warn_empty, warn_bevel, name="Warnings")[0]
-        out = g.switch("GEOMETRY", hook, final, final, name="Output")[0]
-    g.set_output("Geometry", out)
+    g.set_output("Geometry", final)
     return g.finish()

@@ -1,4 +1,4 @@
-"""Geschlossener Körper: Fill, Attribute übernehmen, Rückseite + Extrusion, Flächengruppen."""
+"""Closed solid: fill, transfer attributes, back face + extrusion, face groups."""
 
 from .. import materials
 from ..core import GroupBuilder
@@ -8,38 +8,34 @@ FACE_SIDE, FACE_FRONT, FACE_BACK, FACE_BEVEL = 0, 1, 2, 3
 
 
 def build():
-    description = (
-        "Konturen füllen und zu einem geschlossenen Mesh extrudieren; Flächengruppen 0 Seite, 1 Front, 2 Rück."
-    )
+    description = "Fill the outlines and extrude them into a closed mesh; et_face_group: 0 side, 1 front, 2 back."
     g = GroupBuilder(NAME, description=description)
     g.input("Curves", "geometry")
-    g.input("Tiefe", "float", 0.1, min=0.0, max=10.0, subtype="DISTANCE")
-    g.input("Füllung", "menu")
-    g.input("Füllregel", "menu")
+    g.input("Depth", "float", 0.1, min=0.0, max=10.0, subtype="DISTANCE")
+    g.input("Fill Mode", "menu")
+    g.input("Fill Rule", "menu")
     g.input("Front Material", "material", materials.ensure("ET Front"))
     g.output("Mesh", "geometry")
-    g.menu_default("Füllung", "N-gons")
-    g.menu_default("Füllregel", "Even-Odd")
+    g.menu_default("Fill Mode", "N-gons")
+    g.menu_default("Fill Rule", "Even-Odd")
 
     with g.frame("Fill"):
-        gi = g.inputs("Curves", "Füllung", "Füllregel", "Front Material")
+        gi = g.inputs("Curves", "Fill Mode", "Fill Rule", "Front Material")
         fill = g.node(
             "GeometryNodeFillCurve",
             "Fill",
-            inputs={"Curve": gi["Curves"], "Mode": gi["Füllung"], "Fill Rule": gi["Füllregel"]},
+            inputs={"Curve": gi["Curves"], "Mode": gi["Fill Mode"], "Fill Rule": gi["Fill Rule"]},
         )["Mesh"]
         normal_z = g.separate_xyz(g.node("GeometryNodeInputNormal", "Normal")["Normal"], name="Normal XYZ")["Z"]
-        fill_up = g.node(
-            "GeometryNodeFlipFaces",
-            "Face +Z",
-            inputs={"Mesh": fill, "Selection": g.compare("LESS_THAN", normal_z, 0.0, name="Faces Down")[0]},
-        )[0]
+        faces_down = g.compare("LESS_THAN", normal_z, 0.0, name="Faces Down")[0]
+        fill_up = g.node("GeometryNodeFlipFaces", "Face +Z", inputs={"Mesh": fill, "Selection": faces_down})[0]
+        # Blender 5.2.0 does not copy interface material defaults into the modifier: fall back inside the tree.
         mat_front = g.fallback("MATERIAL", gi["Front Material"], materials.ensure("ET Front"), name="Front Material")
         fill_up = g.node(
-            "GeometryNodeSetMaterial", "Material Front", inputs={"Geometry": fill_up, "Material": mat_front}
+            "GeometryNodeSetMaterial", "Set Front Material", inputs={"Geometry": fill_up, "Material": mat_front}
         )[0]
 
-    with g.frame("Attribute übernehmen"):
+    with g.frame("Transfer Attributes"):
         gi = g.inputs("Curves")
         position = g.node("GeometryNodeInputPosition", "Position")[0]
         points = g.node(
@@ -62,14 +58,14 @@ def build():
             )[0]
             cap = g.store(cap, attr, value, data_type=data_type, name=f"Store {attr}")[0]
 
-    with g.frame("Rückseite + Extrusion"):
-        gi = g.inputs("Tiefe")
+    with g.frame("Back Face + Extrude"):
+        gi = g.inputs("Depth")
         back = g.store(cap, "et_face_group", FACE_BACK, domain="FACE", data_type="INT", name="Group Back")[0]
         back_flipped = g.node("GeometryNodeFlipFaces", "Flip Back", inputs={"Mesh": back})[0]
         extrude = g.node(
             "GeometryNodeExtrudeMesh",
             "Extrude",
-            inputs={"Mesh": back, "Offset Scale": gi["Tiefe"], "Individual": False},
+            inputs={"Mesh": back, "Offset Scale": gi["Depth"], "Individual": False},
             props={"mode": "FACES"},
         )
         front = g.store(

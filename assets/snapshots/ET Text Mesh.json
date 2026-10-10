@@ -1,6 +1,6 @@
 {
  "asset_catalog_id": "74b5e1ad-b2e0-48e7-91c1-90eab3202d7c",
- "description": "Text als sauberes Mesh mit Extrusion, Bevel, Materialien und exportfähigen UVs.",
+ "description": "Text as a clean mesh with extrusion, bevel, materials and export-ready UVs.",
  "flags": {
   "color_tag": "GEOMETRY",
   "default_group_node_width": 240,
@@ -29,7 +29,7 @@
   },
   {
    "default_closed": false,
-   "description": "Bis zu vier Zeilen; leere Zeilen werden übersprungen.",
+   "description": "Up to four lines; empty lines are skipped.",
    "item_type": "PANEL",
    "name": "Text",
    "parent": null
@@ -39,7 +39,7 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": "Easy Text",
-   "description": "Erste Zeile.",
+   "description": "First line.",
    "hide_in_modifier": false,
    "hide_value": false,
    "identifier": "Socket_1",
@@ -60,7 +60,7 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": "",
-   "description": "Zeile 2, optional.",
+   "description": "Line 2, optional.",
    "hide_in_modifier": false,
    "hide_value": false,
    "identifier": "Socket_2",
@@ -69,7 +69,7 @@
    "item_type": "SOCKET",
    "layer_selection_field": false,
    "menu_expanded": false,
-   "name": "Zeile 2",
+   "name": "Line 2",
    "optional_label": false,
    "parent": "Text",
    "socket_type": "NodeSocketString",
@@ -81,7 +81,7 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": "",
-   "description": "Zeile 3, optional.",
+   "description": "Line 3, optional.",
    "hide_in_modifier": false,
    "hide_value": false,
    "identifier": "Socket_3",
@@ -90,7 +90,7 @@
    "item_type": "SOCKET",
    "layer_selection_field": false,
    "menu_expanded": false,
-   "name": "Zeile 3",
+   "name": "Line 3",
    "optional_label": false,
    "parent": "Text",
    "socket_type": "NodeSocketString",
@@ -102,7 +102,7 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": "",
-   "description": "Zeile 4, optional.",
+   "description": "Line 4, optional.",
    "hide_in_modifier": false,
    "hide_value": false,
    "identifier": "Socket_4",
@@ -111,7 +111,7 @@
    "item_type": "SOCKET",
    "layer_selection_field": false,
    "menu_expanded": false,
-   "name": "Zeile 4",
+   "name": "Line 4",
    "optional_label": false,
    "parent": "Text",
    "socket_type": "NodeSocketString",
@@ -122,7 +122,7 @@
    "default_closed": false,
    "description": "",
    "item_type": "PANEL",
-   "name": "Typografie",
+   "name": "Typography",
    "parent": null
   },
   {
@@ -133,7 +133,7 @@
     "id": "Bfont Regular",
     "type": "VectorFont"
    },
-   "description": "Schriftart (Font-Datablock).",
+   "description": "Font data-block.",
    "hide_in_modifier": false,
    "hide_value": false,
    "identifier": "Socket_6",
@@ -144,7 +144,7 @@
    "menu_expanded": false,
    "name": "Font",
    "optional_label": false,
-   "parent": "Typografie",
+   "parent": "Typography",
    "socket_type": "NodeSocketFont",
    "structure_type": "AUTO"
   },
@@ -153,7 +153,7 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": 1.0,
-   "description": "Schriftgröße.",
+   "description": "Font size.",
    "hide_in_modifier": false,
    "hide_value": false,
    "identifier": "Socket_7",
@@ -164,9 +164,9 @@
    "max_value": 100.0,
    "menu_expanded": false,
    "min_value": 0.001,
-   "name": "Größe",
+   "name": "Size",
    "optional_label": false,
-   "parent": "Typografie",
+   "parent": "Typography",
    "socket_type": "NodeSocketFloat",
    "structure_type": "AUTO",
    "subtype": "DISTANCE"
@@ -176,7 +176,7 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": "Center",
-   "description": "Horizontale Ausrichtung der Zeilen.",
+   "description": "Horizontal alignment of the lines.",
    "hide_in_modifier": false,
    "hide_value": false,
    "identifier": "Socket_8",
@@ -185,9 +185,9 @@
    "item_type": "SOCKET",
    "layer_selection_field": false,
    "menu_expanded": false,
-   "name": "Ausrichtung X",
+   "name": "Align X",
    "optional_label": false,
-   "parent": "Typografie",
+   "parent": "Typography",
    "socket_type": "NodeSocketMenu",
    "structure_type": "AUTO"
   },
@@ -196,7 +196,7 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": "Middle",
-   "description": "Vertikale Ausrichtung des Textblocks.",
+   "description": "Vertical alignment of the text block.",
    "hide_in_modifier": false,
    "hide_value": false,
    "identifier": "Socket_9",
@@ -205,9 +205,9 @@
    "item_type": "SOCKET",
    "layer_selection_field": false,
    "menu_expanded": false,
-   "name": "Ausrichtung Y",
+   "name": "Align Y",
    "optional_label": false,
-   "parent": "Typografie",
+   "parent": "Typography",
    "socket_type": "NodeSocketMenu",
    "structure_type": "AUTO"
   },
@@ -216,7 +216,7 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": "Midpoint",
-   "description": "Ursprung des Textblocks.",
+   "description": "Origin of the text block.",
    "hide_in_modifier": false,
    "hide_value": false,
    "identifier": "Socket_10",
@@ -227,7 +227,7 @@
    "menu_expanded": false,
    "name": "Pivot",
    "optional_label": false,
-   "parent": "Typografie",
+   "parent": "Typography",
    "socket_type": "NodeSocketMenu",
    "structure_type": "AUTO"
   },
@@ -236,7 +236,7 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": 1.0,
-   "description": "Faktor für den Abstand der Zeichen.",
+   "description": "Spacing factor between characters.",
    "hide_in_modifier": false,
    "hide_value": false,
    "identifier": "Socket_11",
@@ -247,9 +247,9 @@
    "max_value": 10.0,
    "menu_expanded": false,
    "min_value": 0.0,
-   "name": "Zeichenabstand",
+   "name": "Character Spacing",
    "optional_label": false,
-   "parent": "Typografie",
+   "parent": "Typography",
    "socket_type": "NodeSocketFloat",
    "structure_type": "AUTO",
    "subtype": "NONE"
@@ -259,7 +259,7 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": 1.0,
-   "description": "Faktor für den Abstand der Wörter.",
+   "description": "Spacing factor between words.",
    "hide_in_modifier": false,
    "hide_value": false,
    "identifier": "Socket_12",
@@ -270,9 +270,9 @@
    "max_value": 10.0,
    "menu_expanded": false,
    "min_value": 0.0,
-   "name": "Wortabstand",
+   "name": "Word Spacing",
    "optional_label": false,
-   "parent": "Typografie",
+   "parent": "Typography",
    "socket_type": "NodeSocketFloat",
    "structure_type": "AUTO",
    "subtype": "NONE"
@@ -282,7 +282,7 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": 1.0,
-   "description": "Faktor für den Zeilenabstand.",
+   "description": "Spacing factor between lines.",
    "hide_in_modifier": false,
    "hide_value": false,
    "identifier": "Socket_13",
@@ -293,26 +293,26 @@
    "max_value": 10.0,
    "menu_expanded": false,
    "min_value": 0.0,
-   "name": "Zeilenabstand",
+   "name": "Line Spacing",
    "optional_label": false,
-   "parent": "Typografie",
+   "parent": "Typography",
    "socket_type": "NodeSocketFloat",
    "structure_type": "AUTO",
    "subtype": "NONE"
   },
   {
    "default_closed": true,
-   "description": "Umbruch und Überlauf.",
+   "description": "Wrapping and overflow.",
    "item_type": "PANEL",
-   "name": "Textbox",
-   "parent": "Typografie"
+   "name": "Text Box",
+   "parent": "Typography"
   },
   {
    "attribute_domain": "POINT",
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": 0.0,
-   "description": "0 = kein Umbruch.",
+   "description": "0 = no wrapping.",
    "hide_in_modifier": false,
    "hide_value": false,
    "identifier": "Socket_15",
@@ -323,9 +323,9 @@
    "max_value": 1000.0,
    "menu_expanded": false,
    "min_value": 0.0,
-   "name": "Breite",
+   "name": "Box Width",
    "optional_label": false,
-   "parent": "Textbox",
+   "parent": "Text Box",
    "socket_type": "NodeSocketFloat",
    "structure_type": "AUTO",
    "subtype": "DISTANCE"
@@ -335,7 +335,7 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": 0.0,
-   "description": "0 = unbegrenzt.",
+   "description": "0 = unlimited.",
    "hide_in_modifier": false,
    "hide_value": false,
    "identifier": "Socket_16",
@@ -346,9 +346,9 @@
    "max_value": 1000.0,
    "menu_expanded": false,
    "min_value": 0.0,
-   "name": "Höhe",
+   "name": "Box Height",
    "optional_label": false,
-   "parent": "Textbox",
+   "parent": "Text Box",
    "socket_type": "NodeSocketFloat",
    "structure_type": "AUTO",
    "subtype": "DISTANCE"
@@ -358,7 +358,7 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": "Overflow",
-   "description": "Verhalten, wenn der Text nicht in die Box passt.",
+   "description": "What happens when the text does not fit the box.",
    "hide_in_modifier": false,
    "hide_value": false,
    "identifier": "Socket_17",
@@ -367,17 +367,17 @@
    "item_type": "SOCKET",
    "layer_selection_field": false,
    "menu_expanded": false,
-   "name": "Überlauf",
+   "name": "Overflow",
    "optional_label": false,
-   "parent": "Textbox",
+   "parent": "Text Box",
    "socket_type": "NodeSocketMenu",
    "structure_type": "AUTO"
   },
   {
    "default_closed": false,
-   "description": "Qualität der Buchstabenkonturen.",
+   "description": "Quality of the glyph outlines.",
    "item_type": "PANEL",
-   "name": "Kontur",
+   "name": "Outline",
    "parent": null
   },
   {
@@ -385,7 +385,7 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": 12,
-   "description": "Punkte pro Kurvensegment.",
+   "description": "Points per curve segment.",
    "hide_in_modifier": false,
    "hide_value": false,
    "identifier": "Socket_19",
@@ -396,9 +396,9 @@
    "max_value": 64,
    "menu_expanded": false,
    "min_value": 1,
-   "name": "Auflösung",
+   "name": "Resolution",
    "optional_label": false,
-   "parent": "Kontur",
+   "parent": "Outline",
    "socket_type": "NodeSocketInt",
    "structure_type": "AUTO",
    "subtype": "NONE"
@@ -408,7 +408,7 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": 0.5,
-   "description": "Punkte entfernen, deren Richtungsänderung unter diesem Winkel (Grad) liegt. 0 = aus.",
+   "description": "Remove points whose direction changes less than this angle (degrees). 0 = off.",
    "hide_in_modifier": false,
    "hide_value": false,
    "identifier": "Socket_20",
@@ -419,9 +419,9 @@
    "max_value": 10.0,
    "menu_expanded": false,
    "min_value": 0.0,
-   "name": "Vereinfachen",
+   "name": "Simplify",
    "optional_label": false,
-   "parent": "Kontur",
+   "parent": "Outline",
    "socket_type": "NodeSocketFloat",
    "structure_type": "AUTO",
    "subtype": "NONE"
@@ -431,7 +431,7 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": "N-gons",
-   "description": "N-Gons oder Dreiecke auf den Deckflächen.",
+   "description": "N-gons or triangles on the caps.",
    "hide_in_modifier": false,
    "hide_value": false,
    "identifier": "Socket_21",
@@ -440,9 +440,9 @@
    "item_type": "SOCKET",
    "layer_selection_field": false,
    "menu_expanded": false,
-   "name": "Füllung",
+   "name": "Fill Mode",
    "optional_label": false,
-   "parent": "Kontur",
+   "parent": "Outline",
    "socket_type": "NodeSocketMenu",
    "structure_type": "AUTO"
   },
@@ -451,7 +451,7 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": "Even-Odd",
-   "description": "Even-Odd oder Non-Zero für überlappende Konturen.",
+   "description": "Even-Odd or Non-Zero for overlapping outlines.",
    "hide_in_modifier": false,
    "hide_value": false,
    "identifier": "Socket_22",
@@ -460,9 +460,9 @@
    "item_type": "SOCKET",
    "layer_selection_field": false,
    "menu_expanded": false,
-   "name": "Füllregel",
+   "name": "Fill Rule",
    "optional_label": false,
-   "parent": "Kontur",
+   "parent": "Outline",
    "socket_type": "NodeSocketMenu",
    "structure_type": "AUTO"
   },
@@ -470,7 +470,7 @@
    "default_closed": false,
    "description": "",
    "item_type": "PANEL",
-   "name": "Form",
+   "name": "Shape",
    "parent": null
   },
   {
@@ -478,7 +478,7 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": 0.1,
-   "description": "Extrusionstiefe.",
+   "description": "Extrusion depth.",
    "hide_in_modifier": false,
    "hide_value": false,
    "identifier": "Socket_24",
@@ -489,9 +489,9 @@
    "max_value": 10.0,
    "menu_expanded": false,
    "min_value": 0.0,
-   "name": "Tiefe",
+   "name": "Depth",
    "optional_label": false,
-   "parent": "Form",
+   "parent": "Shape",
    "socket_type": "NodeSocketFloat",
    "structure_type": "AUTO",
    "subtype": "DISTANCE"
@@ -501,7 +501,7 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": 30.0,
-   "description": "Kanten über diesem Winkel (Grad) bleiben hart.",
+   "description": "Edges above this angle (degrees) stay sharp.",
    "hide_in_modifier": false,
    "hide_value": false,
    "identifier": "Socket_30",
@@ -512,19 +512,19 @@
    "max_value": 180.0,
    "menu_expanded": false,
    "min_value": 0.0,
-   "name": "Glättungswinkel",
+   "name": "Smooth Angle",
    "optional_label": false,
-   "parent": "Form",
+   "parent": "Shape",
    "socket_type": "NodeSocketFloat",
    "structure_type": "AUTO",
    "subtype": "NONE"
   },
   {
    "default_closed": false,
-   "description": "Kantenrundung an Vorder- und Rückseite.",
+   "description": "Rounded front and back edges.",
    "item_type": "PANEL",
    "name": "Bevel",
-   "parent": "Form"
+   "parent": "Shape"
   },
   {
    "attribute_domain": "POINT",
@@ -551,7 +551,7 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": 0.01,
-   "description": "Bevel-Breite, maximal halbe Tiefe.",
+   "description": "Bevel width, at most half the depth.",
    "hide_in_modifier": false,
    "hide_value": false,
    "identifier": "Socket_27",
@@ -562,7 +562,7 @@
    "max_value": 1.0,
    "menu_expanded": false,
    "min_value": 0.0,
-   "name": "Breite",
+   "name": "Bevel Width",
    "optional_label": false,
    "parent": "Bevel",
    "socket_type": "NodeSocketFloat",
@@ -574,7 +574,7 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": 3,
-   "description": "Unterteilungen des Bevels.",
+   "description": "Bevel subdivisions.",
    "hide_in_modifier": false,
    "hide_value": false,
    "identifier": "Socket_28",
@@ -585,7 +585,7 @@
    "max_value": 16,
    "menu_expanded": false,
    "min_value": 1,
-   "name": "Segmente",
+   "name": "Segments",
    "optional_label": false,
    "parent": "Bevel",
    "socket_type": "NodeSocketInt",
@@ -597,7 +597,7 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": 0.5,
-   "description": "0.5 = rund.",
+   "description": "0.5 = round.",
    "hide_in_modifier": false,
    "hide_value": false,
    "identifier": "Socket_29",
@@ -608,7 +608,7 @@
    "max_value": 1.0,
    "menu_expanded": false,
    "min_value": 0.0,
-   "name": "Profil",
+   "name": "Profile",
    "optional_label": false,
    "parent": "Bevel",
    "socket_type": "NodeSocketFloat",
@@ -630,7 +630,7 @@
     "id": "ET Front",
     "type": "Material"
    },
-   "description": "Auch für die Rückseite.",
+   "description": "Also used for the back face.",
    "hide_in_modifier": false,
    "hide_value": false,
    "identifier": "Socket_32",
@@ -639,7 +639,7 @@
    "item_type": "SOCKET",
    "layer_selection_field": false,
    "menu_expanded": false,
-   "name": "Vorderseite",
+   "name": "Front Material",
    "optional_label": false,
    "parent": "Material",
    "socket_type": "NodeSocketMaterial",
@@ -662,7 +662,7 @@
    "item_type": "SOCKET",
    "layer_selection_field": false,
    "menu_expanded": false,
-   "name": "Seite",
+   "name": "Side Material",
    "optional_label": false,
    "parent": "Material",
    "socket_type": "NodeSocketMaterial",
@@ -685,7 +685,7 @@
    "item_type": "SOCKET",
    "layer_selection_field": false,
    "menu_expanded": false,
-   "name": "Bevelfläche",
+   "name": "Bevel Material",
    "optional_label": false,
    "parent": "Material",
    "socket_type": "NodeSocketMaterial",
@@ -693,7 +693,7 @@
   },
   {
    "default_closed": false,
-   "description": "UV-Map 'UVMap': Deckflächen planar, Seiten und Bevel entlang der Kontur.",
+   "description": "UV map 'UVMap': planar caps, sides and bevel along the outline.",
    "item_type": "PANEL",
    "name": "UV",
    "parent": null
@@ -723,7 +723,7 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": true,
-   "description": "Deckflächen in 0..1 skalieren; aus = Blender-Einheiten (kachelbar).",
+   "description": "Scale the caps into 0..1; off = Blender units (tileable).",
    "hide_in_modifier": false,
    "hide_value": false,
    "identifier": "Socket_37",
@@ -732,7 +732,7 @@
    "item_type": "SOCKET",
    "layer_selection_field": false,
    "menu_expanded": false,
-   "name": "Auf Text normieren",
+   "name": "Normalize to Text",
    "optional_label": false,
    "parent": "UV",
    "socket_type": "NodeSocketBool",
@@ -743,7 +743,7 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": 1.0,
-   "description": "Zusätzlicher UV-Faktor.",
+   "description": "Additional UV factor.",
    "hide_in_modifier": false,
    "hide_value": false,
    "identifier": "Socket_38",
@@ -754,7 +754,7 @@
    "max_value": 1000.0,
    "menu_expanded": false,
    "min_value": 0.0001,
-   "name": "Maßstab",
+   "name": "UV Scale",
    "optional_label": false,
    "parent": "UV",
    "socket_type": "NodeSocketFloat",
@@ -765,7 +765,7 @@
    "default_closed": true,
    "description": "",
    "item_type": "PANEL",
-   "name": "Ausgabe",
+   "name": "Output",
    "parent": null
   },
   {
@@ -773,7 +773,7 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": false,
-   "description": "et_*-Attribute (Zeichenindex, Konturlänge, Flächengruppe) am Mesh lassen.",
+   "description": "Keep the et_* attributes (character index, contour length, face group) on the mesh.",
    "hide_in_modifier": false,
    "hide_value": false,
    "identifier": "Socket_40",
@@ -782,31 +782,37 @@
    "item_type": "SOCKET",
    "layer_selection_field": false,
    "menu_expanded": false,
-   "name": "Hilfsattribute behalten",
+   "name": "Keep Helper Attributes",
    "optional_label": false,
-   "parent": "Ausgabe",
+   "parent": "Output",
    "socket_type": "NodeSocketBool",
    "structure_type": "AUTO"
   }
  ],
  "links": [
   [
-   "ET Bevel",
-   "Socket_6",
-   "ET Text UV",
+   "Curves",
+   "Output",
+   "ET Outline Clean",
    "Socket_0"
   ],
   [
    "ET Bevel",
    "Socket_6",
-   "Use UV",
+   "Mesh",
    "False"
   ],
   [
    "ET Bevel",
+   "Socket_6",
+   "Mesh",
+   "True"
+  ],
+  [
+   "ET Bevel",
    "Socket_7",
-   "ET Text UV",
-   "Socket_2"
+   "Reroute.004",
+   "Input"
   ],
   [
    "ET Bevel",
@@ -817,14 +823,8 @@
   [
    "ET Finish",
    "Socket_5",
-   "Output",
-   "False"
-  ],
-  [
-   "ET Finish",
-   "Socket_5",
-   "Output",
-   "True"
+   "Group Output",
+   "Socket_41"
   ],
   [
    "ET Outline Clean",
@@ -841,8 +841,14 @@
   [
    "ET Text Source",
    "Socket_15",
-   "ET Outline Clean",
-   "Socket_0"
+   "Curves",
+   "False"
+  ],
+  [
+   "ET Text Source",
+   "Socket_15",
+   "Curves",
+   "True"
   ],
   [
    "ET Text Source",
@@ -855,48 +861,6 @@
    "Socket_5",
    "Use UV",
    "True"
-  ],
-  [
-   "Group Input (Auflösung, Vereinfachen)",
-   "Socket_19",
-   "ET Outline Clean",
-   "Socket_1"
-  ],
-  [
-   "Group Input (Auflösung, Vereinfachen)",
-   "Socket_20",
-   "ET Outline Clean",
-   "Socket_2"
-  ],
-  [
-   "Group Input (Ausgabe)",
-   "Socket_30",
-   "ET Finish",
-   "Socket_3"
-  ],
-  [
-   "Group Input (Ausgabe)",
-   "Socket_33",
-   "ET Finish",
-   "Socket_1"
-  ],
-  [
-   "Group Input (Ausgabe)",
-   "Socket_34",
-   "ET Finish",
-   "Socket_2"
-  ],
-  [
-   "Group Input (Ausgabe)",
-   "Socket_40",
-   "ET Finish",
-   "Socket_4"
-  ],
-  [
-   "Group Input (Bevel Breite)",
-   "Socket_27",
-   "ET Bevel",
-   "Socket_2"
   ],
   [
    "Group Input (Bevel)",
@@ -912,6 +876,12 @@
   ],
   [
    "Group Input (Bevel)",
+   "Socket_27",
+   "ET Bevel",
+   "Socket_2"
+  ],
+  [
+   "Group Input (Bevel)",
    "Socket_28",
    "ET Bevel",
    "Socket_3"
@@ -921,6 +891,66 @@
    "Socket_29",
    "ET Bevel",
    "Socket_4"
+  ],
+  [
+   "Group Input (Depth, Fill Mode, Fill Rule, Front Material)",
+   "Socket_21",
+   "ET Solid",
+   "Socket_2"
+  ],
+  [
+   "Group Input (Depth, Fill Mode, Fill Rule, Front Material)",
+   "Socket_22",
+   "ET Solid",
+   "Socket_3"
+  ],
+  [
+   "Group Input (Depth, Fill Mode, Fill Rule, Front Material)",
+   "Socket_24",
+   "ET Solid",
+   "Socket_1"
+  ],
+  [
+   "Group Input (Depth, Fill Mode, Fill Rule, Front Material)",
+   "Socket_32",
+   "ET Solid",
+   "Socket_4"
+  ],
+  [
+   "Group Input (Output)",
+   "Socket_30",
+   "ET Finish",
+   "Socket_3"
+  ],
+  [
+   "Group Input (Output)",
+   "Socket_33",
+   "ET Finish",
+   "Socket_1"
+  ],
+  [
+   "Group Input (Output)",
+   "Socket_34",
+   "ET Finish",
+   "Socket_2"
+  ],
+  [
+   "Group Input (Output)",
+   "Socket_40",
+   "ET Finish",
+   "Socket_4"
+  ],
+  [
+   "Group Input (Resolution, Simplify)",
+   "Socket_19",
+   "ET Outline Clean",
+   "Socket_1"
+  ],
+  [
+   "Group Input (Resolution, Simplify)",
+   "Socket_20",
+   "ET Outline Clean",
+   "Socket_2"
   ],
   [
    "Group Input (Text)",
@@ -951,6 +981,12 @@
    "Socket_13",
    "ET Text Source",
    "Socket_11"
+  ],
+  [
+   "Group Input (Text)",
+   "Socket_15",
+   "ET Text Source",
+   "Socket_12"
   ],
   [
    "Group Input (Text)",
@@ -1007,36 +1043,6 @@
    "Socket_7"
   ],
   [
-   "Group Input (Textbox Breite)",
-   "Socket_15",
-   "ET Text Source",
-   "Socket_12"
-  ],
-  [
-   "Group Input (Tiefe, Füllung, Füllregel, Vorderseite)",
-   "Socket_21",
-   "ET Solid",
-   "Socket_2"
-  ],
-  [
-   "Group Input (Tiefe, Füllung, Füllregel, Vorderseite)",
-   "Socket_22",
-   "ET Solid",
-   "Socket_3"
-  ],
-  [
-   "Group Input (Tiefe, Füllung, Füllregel, Vorderseite)",
-   "Socket_24",
-   "ET Solid",
-   "Socket_1"
-  ],
-  [
-   "Group Input (Tiefe, Füllung, Füllregel, Vorderseite)",
-   "Socket_32",
-   "ET Solid",
-   "Socket_4"
-  ],
-  [
    "Group Input (UV)",
    "Socket_24",
    "ET Text UV",
@@ -1045,8 +1051,8 @@
   [
    "Group Input (UV)",
    "Socket_36",
-   "Use UV",
-   "Switch"
+   "Reroute",
+   "Input"
   ],
   [
    "Group Input (UV)",
@@ -1061,16 +1067,58 @@
    "Socket_4"
   ],
   [
+   "Mesh",
+   "Output",
+   "Reroute.002",
+   "Input"
+  ],
+  [
    "No Text",
    "Result",
    "Warn Empty",
    "Show"
   ],
   [
+   "Reroute",
    "Output",
+   "Reroute.001",
+   "Input"
+  ],
+  [
+   "Reroute.001",
    "Output",
-   "Group Output",
-   "Socket_41"
+   "Use UV",
+   "Switch"
+  ],
+  [
+   "Reroute.002",
+   "Output",
+   "Reroute.003",
+   "Input"
+  ],
+  [
+   "Reroute.003",
+   "Output",
+   "ET Text UV",
+   "Socket_0"
+  ],
+  [
+   "Reroute.003",
+   "Output",
+   "Use UV",
+   "False"
+  ],
+  [
+   "Reroute.004",
+   "Output",
+   "Reroute.005",
+   "Input"
+  ],
+  [
+   "Reroute.005",
+   "Output",
+   "ET Text UV",
+   "Socket_2"
   ],
   [
    "Use UV",
@@ -1081,19 +1129,13 @@
   [
    "Warn Bevel",
    "Show",
-   "Warnings",
-   "Boolean_001"
+   "Mesh",
+   "Switch"
   ],
   [
    "Warn Empty",
    "Show",
-   "Warnings",
-   "Boolean"
-  ],
-  [
-   "Warnings",
-   "Boolean",
-   "Output",
+   "Curves",
    "Switch"
   ]
  ],
@@ -1101,41 +1143,36 @@
  "nodes": [
   {
    "hide": false,
-   "idname": "NodeFrame",
-   "inputs": {},
-   "label": "Ausgabe",
+   "idname": "GeometryNodeSwitch",
+   "inputs": {
+    "False": {
+     "linked": true,
+     "name": "False"
+    },
+    "Switch": {
+     "linked": true,
+     "name": "Switch"
+    },
+    "True": {
+     "linked": true,
+     "name": "True"
+    }
+   },
+   "label": "Curves",
    "location": [
-    0,
-    0
+    -1640,
+    -100
    ],
    "mute": false,
-   "name": "Ausgabe",
-   "outputs": [],
-   "parent": null,
-   "props": {
-    "label_size": 20,
-    "shrink": true
-   },
-   "width": 160.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeFrame",
-   "inputs": {},
-   "label": "Bevel",
-   "location": [
-    0,
-    0
+   "name": "Curves",
+   "outputs": [
+    "Output"
    ],
-   "mute": false,
-   "name": "Bevel",
-   "outputs": [],
-   "parent": null,
+   "parent": "[Text]",
    "props": {
-    "label_size": 20,
-    "shrink": true
+    "input_type": "GEOMETRY"
    },
-   "width": 160.0
+   "width": 140.0
   },
   {
    "hide": false,
@@ -1151,25 +1188,25 @@
     },
     "Socket_2": {
      "linked": true,
-     "name": "Breite"
+     "name": "Width"
     },
     "Socket_3": {
      "linked": true,
-     "name": "Segmente"
+     "name": "Segments"
     },
     "Socket_4": {
      "linked": true,
-     "name": "Profil"
+     "name": "Profile"
     },
     "Socket_5": {
      "linked": true,
-     "name": "Tiefe"
+     "name": "Depth"
     }
    },
-   "label": "",
+   "label": "ET Bevel",
    "location": [
-    2160,
-    0
+    20,
+    80
    ],
    "mute": false,
    "name": "ET Bevel",
@@ -1178,7 +1215,7 @@
     "Socket_7",
     "Socket_8"
    ],
-   "parent": "Bevel",
+   "parent": "[Bevel]",
    "props": {
     "node_tree": {
      "id": ".ET Bevel",
@@ -1197,32 +1234,32 @@
     },
     "Socket_1": {
      "linked": true,
-     "name": "Seite"
+     "name": "Side Material"
     },
     "Socket_2": {
      "linked": true,
-     "name": "Bevelfläche"
+     "name": "Bevel Material"
     },
     "Socket_3": {
      "linked": true,
-     "name": "Glättungswinkel"
+     "name": "Smooth Angle"
     },
     "Socket_4": {
      "linked": true,
-     "name": "Hilfsattribute behalten"
+     "name": "Keep Helper Attributes"
     }
    },
-   "label": "",
+   "label": "ET Finish",
    "location": [
-    3670,
-    -154
+    1740,
+    140
    ],
    "mute": false,
    "name": "ET Finish",
    "outputs": [
     "Socket_5"
    ],
-   "parent": "Ausgabe",
+   "parent": "[Output]",
    "props": {
     "node_tree": {
      "id": ".ET Finish",
@@ -1241,24 +1278,24 @@
     },
     "Socket_1": {
      "linked": true,
-     "name": "Auflösung"
+     "name": "Resolution"
     },
     "Socket_2": {
      "linked": true,
-     "name": "Vereinfachen"
+     "name": "Simplify"
     }
    },
-   "label": "",
+   "label": "ET Outline Clean",
    "location": [
-    860,
-    0
+    -1140,
+    -60
    ],
    "mute": false,
    "name": "ET Outline Clean",
    "outputs": [
     "Socket_3"
    ],
-   "parent": "Kontur",
+   "parent": "[Outline]",
    "props": {
     "node_tree": {
      "id": ".ET Outline Clean",
@@ -1277,32 +1314,32 @@
     },
     "Socket_1": {
      "linked": true,
-     "name": "Tiefe"
+     "name": "Depth"
     },
     "Socket_2": {
      "linked": true,
-     "name": "Füllung"
+     "name": "Fill Mode"
     },
     "Socket_3": {
      "linked": true,
-     "name": "Füllregel"
+     "name": "Fill Rule"
     },
     "Socket_4": {
      "linked": true,
      "name": "Front Material"
     }
    },
-   "label": "",
+   "label": "ET Solid",
    "location": [
-    1510,
-    0
+    -560,
+    -20
    ],
    "mute": false,
    "name": "ET Solid",
    "outputs": [
     "Socket_5"
    ],
-   "parent": "Körper",
+   "parent": "[Solid]",
    "props": {
     "node_tree": {
      "id": ".ET Solid",
@@ -1321,35 +1358,35 @@
     },
     "Socket_1": {
      "linked": true,
-     "name": "Zeile 2"
+     "name": "Line 2"
     },
     "Socket_10": {
      "linked": true,
-     "name": "Wortabstand"
+     "name": "Word Spacing"
     },
     "Socket_11": {
      "linked": true,
-     "name": "Zeilenabstand"
+     "name": "Line Spacing"
     },
     "Socket_12": {
      "linked": true,
-     "name": "Breite"
+     "name": "Box Width"
     },
     "Socket_13": {
      "linked": true,
-     "name": "Höhe"
+     "name": "Box Height"
     },
     "Socket_14": {
      "linked": true,
-     "name": "Überlauf"
+     "name": "Overflow"
     },
     "Socket_2": {
      "linked": true,
-     "name": "Zeile 3"
+     "name": "Line 3"
     },
     "Socket_3": {
      "linked": true,
-     "name": "Zeile 4"
+     "name": "Line 4"
     },
     "Socket_4": {
      "linked": true,
@@ -1357,15 +1394,15 @@
     },
     "Socket_5": {
      "linked": true,
-     "name": "Größe"
+     "name": "Size"
     },
     "Socket_6": {
      "linked": true,
-     "name": "Ausrichtung X"
+     "name": "Align X"
     },
     "Socket_7": {
      "linked": true,
-     "name": "Ausrichtung Y"
+     "name": "Align Y"
     },
     "Socket_8": {
      "linked": true,
@@ -1373,13 +1410,13 @@
     },
     "Socket_9": {
      "linked": true,
-     "name": "Zeichenabstand"
+     "name": "Character Spacing"
     }
    },
-   "label": "",
+   "label": "ET Text Source",
    "location": [
-    210,
-    0
+    -2200,
+    -180
    ],
    "mute": false,
    "name": "ET Text Source",
@@ -1387,7 +1424,7 @@
     "Socket_15",
     "Socket_16"
    ],
-   "parent": "Text",
+   "parent": "[Text]",
    "props": {
     "node_tree": {
      "id": ".ET Text Source",
@@ -1406,7 +1443,7 @@
     },
     "Socket_1": {
      "linked": true,
-     "name": "Tiefe"
+     "name": "Depth"
     },
     "Socket_2": {
      "linked": true,
@@ -1414,24 +1451,24 @@
     },
     "Socket_3": {
      "linked": true,
-     "name": "Auf Text normieren"
+     "name": "Normalize to Text"
     },
     "Socket_4": {
      "linked": true,
-     "name": "Maßstab"
+     "name": "Scale"
     }
    },
-   "label": "",
+   "label": "ET Text UV",
    "location": [
-    2810,
-    0
+    980,
+    40
    ],
    "mute": false,
    "name": "ET Text UV",
    "outputs": [
     "Socket_5"
    ],
-   "parent": "UV",
+   "parent": "[UV]",
    "props": {
     "node_tree": {
      "id": ".ET Text UV",
@@ -1446,155 +1483,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    650,
-    0
-   ],
-   "mute": false,
-   "name": "Group Input (Auflösung, Vereinfachen)",
-   "outputs": [
-    "Socket_1",
-    "Socket_2",
-    "Socket_3",
-    "Socket_4",
-    "Socket_6",
-    "Socket_7",
-    "Socket_8",
-    "Socket_9",
-    "Socket_10",
-    "Socket_11",
-    "Socket_12",
-    "Socket_13",
-    "Socket_15",
-    "Socket_16",
-    "Socket_17",
-    "Socket_19",
-    "Socket_20",
-    "Socket_21",
-    "Socket_22",
-    "Socket_24",
-    "Socket_30",
-    "Socket_26",
-    "Socket_27",
-    "Socket_28",
-    "Socket_29",
-    "Socket_32",
-    "Socket_33",
-    "Socket_34",
-    "Socket_36",
-    "Socket_37",
-    "Socket_38",
-    "Socket_40",
-    "__extend__"
-   ],
-   "parent": "Kontur",
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeGroupInput",
-   "inputs": {},
-   "label": "",
-   "location": [
-    3460,
-    0
-   ],
-   "mute": false,
-   "name": "Group Input (Ausgabe)",
-   "outputs": [
-    "Socket_1",
-    "Socket_2",
-    "Socket_3",
-    "Socket_4",
-    "Socket_6",
-    "Socket_7",
-    "Socket_8",
-    "Socket_9",
-    "Socket_10",
-    "Socket_11",
-    "Socket_12",
-    "Socket_13",
-    "Socket_15",
-    "Socket_16",
-    "Socket_17",
-    "Socket_19",
-    "Socket_20",
-    "Socket_21",
-    "Socket_22",
-    "Socket_24",
-    "Socket_30",
-    "Socket_26",
-    "Socket_27",
-    "Socket_28",
-    "Socket_29",
-    "Socket_32",
-    "Socket_33",
-    "Socket_34",
-    "Socket_36",
-    "Socket_37",
-    "Socket_38",
-    "Socket_40",
-    "__extend__"
-   ],
-   "parent": "Ausgabe",
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeGroupInput",
-   "inputs": {},
-   "label": "",
-   "location": [
-    1950,
-    0
-   ],
-   "mute": false,
-   "name": "Group Input (Bevel Breite)",
-   "outputs": [
-    "Socket_1",
-    "Socket_2",
-    "Socket_3",
-    "Socket_4",
-    "Socket_6",
-    "Socket_7",
-    "Socket_8",
-    "Socket_9",
-    "Socket_10",
-    "Socket_11",
-    "Socket_12",
-    "Socket_13",
-    "Socket_15",
-    "Socket_16",
-    "Socket_17",
-    "Socket_19",
-    "Socket_20",
-    "Socket_21",
-    "Socket_22",
-    "Socket_24",
-    "Socket_30",
-    "Socket_26",
-    "Socket_27",
-    "Socket_28",
-    "Socket_29",
-    "Socket_32",
-    "Socket_33",
-    "Socket_34",
-    "Socket_36",
-    "Socket_37",
-    "Socket_38",
-    "Socket_40",
-    "__extend__"
-   ],
-   "parent": "Bevel",
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeGroupInput",
-   "inputs": {},
-   "label": "",
-   "location": [
-    1950,
-    -86
+    -160,
+    -80
    ],
    "mute": false,
    "name": "Group Input (Bevel)",
@@ -1633,7 +1523,7 @@
     "Socket_40",
     "__extend__"
    ],
-   "parent": "Bevel",
+   "parent": "[Bevel]",
    "width": 140.0
   },
   {
@@ -1642,8 +1532,155 @@
    "inputs": {},
    "label": "",
    "location": [
-    0,
-    0
+    -740,
+    -140
+   ],
+   "mute": false,
+   "name": "Group Input (Depth, Fill Mode, Fill Rule, Front Material)",
+   "outputs": [
+    "Socket_1",
+    "Socket_2",
+    "Socket_3",
+    "Socket_4",
+    "Socket_6",
+    "Socket_7",
+    "Socket_8",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_12",
+    "Socket_13",
+    "Socket_15",
+    "Socket_16",
+    "Socket_17",
+    "Socket_19",
+    "Socket_20",
+    "Socket_21",
+    "Socket_22",
+    "Socket_24",
+    "Socket_30",
+    "Socket_26",
+    "Socket_27",
+    "Socket_28",
+    "Socket_29",
+    "Socket_32",
+    "Socket_33",
+    "Socket_34",
+    "Socket_36",
+    "Socket_37",
+    "Socket_38",
+    "Socket_40",
+    "__extend__"
+   ],
+   "parent": "[Solid]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    1560,
+    20
+   ],
+   "mute": false,
+   "name": "Group Input (Output)",
+   "outputs": [
+    "Socket_1",
+    "Socket_2",
+    "Socket_3",
+    "Socket_4",
+    "Socket_6",
+    "Socket_7",
+    "Socket_8",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_12",
+    "Socket_13",
+    "Socket_15",
+    "Socket_16",
+    "Socket_17",
+    "Socket_19",
+    "Socket_20",
+    "Socket_21",
+    "Socket_22",
+    "Socket_24",
+    "Socket_30",
+    "Socket_26",
+    "Socket_27",
+    "Socket_28",
+    "Socket_29",
+    "Socket_32",
+    "Socket_33",
+    "Socket_34",
+    "Socket_36",
+    "Socket_37",
+    "Socket_38",
+    "Socket_40",
+    "__extend__"
+   ],
+   "parent": "[Output]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    -1320,
+    -180
+   ],
+   "mute": false,
+   "name": "Group Input (Resolution, Simplify)",
+   "outputs": [
+    "Socket_1",
+    "Socket_2",
+    "Socket_3",
+    "Socket_4",
+    "Socket_6",
+    "Socket_7",
+    "Socket_8",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_12",
+    "Socket_13",
+    "Socket_15",
+    "Socket_16",
+    "Socket_17",
+    "Socket_19",
+    "Socket_20",
+    "Socket_21",
+    "Socket_22",
+    "Socket_24",
+    "Socket_30",
+    "Socket_26",
+    "Socket_27",
+    "Socket_28",
+    "Socket_29",
+    "Socket_32",
+    "Socket_33",
+    "Socket_34",
+    "Socket_36",
+    "Socket_37",
+    "Socket_38",
+    "Socket_40",
+    "__extend__"
+   ],
+   "parent": "[Outline]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    -2380,
+    -180
    ],
    "mute": false,
    "name": "Group Input (Text)",
@@ -1682,7 +1719,7 @@
     "Socket_40",
     "__extend__"
    ],
-   "parent": "Text",
+   "parent": "[Text]",
    "width": 140.0
   },
   {
@@ -1691,105 +1728,7 @@
    "inputs": {},
    "label": "",
    "location": [
-    0,
-    -372
-   ],
-   "mute": false,
-   "name": "Group Input (Textbox Breite)",
-   "outputs": [
-    "Socket_1",
-    "Socket_2",
-    "Socket_3",
-    "Socket_4",
-    "Socket_6",
-    "Socket_7",
-    "Socket_8",
-    "Socket_9",
-    "Socket_10",
-    "Socket_11",
-    "Socket_12",
-    "Socket_13",
-    "Socket_15",
-    "Socket_16",
-    "Socket_17",
-    "Socket_19",
-    "Socket_20",
-    "Socket_21",
-    "Socket_22",
-    "Socket_24",
-    "Socket_30",
-    "Socket_26",
-    "Socket_27",
-    "Socket_28",
-    "Socket_29",
-    "Socket_32",
-    "Socket_33",
-    "Socket_34",
-    "Socket_36",
-    "Socket_37",
-    "Socket_38",
-    "Socket_40",
-    "__extend__"
-   ],
-   "parent": "Text",
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeGroupInput",
-   "inputs": {},
-   "label": "",
-   "location": [
-    1300,
-    0
-   ],
-   "mute": false,
-   "name": "Group Input (Tiefe, Füllung, Füllregel, Vorderseite)",
-   "outputs": [
-    "Socket_1",
-    "Socket_2",
-    "Socket_3",
-    "Socket_4",
-    "Socket_6",
-    "Socket_7",
-    "Socket_8",
-    "Socket_9",
-    "Socket_10",
-    "Socket_11",
-    "Socket_12",
-    "Socket_13",
-    "Socket_15",
-    "Socket_16",
-    "Socket_17",
-    "Socket_19",
-    "Socket_20",
-    "Socket_21",
-    "Socket_22",
-    "Socket_24",
-    "Socket_30",
-    "Socket_26",
-    "Socket_27",
-    "Socket_28",
-    "Socket_29",
-    "Socket_32",
-    "Socket_33",
-    "Socket_34",
-    "Socket_36",
-    "Socket_37",
-    "Socket_38",
-    "Socket_40",
-    "__extend__"
-   ],
-   "parent": "Körper",
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeGroupInput",
-   "inputs": {},
-   "label": "",
-   "location": [
-    2600,
+    780,
     0
    ],
    "mute": false,
@@ -1829,7 +1768,7 @@
     "Socket_40",
     "__extend__"
    ],
-   "parent": "UV",
+   "parent": "[UV]",
    "width": 140.0
   },
   {
@@ -1846,8 +1785,8 @@
    },
    "label": "",
    "location": [
-    4530,
-    0
+    2000,
+    140
    ],
    "mute": false,
    "name": "Group Output",
@@ -1855,75 +1794,6 @@
    "parent": null,
    "props": {
     "is_active_output": true
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeFrame",
-   "inputs": {},
-   "label": "Kontur",
-   "location": [
-    0,
-    0
-   ],
-   "mute": false,
-   "name": "Kontur",
-   "outputs": [],
-   "parent": null,
-   "props": {
-    "label_size": 20,
-    "shrink": true
-   },
-   "width": 160.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeFrame",
-   "inputs": {},
-   "label": "Körper",
-   "location": [
-    0,
-    0
-   ],
-   "mute": false,
-   "name": "Körper",
-   "outputs": [],
-   "parent": null,
-   "props": {
-    "label_size": 20,
-    "shrink": true
-   },
-   "width": 160.0
-  },
-  {
-   "hide": false,
-   "idname": "FunctionNodeCompare",
-   "inputs": {
-    "A": {
-     "linked": true,
-     "name": "A"
-    },
-    "B": {
-     "name": "B",
-     "value": 0
-    }
-   },
-   "label": "",
-   "location": [
-    3460,
-    -152
-   ],
-   "mute": false,
-   "name": "No Text",
-   "outputs": [
-    "Result"
-   ],
-   "parent": "Ausgabe",
-   "props": {
-    "data_type": "INT",
-    "mode": "ELEMENT",
-    "operation": "EQUAL"
    },
    "width": 140.0
   },
@@ -1944,21 +1814,369 @@
      "name": "True"
     }
    },
-   "label": "",
+   "label": "Mesh",
    "location": [
-    4150,
-    0
+    440,
+    160
    ],
    "mute": false,
-   "name": "Output",
+   "name": "Mesh",
    "outputs": [
     "Output"
    ],
-   "parent": "Ausgabe",
+   "parent": "[Bevel]",
    "props": {
     "input_type": "GEOMETRY"
    },
    "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "FunctionNodeCompare",
+   "inputs": {
+    "A": {
+     "linked": true,
+     "name": "A"
+    },
+    "B": {
+     "name": "B",
+     "value": 0
+    }
+   },
+   "label": "No Text",
+   "location": [
+    -1960,
+    -120
+   ],
+   "mute": false,
+   "name": "No Text",
+   "outputs": [
+    "Result"
+   ],
+   "parent": "[Text]",
+   "props": {
+    "data_type": "INT",
+    "mode": "ELEMENT",
+    "operation": "EQUAL"
+   },
+   "width": 100.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    980,
+    156
+   ],
+   "mute": false,
+   "name": "Reroute",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[UV]",
+   "props": {
+    "socket_idname": "NodeSocketBool"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    1180,
+    156
+   ],
+   "mute": false,
+   "name": "Reroute.001",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[UV]",
+   "props": {
+    "socket_idname": "NodeSocketBool"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    650,
+    77
+   ],
+   "mute": false,
+   "name": "Reroute.002",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketGeometry"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    920,
+    77
+   ],
+   "mute": false,
+   "name": "Reroute.003",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[UV]",
+   "props": {
+    "socket_idname": "NodeSocketGeometry"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    270,
+    -165
+   ],
+   "mute": false,
+   "name": "Reroute.004",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Bevel]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    920,
+    -165
+   ],
+   "mute": false,
+   "name": "Reroute.005",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[UV]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSwitch",
+   "inputs": {
+    "False": {
+     "linked": true,
+     "name": "False"
+    },
+    "Switch": {
+     "linked": true,
+     "name": "Switch"
+    },
+    "True": {
+     "linked": true,
+     "name": "True"
+    }
+   },
+   "label": "Use UV",
+   "location": [
+    1220,
+    180
+   ],
+   "mute": false,
+   "name": "Use UV",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[UV]",
+   "props": {
+    "input_type": "GEOMETRY"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeWarning",
+   "inputs": {
+    "Message": {
+     "name": "Message",
+     "value": "Bevel width limited to half the depth."
+    },
+    "Show": {
+     "linked": true,
+     "name": "Show"
+    }
+   },
+   "label": "Warn Bevel",
+   "location": [
+    260,
+    180
+   ],
+   "mute": false,
+   "name": "Warn Bevel",
+   "outputs": [
+    "Show"
+   ],
+   "parent": "[Bevel]",
+   "props": {
+    "warning_type": "INFO"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeWarning",
+   "inputs": {
+    "Message": {
+     "name": "Message",
+     "value": "No text."
+    },
+    "Show": {
+     "linked": true,
+     "name": "Show"
+    }
+   },
+   "label": "Warn Empty",
+   "location": [
+    -1820,
+    -80
+   ],
+   "mute": false,
+   "name": "Warn Empty",
+   "outputs": [
+    "Show"
+   ],
+   "parent": "[Text]",
+   "props": {
+    "warning_type": "WARNING"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Bevel",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Bevel]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Outline",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Outline]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Output",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Output]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Solid",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Solid]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
   },
   {
    "hide": false,
@@ -1970,7 +2188,7 @@
     0
    ],
    "mute": false,
-   "name": "Text",
+   "name": "[Text]",
    "outputs": [],
    "parent": null,
    "props": {
@@ -1989,7 +2207,7 @@
     0
    ],
    "mute": false,
-   "name": "UV",
+   "name": "[UV]",
    "outputs": [],
    "parent": null,
    "props": {
@@ -1997,126 +2215,6 @@
     "shrink": true
    },
    "width": 160.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeSwitch",
-   "inputs": {
-    "False": {
-     "linked": true,
-     "name": "False"
-    },
-    "Switch": {
-     "linked": true,
-     "name": "Switch"
-    },
-    "True": {
-     "linked": true,
-     "name": "True"
-    }
-   },
-   "label": "",
-   "location": [
-    3080,
-    0
-   ],
-   "mute": false,
-   "name": "Use UV",
-   "outputs": [
-    "Output"
-   ],
-   "parent": "UV",
-   "props": {
-    "input_type": "GEOMETRY"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeWarning",
-   "inputs": {
-    "Message": {
-     "name": "Message",
-     "value": "Bevel-Breite auf halbe Tiefe begrenzt."
-    },
-    "Show": {
-     "linked": true,
-     "name": "Show"
-    }
-   },
-   "label": "",
-   "location": [
-    3670,
-    0
-   ],
-   "mute": false,
-   "name": "Warn Bevel",
-   "outputs": [
-    "Show"
-   ],
-   "parent": "Ausgabe",
-   "props": {
-    "warning_type": "INFO"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeWarning",
-   "inputs": {
-    "Message": {
-     "name": "Message",
-     "value": "Kein Text."
-    },
-    "Show": {
-     "linked": true,
-     "name": "Show"
-    }
-   },
-   "label": "",
-   "location": [
-    3670,
-    -350
-   ],
-   "mute": false,
-   "name": "Warn Empty",
-   "outputs": [
-    "Show"
-   ],
-   "parent": "Ausgabe",
-   "props": {
-    "warning_type": "WARNING"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "FunctionNodeBooleanMath",
-   "inputs": {
-    "Boolean": {
-     "linked": true,
-     "name": "Boolean"
-    },
-    "Boolean_001": {
-     "linked": true,
-     "name": "Boolean"
-    }
-   },
-   "label": "",
-   "location": [
-    3940,
-    0
-   ],
-   "mute": false,
-   "name": "Warnings",
-   "outputs": [
-    "Boolean"
-   ],
-   "parent": "Ausgabe",
-   "props": {
-    "operation": "OR"
-   },
-   "width": 140.0
   }
  ],
  "tree_type": "GeometryNodeTree"

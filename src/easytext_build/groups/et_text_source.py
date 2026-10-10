@@ -1,85 +1,80 @@
-"""Text-Quelle: Zeilen joinen, String to Curves mit allen Optionen, Zeichenindex speichern, Glyphen realisieren."""
+"""Text source: join lines, String to Curves with every option exposed, store the character index, realize glyphs."""
 
 from ..core import GroupBuilder, builtin_font
 from . import et_lines_join
 
 NAME = ".ET Text Source"
+LINE_INPUTS = ("Text", "Line 2", "Line 3", "Line 4")
+TYPOGRAPHY_INPUTS = (
+    "Font",
+    "Size",
+    "Align X",
+    "Align Y",
+    "Pivot",
+    "Character Spacing",
+    "Word Spacing",
+    "Line Spacing",
+    "Box Width",
+    "Box Height",
+    "Overflow",
+)
 
 
 def build():
-    g = GroupBuilder(NAME, description="Bis zu vier Zeilen Text als realisierte Glyphenkurven mit et_char_index.")
+    g = GroupBuilder(NAME, description="Up to four lines of text as realized glyph curves with et_char_index.")
     g.input("Text", "string", "Easy Text")
     for i in (2, 3, 4):
-        g.input(f"Zeile {i}", "string", "")
+        g.input(f"Line {i}", "string", "")
     g.input("Font", "font", builtin_font())
-    g.input("Größe", "float", 1.0, min=0.001, max=100.0, subtype="DISTANCE")
-    g.input("Ausrichtung X", "menu")
-    g.input("Ausrichtung Y", "menu")
+    g.input("Size", "float", 1.0, min=0.001, max=100.0, subtype="DISTANCE")
+    g.input("Align X", "menu")
+    g.input("Align Y", "menu")
     g.input("Pivot", "menu")
-    g.input("Zeichenabstand", "float", 1.0, min=0.0, max=10.0)
-    g.input("Wortabstand", "float", 1.0, min=0.0, max=10.0)
-    g.input("Zeilenabstand", "float", 1.0, min=0.0, max=10.0)
-    g.input("Breite", "float", 0.0, min=0.0, max=1000.0, subtype="DISTANCE")
-    g.input("Höhe", "float", 0.0, min=0.0, max=1000.0, subtype="DISTANCE")
-    g.input("Überlauf", "menu")
+    g.input("Character Spacing", "float", 1.0, min=0.0, max=10.0)
+    g.input("Word Spacing", "float", 1.0, min=0.0, max=10.0)
+    g.input("Line Spacing", "float", 1.0, min=0.0, max=10.0)
+    g.input("Box Width", "float", 0.0, min=0.0, max=1000.0, subtype="DISTANCE")
+    g.input("Box Height", "float", 0.0, min=0.0, max=1000.0, subtype="DISTANCE")
+    g.input("Overflow", "menu")
     g.output("Curves", "geometry")
-    g.output("Zeichen", "int", description="Zeichenzahl des zusammengesetzten Textes.")
-    for name, value in (
-        ("Ausrichtung X", "Center"),
-        ("Ausrichtung Y", "Middle"),
-        ("Pivot", "Midpoint"),
-        ("Überlauf", "Overflow"),
-    ):
+    g.output("Character Count", "int", description="Number of characters in the joined text.")
+    for name, value in (("Align X", "Center"), ("Align Y", "Middle"), ("Pivot", "Midpoint"), ("Overflow", "Overflow")):
         g.menu_default(name, value)
 
-    with g.frame("Zeilen"):
-        gi = g.inputs("Text", "Zeile 2", "Zeile 3", "Zeile 4", label="Zeilen")
+    with g.frame("Lines"):
+        gi = g.inputs(*LINE_INPUTS, label="Lines")
         joined = g.group(
-            et_lines_join.NAME,
-            "Lines Join",
-            inputs={f"Line {i}": gi[n] for i, n in enumerate(("Text", "Zeile 2", "Zeile 3", "Zeile 4"), start=1)},
+            et_lines_join.NAME, "Lines Join", inputs={f"Line {i}": gi[n] for i, n in enumerate(LINE_INPUTS, start=1)}
         )["String"]
-        text_len = g.node("FunctionNodeStringLength", "Text Length", inputs={"String": joined})["Length"]
+        char_count = g.node("FunctionNodeStringLength", "Character Count", inputs={"String": joined})["Length"]
 
     with g.frame("Font"):
         gi = g.inputs("Font")
-        # Blender 5.2.0 übernimmt Font-Defaults des Interfaces nicht in den Modifier: Ersatzwert im Baum.
+        # Blender 5.2.0 does not copy interface font defaults into the modifier: fall back inside the tree.
         font = g.fallback("FONT", gi["Font"], builtin_font(), name="Font")
 
-    with g.frame("Satz"):
-        gi = g.inputs(
-            "Größe",
-            "Ausrichtung X",
-            "Ausrichtung Y",
-            "Pivot",
-            "Zeichenabstand",
-            "Wortabstand",
-            "Zeilenabstand",
-            "Breite",
-            "Höhe",
-            "Überlauf",
-            label="Typografie",
-        )
+    with g.frame("Typeset"):
+        gi = g.inputs(*TYPOGRAPHY_INPUTS[1:], label="Typography")
         curves_inst = g.node(
             "GeometryNodeStringToCurves",
             "String to Curves",
             inputs={
                 "String": joined,
-                "Size": gi["Größe"],
+                "Size": gi["Size"],
                 "Font": font,
-                "Align X": gi["Ausrichtung X"],
-                "Align Y": gi["Ausrichtung Y"],
+                "Align X": gi["Align X"],
+                "Align Y": gi["Align Y"],
                 "Pivot Point": gi["Pivot"],
-                "Character Spacing": gi["Zeichenabstand"],
-                "Word Spacing": gi["Wortabstand"],
-                "Line Spacing": gi["Zeilenabstand"],
-                "Overflow": gi["Überlauf"],
-                "Text Box Width": gi["Breite"],
-                "Text Box Height": gi["Höhe"],
+                "Character Spacing": gi["Character Spacing"],
+                "Word Spacing": gi["Word Spacing"],
+                "Line Spacing": gi["Line Spacing"],
+                "Overflow": gi["Overflow"],
+                "Text Box Width": gi["Box Width"],
+                "Text Box Height": gi["Box Height"],
             },
         )
 
-    with g.frame("Instanzen"):
+    with g.frame("Instances"):
         index = g.node("GeometryNodeInputIndex", "Index")[0]
         with_char = g.store(
             curves_inst["Curve Instances"],
@@ -91,5 +86,5 @@ def build():
         )
         curves = g.node("GeometryNodeRealizeInstances", "Realize Glyphs", inputs={"Geometry": with_char[0]})[0]
     g.set_output("Curves", curves)
-    g.set_output("Zeichen", text_len)
+    g.set_output("Character Count", char_count)
     return g.finish()

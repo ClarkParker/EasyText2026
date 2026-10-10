@@ -1,6 +1,6 @@
 {
  "asset_catalog_id": null,
- "description": "Schreibt die UV-Map 'UVMap' auf Face Corners.",
+ "description": "Writes the UV map 'UVMap' on face corners.",
  "flags": {
   "color_tag": "NONE",
   "default_group_node_width": 200,
@@ -62,7 +62,7 @@
    "max_value": 10.0,
    "menu_expanded": false,
    "min_value": 0.0,
-   "name": "Tiefe",
+   "name": "Depth",
    "optional_label": false,
    "parent": null,
    "socket_type": "NodeSocketFloat",
@@ -74,7 +74,7 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": 0.0,
-   "description": "Wirksamer Bevel-Radius.",
+   "description": "Effective bevel radius.",
    "hide_in_modifier": false,
    "hide_value": false,
    "identifier": "Socket_2",
@@ -106,7 +106,7 @@
    "item_type": "SOCKET",
    "layer_selection_field": false,
    "menu_expanded": false,
-   "name": "Auf Text normieren",
+   "name": "Normalize to Text",
    "optional_label": false,
    "parent": null,
    "socket_type": "NodeSocketBool",
@@ -128,7 +128,7 @@
    "max_value": 1000.0,
    "menu_expanded": false,
    "min_value": 0.0001,
-   "name": "Maßstab",
+   "name": "Scale",
    "optional_label": false,
    "parent": null,
    "socket_type": "NodeSocketFloat",
@@ -137,18 +137,6 @@
   }
  ],
  "links": [
-  [
-   "/ r",
-   "Value",
-   "Math",
-   "Value"
-  ],
-  [
-   "/ r ",
-   "Value",
-   "Math.003",
-   "Value"
-  ],
   [
    "1 / Extent",
    "Value",
@@ -162,19 +150,43 @@
    "Value_001"
   ],
   [
+   "90° - Back",
+   "Value",
+   "V Back Bevel",
+   "Value_001"
+  ],
+  [
    "Back Angle",
    "Value",
-   "Math.002",
+   "90° - Back",
    "Value_001"
+  ],
+  [
+   "Back Ratio",
+   "Value",
+   "Back ≥ 0",
+   "Value"
   ],
   [
    "Back or Side",
    "Output",
-   "Band V.001",
+   "Band V",
    "False"
   ],
   [
-   "Band U scaled",
+   "Back ≤ 1",
+   "Value",
+   "Back Angle",
+   "Value"
+  ],
+  [
+   "Back ≥ 0",
+   "Value",
+   "Back ≤ 1",
+   "Value"
+  ],
+  [
+   "Band U Scaled",
    "Value",
    "Band UV",
    "X"
@@ -186,18 +198,18 @@
    "False"
   ],
   [
-   "Band V scaled",
+   "Band V",
+   "Output",
+   "Band V Scaled",
+   "Value"
+  ],
+  [
+   "Band V Scaled",
    "Value",
    "Band UV",
    "Y"
   ],
   [
-   "Band V.001",
-   "Output",
-   "Band V scaled",
-   "Value"
-  ],
-  [
    "Bounds Max",
    "X",
    "Width",
@@ -206,8 +218,14 @@
   [
    "Bounds Max",
    "Y",
-   "Height",
-   "Value"
+   "Reroute.005",
+   "Input"
+  ],
+  [
+   "Bounds Min",
+   "X",
+   "Reroute.019",
+   "Input"
   ],
   [
    "Bounds Min",
@@ -217,21 +235,9 @@
   ],
   [
    "Bounds Min",
-   "X",
-   "X - Min",
-   "Value_001"
-  ],
-  [
-   "Bounds Min",
    "Y",
-   "Height",
-   "Value_001"
-  ],
-  [
-   "Bounds Min",
-   "Y",
-   "Y - Min",
-   "Value_001"
+   "Reroute.003",
+   "Input"
   ],
   [
    "Cap U",
@@ -242,8 +248,8 @@
   [
    "Cap UV",
    "Vector",
-   "UV",
-   "True"
+   "Reroute.035",
+   "Input"
   ],
   [
    "Cap V",
@@ -284,7 +290,7 @@
   [
    "Depth - 2r",
    "Value",
-   "Math.005",
+   "Quarter + Side",
    "Value_001"
   ],
   [
@@ -362,7 +368,61 @@
   [
    "Front Angle",
    "Value",
-   "Math.006",
+   "Front Arc",
+   "Value_001"
+  ],
+  [
+   "Front Arc",
+   "Value",
+   "V Front Bevel",
+   "Value_001"
+  ],
+  [
+   "Front Ratio",
+   "Value",
+   "Front ≥ 0",
+   "Value"
+  ],
+  [
+   "Front ≤ 1",
+   "Value",
+   "Front Angle",
+   "Value"
+  ],
+  [
+   "Front ≥ 0",
+   "Value",
+   "Front ≤ 1",
+   "Value"
+  ],
+  [
+   "Group Input (Depth, Radius)",
+   "Socket_1",
+   "Reroute.006",
+   "Input"
+  ],
+  [
+   "Group Input (Depth, Radius)",
+   "Socket_2",
+   "In Back Bevel",
+   "B"
+  ],
+  [
+   "Group Input (Depth, Radius)",
+   "Socket_2",
+   "Reroute.001",
+   "Input"
+  ],
+  [
+   "Group Input (Depth, Radius)",
+   "Socket_2",
+   "r - z",
+   "Value"
+  ],
+  [
+   "Group Input (Depth, Radius)",
+   "Socket_2",
+   "z - r",
    "Value_001"
   ],
   [
@@ -396,88 +456,22 @@
    "Geometry"
   ],
   [
-   "Group Input (Mesh, Auf Text normieren, Maßstab)",
+   "Group Input (Mesh, Normalize to Text, Scale)",
    "Socket_0",
    "Text Bounds",
    "Geometry"
   ],
   [
-   "Group Input (Mesh, Auf Text normieren, Maßstab)",
+   "Group Input (Mesh, Normalize to Text, Scale)",
    "Socket_3",
-   "Normalize",
-   "Switch"
+   "Reroute.015",
+   "Input"
   ],
   [
-   "Group Input (Mesh, Auf Text normieren, Maßstab)",
+   "Group Input (Mesh, Normalize to Text, Scale)",
    "Socket_4",
-   "UV Factor",
-   "Value_001"
-  ],
-  [
-   "Group Input (Tiefe, Radius)",
-   "Socket_1",
-   "Depth - 2r",
-   "Value"
-  ],
-  [
-   "Group Input (Tiefe, Radius)",
-   "Socket_1",
-   "Depth - r",
-   "Value"
-  ],
-  [
-   "Group Input (Tiefe, Radius)",
-   "Socket_2",
-   "2r",
-   "Value"
-  ],
-  [
-   "Group Input (Tiefe, Radius)",
-   "Socket_2",
-   "Depth - r",
-   "Value_001"
-  ],
-  [
-   "Group Input (Tiefe, Radius)",
-   "Socket_2",
-   "In Back Bevel",
-   "B"
-  ],
-  [
-   "Group Input (Tiefe, Radius)",
-   "Socket_2",
-   "Math.006",
-   "Value"
-  ],
-  [
-   "Group Input (Tiefe, Radius)",
-   "Socket_2",
-   "Quarter Arc",
-   "Value"
-  ],
-  [
-   "Group Input (Tiefe, Radius)",
-   "Socket_2",
-   "Radius Safe",
-   "Value"
-  ],
-  [
-   "Group Input (Tiefe, Radius)",
-   "Socket_2",
-   "V Back Bevel",
-   "Value"
-  ],
-  [
-   "Group Input (Tiefe, Radius)",
-   "Socket_2",
-   "r - z",
-   "Value"
-  ],
-  [
-   "Group Input (Tiefe, Radius)",
-   "Socket_2",
-   "z - r",
-   "Value_001"
+   "Reroute.021",
+   "Input"
   ],
   [
    "Half Loop",
@@ -500,13 +494,13 @@
   [
    "In Back Bevel",
    "Result",
-   "Back or Side",
-   "Switch"
+   "Reroute.022",
+   "Input"
   ],
   [
    "In Front Bevel",
    "Result",
-   "Band V.001",
+   "Band V",
    "Switch"
   ],
   [
@@ -544,48 +538,6 @@
    "Result",
    "Shift Corner",
    "Boolean_001"
-  ],
-  [
-   "Math",
-   "Value",
-   "Math.001",
-   "Value"
-  ],
-  [
-   "Math.001",
-   "Value",
-   "Back Angle",
-   "Value"
-  ],
-  [
-   "Math.002",
-   "Value",
-   "V Back Bevel",
-   "Value_001"
-  ],
-  [
-   "Math.003",
-   "Value",
-   "Math.004",
-   "Value"
-  ],
-  [
-   "Math.004",
-   "Value",
-   "Front Angle",
-   "Value"
-  ],
-  [
-   "Math.005",
-   "Value",
-   "V Front Bevel",
-   "Value"
-  ],
-  [
-   "Math.006",
-   "Value",
-   "V Front Bevel",
-   "Value_001"
   ],
   [
    "Max 1",
@@ -650,37 +602,19 @@
   [
    "Position XYZ",
    "Z",
-   "In Back Bevel",
-   "A"
+   "Reroute",
+   "Input"
   ],
   [
-   "Position XYZ",
-   "Z",
-   "In Front Bevel",
-   "A"
-  ],
-  [
-   "Position XYZ",
-   "Z",
-   "r - z",
-   "Value_001"
-  ],
-  [
-   "Position XYZ",
-   "Z",
-   "z - (Depth - r)",
-   "Value"
-  ],
-  [
-   "Position XYZ",
-   "Z",
-   "z - r",
+   "Quarter + Side",
+   "Value",
+   "V Front Bevel",
    "Value"
   ],
   [
    "Quarter Arc",
    "Value",
-   "Math.005",
+   "Quarter + Side",
    "Value"
   ],
   [
@@ -692,14 +626,332 @@
   [
    "Radius Safe",
    "Value",
-   "/ r",
+   "Back Ratio",
    "Value_001"
   ],
   [
    "Radius Safe",
    "Value",
-   "/ r ",
+   "Reroute.013",
+   "Input"
+  ],
+  [
+   "Reroute",
+   "Output",
+   "Reroute.008",
+   "Input"
+  ],
+  [
+   "Reroute.001",
+   "Output",
+   "Reroute.002",
+   "Input"
+  ],
+  [
+   "Reroute.002",
+   "Output",
+   "Quarter Arc",
+   "Value"
+  ],
+  [
+   "Reroute.002",
+   "Output",
+   "Radius Safe",
+   "Value"
+  ],
+  [
+   "Reroute.002",
+   "Output",
+   "Reroute.012",
+   "Input"
+  ],
+  [
+   "Reroute.002",
+   "Output",
+   "V Back Bevel",
+   "Value"
+  ],
+  [
+   "Reroute.003",
+   "Output",
+   "Reroute.004",
+   "Input"
+  ],
+  [
+   "Reroute.004",
+   "Output",
+   "Height",
    "Value_001"
+  ],
+  [
+   "Reroute.004",
+   "Output",
+   "Y - Min",
+   "Value_001"
+  ],
+  [
+   "Reroute.005",
+   "Output",
+   "Height",
+   "Value"
+  ],
+  [
+   "Reroute.006",
+   "Output",
+   "Reroute.007",
+   "Input"
+  ],
+  [
+   "Reroute.007",
+   "Output",
+   "Depth - 2r",
+   "Value"
+  ],
+  [
+   "Reroute.007",
+   "Output",
+   "Depth - r",
+   "Value"
+  ],
+  [
+   "Reroute.008",
+   "Output",
+   "Reroute.009",
+   "Input"
+  ],
+  [
+   "Reroute.009",
+   "Output",
+   "Reroute.029",
+   "Input"
+  ],
+  [
+   "Reroute.010",
+   "Output",
+   "Reroute.011",
+   "Input"
+  ],
+  [
+   "Reroute.011",
+   "Output",
+   "Low Side",
+   "A"
+  ],
+  [
+   "Reroute.011",
+   "Output",
+   "Reroute.023",
+   "Input"
+  ],
+  [
+   "Reroute.011",
+   "Output",
+   "U + Loop",
+   "Value"
+  ],
+  [
+   "Reroute.012",
+   "Output",
+   "2r",
+   "Value"
+  ],
+  [
+   "Reroute.012",
+   "Output",
+   "Reroute.018",
+   "Input"
+  ],
+  [
+   "Reroute.013",
+   "Output",
+   "Front Ratio",
+   "Value_001"
+  ],
+  [
+   "Reroute.014",
+   "Output",
+   "Band U Scaled",
+   "Value_001"
+  ],
+  [
+   "Reroute.014",
+   "Output",
+   "Band V Scaled",
+   "Value_001"
+  ],
+  [
+   "Reroute.015",
+   "Output",
+   "Normalize",
+   "Switch"
+  ],
+  [
+   "Reroute.016",
+   "Output",
+   "Reroute.017",
+   "Input"
+  ],
+  [
+   "Reroute.017",
+   "Output",
+   "Max 2",
+   "Value_001"
+  ],
+  [
+   "Reroute.018",
+   "Output",
+   "Depth - r",
+   "Value_001"
+  ],
+  [
+   "Reroute.018",
+   "Output",
+   "Front Arc",
+   "Value"
+  ],
+  [
+   "Reroute.019",
+   "Output",
+   "Reroute.020",
+   "Input"
+  ],
+  [
+   "Reroute.020",
+   "Output",
+   "Reroute.027",
+   "Input"
+  ],
+  [
+   "Reroute.021",
+   "Output",
+   "UV Factor",
+   "Value_001"
+  ],
+  [
+   "Reroute.022",
+   "Output",
+   "Back or Side",
+   "Switch"
+  ],
+  [
+   "Reroute.023",
+   "Output",
+   "U Unwrapped",
+   "False"
+  ],
+  [
+   "Reroute.024",
+   "Output",
+   "Reroute.025",
+   "Input"
+  ],
+  [
+   "Reroute.025",
+   "Output",
+   "X - Min",
+   "Value_001"
+  ],
+  [
+   "Reroute.026",
+   "Output",
+   "In Front Bevel",
+   "A"
+  ],
+  [
+   "Reroute.027",
+   "Output",
+   "Reroute.028",
+   "Input"
+  ],
+  [
+   "Reroute.028",
+   "Output",
+   "Reroute.024",
+   "Input"
+  ],
+  [
+   "Reroute.029",
+   "Output",
+   "Reroute.030",
+   "Input"
+  ],
+  [
+   "Reroute.030",
+   "Output",
+   "In Back Bevel",
+   "A"
+  ],
+  [
+   "Reroute.030",
+   "Output",
+   "Reroute.031",
+   "Input"
+  ],
+  [
+   "Reroute.030",
+   "Output",
+   "r - z",
+   "Value_001"
+  ],
+  [
+   "Reroute.030",
+   "Output",
+   "z - r",
+   "Value"
+  ],
+  [
+   "Reroute.031",
+   "Output",
+   "Reroute.032",
+   "Input"
+  ],
+  [
+   "Reroute.032",
+   "Output",
+   "Reroute.026",
+   "Input"
+  ],
+  [
+   "Reroute.032",
+   "Output",
+   "z - (Depth - r)",
+   "Value"
+  ],
+  [
+   "Reroute.033",
+   "Output",
+   "Reroute.034",
+   "Input"
+  ],
+  [
+   "Reroute.034",
+   "Output",
+   "UV",
+   "True"
+  ],
+  [
+   "Reroute.035",
+   "Output",
+   "Reroute.036",
+   "Input"
+  ],
+  [
+   "Reroute.036",
+   "Output",
+   "Reroute.033",
+   "Input"
+  ],
+  [
+   "Reroute.037",
+   "Output",
+   "Reroute.038",
+   "Input"
+  ],
+  [
+   "Reroute.038",
+   "Output",
+   "Reroute.014",
+   "Input"
   ],
   [
    "Shift Corner",
@@ -728,20 +980,8 @@
   [
    "U",
    "Attribute",
-   "Low Side",
-   "A"
-  ],
-  [
-   "U",
-   "Attribute",
-   "U + Loop",
-   "Value"
-  ],
-  [
-   "U",
-   "Attribute",
-   "U Unwrapped",
-   "False"
+   "Reroute.010",
+   "Input"
   ],
   [
    "U",
@@ -776,7 +1016,7 @@
   [
    "U Unwrapped",
    "Output",
-   "Band U scaled",
+   "Band U Scaled",
    "Value"
   ],
   [
@@ -801,12 +1041,6 @@
    "U of Corner 1",
    "Value",
    "Min 1",
-   "Value_001"
-  ],
-  [
-   "U of Corner 2",
-   "Value",
-   "Max 2",
    "Value_001"
   ],
   [
@@ -814,6 +1048,12 @@
    "Value",
    "Min 2",
    "Value_001"
+  ],
+  [
+   "U of Corner 2",
+   "Value",
+   "Reroute.016",
+   "Input"
   ],
   [
    "U of Corner 3",
@@ -836,18 +1076,6 @@
   [
    "UV Factor",
    "Value",
-   "Band U scaled",
-   "Value_001"
-  ],
-  [
-   "UV Factor",
-   "Value",
-   "Band V scaled",
-   "Value_001"
-  ],
-  [
-   "UV Factor",
-   "Value",
    "Cap U",
    "Value_001"
   ],
@@ -858,6 +1086,12 @@
    "Value_001"
   ],
   [
+   "UV Factor",
+   "Value",
+   "Reroute.037",
+   "Input"
+  ],
+  [
    "V Back Bevel",
    "Value",
    "Back or Side",
@@ -866,7 +1100,7 @@
   [
    "V Front Bevel",
    "Value",
-   "Band V.001",
+   "Band V",
    "True"
   ],
   [
@@ -896,13 +1130,13 @@
   [
    "r - z",
    "Value",
-   "/ r",
+   "Back Ratio",
    "Value"
   ],
   [
    "z - (Depth - r)",
    "Value",
-   "/ r ",
+   "Front Ratio",
    "Value"
   ],
   [
@@ -915,67 +1149,7 @@
  "name": ".ET Text UV",
  "nodes": [
   {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    3700,
-    -510
-   ],
-   "mute": false,
-   "name": "/ r",
-   "outputs": [
-    "Value"
-   ],
-   "parent": "Band V",
-   "props": {
-    "operation": "DIVIDE",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    3910,
-    -154
-   ],
-   "mute": false,
-   "name": "/ r ",
-   "outputs": [
-    "Value"
-   ],
-   "parent": "Band V",
-   "props": {
-    "operation": "DIVIDE",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeMath",
    "inputs": {
     "Value": {
@@ -987,25 +1161,25 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "1 / Extent",
    "location": [
-    1260,
-    0
+    -1980,
+    -720
    ],
    "mute": false,
    "name": "1 / Extent",
    "outputs": [
     "Value"
    ],
-   "parent": "Maßstab",
+   "parent": "[Scale]",
    "props": {
     "operation": "DIVIDE",
     "use_clamp": false
    },
-   "width": 140.0
+   "width": 100.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeMath",
    "inputs": {
     "Value": {
@@ -1017,25 +1191,55 @@
      "value": 2.0
     }
    },
-   "label": "",
+   "label": "2r",
    "location": [
-    3490,
-    0
+    560,
+    1020
    ],
    "mute": false,
    "name": "2r",
    "outputs": [
     "Value"
    ],
-   "parent": "Band V",
+   "parent": "[Band V]",
    "props": {
     "operation": "MULTIPLY",
     "use_clamp": false
    },
-   "width": 140.0
+   "width": 100.0
   },
   {
-   "hide": false,
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "name": "Value",
+     "value": 1.5708
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "90° - Back",
+   "location": [
+    320,
+    620
+   ],
+   "mute": false,
+   "name": "90° - Back",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Band V]",
+   "props": {
+    "operation": "SUBTRACT",
+    "use_clamp": false
+   },
+   "width": 103.0
+  },
+  {
+   "hide": true,
    "idname": "ShaderNodeMath",
    "inputs": {
     "Value": {
@@ -1043,22 +1247,52 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "Back Angle",
    "location": [
-    4330,
-    -154
+    300,
+    680
    ],
    "mute": false,
    "name": "Back Angle",
    "outputs": [
     "Value"
    ],
-   "parent": "Band V",
+   "parent": "[Band V]",
    "props": {
     "operation": "ARCSINE",
     "use_clamp": false
    },
-   "width": 140.0
+   "width": 105.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Back Ratio",
+   "location": [
+    320,
+    800
+   ],
+   "mute": false,
+   "name": "Back Ratio",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Band V]",
+   "props": {
+    "operation": "DIVIDE",
+    "use_clamp": false
+   },
+   "width": 101.0
   },
   {
    "hide": false,
@@ -1077,43 +1311,84 @@
      "name": "True"
     }
    },
-   "label": "",
+   "label": "Back or Side",
    "location": [
-    4960,
-    -154
+    540,
+    740
    ],
    "mute": false,
    "name": "Back or Side",
    "outputs": [
     "Output"
    ],
-   "parent": "Band V",
+   "parent": "[Band V]",
    "props": {
     "input_type": "FLOAT"
    },
    "width": 140.0
   },
   {
-   "hide": false,
-   "idname": "NodeFrame",
-   "inputs": {},
-   "label": "Band U (Naht)",
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "name": "Value",
+     "value": 1.0
+    }
+   },
+   "label": "Back ≤ 1",
    "location": [
-    0,
-    0
+    320,
+    720
    ],
    "mute": false,
-   "name": "Band U (Naht)",
-   "outputs": [],
-   "parent": null,
+   "name": "Back ≤ 1",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Band V]",
    "props": {
-    "label_size": 20,
-    "shrink": true
+    "operation": "MINIMUM",
+    "use_clamp": false
    },
-   "width": 160.0
+   "width": 100.0
   },
   {
-   "hide": false,
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "name": "Value",
+     "value": 0.0
+    }
+   },
+   "label": "Back ≥ 0",
+   "location": [
+    320,
+    760
+   ],
+   "mute": false,
+   "name": "Back ≥ 0",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Band V]",
+   "props": {
+    "operation": "MAXIMUM",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
    "idname": "ShaderNodeMath",
    "inputs": {
     "Value": {
@@ -1125,25 +1400,25 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "Band U Scaled",
    "location": [
-    8030,
-    0
+    1560,
+    -240
    ],
    "mute": false,
-   "name": "Band U scaled",
+   "name": "Band U Scaled",
    "outputs": [
     "Value"
    ],
-   "parent": "UV speichern",
+   "parent": "[Store UV]",
    "props": {
     "operation": "MULTIPLY",
     "use_clamp": false
    },
-   "width": 140.0
+   "width": 122.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeCombineXYZ",
    "inputs": {
     "X": {
@@ -1159,67 +1434,18 @@
      "value": 0.0
     }
    },
-   "label": "",
+   "label": "Band UV",
    "location": [
-    8240,
-    0
+    1740,
+    -220
    ],
    "mute": false,
    "name": "Band UV",
    "outputs": [
     "Vector"
    ],
-   "parent": "UV speichern",
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeFrame",
-   "inputs": {},
-   "label": "Band V",
-   "location": [
-    0,
-    0
-   ],
-   "mute": false,
-   "name": "Band V",
-   "outputs": [],
-   "parent": null,
-   "props": {
-    "label_size": 20,
-    "shrink": true
-   },
-   "width": 160.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    8030,
-    -154
-   ],
-   "mute": false,
-   "name": "Band V scaled",
-   "outputs": [
-    "Value"
-   ],
-   "parent": "UV speichern",
-   "props": {
-    "operation": "MULTIPLY",
-    "use_clamp": false
-   },
-   "width": 140.0
+   "parent": "[Store UV]",
+   "width": 100.0
   },
   {
    "hide": false,
@@ -1238,24 +1464,54 @@
      "name": "True"
     }
    },
-   "label": "",
+   "label": "Band V",
    "location": [
-    5170,
-    0
+    1180,
+    1100
    ],
    "mute": false,
-   "name": "Band V.001",
+   "name": "Band V",
    "outputs": [
     "Output"
    ],
-   "parent": "Band V",
+   "parent": "[Band V]",
    "props": {
     "input_type": "FLOAT"
    },
    "width": 140.0
   },
   {
-   "hide": false,
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Band V Scaled",
+   "location": [
+    1560,
+    -180
+   ],
+   "mute": false,
+   "name": "Band V Scaled",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Store UV]",
+   "props": {
+    "operation": "MULTIPLY",
+    "use_clamp": false
+   },
+   "width": 122.0
+  },
+  {
+   "hide": true,
    "idname": "ShaderNodeSeparateXYZ",
    "inputs": {
     "Vector": {
@@ -1263,10 +1519,10 @@
      "name": "Vector"
     }
    },
-   "label": "",
+   "label": "Bounds Max",
    "location": [
-    420,
-    0
+    -2280,
+    -640
    ],
    "mute": false,
    "name": "Bounds Max",
@@ -1275,11 +1531,11 @@
     "Y",
     "Z"
    ],
-   "parent": "Maßstab",
-   "width": 140.0
+   "parent": "[Scale]",
+   "width": 112.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeSeparateXYZ",
    "inputs": {
     "Vector": {
@@ -1287,10 +1543,10 @@
      "name": "Vector"
     }
    },
-   "label": "",
+   "label": "Bounds Min",
    "location": [
-    420,
-    -152
+    -2280,
+    -560
    ],
    "mute": false,
    "name": "Bounds Min",
@@ -1299,11 +1555,11 @@
     "Y",
     "Z"
    ],
-   "parent": "Maßstab",
-   "width": 140.0
+   "parent": "[Scale]",
+   "width": 110.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeMath",
    "inputs": {
     "Value": {
@@ -1315,25 +1571,25 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "Cap U",
    "location": [
-    2690,
-    0
+    -980,
+    -740
    ],
    "mute": false,
    "name": "Cap U",
    "outputs": [
     "Value"
    ],
-   "parent": "Deckflächen",
+   "parent": "[Caps]",
    "props": {
     "operation": "MULTIPLY",
     "use_clamp": false
    },
-   "width": 140.0
+   "width": 100.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeCombineXYZ",
    "inputs": {
     "X": {
@@ -1349,21 +1605,21 @@
      "value": 0.0
     }
    },
-   "label": "",
+   "label": "Cap UV",
    "location": [
-    2900,
-    0
+    -840,
+    -840
    ],
    "mute": false,
    "name": "Cap UV",
    "outputs": [
     "Vector"
    ],
-   "parent": "Deckflächen",
-   "width": 140.0
+   "parent": "[Caps]",
+   "width": 100.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeMath",
    "inputs": {
     "Value": {
@@ -1375,22 +1631,22 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "Cap V",
    "location": [
-    2690,
-    -154
+    -980,
+    -860
    ],
    "mute": false,
    "name": "Cap V",
    "outputs": [
     "Value"
    ],
-   "parent": "Deckflächen",
+   "parent": "[Caps]",
    "props": {
     "operation": "MULTIPLY",
     "use_clamp": false
    },
-   "width": 140.0
+   "width": 100.0
   },
   {
    "hide": false,
@@ -1409,10 +1665,10 @@
      "value": 0.0
     }
    },
-   "label": "",
+   "label": "Corner 0",
    "location": [
-    5970,
-    -288
+    -200,
+    240
    ],
    "mute": false,
    "name": "Corner 0",
@@ -1420,7 +1676,7 @@
     "Corner Index",
     "Total"
    ],
-   "parent": "Band U (Naht)",
+   "parent": "[Band U (Seam)]",
    "width": 140.0
   },
   {
@@ -1440,10 +1696,10 @@
      "value": 0.0
     }
    },
-   "label": "",
+   "label": "Corner 1",
    "location": [
-    5970,
-    -462
+    -200,
+    -140
    ],
    "mute": false,
    "name": "Corner 1",
@@ -1451,7 +1707,7 @@
     "Corner Index",
     "Total"
    ],
-   "parent": "Band U (Naht)",
+   "parent": "[Band U (Seam)]",
    "width": 140.0
   },
   {
@@ -1471,10 +1727,10 @@
      "value": 0.0
     }
    },
-   "label": "",
+   "label": "Corner 2",
    "location": [
-    5970,
-    -636
+    -200,
+    -480
    ],
    "mute": false,
    "name": "Corner 2",
@@ -1482,7 +1738,7 @@
     "Corner Index",
     "Total"
    ],
-   "parent": "Band U (Naht)",
+   "parent": "[Band U (Seam)]",
    "width": 140.0
   },
   {
@@ -1502,10 +1758,10 @@
      "value": 0.0
     }
    },
-   "label": "",
+   "label": "Corner 3",
    "location": [
-    5970,
-    -810
+    -200,
+    -660
    ],
    "mute": false,
    "name": "Corner 3",
@@ -1513,47 +1769,28 @@
     "Corner Index",
     "Total"
    ],
-   "parent": "Band U (Naht)",
+   "parent": "[Band U (Seam)]",
    "width": 140.0
   },
   {
    "hide": false,
    "idname": "GeometryNodeInputIndex",
    "inputs": {},
-   "label": "",
+   "label": "Corner Index",
    "location": [
-    5550,
-    -356
+    -620,
+    -240
    ],
    "mute": false,
    "name": "Corner Index",
    "outputs": [
     "Index"
    ],
-   "parent": "Band U (Naht)",
+   "parent": "[Band U (Seam)]",
    "width": 140.0
   },
   {
-   "hide": false,
-   "idname": "NodeFrame",
-   "inputs": {},
-   "label": "Deckflächen",
-   "location": [
-    0,
-    0
-   ],
-   "mute": false,
-   "name": "Deckflächen",
-   "outputs": [],
-   "parent": null,
-   "props": {
-    "label_size": 20,
-    "shrink": true
-   },
-   "width": 160.0
-  },
-  {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeMath",
    "inputs": {
     "Value": {
@@ -1565,25 +1802,25 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "Depth - 2r",
    "location": [
-    3700,
-    0
+    560,
+    980
    ],
    "mute": false,
    "name": "Depth - 2r",
    "outputs": [
     "Value"
    ],
-   "parent": "Band V",
+   "parent": "[Band V]",
    "props": {
     "operation": "SUBTRACT",
     "use_clamp": false
    },
-   "width": 140.0
+   "width": 102.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeMath",
    "inputs": {
     "Value": {
@@ -1595,25 +1832,25 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "Depth - r",
    "location": [
-    3490,
-    -154
+    780,
+    1180
    ],
    "mute": false,
    "name": "Depth - r",
    "outputs": [
     "Value"
    ],
-   "parent": "Band V",
+   "parent": "[Band V]",
    "props": {
     "operation": "SUBTRACT",
     "use_clamp": false
    },
-   "width": 140.0
+   "width": 100.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeMath",
    "inputs": {
     "Value": {
@@ -1625,25 +1862,25 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "Extent",
    "location": [
-    840,
-    0
+    -1980,
+    -640
    ],
    "mute": false,
    "name": "Extent",
    "outputs": [
     "Value"
    ],
-   "parent": "Maßstab",
+   "parent": "[Scale]",
    "props": {
     "operation": "MAXIMUM",
     "use_clamp": false
    },
-   "width": 140.0
+   "width": 100.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeMath",
    "inputs": {
     "Value": {
@@ -1655,22 +1892,22 @@
      "value": 0.0
     }
    },
-   "label": "",
+   "label": "Extent Safe",
    "location": [
-    1050,
-    0
+    -1980,
+    -680
    ],
    "mute": false,
    "name": "Extent Safe",
    "outputs": [
     "Value"
    ],
-   "parent": "Maßstab",
+   "parent": "[Scale]",
    "props": {
     "operation": "MAXIMUM",
     "use_clamp": false
    },
-   "width": 140.0
+   "width": 106.0
   },
   {
    "hide": false,
@@ -1681,10 +1918,10 @@
      "value": "et_face_group"
     }
    },
-   "label": "",
+   "label": "Face Group",
    "location": [
-    8030,
-    -308
+    1560,
+    -340
    ],
    "mute": false,
    "name": "Face Group",
@@ -1692,14 +1929,14 @@
     "Attribute",
     "Exists"
    ],
-   "parent": "UV speichern",
+   "parent": "[Store UV]",
    "props": {
     "data_type": "INT"
    },
    "width": 140.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeMath",
    "inputs": {
     "Value": {
@@ -1711,25 +1948,25 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "Face U Span",
    "location": [
-    7020,
-    0
+    560,
+    -160
    ],
    "mute": false,
    "name": "Face U Span",
    "outputs": [
     "Value"
    ],
-   "parent": "Band U (Naht)",
+   "parent": "[Band U (Seam)]",
    "props": {
     "operation": "SUBTRACT",
     "use_clamp": false
    },
-   "width": 140.0
+   "width": 112.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "FunctionNodeCompare",
    "inputs": {
     "A": {
@@ -1741,23 +1978,23 @@
      "name": "B"
     }
    },
-   "label": "",
+   "label": "Face Wraps",
    "location": [
-    7230,
-    0
+    780,
+    -160
    ],
    "mute": false,
    "name": "Face Wraps",
    "outputs": [
     "Result"
    ],
-   "parent": "Band U (Naht)",
+   "parent": "[Band U (Seam)]",
    "props": {
     "data_type": "FLOAT",
     "mode": "ELEMENT",
     "operation": "GREATER_THAN"
    },
-   "width": 140.0
+   "width": 108.0
   },
   {
    "hide": false,
@@ -1770,8 +2007,8 @@
    },
    "label": "",
    "location": [
-    5760,
-    -308
+    -440,
+    -240
    ],
    "mute": false,
    "name": "Face of Corner",
@@ -1779,11 +2016,11 @@
     "Face Index",
     "Index in Face"
    ],
-   "parent": "Band U (Naht)",
+   "parent": "[Band U (Seam)]",
    "width": 140.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeMath",
    "inputs": {
     "Value": {
@@ -1791,21 +2028,163 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "Front Angle",
    "location": [
-    4540,
-    0
+    780,
+    960
    ],
    "mute": false,
    "name": "Front Angle",
    "outputs": [
     "Value"
    ],
-   "parent": "Band V",
+   "parent": "[Band V]",
    "props": {
     "operation": "ARCSINE",
     "use_clamp": false
    },
+   "width": 109.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Front Arc",
+   "location": [
+    780,
+    920
+   ],
+   "mute": false,
+   "name": "Front Arc",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Band V]",
+   "props": {
+    "operation": "MULTIPLY",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Front Ratio",
+   "location": [
+    780,
+    1080
+   ],
+   "mute": false,
+   "name": "Front Ratio",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Band V]",
+   "props": {
+    "operation": "DIVIDE",
+    "use_clamp": false
+   },
+   "width": 105.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "name": "Value",
+     "value": 1.0
+    }
+   },
+   "label": "Front ≤ 1",
+   "location": [
+    780,
+    1000
+   ],
+   "mute": false,
+   "name": "Front ≤ 1",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Band V]",
+   "props": {
+    "operation": "MINIMUM",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "name": "Value",
+     "value": 0.0
+    }
+   },
+   "label": "Front ≥ 0",
+   "location": [
+    780,
+    1040
+   ],
+   "mute": false,
+   "name": "Front ≥ 0",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Band V]",
+   "props": {
+    "operation": "MAXIMUM",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    -200,
+    1000
+   ],
+   "mute": false,
+   "name": "Group Input (Depth, Radius)",
+   "outputs": [
+    "Socket_0",
+    "Socket_1",
+    "Socket_2",
+    "Socket_3",
+    "Socket_4",
+    "__extend__"
+   ],
+   "parent": "[Band V]",
    "width": 140.0
   },
   {
@@ -1814,8 +2193,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    5970,
-    -202
+    -200,
+    -60
    ],
    "mute": false,
    "name": "Group Input (Mesh)",
@@ -1827,7 +2206,7 @@
     "Socket_4",
     "__extend__"
    ],
-   "parent": "Band U (Naht)",
+   "parent": "[Band U (Seam)]",
    "width": 140.0
   },
   {
@@ -1836,8 +2215,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    8660,
-    0
+    2040,
+    -40
    ],
    "mute": false,
    "name": "Group Input (Mesh).001",
@@ -1849,7 +2228,7 @@
     "Socket_4",
     "__extend__"
    ],
-   "parent": "UV speichern",
+   "parent": "[Store UV]",
    "width": 140.0
   },
   {
@@ -1858,11 +2237,11 @@
    "inputs": {},
    "label": "",
    "location": [
-    0,
-    0
+    -2660,
+    -580
    ],
    "mute": false,
-   "name": "Group Input (Mesh, Auf Text normieren, Maßstab)",
+   "name": "Group Input (Mesh, Normalize to Text, Scale)",
    "outputs": [
     "Socket_0",
     "Socket_1",
@@ -1871,29 +2250,7 @@
     "Socket_4",
     "__extend__"
    ],
-   "parent": "Maßstab",
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeGroupInput",
-   "inputs": {},
-   "label": "",
-   "location": [
-    3280,
-    0
-   ],
-   "mute": false,
-   "name": "Group Input (Tiefe, Radius)",
-   "outputs": [
-    "Socket_0",
-    "Socket_1",
-    "Socket_2",
-    "Socket_3",
-    "Socket_4",
-    "__extend__"
-   ],
-   "parent": "Band V",
+   "parent": "[Scale]",
    "width": 140.0
   },
   {
@@ -1910,8 +2267,8 @@
    },
    "label": "",
    "location": [
-    9270,
-    0
+    2440,
+    -100
    ],
    "mute": false,
    "name": "Group Output",
@@ -1923,7 +2280,7 @@
    "width": 140.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeMath",
    "inputs": {
     "Value": {
@@ -1935,25 +2292,25 @@
      "value": 0.5
     }
    },
-   "label": "",
+   "label": "Half Loop",
    "location": [
-    5760,
-    -154
+    560,
+    -640
    ],
    "mute": false,
    "name": "Half Loop",
    "outputs": [
     "Value"
    ],
-   "parent": "Band U (Naht)",
+   "parent": "[Band U (Seam)]",
    "props": {
     "operation": "MULTIPLY",
     "use_clamp": false
    },
-   "width": 140.0
+   "width": 100.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeMath",
    "inputs": {
     "Value": {
@@ -1965,25 +2322,25 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "Height",
    "location": [
-    630,
-    0
+    -1980,
+    -580
    ],
    "mute": false,
    "name": "Height",
    "outputs": [
     "Value"
    ],
-   "parent": "Maßstab",
+   "parent": "[Scale]",
    "props": {
     "operation": "SUBTRACT",
     "use_clamp": false
    },
-   "width": 140.0
+   "width": 100.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "FunctionNodeCompare",
    "inputs": {
     "A": {
@@ -1995,26 +2352,26 @@
      "name": "B"
     }
    },
-   "label": "",
+   "label": "In Back Bevel",
    "location": [
-    3490,
-    -308
+    80,
+    520
    ],
    "mute": false,
    "name": "In Back Bevel",
    "outputs": [
     "Result"
    ],
-   "parent": "Band V",
+   "parent": "[Band V]",
    "props": {
     "data_type": "FLOAT",
     "mode": "ELEMENT",
     "operation": "LESS_THAN"
    },
-   "width": 140.0
+   "width": 117.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "FunctionNodeCompare",
    "inputs": {
     "A": {
@@ -2026,26 +2383,26 @@
      "name": "B"
     }
    },
-   "label": "",
+   "label": "In Front Bevel",
    "location": [
-    3700,
-    -154
+    980,
+    1040
    ],
    "mute": false,
    "name": "In Front Bevel",
    "outputs": [
     "Result"
    ],
-   "parent": "Band V",
+   "parent": "[Band V]",
    "props": {
     "data_type": "FLOAT",
     "mode": "ELEMENT",
     "operation": "GREATER_THAN"
    },
-   "width": 140.0
+   "width": 121.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "FunctionNodeCompare",
    "inputs": {
     "A": {
@@ -2057,26 +2414,26 @@
      "value": 2
     }
    },
-   "label": "",
+   "label": "Is Back",
    "location": [
-    8240,
-    -152
+    1740,
+    -400
    ],
    "mute": false,
    "name": "Is Back",
    "outputs": [
     "Result"
    ],
-   "parent": "UV speichern",
+   "parent": "[Store UV]",
    "props": {
     "data_type": "INT",
     "mode": "ELEMENT",
     "operation": "EQUAL"
    },
-   "width": 140.0
+   "width": 100.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "FunctionNodeBooleanMath",
    "inputs": {
     "Boolean": {
@@ -2088,24 +2445,24 @@
      "name": "Boolean"
     }
    },
-   "label": "",
+   "label": "Is Cap",
    "location": [
-    8450,
-    0
+    1880,
+    -360
    ],
    "mute": false,
    "name": "Is Cap",
    "outputs": [
     "Boolean"
    ],
-   "parent": "UV speichern",
+   "parent": "[Store UV]",
    "props": {
     "operation": "OR"
    },
-   "width": 140.0
+   "width": 100.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "FunctionNodeCompare",
    "inputs": {
     "A": {
@@ -2117,23 +2474,23 @@
      "value": 1
     }
    },
-   "label": "",
+   "label": "Is Front",
    "location": [
-    8240,
-    -354
+    1740,
+    -340
    ],
    "mute": false,
    "name": "Is Front",
    "outputs": [
     "Result"
    ],
-   "parent": "UV speichern",
+   "parent": "[Store UV]",
    "props": {
     "data_type": "INT",
     "mode": "ELEMENT",
     "operation": "EQUAL"
    },
-   "width": 140.0
+   "width": 100.0
   },
   {
    "hide": false,
@@ -2144,10 +2501,10 @@
      "value": "et_loop_len"
     }
    },
-   "label": "",
+   "label": "Loop Length",
    "location": [
-    5550,
-    0
+    300,
+    -660
    ],
    "mute": false,
    "name": "Loop Length",
@@ -2155,14 +2512,14 @@
     "Attribute",
     "Exists"
    ],
-   "parent": "Band U (Naht)",
+   "parent": "[Band U (Seam)]",
    "props": {
     "data_type": "FLOAT"
    },
    "width": 140.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "FunctionNodeCompare",
    "inputs": {
     "A": {
@@ -2174,176 +2531,26 @@
      "name": "B"
     }
    },
-   "label": "",
+   "label": "Low Side",
    "location": [
-    5970,
-    0
+    780,
+    -640
    ],
    "mute": false,
    "name": "Low Side",
    "outputs": [
     "Result"
    ],
-   "parent": "Band U (Naht)",
+   "parent": "[Band U (Seam)]",
    "props": {
     "data_type": "FLOAT",
     "mode": "ELEMENT",
     "operation": "LESS_THAN"
    },
-   "width": 140.0
+   "width": 100.0
   },
   {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "name": "Value",
-     "value": 0.0
-    }
-   },
-   "label": "",
-   "location": [
-    3910,
-    -308
-   ],
-   "mute": false,
-   "name": "Math",
-   "outputs": [
-    "Value"
-   ],
-   "parent": "Band V",
-   "props": {
-    "operation": "MAXIMUM",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "name": "Value",
-     "value": 1.0
-    }
-   },
-   "label": "",
-   "location": [
-    4120,
-    -154
-   ],
-   "mute": false,
-   "name": "Math.001",
-   "outputs": [
-    "Value"
-   ],
-   "parent": "Band V",
-   "props": {
-    "operation": "MINIMUM",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "name": "Value",
-     "value": 1.5708
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    4540,
-    -132
-   ],
-   "mute": false,
-   "name": "Math.002",
-   "outputs": [
-    "Value"
-   ],
-   "parent": "Band V",
-   "props": {
-    "operation": "SUBTRACT",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "name": "Value",
-     "value": 0.0
-    }
-   },
-   "label": "",
-   "location": [
-    4120,
-    0
-   ],
-   "mute": false,
-   "name": "Math.003",
-   "outputs": [
-    "Value"
-   ],
-   "parent": "Band V",
-   "props": {
-    "operation": "MAXIMUM",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "name": "Value",
-     "value": 1.0
-    }
-   },
-   "label": "",
-   "location": [
-    4330,
-    0
-   ],
-   "mute": false,
-   "name": "Math.004",
-   "outputs": [
-    "Value"
-   ],
-   "parent": "Band V",
-   "props": {
-    "operation": "MINIMUM",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeMath",
    "inputs": {
     "Value": {
@@ -2355,85 +2562,25 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "Max 1",
    "location": [
-    3910,
-    0
-   ],
-   "mute": false,
-   "name": "Math.005",
-   "outputs": [
-    "Value"
-   ],
-   "parent": "Band V",
-   "props": {
-    "operation": "ADD",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    4750,
-    0
-   ],
-   "mute": false,
-   "name": "Math.006",
-   "outputs": [
-    "Value"
-   ],
-   "parent": "Band V",
-   "props": {
-    "operation": "MULTIPLY",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    6390,
-    0
+    560,
+    -20
    ],
    "mute": false,
    "name": "Max 1",
    "outputs": [
     "Value"
    ],
-   "parent": "Band U (Naht)",
+   "parent": "[Band U (Seam)]",
    "props": {
     "operation": "MAXIMUM",
     "use_clamp": false
    },
-   "width": 140.0
+   "width": 100.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeMath",
    "inputs": {
     "Value": {
@@ -2445,25 +2592,25 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "Max 2",
    "location": [
-    6600,
-    0
+    560,
+    -60
    ],
    "mute": false,
    "name": "Max 2",
    "outputs": [
     "Value"
    ],
-   "parent": "Band U (Naht)",
+   "parent": "[Band U (Seam)]",
    "props": {
     "operation": "MAXIMUM",
     "use_clamp": false
    },
-   "width": 140.0
+   "width": 100.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeMath",
    "inputs": {
     "Value": {
@@ -2475,44 +2622,25 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "Max 3",
    "location": [
-    6810,
-    0
+    560,
+    -120
    ],
    "mute": false,
    "name": "Max 3",
    "outputs": [
     "Value"
    ],
-   "parent": "Band U (Naht)",
+   "parent": "[Band U (Seam)]",
    "props": {
     "operation": "MAXIMUM",
     "use_clamp": false
    },
-   "width": 140.0
+   "width": 100.0
   },
   {
-   "hide": false,
-   "idname": "NodeFrame",
-   "inputs": {},
-   "label": "Maßstab",
-   "location": [
-    0,
-    0
-   ],
-   "mute": false,
-   "name": "Maßstab",
-   "outputs": [],
-   "parent": null,
-   "props": {
-    "label_size": 20,
-    "shrink": true
-   },
-   "width": 160.0
-  },
-  {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeMath",
    "inputs": {
     "Value": {
@@ -2524,25 +2652,25 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "Min 1",
    "location": [
-    6390,
-    -154
+    320,
+    -40
    ],
    "mute": false,
    "name": "Min 1",
    "outputs": [
     "Value"
    ],
-   "parent": "Band U (Naht)",
+   "parent": "[Band U (Seam)]",
    "props": {
     "operation": "MINIMUM",
     "use_clamp": false
    },
-   "width": 140.0
+   "width": 100.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeMath",
    "inputs": {
     "Value": {
@@ -2554,25 +2682,25 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "Min 2",
    "location": [
-    6600,
-    -154
+    320,
+    -80
    ],
    "mute": false,
    "name": "Min 2",
    "outputs": [
     "Value"
    ],
-   "parent": "Band U (Naht)",
+   "parent": "[Band U (Seam)]",
    "props": {
     "operation": "MINIMUM",
     "use_clamp": false
    },
-   "width": 140.0
+   "width": 100.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeMath",
    "inputs": {
     "Value": {
@@ -2584,22 +2712,22 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "Min 3",
    "location": [
-    6810,
-    -154
+    320,
+    -120
    ],
    "mute": false,
    "name": "Min 3",
    "outputs": [
     "Value"
    ],
-   "parent": "Band U (Naht)",
+   "parent": "[Band U (Seam)]",
    "props": {
     "operation": "MINIMUM",
     "use_clamp": false
    },
-   "width": 140.0
+   "width": 100.0
   },
   {
    "hide": false,
@@ -2618,17 +2746,17 @@
      "name": "True"
     }
    },
-   "label": "",
+   "label": "Normalize",
    "location": [
-    1470,
-    0
+    -1820,
+    -740
    ],
    "mute": false,
    "name": "Normalize",
    "outputs": [
     "Output"
    ],
-   "parent": "Maßstab",
+   "parent": "[Scale]",
    "props": {
     "input_type": "FLOAT"
    },
@@ -2640,19 +2768,19 @@
    "inputs": {},
    "label": "",
    "location": [
-    2060,
-    0
+    -1320,
+    -700
    ],
    "mute": false,
    "name": "Position",
    "outputs": [
     "Position"
    ],
-   "parent": "Deckflächen",
+   "parent": "[Caps]",
    "width": 140.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeSeparateXYZ",
    "inputs": {
     "Vector": {
@@ -2660,10 +2788,10 @@
      "name": "Vector"
     }
    },
-   "label": "",
+   "label": "Position XYZ",
    "location": [
-    2270,
-    0
+    -1140,
+    -700
    ],
    "mute": false,
    "name": "Position XYZ",
@@ -2672,11 +2800,41 @@
     "Y",
     "Z"
    ],
-   "parent": "Deckflächen",
-   "width": 140.0
+   "parent": "[Caps]",
+   "width": 115.0
   },
   {
-   "hide": false,
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Quarter + Side",
+   "location": [
+    560,
+    940
+   ],
+   "mute": false,
+   "name": "Quarter + Side",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Band V]",
+   "props": {
+    "operation": "ADD",
+    "use_clamp": false
+   },
+   "width": 121.0
+  },
+  {
+   "hide": true,
    "idname": "ShaderNodeMath",
    "inputs": {
     "Value": {
@@ -2688,25 +2846,25 @@
      "value": 1.5708
     }
    },
-   "label": "",
+   "label": "Quarter Arc",
    "location": [
-    3490,
-    -510
+    300,
+    1020
    ],
    "mute": false,
    "name": "Quarter Arc",
    "outputs": [
     "Value"
    ],
-   "parent": "Band V",
+   "parent": "[Band V]",
    "props": {
     "operation": "MULTIPLY",
     "use_clamp": false
    },
-   "width": 140.0
+   "width": 106.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeMath",
    "inputs": {
     "Value": {
@@ -2718,25 +2876,1000 @@
      "value": 0.0
     }
    },
-   "label": "",
+   "label": "Radius Safe",
    "location": [
-    3490,
-    -664
+    300,
+    840
    ],
    "mute": false,
    "name": "Radius Safe",
    "outputs": [
     "Value"
    ],
-   "parent": "Band V",
+   "parent": "[Band V]",
    "props": {
     "operation": "MAXIMUM",
     "use_clamp": false
+   },
+   "width": 108.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -980,
+    -656
+   ],
+   "mute": false,
+   "name": "Reroute",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Caps]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
    },
    "width": 140.0
   },
   {
    "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    60,
+    1075
+   ],
+   "mute": false,
+   "name": "Reroute.001",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Band V]",
+   "props": {
+    "socket_idname": "NodeSocketFloatDistance"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    200,
+    1075
+   ],
+   "mute": false,
+   "name": "Reroute.002",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Band V]",
+   "props": {
+    "socket_idname": "NodeSocketFloatDistance"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -2120,
+    -526
+   ],
+   "mute": false,
+   "name": "Reroute.003",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Scale]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -2020,
+    -526
+   ],
+   "mute": false,
+   "name": "Reroute.004",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -2020,
+    -650
+   ],
+   "mute": false,
+   "name": "Reroute.005",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Scale]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    60,
+    1170
+   ],
+   "mute": false,
+   "name": "Reroute.006",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Band V]",
+   "props": {
+    "socket_idname": "NodeSocketFloatDistance"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    423,
+    1159
+   ],
+   "mute": false,
+   "name": "Reroute.007",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Band V]",
+   "props": {
+    "socket_idname": "NodeSocketFloatDistance"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -840,
+    -662
+   ],
+   "mute": false,
+   "name": "Reroute.008",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Caps]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -740,
+    -662
+   ],
+   "mute": false,
+   "name": "Reroute.009",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    60,
+    -837
+   ],
+   "mute": false,
+   "name": "Reroute.010",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Band U (Seam)]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    440,
+    -837
+   ],
+   "mute": false,
+   "name": "Reroute.011",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Band U (Seam)]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    423,
+    1064
+   ],
+   "mute": false,
+   "name": "Reroute.012",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Band V]",
+   "props": {
+    "socket_idname": "NodeSocketFloatDistance"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    690,
+    831
+   ],
+   "mute": false,
+   "name": "Reroute.013",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Band V]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    1493,
+    -268
+   ],
+   "mute": false,
+   "name": "Reroute.014",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Store UV]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -2460,
+    -821
+   ],
+   "mute": false,
+   "name": "Reroute.015",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Scale]",
+   "props": {
+    "socket_idname": "NodeSocketBool"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    300,
+    -230
+   ],
+   "mute": false,
+   "name": "Reroute.016",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Band U (Seam)]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    440,
+    -230
+   ],
+   "mute": false,
+   "name": "Reroute.017",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Band U (Seam)]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    680,
+    1062
+   ],
+   "mute": false,
+   "name": "Reroute.018",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Band V]",
+   "props": {
+    "socket_idname": "NodeSocketFloatDistance"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -2120,
+    -499
+   ],
+   "mute": false,
+   "name": "Reroute.019",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Scale]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1536,
+    -503
+   ],
+   "mute": false,
+   "name": "Reroute.020",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -2460,
+    -915
+   ],
+   "mute": false,
+   "name": "Reroute.021",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Scale]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    426,
+    501
+   ],
+   "mute": false,
+   "name": "Reroute.022",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Band V]",
+   "props": {
+    "socket_idname": "NodeSocketBool"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    1092,
+    -837
+   ],
+   "mute": false,
+   "name": "Reroute.023",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Band U (Seam)]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1140,
+    -652
+   ],
+   "mute": false,
+   "name": "Reroute.024",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Caps]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1025,
+    -652
+   ],
+   "mute": false,
+   "name": "Reroute.025",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Caps]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    892,
+    454
+   ],
+   "mute": false,
+   "name": "Reroute.026",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Band V]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1446,
+    -660
+   ],
+   "mute": false,
+   "name": "Reroute.027",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1320,
+    -660
+   ],
+   "mute": false,
+   "name": "Reroute.028",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Caps]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -620,
+    785
+   ],
+   "mute": false,
+   "name": "Reroute.029",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -60,
+    785
+   ],
+   "mute": false,
+   "name": "Reroute.030",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Band V]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    68,
+    454
+   ],
+   "mute": false,
+   "name": "Reroute.031",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Band V]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    680,
+    454
+   ],
+   "mute": false,
+   "name": "Reroute.032",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Band V]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    1493,
+    -145
+   ],
+   "mute": false,
+   "name": "Reroute.033",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Store UV]",
+   "props": {
+    "socket_idname": "NodeSocketVector"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    1990,
+    -145
+   ],
+   "mute": false,
+   "name": "Reroute.034",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Store UV]",
+   "props": {
+    "socket_idname": "NodeSocketVector"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -620,
+    414
+   ],
+   "mute": false,
+   "name": "Reroute.035",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketVector"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    1400,
+    414
+   ],
+   "mute": false,
+   "name": "Reroute.036",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketVector"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -980,
+    -953
+   ],
+   "mute": false,
+   "name": "Reroute.037",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    1400,
+    -952
+   ],
+   "mute": false,
+   "name": "Reroute.038",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": true,
    "idname": "FunctionNodeBooleanMath",
    "inputs": {
     "Boolean": {
@@ -2748,21 +3881,21 @@
      "name": "Boolean"
     }
    },
-   "label": "",
+   "label": "Shift Corner",
    "location": [
-    7440,
-    0
+    980,
+    -320
    ],
    "mute": false,
    "name": "Shift Corner",
    "outputs": [
     "Boolean"
    ],
-   "parent": "Band U (Naht)",
+   "parent": "[Band U (Seam)]",
    "props": {
     "operation": "AND"
    },
-   "width": 140.0
+   "width": 110.0
   },
   {
    "hide": false,
@@ -2785,17 +3918,17 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "Store UVMap",
    "location": [
-    8870,
-    0
+    2220,
+    -40
    ],
    "mute": false,
    "name": "Store UVMap",
    "outputs": [
     "Geometry"
    ],
-   "parent": "UV speichern",
+   "parent": "[Store UV]",
    "props": {
     "data_type": "FLOAT2",
     "domain": "CORNER"
@@ -2815,10 +3948,10 @@
      "value": true
     }
    },
-   "label": "",
+   "label": "Text Bounds",
    "location": [
-    210,
-    0
+    -2460,
+    -580
    ],
    "mute": false,
    "name": "Text Bounds",
@@ -2827,7 +3960,7 @@
     "Min",
     "Max"
    ],
-   "parent": "Maßstab",
+   "parent": "[Scale]",
    "width": 140.0
   },
   {
@@ -2839,10 +3972,10 @@
      "value": "et_u"
     }
    },
-   "label": "",
+   "label": "U",
    "location": [
-    5550,
-    -178
+    -200,
+    -320
    ],
    "mute": false,
    "name": "U",
@@ -2850,14 +3983,14 @@
     "Attribute",
     "Exists"
    ],
-   "parent": "Band U (Naht)",
+   "parent": "[Band U (Seam)]",
    "props": {
     "data_type": "FLOAT"
    },
    "width": 140.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeMath",
    "inputs": {
     "Value": {
@@ -2869,22 +4002,22 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "U + Loop",
    "location": [
-    5760,
-    0
+    560,
+    -740
    ],
    "mute": false,
    "name": "U + Loop",
    "outputs": [
     "Value"
    ],
-   "parent": "Band U (Naht)",
+   "parent": "[Band U (Seam)]",
    "props": {
     "operation": "ADD",
     "use_clamp": false
    },
-   "width": 140.0
+   "width": 100.0
   },
   {
    "hide": false,
@@ -2903,17 +4036,17 @@
      "name": "True"
     }
    },
-   "label": "",
+   "label": "U Unwrapped",
    "location": [
-    7650,
-    0
+    1180,
+    -420
    ],
    "mute": false,
    "name": "U Unwrapped",
    "outputs": [
     "Output"
    ],
-   "parent": "Band U (Naht)",
+   "parent": "[Band U (Seam)]",
    "props": {
     "input_type": "FLOAT"
    },
@@ -2936,17 +4069,17 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "U of Corner 0",
    "location": [
-    6180,
-    0
+    60,
+    360
    ],
    "mute": false,
    "name": "U of Corner 0",
    "outputs": [
     "Value"
    ],
-   "parent": "Band U (Naht)",
+   "parent": "[Band U (Seam)]",
    "props": {
     "clamp": false,
     "data_type": "FLOAT",
@@ -2971,17 +4104,17 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "U of Corner 1",
    "location": [
-    6180,
-    -200
+    60,
+    140
    ],
    "mute": false,
    "name": "U of Corner 1",
    "outputs": [
     "Value"
    ],
-   "parent": "Band U (Naht)",
+   "parent": "[Band U (Seam)]",
    "props": {
     "clamp": false,
     "data_type": "FLOAT",
@@ -3006,17 +4139,17 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "U of Corner 2",
    "location": [
-    6180,
-    -400
+    60,
+    -160
    ],
    "mute": false,
    "name": "U of Corner 2",
    "outputs": [
     "Value"
    ],
-   "parent": "Band U (Naht)",
+   "parent": "[Band U (Seam)]",
    "props": {
     "clamp": false,
     "data_type": "FLOAT",
@@ -3041,17 +4174,17 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "U of Corner 3",
    "location": [
-    6180,
-    -600
+    60,
+    -520
    ],
    "mute": false,
    "name": "U of Corner 3",
    "outputs": [
     "Value"
    ],
-   "parent": "Band U (Naht)",
+   "parent": "[Band U (Seam)]",
    "props": {
     "clamp": false,
     "data_type": "FLOAT",
@@ -3076,24 +4209,24 @@
      "name": "True"
     }
    },
-   "label": "",
+   "label": "UV",
    "location": [
-    8660,
-    -86
+    2040,
+    -180
    ],
    "mute": false,
    "name": "UV",
    "outputs": [
     "Output"
    ],
-   "parent": "UV speichern",
+   "parent": "[Store UV]",
    "props": {
     "input_type": "VECTOR"
    },
    "width": 140.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeMath",
    "inputs": {
     "Value": {
@@ -3105,34 +4238,214 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "UV Factor",
    "location": [
-    1680,
-    0
+    -1640,
+    -900
    ],
    "mute": false,
    "name": "UV Factor",
    "outputs": [
     "Value"
    ],
-   "parent": "Maßstab",
+   "parent": "[Scale]",
    "props": {
     "operation": "MULTIPLY",
     "use_clamp": false
    },
-   "width": 140.0
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "V Back Bevel",
+   "location": [
+    300,
+    580
+   ],
+   "mute": false,
+   "name": "V Back Bevel",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Band V]",
+   "props": {
+    "operation": "MULTIPLY",
+    "use_clamp": false
+   },
+   "width": 113.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "V Front Bevel",
+   "location": [
+    780,
+    880
+   ],
+   "mute": false,
+   "name": "V Front Bevel",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Band V]",
+   "props": {
+    "operation": "ADD",
+    "use_clamp": false
+   },
+   "width": 117.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "V Side",
+   "location": [
+    320,
+    980
+   ],
+   "mute": false,
+   "name": "V Side",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Band V]",
+   "props": {
+    "operation": "ADD",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Width",
+   "location": [
+    -2120,
+    -580
+   ],
+   "mute": false,
+   "name": "Width",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Scale]",
+   "props": {
+    "operation": "SUBTRACT",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "X - Min",
+   "location": [
+    -980,
+    -700
+   ],
+   "mute": false,
+   "name": "X - Min",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Caps]",
+   "props": {
+    "operation": "SUBTRACT",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Y - Min",
+   "location": [
+    -980,
+    -820
+   ],
+   "mute": false,
+   "name": "Y - Min",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Caps]",
+   "props": {
+    "operation": "SUBTRACT",
+    "use_clamp": false
+   },
+   "width": 100.0
   },
   {
    "hide": false,
    "idname": "NodeFrame",
    "inputs": {},
-   "label": "UV speichern",
+   "label": "Band U (Seam)",
    "location": [
     0,
     0
    ],
    "mute": false,
-   "name": "UV speichern",
+   "name": "[Band U (Seam)]",
    "outputs": [],
    "parent": null,
    "props": {
@@ -3143,186 +4456,82 @@
   },
   {
    "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Band V",
    "location": [
-    4750,
-    -154
-   ],
-   "mute": false,
-   "name": "V Back Bevel",
-   "outputs": [
-    "Value"
-   ],
-   "parent": "Band V",
-   "props": {
-    "operation": "MULTIPLY",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    4960,
+    0,
     0
    ],
    "mute": false,
-   "name": "V Front Bevel",
-   "outputs": [
-    "Value"
-   ],
-   "parent": "Band V",
+   "name": "[Band V]",
+   "outputs": [],
+   "parent": null,
    "props": {
-    "operation": "ADD",
-    "use_clamp": false
+    "label_size": 20,
+    "shrink": true
    },
-   "width": 140.0
+   "width": 160.0
   },
   {
    "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Caps",
    "location": [
-    3700,
-    -664
-   ],
-   "mute": false,
-   "name": "V Side",
-   "outputs": [
-    "Value"
-   ],
-   "parent": "Band V",
-   "props": {
-    "operation": "ADD",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    630,
-    -154
-   ],
-   "mute": false,
-   "name": "Width",
-   "outputs": [
-    "Value"
-   ],
-   "parent": "Maßstab",
-   "props": {
-    "operation": "SUBTRACT",
-    "use_clamp": false
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
-   "location": [
-    2480,
+    0,
     0
    ],
    "mute": false,
-   "name": "X - Min",
-   "outputs": [
-    "Value"
-   ],
-   "parent": "Deckflächen",
+   "name": "[Caps]",
+   "outputs": [],
+   "parent": null,
    "props": {
-    "operation": "SUBTRACT",
-    "use_clamp": false
+    "label_size": 20,
+    "shrink": true
    },
-   "width": 140.0
+   "width": 160.0
   },
   {
    "hide": false,
-   "idname": "ShaderNodeMath",
-   "inputs": {
-    "Value": {
-     "linked": true,
-     "name": "Value"
-    },
-    "Value_001": {
-     "linked": true,
-     "name": "Value"
-    }
-   },
-   "label": "",
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Scale",
    "location": [
-    2480,
-    -154
+    0,
+    0
    ],
    "mute": false,
-   "name": "Y - Min",
-   "outputs": [
-    "Value"
-   ],
-   "parent": "Deckflächen",
+   "name": "[Scale]",
+   "outputs": [],
+   "parent": null,
    "props": {
-    "operation": "SUBTRACT",
-    "use_clamp": false
+    "label_size": 20,
+    "shrink": true
    },
-   "width": 140.0
+   "width": 160.0
   },
   {
    "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Store UV",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Store UV]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": true,
    "idname": "ShaderNodeMath",
    "inputs": {
     "Value": {
@@ -3334,25 +4543,25 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "r - z",
    "location": [
-    3490,
-    -818
+    80,
+    800
    ],
    "mute": false,
    "name": "r - z",
    "outputs": [
     "Value"
    ],
-   "parent": "Band V",
+   "parent": "[Band V]",
    "props": {
     "operation": "SUBTRACT",
     "use_clamp": false
    },
-   "width": 140.0
+   "width": 100.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeMath",
    "inputs": {
     "Value": {
@@ -3364,25 +4573,25 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "z - (Depth - r)",
    "location": [
-    3700,
-    -356
+    780,
+    1120
    ],
    "mute": false,
    "name": "z - (Depth - r)",
    "outputs": [
     "Value"
    ],
-   "parent": "Band V",
+   "parent": "[Band V]",
    "props": {
     "operation": "SUBTRACT",
     "use_clamp": false
    },
-   "width": 140.0
+   "width": 122.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "ShaderNodeMath",
    "inputs": {
     "Value": {
@@ -3394,22 +4603,22 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "z - r",
    "location": [
-    3490,
-    -972
+    80,
+    980
    ],
    "mute": false,
    "name": "z - r",
    "outputs": [
     "Value"
    ],
-   "parent": "Band V",
+   "parent": "[Band V]",
    "props": {
     "operation": "SUBTRACT",
     "use_clamp": false
    },
-   "width": 140.0
+   "width": 100.0
   }
  ],
  "tree_type": "GeometryNodeTree"

@@ -1,58 +1,61 @@
 # Easy Text 2026 (v3)
 
-Geometry-Nodes-Typografie und Text-Animation für **Blender 5.2 LTS**: Node-Group-Assets
-(funktionieren als Modifier ohne Add-on) plus eine optionale Extension für Font-Picker,
-mehrzeiligen Text, Presets sowie Kamera- und Licht-Rigs.
+Geometry Nodes typography and text animation for **Blender 5.2 LTS**: node-group assets
+(work as a modifier without any add-on) plus an optional extension for a font picker,
+multi-line text, presets, and camera and light rigs.
 
-Status: Phase 1, erste Node-Gruppe `ET Text Mesh` (Text → sauberes Mesh mit Extrusion, Bevel, Materialien, UVs).
-Analyse der Vorgängerversion: `docs/01-analyse-v2.1.md`, Zielbild: `docs/02-zielbild-v3.md`,
-Entwicklungsregeln und API-Fallen: `docs/03-entwicklung.md`, Architektur: `docs/04-architektur-v3.md`.
+Status: Phase 1, first node group `ET Text Mesh` (text → clean mesh with extrusion, bevel, materials, UVs).
+Analysis of the previous version: `docs/01-analysis-v2.1.md`, target picture: `docs/02-target-v3.md`,
+development rules and API pitfalls: `docs/03-development.md`, architecture: `docs/04-architecture-v3.md`,
+node layout rules: `docs/05-node-layout.md`.
 
-## Testen in Blender (5.2 LTS)
+## Testing in Blender (5.2 LTS)
 
-1. `assets/easytext_v3.blend` herunterladen (aus dem Repo oder als CI-Artefakt).
-2. In einer eigenen Datei: File → Append → `easytext_v3.blend` → NodeTree → `ET Text Mesh`.
-   Alternativ den Ordner `assets/` in den Preferences als Asset-Bibliothek eintragen; die Gruppe erscheint dann
-   im Add-Modifier-Menü unter "Easy Text".
-3. Ein beliebiges Mesh-Objekt (oder seit 5.2 ein Empty) anlegen, Modifier "Geometry Nodes" hinzufügen, Gruppe `ET Text Mesh` wählen.
-4. Panels im Modifier: Text (4 Zeilen), Typografie (Font-Socket, Größe, Ausrichtung, Abstände, Textbox),
-   Kontur (Auflösung, Vereinfachen, Füllung), Form (Tiefe, Bevel, Glättungswinkel), Material, UV, Ausgabe.
+1. Download `assets/easytext_v3_demo.blend` (from the repo or the CI artifact) and open it: a text object with the
+   modifier, a camera and two area lights are already set up, and the properties editor opens on the modifier tab.
+2. For your own file: File → Append → `easytext_v3.blend` → NodeTree → `ET Text Mesh`.
+   Alternatively register the `assets/` folder as an asset library in the Preferences; the group then shows up in
+   the Add Modifier menu under "Easy Text".
+3. Add a Geometry Nodes modifier to any mesh object (or, since 5.2, an empty) and pick `ET Text Mesh`.
+4. Modifier panels: Text (4 lines), Typography (font socket, size, alignment, spacing, text box),
+   Outline (resolution, simplify, fill), Shape (depth, bevel, smooth angle), Material, UV, Output.
 
-Was die Gruppe garantiert (headless geprüft): geschlossenes, manifoldes Mesh ohne doppelte Vertices; Deckflächen als
-N-Gons oder Dreiecke; Seiten als Quads; Bevel als Quads; UV-Map `UVMap` mit planaren Deckflächen und einer
-durchgehenden, unverzerrten UV-Bahn für Seiten und Bevel (U = Konturlänge, V = Bogenlänge über Rück-Bevel, Seite, Front-Bevel);
-Materialien in den Slots Front/Seite/Bevel; Warnungen bei leerem Text und zu breitem Bevel.
+What the group guarantees (verified headless): a closed, manifold mesh without duplicate vertices; caps as n-gons or
+triangles; sides and bevel as quads; a `UVMap` with planar caps and one continuous, undistorted UV band for sides and
+bevel (U = contour length, V = arc length over back bevel, side, front bevel); materials in the slots Front/Side/Bevel;
+warnings for empty text and a bevel that is too wide.
 
-## Aufbau
+## Layout
 
-| Pfad | Inhalt |
+| Path | Content |
 |---|---|
-| `src/easytext_build/` | Builder: erzeugt alle Node-Gruppen per Skript (Quelle der Wahrheit). |
-| `src/easytext_build/groups/` | Eine Datei pro Node-Gruppe. |
-| `assets/easytext_v3.blend` | Gebaute Asset-Bibliothek (nie von Hand editieren). |
-| `assets/blender_assets.cats.txt` | Asset-Katalog. |
-| `assets/snapshots/*.json` | Textuelle Abbilder der Node-Gruppen für Diffs und Reviews. |
-| `tools/dump_blend.py` | Liest eine .blend ohne Blender aus (für Referenzdateien). |
-| `docs/` | Analyse, Zielbild, Entwicklungsregeln, Referenz-Dumps von v2.1. |
+| `src/easytext_build/` | Builder: generates every node group from scripts (source of truth). |
+| `src/easytext_build/groups/` | One file per node group. |
+| `assets/easytext_v3.blend` | Built asset library (never edit by hand). |
+| `assets/easytext_v3_demo.blend` | Demo scene for a quick look. |
+| `assets/blender_assets.cats.txt` | Asset catalog. |
+| `assets/snapshots/*.json` | Text snapshots of the node groups for diffs and reviews. |
+| `tools/dump_blend.py` | Reads a .blend without Blender (for reference files). |
+| `docs/` | Analysis, target picture, development rules, architecture, reference dumps of v2.1. |
 
-## Bauen
+## Building
 
-Benötigt Python 3.13 (wie Blender 5.2). Das `bpy`-Wheel ist Blender als Python-Modul (~400 MB).
+Requires Python 3.13 (like Blender 5.2). The `bpy` wheel is Blender as a Python module (~400 MB), pinned to 5.2.0.
 
 ```bash
 python -m pip install -e ".[dev,bpy]"
-python -m easytext_build.build     # baut assets/easytext_v3.blend, Katalog und Snapshots
-python -m easytext_build.smoke     # lädt die Datei, hängt den Modifier an, prüft das Ergebnis
-pytest                             # Tests ohne Blender
+python -m easytext_build.build     # builds assets/easytext_v3.blend, the demo, catalog and snapshots
+python -m easytext_build.smoke     # loads the file, attaches the modifier, checks the result
+pytest                             # tests without Blender
 ```
 
-Alternativ mit einer Blender-Installation:
+Alternatively with a Blender installation:
 
 ```bash
 blender -b --python-expr "import sys; sys.path.insert(0, 'src'); import easytext_build.build as b; b.main()"
 ```
 
-## Lizenz
+## License
 
-Code (Builder, Extension, Werkzeuge): GPL-3.0-or-later, siehe `LICENSE`.
-Node-Assets und Beispielszenen unter `assets/`: CC0 1.0, siehe `assets/LICENSE`.
+Code (builder, extension, tools): GPL-3.0-or-later, see `LICENSE`.
+Node assets and example scenes under `assets/`: CC0 1.0, see `assets/LICENSE`.

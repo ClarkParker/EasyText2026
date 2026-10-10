@@ -1,6 +1,6 @@
 {
  "asset_catalog_id": null,
- "description": "Bis zu vier Zeilen Text als realisierte Glyphenkurven mit et_char_index.",
+ "description": "Up to four lines of text as realized glyph curves with et_char_index.",
  "flags": {
   "color_tag": "NONE",
   "default_group_node_width": 200,
@@ -32,7 +32,7 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": 0,
-   "description": "Zeichenzahl des zusammengesetzten Textes.",
+   "description": "Number of characters in the joined text.",
    "hide_in_modifier": false,
    "hide_value": false,
    "identifier": "Socket_16",
@@ -43,7 +43,7 @@
    "max_value": 2147483647,
    "menu_expanded": false,
    "min_value": -2147483648,
-   "name": "Zeichen",
+   "name": "Character Count",
    "optional_label": false,
    "parent": null,
    "socket_type": "NodeSocketInt",
@@ -85,7 +85,7 @@
    "item_type": "SOCKET",
    "layer_selection_field": false,
    "menu_expanded": false,
-   "name": "Zeile 2",
+   "name": "Line 2",
    "optional_label": false,
    "parent": null,
    "socket_type": "NodeSocketString",
@@ -106,7 +106,7 @@
    "item_type": "SOCKET",
    "layer_selection_field": false,
    "menu_expanded": false,
-   "name": "Zeile 3",
+   "name": "Line 3",
    "optional_label": false,
    "parent": null,
    "socket_type": "NodeSocketString",
@@ -127,7 +127,7 @@
    "item_type": "SOCKET",
    "layer_selection_field": false,
    "menu_expanded": false,
-   "name": "Zeile 4",
+   "name": "Line 4",
    "optional_label": false,
    "parent": null,
    "socket_type": "NodeSocketString",
@@ -173,7 +173,7 @@
    "max_value": 100.0,
    "menu_expanded": false,
    "min_value": 0.001,
-   "name": "Größe",
+   "name": "Size",
    "optional_label": false,
    "parent": null,
    "socket_type": "NodeSocketFloat",
@@ -194,7 +194,7 @@
    "item_type": "SOCKET",
    "layer_selection_field": false,
    "menu_expanded": false,
-   "name": "Ausrichtung X",
+   "name": "Align X",
    "optional_label": false,
    "parent": null,
    "socket_type": "NodeSocketMenu",
@@ -214,7 +214,7 @@
    "item_type": "SOCKET",
    "layer_selection_field": false,
    "menu_expanded": false,
-   "name": "Ausrichtung Y",
+   "name": "Align Y",
    "optional_label": false,
    "parent": null,
    "socket_type": "NodeSocketMenu",
@@ -256,7 +256,7 @@
    "max_value": 10.0,
    "menu_expanded": false,
    "min_value": 0.0,
-   "name": "Zeichenabstand",
+   "name": "Character Spacing",
    "optional_label": false,
    "parent": null,
    "socket_type": "NodeSocketFloat",
@@ -279,7 +279,7 @@
    "max_value": 10.0,
    "menu_expanded": false,
    "min_value": 0.0,
-   "name": "Wortabstand",
+   "name": "Word Spacing",
    "optional_label": false,
    "parent": null,
    "socket_type": "NodeSocketFloat",
@@ -302,7 +302,7 @@
    "max_value": 10.0,
    "menu_expanded": false,
    "min_value": 0.0,
-   "name": "Zeilenabstand",
+   "name": "Line Spacing",
    "optional_label": false,
    "parent": null,
    "socket_type": "NodeSocketFloat",
@@ -325,7 +325,7 @@
    "max_value": 1000.0,
    "menu_expanded": false,
    "min_value": 0.0,
-   "name": "Breite",
+   "name": "Box Width",
    "optional_label": false,
    "parent": null,
    "socket_type": "NodeSocketFloat",
@@ -348,7 +348,7 @@
    "max_value": 1000.0,
    "menu_expanded": false,
    "min_value": 0.0,
-   "name": "Höhe",
+   "name": "Box Height",
    "optional_label": false,
    "parent": null,
    "socket_type": "NodeSocketFloat",
@@ -369,7 +369,7 @@
    "item_type": "SOCKET",
    "layer_selection_field": false,
    "menu_expanded": false,
-   "name": "Überlauf",
+   "name": "Overflow",
    "optional_label": false,
    "parent": null,
    "socket_type": "NodeSocketMenu",
@@ -378,10 +378,16 @@
  ],
  "links": [
   [
+   "Character Count",
+   "Length",
+   "Group Output",
+   "Socket_16"
+  ],
+  [
    "Font Fallback",
    "Output",
-   "String to Curves",
-   "Font"
+   "Reroute.002",
+   "Input"
   ],
   [
    "Font Is None",
@@ -402,88 +408,88 @@
    "A"
   ],
   [
-   "Group Input (Typografie)",
-   "Socket_10",
-   "String to Curves",
-   "Word Spacing"
-  ],
-  [
-   "Group Input (Typografie)",
-   "Socket_11",
-   "String to Curves",
-   "Line Spacing"
-  ],
-  [
-   "Group Input (Typografie)",
-   "Socket_12",
-   "String to Curves",
-   "Text Box Width"
-  ],
-  [
-   "Group Input (Typografie)",
-   "Socket_13",
-   "String to Curves",
-   "Text Box Height"
-  ],
-  [
-   "Group Input (Typografie)",
-   "Socket_14",
-   "String to Curves",
-   "Overflow"
-  ],
-  [
-   "Group Input (Typografie)",
-   "Socket_5",
-   "String to Curves",
-   "Size"
-  ],
-  [
-   "Group Input (Typografie)",
-   "Socket_6",
-   "String to Curves",
-   "Align X"
-  ],
-  [
-   "Group Input (Typografie)",
-   "Socket_7",
-   "String to Curves",
-   "Align Y"
-  ],
-  [
-   "Group Input (Typografie)",
-   "Socket_8",
-   "String to Curves",
-   "Pivot Point"
-  ],
-  [
-   "Group Input (Typografie)",
-   "Socket_9",
-   "String to Curves",
-   "Character Spacing"
-  ],
-  [
-   "Group Input (Zeilen)",
+   "Group Input (Lines)",
    "Socket_0",
    "Lines Join",
    "Socket_0"
   ],
   [
-   "Group Input (Zeilen)",
+   "Group Input (Lines)",
    "Socket_1",
    "Lines Join",
    "Socket_1"
   ],
   [
-   "Group Input (Zeilen)",
+   "Group Input (Lines)",
    "Socket_2",
    "Lines Join",
    "Socket_2"
   ],
   [
-   "Group Input (Zeilen)",
+   "Group Input (Lines)",
    "Socket_3",
    "Lines Join",
    "Socket_3"
+  ],
+  [
+   "Group Input (Typography)",
+   "Socket_10",
+   "String to Curves",
+   "Word Spacing"
+  ],
+  [
+   "Group Input (Typography)",
+   "Socket_11",
+   "String to Curves",
+   "Line Spacing"
+  ],
+  [
+   "Group Input (Typography)",
+   "Socket_12",
+   "String to Curves",
+   "Text Box Width"
+  ],
+  [
+   "Group Input (Typography)",
+   "Socket_13",
+   "String to Curves",
+   "Text Box Height"
+  ],
+  [
+   "Group Input (Typography)",
+   "Socket_14",
+   "String to Curves",
+   "Overflow"
+  ],
+  [
+   "Group Input (Typography)",
+   "Socket_5",
+   "String to Curves",
+   "Size"
+  ],
+  [
+   "Group Input (Typography)",
+   "Socket_6",
+   "String to Curves",
+   "Align X"
+  ],
+  [
+   "Group Input (Typography)",
+   "Socket_7",
+   "String to Curves",
+   "Align Y"
+  ],
+  [
+   "Group Input (Typography)",
+   "Socket_8",
+   "String to Curves",
+   "Pivot Point"
+  ],
+  [
+   "Group Input (Typography)",
+   "Socket_9",
+   "String to Curves",
+   "Character Spacing"
   ],
   [
    "Index",
@@ -494,20 +500,56 @@
   [
    "Lines Join",
    "Socket_4",
-   "String to Curves",
+   "Character Count",
    "String"
   ],
   [
    "Lines Join",
    "Socket_4",
-   "Text Length",
-   "String"
+   "Reroute",
+   "Input"
   ],
   [
    "Realize Glyphs",
    "Geometry",
    "Group Output",
    "Socket_15"
+  ],
+  [
+   "Reroute",
+   "Output",
+   "Reroute.001",
+   "Input"
+  ],
+  [
+   "Reroute.001",
+   "Output",
+   "Reroute.004",
+   "Input"
+  ],
+  [
+   "Reroute.002",
+   "Output",
+   "Reroute.003",
+   "Input"
+  ],
+  [
+   "Reroute.003",
+   "Output",
+   "String to Curves",
+   "Font"
+  ],
+  [
+   "Reroute.004",
+   "Output",
+   "Reroute.005",
+   "Input"
+  ],
+  [
+   "Reroute.005",
+   "Output",
+   "String to Curves",
+   "String"
   ],
   [
    "Store et_char_index",
@@ -520,34 +562,31 @@
    "Curve Instances",
    "Store et_char_index",
    "Geometry"
-  ],
-  [
-   "Text Length",
-   "Length",
-   "Group Output",
-   "Socket_16"
   ]
  ],
  "name": ".ET Text Source",
  "nodes": [
   {
    "hide": false,
-   "idname": "NodeFrame",
-   "inputs": {},
-   "label": "Font",
+   "idname": "FunctionNodeStringLength",
+   "inputs": {
+    "String": {
+     "linked": true,
+     "name": "String"
+    }
+   },
+   "label": "Character Count",
    "location": [
-    0,
-    0
+    -340,
+    -340
    ],
    "mute": false,
-   "name": "Font",
-   "outputs": [],
-   "parent": null,
-   "props": {
-    "label_size": 20,
-    "shrink": true
-   },
-   "width": 160.0
+   "name": "Character Count",
+   "outputs": [
+    "Length"
+   ],
+   "parent": "[Lines]",
+   "width": 140.0
   },
   {
    "hide": false,
@@ -569,24 +608,24 @@
      }
     }
    },
-   "label": "",
+   "label": "Font Fallback",
    "location": [
-    1280,
-    0
+    -340,
+    -40
    ],
    "mute": false,
    "name": "Font Fallback",
    "outputs": [
     "Output"
    ],
-   "parent": "Font",
+   "parent": "[Font]",
    "props": {
     "input_type": "FONT"
    },
    "width": 140.0
   },
   {
-   "hide": false,
+   "hide": true,
    "idname": "FunctionNodeCompare",
    "inputs": {
     "A": {
@@ -598,23 +637,23 @@
      "value": null
     }
    },
-   "label": "",
+   "label": "Font Is None",
    "location": [
-    1070,
-    0
+    -540,
+    -100
    ],
    "mute": false,
    "name": "Font Is None",
    "outputs": [
     "Result"
    ],
-   "parent": "Font",
+   "parent": "[Font]",
    "props": {
     "data_type": "FONT",
     "mode": "ELEMENT",
     "operation": "EQUAL"
    },
-   "width": 140.0
+   "width": 116.0
   },
   {
    "hide": false,
@@ -622,8 +661,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    860,
-    0
+    -760,
+    -100
    ],
    "mute": false,
    "name": "Group Input (Font)",
@@ -645,7 +684,7 @@
     "Socket_14",
     "__extend__"
    ],
-   "parent": "Font",
+   "parent": "[Font]",
    "width": 140.0
   },
   {
@@ -654,11 +693,11 @@
    "inputs": {},
    "label": "",
    "location": [
-    1660,
-    0
+    -760,
+    -300
    ],
    "mute": false,
-   "name": "Group Input (Typografie)",
+   "name": "Group Input (Lines)",
    "outputs": [
     "Socket_0",
     "Socket_1",
@@ -677,7 +716,7 @@
     "Socket_14",
     "__extend__"
    ],
-   "parent": "Satz",
+   "parent": "[Lines]",
    "width": 140.0
   },
   {
@@ -686,11 +725,11 @@
    "inputs": {},
    "label": "",
    "location": [
-    0,
-    0
+    20,
+    200
    ],
    "mute": false,
-   "name": "Group Input (Zeilen)",
+   "name": "Group Input (Typography)",
    "outputs": [
     "Socket_0",
     "Socket_1",
@@ -709,7 +748,7 @@
     "Socket_14",
     "__extend__"
    ],
-   "parent": "Zeilen",
+   "parent": "[Typeset]",
    "width": 140.0
   },
   {
@@ -722,7 +761,7 @@
     },
     "Socket_16": {
      "linked": true,
-     "name": "Zeichen"
+     "name": "Character Count"
     },
     "__extend__": {
      "name": ""
@@ -730,7 +769,7 @@
    },
    "label": "",
    "location": [
-    3130,
+    1200,
     0
    ],
    "mute": false,
@@ -748,7 +787,7 @@
    "inputs": {},
    "label": "",
    "location": [
-    2310,
+    600,
     0
    ],
    "mute": false,
@@ -756,27 +795,8 @@
    "outputs": [
     "Index"
    ],
-   "parent": "Instanzen",
+   "parent": "[Instances]",
    "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeFrame",
-   "inputs": {},
-   "label": "Instanzen",
-   "location": [
-    0,
-    0
-   ],
-   "mute": false,
-   "name": "Instanzen",
-   "outputs": [],
-   "parent": null,
-   "props": {
-    "label_size": 20,
-    "shrink": true
-   },
-   "width": 160.0
   },
   {
    "hide": false,
@@ -799,17 +819,17 @@
      "name": "Line 4"
     }
    },
-   "label": "",
+   "label": "Lines Join",
    "location": [
-    210,
-    0
+    -580,
+    -300
    ],
    "mute": false,
    "name": "Lines Join",
    "outputs": [
     "Socket_4"
    ],
-   "parent": "Zeilen",
+   "parent": "[Lines]",
    "props": {
     "node_tree": {
      "id": ".ET Lines Join",
@@ -839,17 +859,17 @@
      "value": true
     }
    },
-   "label": "",
+   "label": "Realize Glyphs",
    "location": [
-    2750,
-    0
+    980,
+    120
    ],
    "mute": false,
    "name": "Realize Glyphs",
    "outputs": [
     "Geometry"
    ],
-   "parent": "Instanzen",
+   "parent": "[Instances]",
    "props": {
     "realize_to_point_domain": false
    },
@@ -857,22 +877,153 @@
   },
   {
    "hide": false,
-   "idname": "NodeFrame",
-   "inputs": {},
-   "label": "Satz",
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
    "location": [
-    0,
-    0
+    -340,
+    -300
    ],
    "mute": false,
-   "name": "Satz",
-   "outputs": [],
+   "name": "Reroute",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Lines]",
+   "props": {
+    "socket_idname": "NodeSocketString"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -200,
+    -300
+   ],
+   "mute": false,
+   "name": "Reroute.001",
+   "outputs": [
+    "Output"
+   ],
    "parent": null,
    "props": {
-    "label_size": 20,
-    "shrink": true
+    "socket_idname": "NodeSocketString"
    },
-   "width": 160.0
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -106,
+    316
+   ],
+   "mute": false,
+   "name": "Reroute.002",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFont"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    150,
+    316
+   ],
+   "mute": false,
+   "name": "Reroute.003",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Typeset]",
+   "props": {
+    "socket_idname": "NodeSocketFont"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -106,
+    235
+   ],
+   "mute": false,
+   "name": "Reroute.004",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketString"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    150,
+    235
+   ],
+   "mute": false,
+   "name": "Reroute.005",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Typeset]",
+   "props": {
+    "socket_idname": "NodeSocketString"
+   },
+   "width": 140.0
   },
   {
    "hide": false,
@@ -895,17 +1046,17 @@
      "name": "Value"
     }
    },
-   "label": "",
+   "label": "Store et_char_index",
    "location": [
-    2520,
-    0
+    780,
+    120
    ],
    "mute": false,
    "name": "Store et_char_index",
    "outputs": [
     "Geometry"
    ],
-   "parent": "Instanzen",
+   "parent": "[Instances]",
    "props": {
     "data_type": "INT",
     "domain": "INSTANCE"
@@ -967,8 +1118,8 @@
    },
    "label": "",
    "location": [
-    1870,
-    0
+    200,
+    320
    ],
    "mute": false,
    "name": "String to Curves",
@@ -979,42 +1130,77 @@
     "Word",
     "Pivot Point"
    ],
-   "parent": "Satz",
+   "parent": "[Typeset]",
    "width": 200.0
-  },
-  {
-   "hide": false,
-   "idname": "FunctionNodeStringLength",
-   "inputs": {
-    "String": {
-     "linked": true,
-     "name": "String"
-    }
-   },
-   "label": "",
-   "location": [
-    480,
-    0
-   ],
-   "mute": false,
-   "name": "Text Length",
-   "outputs": [
-    "Length"
-   ],
-   "parent": "Zeilen",
-   "width": 140.0
   },
   {
    "hide": false,
    "idname": "NodeFrame",
    "inputs": {},
-   "label": "Zeilen",
+   "label": "Font",
    "location": [
     0,
     0
    ],
    "mute": false,
-   "name": "Zeilen",
+   "name": "[Font]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Instances",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Instances]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Lines",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Lines]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Typeset",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Typeset]",
    "outputs": [],
    "parent": null,
    "props": {
