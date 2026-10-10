@@ -3,3 +3,14 @@
 *.blend2
 __pycache__/
 *.pyc
+
+# Python
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+
+# Blender build leftovers
+*.blend@

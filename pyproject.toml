@@ -1,0 +1,31 @@
+[project]
+name = "easytext-build"
+version = "3.0.0a0"
+description = "Build-Werkzeuge für die Easy Text v3 Geometry-Nodes-Assets (Blender 5.2 LTS)"
+readme = "README.md"
+requires-python = ">=3.13"
+license = { text = "GPL-3.0-or-later" }
+
+[project.optional-dependencies]
+dev = ["ruff>=0.6", "pytest>=8"]
+# Headless-Blender als Python-Modul. Gleiche Hauptversion wie das Ziel (5.2 LTS).
+bpy = ["bpy==5.2.*"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py313"
+extend-exclude = ["docs/reference", "tools/dump_blend.py"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

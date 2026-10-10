@@ -1,0 +1,38 @@
+name: build
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+      - name: System-Bibliotheken für das bpy-Wheel
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libgl1 libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6
+      - name: Abhängigkeiten
+        run: python -m pip install -e ".[dev,bpy]"
+      - name: Lint
+        run: ruff check .
+      - name: Tests ohne Blender
+        run: pytest -q
+      - name: Assets bauen
+        run: python -m easytext_build.build
+      - name: Smoke-Test
+        run: python -m easytext_build.smoke
+      - name: Snapshots müssen committet sein
+        run: git diff --exit-code -- assets/snapshots assets/blender_assets.cats.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: easytext_v3-assets
+          path: |
+            assets/easytext_v3.blend
+            assets/blender_assets.cats.txt
+            assets/snapshots

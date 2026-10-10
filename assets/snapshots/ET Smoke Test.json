@@ -1,0 +1,397 @@
+{
+ "asset_catalog_id": "ec6ff2df-0a93-4c70-8fe4-0f200bca0b9f",
+ "description": "Minimaler Text-zu-Mesh-Pfad, nur zum Prüfen der Build-Kette.",
+ "flags": {
+  "color_tag": "NONE",
+  "default_group_node_width": 140,
+  "is_modifier": true,
+  "is_tool": false
+ },
+ "interface": [
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_5",
+   "in_out": "OUTPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Geometry",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketGeometry",
+   "structure_type": "AUTO"
+  },
+  {
+   "default_closed": false,
+   "description": "Textinhalt und Größe.",
+   "item_type": "PANEL",
+   "name": "Text",
+   "parent": null
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": "Easy Text",
+   "description": "Der anzuzeigende Text.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_1",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Text",
+   "optional_label": false,
+   "parent": "Text",
+   "socket_type": "NodeSocketString",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 1.0,
+   "description": "Schriftgröße.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_2",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 100.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
+   "name": "Size",
+   "optional_label": false,
+   "parent": "Text",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "default_closed": true,
+   "description": "Extrusion der Buchstaben.",
+   "item_type": "PANEL",
+   "name": "Form",
+   "parent": null
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.1,
+   "description": "Tiefe.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_4",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 10.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
+   "name": "Extrude",
+   "optional_label": false,
+   "parent": "Form",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  }
+ ],
+ "links": [
+  [
+   "Extrude Mesh",
+   "Mesh",
+   "Group Output",
+   "Socket_5"
+  ],
+  [
+   "Fill Curve",
+   "Mesh",
+   "Extrude Mesh",
+   "Mesh"
+  ],
+  [
+   "Group Input",
+   "Socket_1",
+   "String to Curves",
+   "String"
+  ],
+  [
+   "Group Input",
+   "Socket_2",
+   "String to Curves",
+   "Size"
+  ],
+  [
+   "Group Input",
+   "Socket_4",
+   "Extrude Mesh",
+   "Offset Scale"
+  ],
+  [
+   "Realize Instances",
+   "Geometry",
+   "Fill Curve",
+   "Curve"
+  ],
+  [
+   "String to Curves",
+   "Curve Instances",
+   "Realize Instances",
+   "Geometry"
+  ]
+ ],
+ "name": "ET Smoke Test",
+ "nodes": [
+  {
+   "hide": false,
+   "idname": "GeometryNodeExtrudeMesh",
+   "inputs": {
+    "Individual": {
+     "name": "Individual",
+     "value": true
+    },
+    "Mesh": {
+     "linked": true,
+     "name": "Mesh"
+    },
+    "Offset": {
+     "name": "Offset",
+     "value": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "Offset Scale": {
+     "linked": true,
+     "name": "Offset Scale"
+    },
+    "Selection": {
+     "name": "Selection",
+     "value": true
+    }
+   },
+   "label": "",
+   "location": [
+    1120,
+    0
+   ],
+   "mute": false,
+   "name": "Extrude Mesh",
+   "outputs": [
+    "Mesh",
+    "Top",
+    "Side"
+   ],
+   "parent": null,
+   "props": {
+    "mode": "FACES"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeFillCurve",
+   "inputs": {
+    "Curve": {
+     "linked": true,
+     "name": "Curve"
+    },
+    "Fill Rule": {
+     "name": "Fill Rule",
+     "value": "Even-Odd"
+    },
+    "Group ID": {
+     "name": "Group ID",
+     "value": 0
+    },
+    "Mode": {
+     "name": "Mode",
+     "value": "Triangles"
+    }
+   },
+   "label": "",
+   "location": [
+    840,
+    0
+   ],
+   "mute": false,
+   "name": "Fill Curve",
+   "outputs": [
+    "Mesh"
+   ],
+   "parent": null,
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "Group Input",
+   "outputs": [
+    "Socket_1",
+    "Socket_2",
+    "Socket_4",
+    "__extend__"
+   ],
+   "parent": null,
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupOutput",
+   "inputs": {
+    "Socket_5": {
+     "linked": true,
+     "name": "Geometry"
+    },
+    "__extend__": {
+     "name": ""
+    }
+   },
+   "label": "",
+   "location": [
+    1400,
+    0
+   ],
+   "mute": false,
+   "name": "Group Output",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "is_active_output": true
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeRealizeInstances",
+   "inputs": {
+    "Depth": {
+     "name": "Depth",
+     "value": 0
+    },
+    "Geometry": {
+     "linked": true,
+     "name": "Geometry"
+    },
+    "Realize All": {
+     "name": "Realize All",
+     "value": true
+    },
+    "Selection": {
+     "name": "Selection",
+     "value": true
+    }
+   },
+   "label": "",
+   "location": [
+    560,
+    0
+   ],
+   "mute": false,
+   "name": "Realize Instances",
+   "outputs": [
+    "Geometry"
+   ],
+   "parent": null,
+   "props": {
+    "realize_to_point_domain": false
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeStringToCurves",
+   "inputs": {
+    "Align X": {
+     "name": "Align X",
+     "value": "Left"
+    },
+    "Align Y": {
+     "name": "Align Y",
+     "value": "Top Baseline"
+    },
+    "Character Spacing": {
+     "name": "Character Spacing",
+     "value": 1.0
+    },
+    "Font": {
+     "name": "Font",
+     "value": {
+      "id": "Bfont Regular",
+      "type": "VectorFont"
+     }
+    },
+    "Line Spacing": {
+     "name": "Line Spacing",
+     "value": 1.0
+    },
+    "Overflow": {
+     "name": "Overflow",
+     "value": "Overflow"
+    },
+    "Pivot Point": {
+     "name": "Pivot Point",
+     "value": "Midpoint"
+    },
+    "Size": {
+     "linked": true,
+     "name": "Size"
+    },
+    "String": {
+     "linked": true,
+     "name": "String"
+    },
+    "Text Box Height": {
+     "name": "Text Box Height",
+     "value": 0.0
+    },
+    "Text Box Width": {
+     "name": "Text Box Width",
+     "value": 0.0
+    },
+    "Word Spacing": {
+     "name": "Word Spacing",
+     "value": 1.0
+    }
+   },
+   "label": "",
+   "location": [
+    280,
+    0
+   ],
+   "mute": false,
+   "name": "String to Curves",
+   "outputs": [
+    "Curve Instances",
+    "Remainder",
+    "Line",
+    "Word",
+    "Pivot Point"
+   ],
+   "parent": null,
+   "width": 200.0
+  }
+ ],
+ "tree_type": "GeometryNodeTree"
+}
