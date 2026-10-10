@@ -10,7 +10,7 @@ from __future__ import annotations
 import json
 import sys
 
-from . import catalog, paths, snapshot
+from . import catalog, demo, paths, snapshot
 from .groups import registry
 
 
@@ -34,7 +34,12 @@ def main() -> int:
         (paths.SNAPSHOT_DIR / f"{tree.name}.json").write_text(text, encoding="utf-8")
 
     bpy.ops.wm.save_as_mainfile(filepath=str(paths.BLEND_FILE), compress=True)
-    print(f"[build] {len(trees)} Gruppen -> {paths.BLEND_FILE.relative_to(paths.ROOT)}")
+    print(
+        f"[build] {len(trees)} Gruppen -> {paths.BLEND_FILE.relative_to(paths.ROOT)} (Blender {bpy.app.version_string})"
+    )
+    demo.populate_scene(bpy.context.scene)
+    bpy.ops.wm.save_as_mainfile(filepath=str(paths.DEMO_FILE), compress=True)
+    print(f"[build] Demo-Szene -> {paths.DEMO_FILE.relative_to(paths.ROOT)}")
     for tree in trees:
         print(f"[build]   {tree.name}: {len(tree.nodes)} Nodes, {len(tree.links)} Links")
     return 0

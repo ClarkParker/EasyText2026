@@ -280,6 +280,26 @@ class GroupBuilder:
             inputs={"Switch": condition, "False": false, "True": true},
         )
 
+    def fallback(self, type: str, value, default, *, name: str | None = None) -> SocketRef:
+        """Datablock-Input mit Ersatzwert: Ist `value` leer (None), wird `default` als Node-Default verwendet.
+
+        Nötig, weil Blender 5.2.0 Datablock-Defaults am Group-Interface nicht in den Modifier übernimmt.
+        """
+        is_none = self.node(
+            "FunctionNodeCompare",
+            f"{name or type.title()} Is None",
+            props={"data_type": type, "operation": "EQUAL"},
+            inputs={"A": value},
+        )
+        switch = self.node(
+            "GeometryNodeSwitch",
+            f"{name or type.title()} Fallback",
+            props={"input_type": type},
+            inputs={"Switch": is_none[0], "False": value},
+        )
+        switch.node.inputs["True"].default_value = default
+        return switch[0]
+
     def named(self, attr: str, data_type: str = "FLOAT", *, name: str | None = None) -> NodeRef:
         return self.node("GeometryNodeInputNamedAttribute", name, props={"data_type": data_type}, inputs={"Name": attr})
 
@@ -367,6 +387,8 @@ def builtin_font() -> bpy.types.VectorFont:
     font = bpy.data.fonts.get("Bfont Regular")
     if font is None:
         font = bpy.data.fonts.load("<builtin>")
+    # Nur als Socket-Default referenziert zählt in 5.2.0 nicht als Nutzer: ohne Fake-User fehlt der Font nach dem Laden.
+    font.use_fake_user = True
     return font
 
 

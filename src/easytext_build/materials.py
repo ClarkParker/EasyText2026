@@ -28,6 +28,7 @@ def ensure(name: str) -> bpy.types.Material:
     bsdf.inputs["Roughness"].default_value = roughness
     bsdf.inputs["Metallic"].default_value = metallic
     mat.diffuse_color = color
+    mat.use_fake_user = True  # Socket-Defaults zählen nicht als Nutzer; sonst fehlen die Materialien nach dem Laden.
     return mat
 
 

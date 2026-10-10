@@ -116,6 +116,12 @@ def build():
     ):
         g.menu_default(name, value)
 
+    # Blender 5.2.0 übernimmt Font-/Material-Defaults des Interfaces nicht in den Modifier: Ersatzwerte im Baum.
+    font = g.fallback("FONT", font, builtin_font(), name="Font")
+    mat_front = g.fallback("MATERIAL", mat_front, mats["ET Front"], name="Front Material")
+    mat_side = g.fallback("MATERIAL", mat_side, mats["ET Side"], name="Side Material")
+    mat_bevel = g.fallback("MATERIAL", mat_bevel, mats["ET Bevel"], name="Bevel Material")
+
     # ------------------------------------------------------------------ 1. Text -> Kurven-Instanzen
     joined = g.group(et_lines_join.NAME, "Lines", inputs={f"Line {i}": line for i, line in enumerate(lines, start=1)})[
         "String"

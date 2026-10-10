@@ -827,6 +827,18 @@
    "Selection"
   ],
   [
+   "Bevel Material Fallback",
+   "Output",
+   "Material Bevel",
+   "Material"
+  ],
+  [
+   "Bevel Material Is None",
+   "Result",
+   "Bevel Material Fallback",
+   "Switch"
+  ],
+  [
    "Bevel Radius",
    "Output",
    "Compare.001",
@@ -1253,6 +1265,30 @@
    "Geometry"
   ],
   [
+   "Font Fallback",
+   "Output",
+   "String to Curves",
+   "Font"
+  ],
+  [
+   "Font Is None",
+   "Result",
+   "Font Fallback",
+   "Switch"
+  ],
+  [
+   "Front Material Fallback",
+   "Output",
+   "Material Front",
+   "Material"
+  ],
+  [
+   "Front Material Is None",
+   "Result",
+   "Front Material Fallback",
+   "Switch"
+  ],
+  [
    "Group Back",
    "Geometry",
    "Extrude",
@@ -1441,20 +1477,38 @@
   [
    "Group Input",
    "Socket_32",
-   "Material Front",
-   "Material"
+   "Front Material Fallback",
+   "False"
+  ],
+  [
+   "Group Input",
+   "Socket_32",
+   "Front Material Is None",
+   "A"
   ],
   [
    "Group Input",
    "Socket_33",
-   "Material Side",
-   "Material"
+   "Side Material Fallback",
+   "False"
+  ],
+  [
+   "Group Input",
+   "Socket_33",
+   "Side Material Is None",
+   "A"
   ],
   [
    "Group Input",
    "Socket_34",
-   "Material Bevel",
-   "Material"
+   "Bevel Material Fallback",
+   "False"
+  ],
+  [
+   "Group Input",
+   "Socket_34",
+   "Bevel Material Is None",
+   "A"
   ],
   [
    "Group Input",
@@ -1489,8 +1543,14 @@
   [
    "Group Input",
    "Socket_6",
-   "String to Curves",
-   "Font"
+   "Font Fallback",
+   "False"
+  ],
+  [
+   "Group Input",
+   "Socket_6",
+   "Font Is None",
+   "A"
   ],
   [
    "Group Input",
@@ -2153,6 +2213,18 @@
    "Geometry"
   ],
   [
+   "Side Material Fallback",
+   "Output",
+   "Material Side",
+   "Material"
+  ],
+  [
+   "Side Material Is None",
+   "Result",
+   "Side Material Fallback",
+   "Switch"
+  ],
+  [
    "Simplify Outline",
    "Geometry",
    "Store U",
@@ -2528,7 +2600,7 @@
    },
    "label": "",
    "location": [
-    12880,
+    13160,
     0
    ],
    "mute": false,
@@ -2630,7 +2702,7 @@
    },
    "label": "",
    "location": [
-    9240,
+    9520,
     0
    ],
    "mute": false,
@@ -2660,7 +2732,7 @@
    },
    "label": "",
    "location": [
-    9520,
+    9800,
     0
    ],
    "mute": false,
@@ -2671,6 +2743,73 @@
    "parent": null,
    "props": {
     "operation": "OR"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSwitch",
+   "inputs": {
+    "False": {
+     "linked": true,
+     "name": "False"
+    },
+    "Switch": {
+     "linked": true,
+     "name": "Switch"
+    },
+    "True": {
+     "name": "True",
+     "value": {
+      "id": "ET Bevel",
+      "type": "Material"
+     }
+    }
+   },
+   "label": "",
+   "location": [
+    560,
+    0
+   ],
+   "mute": false,
+   "name": "Bevel Material Fallback",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "input_type": "MATERIAL"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "FunctionNodeCompare",
+   "inputs": {
+    "A": {
+     "linked": true,
+     "name": "A"
+    },
+    "B": {
+     "name": "B",
+     "value": null
+    }
+   },
+   "label": "",
+   "location": [
+    280,
+    0
+   ],
+   "mute": false,
+   "name": "Bevel Material Is None",
+   "outputs": [
+    "Result"
+   ],
+   "parent": null,
+   "props": {
+    "data_type": "MATERIAL",
+    "mode": "ELEMENT",
+    "operation": "EQUAL"
    },
    "width": 140.0
   },
@@ -2753,7 +2892,7 @@
    "label": "",
    "location": [
     560,
-    0
+    -188
    ],
    "mute": false,
    "name": "Boolean Math",
@@ -2781,7 +2920,7 @@
    },
    "label": "",
    "location": [
-    4480,
+    4760,
     0
    ],
    "mute": false,
@@ -2810,7 +2949,7 @@
    },
    "label": "",
    "location": [
-    12040,
+    12320,
     0
    ],
    "mute": false,
@@ -2918,7 +3057,7 @@
    },
    "label": "",
    "location": [
-    9520,
+    9800,
     -166
    ],
    "mute": false,
@@ -2942,7 +3081,7 @@
    },
    "label": "",
    "location": [
-    9520,
+    9800,
     -354
    ],
    "mute": false,
@@ -2967,7 +3106,7 @@
    "label": "",
    "location": [
     280,
-    0
+    -166
    ],
    "mute": false,
    "name": "Cap Edges",
@@ -2996,7 +3135,7 @@
    },
    "label": "",
    "location": [
-    11760,
+    12040,
     0
    ],
    "mute": false,
@@ -3030,7 +3169,7 @@
    },
    "label": "",
    "location": [
-    8960,
+    9240,
     0
    ],
    "mute": false,
@@ -3057,7 +3196,7 @@
    "label": "",
    "location": [
     560,
-    -166
+    -354
    ],
    "mute": false,
    "name": "Compare",
@@ -3150,7 +3289,7 @@
    "label": "",
    "location": [
     560,
-    -332
+    -520
    ],
    "mute": false,
    "name": "Compare.003",
@@ -3181,7 +3320,7 @@
    "label": "",
    "location": [
     280,
-    -144
+    -310
    ],
    "mute": false,
    "name": "Compare.004",
@@ -3212,7 +3351,7 @@
    "label": "",
    "location": [
     280,
-    -310
+    -476
    ],
    "mute": false,
    "name": "Compare.005",
@@ -3243,7 +3382,7 @@
    "label": "",
    "location": [
     280,
-    -476
+    -642
    ],
    "mute": false,
    "name": "Compare.006",
@@ -3274,7 +3413,7 @@
    "label": "",
    "location": [
     280,
-    -642
+    -808
    ],
    "mute": false,
    "name": "Compare.007",
@@ -3371,7 +3510,7 @@
    "label": "",
    "location": [
     560,
-    -498
+    -686
    ],
    "mute": false,
    "name": "Corner 0",
@@ -3402,7 +3541,7 @@
    "label": "",
    "location": [
     560,
-    -708
+    -896
    ],
    "mute": false,
    "name": "Corner 1",
@@ -3433,7 +3572,7 @@
    "label": "",
    "location": [
     560,
-    -918
+    -1106
    ],
    "mute": false,
    "name": "Corner 2",
@@ -3464,7 +3603,7 @@
    "label": "",
    "location": [
     560,
-    -1128
+    -1316
    ],
    "mute": false,
    "name": "Corner 3",
@@ -3490,7 +3629,7 @@
    },
    "label": "",
    "location": [
-    2240,
+    2520,
     0
    ],
    "mute": false,
@@ -3519,7 +3658,7 @@
    },
    "label": "",
    "location": [
-    2240,
+    2520,
     -166
    ],
    "mute": false,
@@ -3548,7 +3687,7 @@
    },
    "label": "",
    "location": [
-    2800,
+    3080,
     0
    ],
    "mute": false,
@@ -3611,7 +3750,7 @@
    },
    "label": "",
    "location": [
-    7840,
+    8120,
     0
    ],
    "mute": false,
@@ -3642,7 +3781,7 @@
    },
    "label": "",
    "location": [
-    6160,
+    6440,
     0
    ],
    "mute": false,
@@ -3694,7 +3833,7 @@
    },
    "label": "",
    "location": [
-    11760,
+    12040,
     -188
    ],
    "mute": false,
@@ -3722,7 +3861,7 @@
    "label": "",
    "location": [
     280,
-    -808
+    -974
    ],
    "mute": false,
    "name": "Face of Corner",
@@ -3752,7 +3891,7 @@
    },
    "label": "",
    "location": [
-    6440,
+    6720,
     0
    ],
    "mute": false,
@@ -3787,7 +3926,7 @@
    },
    "label": "",
    "location": [
-    6440,
+    6720,
     -188
    ],
    "mute": false,
@@ -3822,7 +3961,7 @@
    },
    "label": "",
    "location": [
-    6440,
+    6720,
     -376
    ],
    "mute": false,
@@ -3861,7 +4000,7 @@
    },
    "label": "",
    "location": [
-    5880,
+    6160,
     0
    ],
    "mute": false,
@@ -3887,7 +4026,7 @@
    },
    "label": "",
    "location": [
-    7840,
+    8120,
     -276
    ],
    "mute": false,
@@ -3896,6 +4035,140 @@
     "Mesh"
    ],
    "parent": null,
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSwitch",
+   "inputs": {
+    "False": {
+     "linked": true,
+     "name": "False"
+    },
+    "Switch": {
+     "linked": true,
+     "name": "Switch"
+    },
+    "True": {
+     "name": "True",
+     "value": {
+      "id": "Bfont Regular",
+      "type": "VectorFont"
+     }
+    }
+   },
+   "label": "",
+   "location": [
+    560,
+    -1526
+   ],
+   "mute": false,
+   "name": "Font Fallback",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "input_type": "FONT"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "FunctionNodeCompare",
+   "inputs": {
+    "A": {
+     "linked": true,
+     "name": "A"
+    },
+    "B": {
+     "name": "B",
+     "value": null
+    }
+   },
+   "label": "",
+   "location": [
+    280,
+    -1140
+   ],
+   "mute": false,
+   "name": "Font Is None",
+   "outputs": [
+    "Result"
+   ],
+   "parent": null,
+   "props": {
+    "data_type": "FONT",
+    "mode": "ELEMENT",
+    "operation": "EQUAL"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSwitch",
+   "inputs": {
+    "False": {
+     "linked": true,
+     "name": "False"
+    },
+    "Switch": {
+     "linked": true,
+     "name": "Switch"
+    },
+    "True": {
+     "name": "True",
+     "value": {
+      "id": "ET Front",
+      "type": "Material"
+     }
+    }
+   },
+   "label": "",
+   "location": [
+    560,
+    -1714
+   ],
+   "mute": false,
+   "name": "Front Material Fallback",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "input_type": "MATERIAL"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "FunctionNodeCompare",
+   "inputs": {
+    "A": {
+     "linked": true,
+     "name": "A"
+    },
+    "B": {
+     "name": "B",
+     "value": null
+    }
+   },
+   "label": "",
+   "location": [
+    280,
+    -1306
+   ],
+   "mute": false,
+   "name": "Front Material Is None",
+   "outputs": [
+    "Result"
+   ],
+   "parent": null,
+   "props": {
+    "data_type": "MATERIAL",
+    "mode": "ELEMENT",
+    "operation": "EQUAL"
+   },
    "width": 140.0
   },
   {
@@ -3921,7 +4194,7 @@
    },
    "label": "",
    "location": [
-    7560,
+    7840,
     0
    ],
    "mute": false,
@@ -3959,7 +4232,7 @@
    },
    "label": "",
    "location": [
-    9800,
+    10080,
     0
    ],
    "mute": false,
@@ -3997,7 +4270,7 @@
    },
    "label": "",
    "location": [
-    8120,
+    8400,
     0
    ],
    "mute": false,
@@ -4075,7 +4348,7 @@
    },
    "label": "",
    "location": [
-    15960,
+    16240,
     0
    ],
    "mute": false,
@@ -4110,7 +4383,7 @@
    },
    "label": "",
    "location": [
-    8400,
+    8680,
     0
    ],
    "mute": false,
@@ -4158,7 +4431,7 @@
    "label": "",
    "location": [
     560,
-    -1338
+    -1902
    ],
    "mute": false,
    "name": "Is Cap",
@@ -4186,7 +4459,7 @@
    },
    "label": "",
    "location": [
-    2800,
+    3080,
     -166
    ],
    "mute": false,
@@ -4218,7 +4491,7 @@
    "label": "",
    "location": [
     560,
-    -1504
+    -2068
    ],
    "mute": false,
    "name": "Is Sharp",
@@ -4248,7 +4521,7 @@
    },
    "label": "",
    "location": [
-    4200,
+    4480,
     0
    ],
    "mute": false,
@@ -4275,7 +4548,7 @@
    },
    "label": "",
    "location": [
-    8680,
+    8960,
     0
    ],
    "mute": false,
@@ -4305,7 +4578,7 @@
    },
    "label": "",
    "location": [
-    15400,
+    15680,
     0
    ],
    "mute": false,
@@ -4343,7 +4616,7 @@
    "label": "",
    "location": [
     280,
-    -974
+    -1472
    ],
    "mute": false,
    "name": "Lines",
@@ -4404,7 +4677,7 @@
    },
    "label": "",
    "location": [
-    14280,
+    14560,
     0
    ],
    "mute": false,
@@ -4434,7 +4707,7 @@
    },
    "label": "",
    "location": [
-    6440,
+    6720,
     -564
    ],
    "mute": false,
@@ -4464,7 +4737,7 @@
    },
    "label": "",
    "location": [
-    14000,
+    14280,
     0
    ],
    "mute": false,
@@ -4490,7 +4763,7 @@
    },
    "label": "",
    "location": [
-    3080,
+    3360,
     0
    ],
    "mute": false,
@@ -4520,7 +4793,7 @@
    },
    "label": "",
    "location": [
-    3360,
+    3640,
     0
    ],
    "mute": false,
@@ -4546,8 +4819,8 @@
    },
    "label": "",
    "location": [
-    3640,
-    0
+    3920,
+    -188
    ],
    "mute": false,
    "name": "Math.002",
@@ -4577,7 +4850,7 @@
    "label": "",
    "location": [
     280,
-    -1184
+    -1682
    ],
    "mute": false,
    "name": "Math.003",
@@ -4636,7 +4909,7 @@
    },
    "label": "",
    "location": [
-    9800,
+    10080,
     -210
    ],
    "mute": false,
@@ -4666,7 +4939,7 @@
    },
    "label": "",
    "location": [
-    9800,
+    10080,
     -376
    ],
    "mute": false,
@@ -4696,7 +4969,7 @@
    },
    "label": "",
    "location": [
-    10360,
+    10640,
     0
    ],
    "mute": false,
@@ -4726,7 +4999,7 @@
    },
    "label": "",
    "location": [
-    10640,
+    10920,
     0
    ],
    "mute": false,
@@ -4756,7 +5029,7 @@
    },
    "label": "",
    "location": [
-    9800,
+    10080,
     -542
    ],
    "mute": false,
@@ -4786,7 +5059,7 @@
    },
    "label": "",
    "location": [
-    11480,
+    11760,
     0
    ],
    "mute": false,
@@ -4816,7 +5089,7 @@
    },
    "label": "",
    "location": [
-    9800,
+    10080,
     -708
    ],
    "mute": false,
@@ -4846,7 +5119,7 @@
    },
    "label": "",
    "location": [
-    11480,
+    11760,
     -166
    ],
    "mute": false,
@@ -4967,7 +5240,7 @@
    "label": "",
    "location": [
     2240,
-    -332
+    0
    ],
    "mute": false,
    "name": "Math.016",
@@ -4997,7 +5270,7 @@
    "label": "",
    "location": [
     2520,
-    0
+    -332
    ],
    "mute": false,
    "name": "Math.017",
@@ -5023,7 +5296,7 @@
    "label": "",
    "location": [
     2800,
-    -332
+    0
    ],
    "mute": false,
    "name": "Math.018",
@@ -5053,7 +5326,7 @@
    "label": "",
    "location": [
     3080,
-    -166
+    -332
    ],
    "mute": false,
    "name": "Math.019",
@@ -5173,7 +5446,7 @@
    "label": "",
    "location": [
     2240,
-    -498
+    -166
    ],
    "mute": false,
    "name": "Math.023",
@@ -5203,7 +5476,7 @@
    "label": "",
    "location": [
     2520,
-    -166
+    -498
    ],
    "mute": false,
    "name": "Math.024",
@@ -5233,7 +5506,7 @@
    "label": "",
    "location": [
     2800,
-    -476
+    -144
    ],
    "mute": false,
    "name": "Math.025",
@@ -5259,7 +5532,7 @@
    "label": "",
    "location": [
     3080,
-    -332
+    -498
    ],
    "mute": false,
    "name": "Math.026",
@@ -5349,7 +5622,7 @@
    "label": "",
    "location": [
     2240,
-    -664
+    -332
    ],
    "mute": false,
    "name": "Math.029",
@@ -5438,7 +5711,7 @@
    },
    "label": "",
    "location": [
-    10640,
+    10920,
     -166
    ],
    "mute": false,
@@ -5468,7 +5741,7 @@
    },
    "label": "",
    "location": [
-    10640,
+    10920,
     -332
    ],
    "mute": false,
@@ -5498,7 +5771,7 @@
    },
    "label": "",
    "location": [
-    10920,
+    11200,
     0
    ],
    "mute": false,
@@ -5528,7 +5801,7 @@
    },
    "label": "",
    "location": [
-    10920,
+    11200,
     -166
    ],
    "mute": false,
@@ -5558,7 +5831,7 @@
    },
    "label": "",
    "location": [
-    11200,
+    11480,
     0
    ],
    "mute": false,
@@ -5588,7 +5861,7 @@
    },
    "label": "",
    "location": [
-    11200,
+    11480,
     -166
    ],
    "mute": false,
@@ -5619,7 +5892,7 @@
    "label": "",
    "location": [
     280,
-    -1350
+    -1848
    ],
    "mute": false,
    "name": "Math.038",
@@ -5648,7 +5921,7 @@
    },
    "label": "",
    "location": [
-    11480,
+    11760,
     -332
    ],
    "mute": false,
@@ -5679,7 +5952,7 @@
    "label": "",
    "location": [
     280,
-    -1516
+    -2014
    ],
    "mute": false,
    "name": "Math.040",
@@ -5708,7 +5981,7 @@
    },
    "label": "",
    "location": [
-    12600,
+    12880,
     0
    ],
    "mute": false,
@@ -5738,7 +6011,7 @@
    },
    "label": "",
    "location": [
-    11480,
+    11760,
     -498
    ],
    "mute": false,
@@ -5765,7 +6038,7 @@
    "label": "",
    "location": [
     280,
-    -1682
+    -2180
    ],
    "mute": false,
    "name": "Math.043",
@@ -5795,7 +6068,7 @@
    "label": "",
    "location": [
     560,
-    -1670
+    -2234
    ],
    "mute": false,
    "name": "Max Bevel",
@@ -5902,7 +6175,7 @@
    },
    "label": "",
    "location": [
-    6160,
+    6440,
     -166
    ],
    "mute": false,
@@ -5932,7 +6205,7 @@
    "label": "",
    "location": [
     280,
-    -1826
+    -2324
    ],
    "mute": false,
    "name": "Next Point",
@@ -5962,8 +6235,8 @@
    },
    "label": "",
    "location": [
-    1960,
-    -664
+    2240,
+    -498
    ],
    "mute": false,
    "name": "Next Position",
@@ -6011,7 +6284,7 @@
    "label": "",
    "location": [
     280,
-    -2014
+    -2512
    ],
    "mute": false,
    "name": "Normal XYZ",
@@ -6034,7 +6307,7 @@
    },
    "label": "",
    "location": [
-    5880,
+    6160,
     -210
    ],
    "mute": false,
@@ -6070,7 +6343,7 @@
    },
    "label": "",
    "location": [
-    15680,
+    15960,
     0
    ],
    "mute": false,
@@ -6113,7 +6386,7 @@
    "label": "",
    "location": [
     280,
-    -2202
+    -2700
    ],
    "mute": false,
    "name": "Position XYZ",
@@ -6141,7 +6414,7 @@
    "label": "",
    "location": [
     280,
-    -2390
+    -2888
    ],
    "mute": false,
    "name": "Prev Point",
@@ -6171,8 +6444,8 @@
    },
    "label": "",
    "location": [
-    1960,
-    -852
+    2240,
+    -686
    ],
    "mute": false,
    "name": "Prev Position",
@@ -6240,8 +6513,8 @@
    },
    "label": "",
    "location": [
-    1120,
-    -332
+    1400,
+    -188
    ],
    "mute": false,
    "name": "Realize Glyphs",
@@ -6273,7 +6546,7 @@
    },
    "label": "",
    "location": [
-    15120,
+    15400,
     0
    ],
    "mute": false,
@@ -6299,7 +6572,7 @@
    },
    "label": "",
    "location": [
-    4760,
+    5040,
     0
    ],
    "mute": false,
@@ -6332,8 +6605,8 @@
    },
    "label": "",
    "location": [
-    1400,
-    -188
+    1680,
+    -1494
    ],
    "mute": false,
    "name": "Set Resolution",
@@ -6362,7 +6635,7 @@
    },
    "label": "",
    "location": [
-    14840,
+    15120,
     0
    ],
    "mute": false,
@@ -6373,6 +6646,73 @@
    "parent": null,
    "props": {
     "domain": "EDGE"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSwitch",
+   "inputs": {
+    "False": {
+     "linked": true,
+     "name": "False"
+    },
+    "Switch": {
+     "linked": true,
+     "name": "Switch"
+    },
+    "True": {
+     "name": "True",
+     "value": {
+      "id": "ET Side",
+      "type": "Material"
+     }
+    }
+   },
+   "label": "",
+   "location": [
+    560,
+    -2400
+   ],
+   "mute": false,
+   "name": "Side Material Fallback",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "input_type": "MATERIAL"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "FunctionNodeCompare",
+   "inputs": {
+    "A": {
+     "linked": true,
+     "name": "A"
+    },
+    "B": {
+     "name": "B",
+     "value": null
+    }
+   },
+   "label": "",
+   "location": [
+    280,
+    -3076
+   ],
+   "mute": false,
+   "name": "Side Material Is None",
+   "outputs": [
+    "Result"
+   ],
+   "parent": null,
+   "props": {
+    "data_type": "MATERIAL",
+    "mode": "ELEMENT",
+    "operation": "EQUAL"
    },
    "width": 140.0
   },
@@ -6391,7 +6731,7 @@
    },
    "label": "",
    "location": [
-    5040,
+    5320,
     0
    ],
    "mute": false,
@@ -6425,7 +6765,7 @@
    },
    "label": "",
    "location": [
-    14560,
+    14840,
     0
    ],
    "mute": false,
@@ -6499,8 +6839,8 @@
    },
    "label": "",
    "location": [
-    840,
-    -642
+    1120,
+    -332
    ],
    "mute": false,
    "name": "Store Char Index",
@@ -6537,7 +6877,7 @@
    },
    "label": "",
    "location": [
-    5600,
+    5880,
     0
    ],
    "mute": false,
@@ -6575,7 +6915,7 @@
    },
    "label": "",
    "location": [
-    5320,
+    5600,
     0
    ],
    "mute": false,
@@ -6613,7 +6953,7 @@
    },
    "label": "",
    "location": [
-    13440,
+    13720,
     0
    ],
    "mute": false,
@@ -6651,7 +6991,7 @@
    },
    "label": "",
    "location": [
-    7280,
+    7560,
     0
    ],
    "mute": false,
@@ -6689,7 +7029,7 @@
    },
    "label": "",
    "location": [
-    7000,
+    7280,
     0
    ],
    "mute": false,
@@ -6727,7 +7067,7 @@
    },
    "label": "",
    "location": [
-    6720,
+    7000,
     0
    ],
    "mute": false,
@@ -6797,8 +7137,8 @@
    },
    "label": "",
    "location": [
-    560,
-    -1836
+    840,
+    -642
    ],
    "mute": false,
    "name": "String to Curves",
@@ -6831,7 +7171,7 @@
    },
    "label": "",
    "location": [
-    10920,
+    11200,
     -332
    ],
    "mute": false,
@@ -6865,7 +7205,7 @@
    "label": "",
    "location": [
     3640,
-    -144
+    -166
    ],
    "mute": false,
    "name": "Switch.001",
@@ -6893,7 +7233,7 @@
    },
    "label": "",
    "location": [
-    9240,
+    9520,
     -496
    ],
    "mute": false,
@@ -6921,7 +7261,7 @@
    },
    "label": "",
    "location": [
-    10080,
+    10360,
     0
    ],
    "mute": false,
@@ -6948,7 +7288,7 @@
    "label": "",
    "location": [
     560,
-    -2310
+    -2588
    ],
    "mute": false,
    "name": "Text Length",
@@ -6985,8 +7325,8 @@
    },
    "label": "",
    "location": [
-    1680,
-    -1494
+    1960,
+    -664
    ],
    "mute": false,
    "name": "To Polyline",
@@ -7010,8 +7350,8 @@
    },
    "label": "",
    "location": [
-    3920,
-    -188
+    4200,
+    0
    ],
    "mute": false,
    "name": "Turn Angle",
@@ -7070,7 +7410,7 @@
    },
    "label": "",
    "location": [
-    12320,
+    12600,
     0
    ],
    "mute": false,
@@ -7103,7 +7443,7 @@
    },
    "label": "",
    "location": [
-    10360,
+    10640,
     -166
    ],
    "mute": false,
@@ -7138,7 +7478,7 @@
    },
    "label": "",
    "location": [
-    10360,
+    10640,
     -354
    ],
    "mute": false,
@@ -7173,7 +7513,7 @@
    },
    "label": "",
    "location": [
-    10360,
+    10640,
     -542
    ],
    "mute": false,
@@ -7208,7 +7548,7 @@
    },
    "label": "",
    "location": [
-    10360,
+    10640,
     -730
    ],
    "mute": false,
@@ -7243,7 +7583,7 @@
    },
    "label": "",
    "location": [
-    13160,
+    13440,
     0
    ],
    "mute": false,
@@ -7272,7 +7612,7 @@
    },
    "label": "",
    "location": [
-    11200,
+    11480,
     -332
    ],
    "mute": false,
@@ -7306,7 +7646,7 @@
    },
    "label": "",
    "location": [
-    10080,
+    10360,
     -166
    ],
    "mute": false,
@@ -7339,7 +7679,7 @@
    },
    "label": "",
    "location": [
-    13720,
+    14000,
     0
    ],
    "mute": false,
@@ -7399,7 +7739,7 @@
    "label": "",
    "location": [
     3640,
-    -332
+    -354
    ],
    "mute": false,
    "name": "V Front Bevel",
@@ -7429,7 +7769,7 @@
    "label": "",
    "location": [
     1960,
-    -1040
+    -896
    ],
    "mute": false,
    "name": "V Side",
@@ -7454,8 +7794,8 @@
    },
    "label": "",
    "location": [
-    2520,
-    -332
+    2800,
+    -310
    ],
    "mute": false,
    "name": "Vector Math",
@@ -7479,8 +7819,8 @@
    },
    "label": "",
    "location": [
-    2520,
-    -476
+    2800,
+    -454
    ],
    "mute": false,
    "name": "Vector Math.001",
@@ -7504,8 +7844,8 @@
    },
    "label": "",
    "location": [
-    2520,
-    -620
+    2800,
+    -598
    ],
    "mute": false,
    "name": "Vector Math.002",
@@ -7534,7 +7874,7 @@
    "label": "",
    "location": [
     1400,
-    -376
+    -398
    ],
    "mute": false,
    "name": "Warn Bevel",

@@ -8,8 +8,8 @@ license = { text = "GPL-3.0-or-later" }
 
 [project.optional-dependencies]
 dev = ["ruff>=0.6", "pytest>=8"]
-# Headless-Blender als Python-Modul. Gleiche Hauptversion wie das Ziel (5.2 LTS).
-bpy = ["bpy==5.2.*"]
+# Headless-Blender als Python-Modul, exakt die Zielversion (5.2.0 LTS), damit die Dateien dort sicher laden.
+bpy = ["bpy==5.2.0"]
 
 [build-system]
 requires = ["setuptools>=68"]
