@@ -1,0 +1,269 @@
+##### TREE LogicBoardNodeGroup  (GeometryNodeTree)  nodes=72 links=91
+--- GROUP INPUTS
+  [0] '1 Line' (Input_1) NodeSocketBool {"value": false}
+  [1] '2 Lines' (Input_2) NodeSocketBool {"value": false}
+  [2] '3 Lines' (Input_3) NodeSocketBool {"value": false}
+  [3] '4 Lines' (Input_5) NodeSocketBool {"value": false}
+--- GROUP OUTPUTS
+  [0] 'Output1l' (Output_0) NodeSocketBool
+  [1] 'Output2l' (Output_4) NodeSocketBool
+  [2] 'Output3l' (Output_6) NodeSocketBool
+  [3] 'Output4l' (Output_7) NodeSocketBool
+--- NODES
+NODE GeometryNodeSwitch 'Switch.012' loc=(-154.3, 522.7) label='Switch L2' storage={"_type": "NodeSwitch", "input_type": 4}
+      in  'Switch'  <- linked
+      in  'False'  <- linked
+      in  'True'  <- linked
+NODE GeometryNodeSwitch 'Switch.011' loc=(-463.8, 504.0) label='Switch L2' storage={"_type": "NodeSwitch", "input_type": 4}
+      in  'Switch'  <- linked
+      in  'False'  <- linked
+      in  'True'  <- linked
+NODE NodeReroute 'Reroute.051' loc=(219.2, 488.5) 
+      in  'Input'  <- linked
+NODE GeometryNodeSwitch 'Switch.010' loc=(-689.1, 484.0) label='Switch L2' storage={"_type": "NodeSwitch", "input_type": 4}
+      in  'Switch'  <- linked
+      in  'False'  <- linked
+      in  'True'  <- linked
+NODE NodeReroute 'Reroute.047' loc=(-259.8, 469.4) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.043' loc=(-517.7, 448.5) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.046' loc=(-205.4, 430.5) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.042' loc=(-501.1, 412.0) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.048' loc=(-259.1, 408.4) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.056' loc=(-711.4, 392.8) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.044' loc=(-516.6, 389.8) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.055' loc=(-184.1, 385.7) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.054' loc=(-515.4, 366.9) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.002' loc=(-1177.9, 364.4) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.058' loc=(-749.4, 347.2) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.035' loc=(-184.7, 288.6) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.025' loc=(-516.8, 284.3) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.022' loc=(-752.1, 284.0) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.007' loc=(-1030.3, 281.0) 
+      in  'Input'  <- linked
+NODE GeometryNodeSwitch 'Switch.020' loc=(-384.4, 255.6) label='Switch L2' storage={"_type": "NodeSwitch", "input_type": 4}
+      in  'Switch'  <- linked
+      in  'False'  <- linked
+      in  'True'  <- linked
+NODE GeometryNodeSwitch 'Switch.006' loc=(-872.4, 236.9) label='Switch L2' storage={"_type": "NodeSwitch", "input_type": 4}
+      in  'Switch'  <- linked
+      in  'False'  <- linked
+      in  'True'  <- linked
+NODE NodeReroute 'Reroute.023' loc=(-131.7, 221.3) 
+      in  'Input'  <- linked
+NODE GeometryNodeSwitch 'Switch.009' loc=(18.3, 215.6) label='Switch L2' storage={"_type": "NodeSwitch", "input_type": 4}
+      in  'Switch'  <- linked
+      in  'False'  <- linked
+      in  'True'  <- linked
+NODE NodeReroute 'Reroute.052' loc=(-567.4, 202.0) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.057' loc=(-716.0, 201.9) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.049' loc=(203.9, 181.2) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.039' loc=(-506.0, 164.3) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.003' loc=(-1137.9, 145.0) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.053' loc=(-569.0, 143.7) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.024' loc=(-94.1, 123.5) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.008' loc=(-1032.4, 121.6) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.040' loc=(-424.0, 118.4) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.011' loc=(-1136.3, 99.7) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.027' loc=(-131.5, 98.8) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.041' loc=(-423.7, 77.1) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.034' loc=(-379.8, 75.6) 
+      in  'Input'  <- linked
+NODE GeometryNodeSwitch 'Switch.018' loc=(-384.4, 69.4) label='Switch L2' storage={"_type": "NodeSwitch", "input_type": 4}
+      in  'Switch'  <- linked
+      in  'False'  <- linked
+      in  'True'  <- linked
+NODE NodeReroute 'Reroute.026' loc=(-426.3, 57.9) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.029' loc=(-512.4, 56.9) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.006' loc=(-1032.2, 56.0) 
+      in  'Input'  <- linked
+NODE NodeGroupOutput 'Group Output' loc=(264.2, 40.9) label='Logic Board'
+      in  'Output1l'  <- linked
+      in  'Output2l'  <- linked
+      in  'Output3l'  <- linked
+      in  'Output4l'  <- linked
+NODE GeometryNodeSwitch 'Switch.017' loc=(-852.4, 36.9) label='Switch L2' storage={"_type": "NodeSwitch", "input_type": 4}
+      in  'Switch'  <- linked
+      in  'False'  <- linked
+      in  'True'  <- linked
+NODE NodeReroute 'Reroute.031' loc=(-129.6, 35.7) 
+      in  'Input'  <- linked
+NODE GeometryNodeSwitch 'Switch.019' loc=(-61.7, 15.6) label='Switch L2' storage={"_type": "NodeSwitch", "input_type": 4}
+      in  'Switch' = False
+      in  'False'  <- linked
+      in  'True' = True
+NODE NodeReroute 'Reroute.050' loc=(204.4, 5.3) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.037' loc=(-509.4, 5.1) 
+      in  'Input'  <- linked
+NODE NodeGroupInput 'Group Input' loc=(-1400.0, 0.0) label='LogicBoard'
+NODE NodeReroute 'Reroute.018' loc=(-449.4, -24.3) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.009' loc=(-1183.6, -33.1) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.021' loc=(224.4, -38.9) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.038' loc=(-511.3, -46.6) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.010' loc=(-1137.2, -53.9) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.012' loc=(-974.4, -56.2) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.016' loc=(149.8, -64.0) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.019' loc=(-520.4, -69.0) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.028' loc=(-975.9, -73.7) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.014' loc=(-934.7, -77.5) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.036' loc=(-130.8, -98.6) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.013' loc=(-972.3, -98.9) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute' loc=(-1200.0, -100.0) 
+      in  'Input'  <- linked
+NODE ShaderNodeValue 'Value.007' loc=(-1189.1, -120.0) 
+NODE NodeReroute 'Reroute.033' loc=(-522.2, -149.7) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.032' loc=(-934.1, -154.2) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.001' loc=(-1031.6, -154.9) 
+      in  'Input'  <- linked
+NODE GeometryNodeSwitch 'Switch.014' loc=(-1020.0, -240.6) label='Switch L2' storage={"_type": "NodeSwitch", "input_type": 4}
+      in  'Switch'  <- linked
+      in  'False'  <- linked
+      in  'True'  <- linked
+NODE NodeReroute 'Reroute.015' loc=(144.4, -261.8) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.020' loc=(-95.0, -264.6) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.045' loc=(-213.5, -267.4) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.017' loc=(-456.3, -271.2) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.030' loc=(-1198.7, -329.7) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.004' loc=(-1030.9, -354.1) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.005' loc=(-1199.3, -374.2) 
+      in  'Input'  <- linked
+--- LINKS
+  'Reroute.050':'Output' -> 'Group Output':'Output1l'
+  'Reroute.002':'Output' -> 'Switch.010':'False'
+  'Group Input':'3 Lines' -> 'Reroute.028':'Input'
+  'Switch.019':'Output' -> 'Group Output':'Output2l'
+  'Reroute':'Output' -> 'Reroute.030':'Input'
+  'Reroute.021':'Output' -> 'Group Output':'Output3l'
+  'Reroute.016':'Output' -> 'Group Output':'Output4l'
+  'Reroute.003':'Output' -> 'Switch.006':'Switch'
+  'Reroute.056':'Output' -> 'Switch.010':'Switch'
+  'Reroute.058':'Output' -> 'Switch.010':'True'
+  'Switch.020':'Output' -> 'Reroute.023':'Input'
+  'Reroute.044':'Output' -> 'Switch.011':'False'
+  'Reroute.022':'Output' -> 'Reroute.025':'Input'
+  'Reroute.054':'Output' -> 'Switch.011':'True'
+  'Reroute.048':'Output' -> 'Switch.012':'False'
+  'Reroute.038':'Output' -> 'Switch.018':'False'
+  'Reroute.030':'Output' -> 'Switch.014':'Switch'
+  'Reroute.012':'Output' -> 'Switch.017':'Switch'
+  'Reroute.014':'Output' -> 'Switch.017':'False'
+  'Reroute.013':'Output' -> 'Switch.017':'True'
+  'Reroute.053':'Output' -> 'Switch.020':'False'
+  'Reroute.006':'Output' -> 'Reroute.029':'Input'
+  'Reroute.040':'Output' -> 'Switch.020':'True'
+  'Reroute.036':'Output' -> 'Switch.019':'False'
+  'Reroute.005':'Output' -> 'Switch.014':'True'
+  'Reroute.001':'Output' -> 'Reroute.032':'Input'
+  'Reroute.019':'Output' -> 'Switch.018':'True'
+  'Reroute.032':'Output' -> 'Reroute.033':'Input'
+  'Reroute.025':'Output' -> 'Reroute.035':'Input'
+  'Reroute.055':'Output' -> 'Switch.012':'True'
+  'Reroute.027':'Output' -> 'Switch.009':'False'
+  'Reroute.029':'Output' -> 'Reroute.026':'Input'
+  'Reroute.034':'Output' -> 'Switch.009':'True'
+  'Group Input':'4 Lines' -> 'Reroute':'Input'
+  'Value.007':'Value' -> 'Reroute.001':'Input'
+  'Reroute.009':'Output' -> 'Reroute.002':'Input'
+  'Reroute.011':'Output' -> 'Reroute.003':'Input'
+  'Reroute.004':'Output' -> 'Switch.014':'False'
+  'Reroute.001':'Output' -> 'Reroute.004':'Input'
+  'Reroute.030':'Output' -> 'Reroute.005':'Input'
+  'Reroute.001':'Output' -> 'Reroute.006':'Input'
+  'Reroute.007':'Output' -> 'Reroute.022':'Input'
+  'Reroute.008':'Output' -> 'Reroute.007':'Input'
+  'Reroute.006':'Output' -> 'Reroute.008':'Input'
+  'Reroute.008':'Output' -> 'Switch.006':'False'
+  'Group Input':'1 Line' -> 'Reroute.009':'Input'
+  'Group Input':'2 Lines' -> 'Reroute.010':'Input'
+  'Reroute.010':'Output' -> 'Reroute.011':'Input'
+  'Reroute.011':'Output' -> 'Switch.006':'True'
+  'Reroute.028':'Output' -> 'Reroute.012':'Input'
+  'Reroute.028':'Output' -> 'Reroute.013':'Input'
+  'Reroute.032':'Output' -> 'Reroute.014':'Input'
+  'Reroute.020':'Output' -> 'Reroute.015':'Input'
+  'Reroute.015':'Output' -> 'Reroute.016':'Input'
+  'Switch.014':'Output' -> 'Reroute.017':'Input'
+  'Reroute.018':'Output' -> 'Switch.018':'Switch'
+  'Reroute.017':'Output' -> 'Reroute.018':'Input'
+  'Reroute.033':'Output' -> 'Reroute.019':'Input'
+  'Reroute.045':'Output' -> 'Reroute.020':'Input'
+  'Reroute.024':'Output' -> 'Switch.009':'Switch'
+  'Reroute.020':'Output' -> 'Reroute.024':'Input'
+  'Reroute.023':'Output' -> 'Reroute.027':'Input'
+  'Switch.018':'Output' -> 'Reroute.031':'Input'
+  'Reroute.031':'Output' -> 'Reroute.036':'Input'
+  'Switch.017':'Output' -> 'Reroute.037':'Input'
+  'Reroute.037':'Output' -> 'Reroute.038':'Input'
+  'Reroute.039':'Output' -> 'Switch.020':'Switch'
+  'Reroute.037':'Output' -> 'Reroute.039':'Input'
+  'Reroute.041':'Output' -> 'Reroute.040':'Input'
+  'Reroute.026':'Output' -> 'Reroute.041':'Input'
+  'Reroute.041':'Output' -> 'Reroute.034':'Input'
+  'Reroute.042':'Output' -> 'Switch.011':'Switch'
+  'Reroute.039':'Output' -> 'Reroute.042':'Input'
+  'Switch.010':'Output' -> 'Reroute.043':'Input'
+  'Reroute.043':'Output' -> 'Reroute.044':'Input'
+  'Reroute.017':'Output' -> 'Reroute.045':'Input'
+  'Reroute.046':'Output' -> 'Switch.012':'Switch'
+  'Reroute.045':'Output' -> 'Reroute.046':'Input'
+  'Switch.011':'Output' -> 'Reroute.047':'Input'
+  'Reroute.047':'Output' -> 'Reroute.048':'Input'
+  'Switch.009':'Output' -> 'Reroute.049':'Input'
+  'Reroute.049':'Output' -> 'Reroute.050':'Input'
+  'Switch.012':'Output' -> 'Reroute.051':'Input'
+  'Reroute.051':'Output' -> 'Reroute.021':'Input'
+  'Reroute.057':'Output' -> 'Reroute.052':'Input'
+  'Reroute.052':'Output' -> 'Reroute.053':'Input'
+  'Reroute.025':'Output' -> 'Reroute.054':'Input'
+  'Reroute.035':'Output' -> 'Reroute.055':'Input'
+  'Switch.006':'Output' -> 'Reroute.057':'Input'
+  'Reroute.057':'Output' -> 'Reroute.056':'Input'
+  'Reroute.022':'Output' -> 'Reroute.058':'Input'

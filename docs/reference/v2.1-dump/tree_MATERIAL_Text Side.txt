@@ -1,0 +1,51 @@
+##### TREE MATERIAL:Text Side  (ShaderNodeTree)  nodes=6 links=4
+--- GROUP INPUTS
+--- GROUP OUTPUTS
+--- NODES
+NODE ShaderNodeOutputMaterial 'Material Output' loc=(262.3, 338.9) 
+      in  'Surface'  <- linked
+      in  'Displacement' = [0.0, 0.0, 0.0]
+NODE ShaderNodeBsdfPrincipled 'Principled BSDF' loc=(-24.4, 314.5) c1=2 c2=5
+      in  'Base Color' = [0.0, 0.4598, 0.3138, 1.0]
+      in  'Subsurface' = 0.0  [FACTOR]
+      in  'Subsurface Radius' = [1.0, 0.2, 0.1]
+      in  'Subsurface Color' = [0.8, 0.8, 0.8, 1.0]
+      in  'Subsurface IOR' = 1.4  [FACTOR]
+      in  'Subsurface Anisotropy' = 0.0  [FACTOR]
+      in  'Metallic' = 1.0  [FACTOR]
+      in  'Specular' = 0.5  [FACTOR]
+      in  'Specular Tint' = 0.0  [FACTOR]
+      in  'Roughness'  <- linked
+      in  'Anisotropic' = 0.0  [FACTOR]
+      in  'Anisotropic Rotation' = 0.0  [FACTOR]
+      in  'Sheen' = 0.0  [FACTOR]
+      in  'Sheen Tint' = 0.5  [FACTOR]
+      in  'Clearcoat' = 0.0  [FACTOR]
+      in  'Clearcoat Roughness' = 0.03  [FACTOR]
+      in  'IOR' = 1.45
+      in  'Transmission' = 0.0  [FACTOR]
+      in  'Transmission Roughness' = 0.0  [FACTOR]
+      in  'Emission' = [0.0, 0.0, 0.0, 1.0]
+      in  'Emission Strength' = 1.0
+      in  'Alpha' = 1.0  [FACTOR]
+      in  'Normal'  <- linked
+      in  'Clearcoat Normal' = [0.0, 0.0, 0.0]
+      in  'Tangent' = [0.0, 0.0, 0.0]
+NODE NodeFrame 'Frame' loc=(-226.4, 131.9) storage={"_type": "NodeFrame", "flag": 1, "label_size": 20}
+NODE NodeFrame 'Frame.001' loc=(356.1, 117.6) id=TXEditText storage={"_type": "NodeFrame", "flag": 3, "label_size": 26}
+NODE ShaderNodeValue 'Value' loc=(-0.1, -11.6) parent='Frame'
+NODE ShaderNodeGroup 'NoiseGroupSide' loc=(0.4, -97.6) label='NoiseGroupSide' parent='Frame' id=NTTex_NoiseNodeGroup
+      in  'Scale' = 42.0
+      in  'Detail' = 21.0
+      in  'Roughness' = 0.5  [FACTOR]
+      in  'Distortion' = 7.0
+      in  'Contrast' = 0.1
+      in  'Bright' = 0.1
+      in  'Color2' = [0.0189, 0.0189, 0.0189, 1.0]
+      in  'Strength' = 0.2  [FACTOR]
+      in  'Scale'  <- linked
+--- LINKS
+  'Principled BSDF':'BSDF' -> 'Material Output':'Surface'
+  'NoiseGroupSide':'Color' -> 'Principled BSDF':'Roughness'
+  'NoiseGroupSide':'Normal' -> 'Principled BSDF':'Normal'
+  'Value':'Value' -> 'NoiseGroupSide':'Scale'

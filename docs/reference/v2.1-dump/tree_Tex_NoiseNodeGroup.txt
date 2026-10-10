@@ -1,0 +1,68 @@
+##### TREE Tex_NoiseNodeGroup  (ShaderNodeTree)  nodes=8 links=19
+--- GROUP INPUTS
+  [0] 'Scale' (Input_0) NodeSocketFloat {"value": 5.0, "min": -1000.0, "max": 1000.0, "subtype": "NONE"}
+  [1] 'Detail' (Input_1) NodeSocketFloat {"value": 2.0, "min": 0.0, "max": 15.0, "subtype": "NONE"}
+  [2] 'Roughness' (Input_2) NodeSocketFloatFactor {"value": 0.5, "min": 0.0, "max": 1.0, "subtype": "FACTOR"}
+  [3] 'Distortion' (Input_3) NodeSocketFloat {"value": 0.0, "min": -1000.0, "max": 1000.0, "subtype": "NONE"}
+  [4] 'Contrast' (Input_4) NodeSocketFloat {"value": 0.0, "min": -100.0, "max": 100.0, "subtype": "NONE"}
+  [5] 'Bright' (Input_5) NodeSocketFloat {"value": 0.0, "min": -100.0, "max": 100.0, "subtype": "NONE"}
+  [6] 'Color2' (Input_8) NodeSocketColor {"value": [0.5, 0.5, 0.5, 1.0]}
+  [7] 'Strength' (Input_11) NodeSocketFloatFactor {"value": 1.0, "min": 0.0, "max": 1.0, "subtype": "FACTOR"}
+  [8] 'Scale' (Input_12) NodeSocketVectorXYZ {"value": [1.0, 1.0, 1.0], "min": -3.4028234663852886e+38, "max": 3.4028234663852886e+38, "subtype": "XYZ"}
+--- GROUP OUTPUTS
+  [0] 'Color' (Output_6) NodeSocketColor
+  [1] 'Fac' (Output_7) NodeSocketFloat
+  [2] 'Normal' (Output_9) NodeSocketVector
+  [3] 'Color' (Output_10) NodeSocketColor
+--- NODES
+NODE NodeGroupOutput 'Group Output' loc=(499.3, 182.0) 
+      in  'Color'  <- linked
+      in  'Fac'  <- linked
+      in  'Normal'  <- linked
+      in  'Color'  <- linked
+NODE ShaderNodeMixRGB 'Mix' loc=(161.5, 179.3) 
+      in  'Fac'  <- linked
+      in  'Color1'  <- linked
+      in  'Color2'  <- linked
+NODE ShaderNodeBump 'Bump' loc=(332.1, 96.0) 
+      in  'Strength'  <- linked
+      in  'Distance' = 1.0
+      in  'Height'  <- linked
+      in  'Normal' = [0.0, 0.0, 0.0]
+NODE ShaderNodeBrightContrast 'Bright/Contrast' loc=(-16.2, 79.3) 
+      in  'Color'  <- linked
+      in  'Bright'  <- linked
+      in  'Contrast'  <- linked
+NODE ShaderNodeTexNoise 'Noise Texture' loc=(-200.4, 76.7) storage={"_type": "NodeTexNoise", "base": "<NodeTexBase>", "dimensions": 3}
+      in  'Vector'  <- linked
+      in  'Scale'  <- linked
+      in  'Detail'  <- linked
+      in  'Roughness'  <- linked
+      in  'Distortion'  <- linked
+NODE ShaderNodeMapping 'Mapping' loc=(-365.2, 0.0) 
+      in  'Vector'  <- linked
+      in  'Location' = [0.0, 0.0, 0.0]  [TRANSLATION]
+      in  'Rotation' = [0.0, 0.0, 0.0]  [EULER]
+      in  'Scale'  <- linked
+NODE ShaderNodeTexCoord 'Texture Coordinate' loc=(-540.3, -23.4) 
+NODE NodeGroupInput 'Group Input' loc=(-782.8, -33.2) 
+--- LINKS
+  'Texture Coordinate':'Object' -> 'Mapping':'Vector'
+  'Mapping':'Vector' -> 'Noise Texture':'Vector'
+  'Group Input':'Scale' -> 'Noise Texture':'Scale'
+  'Group Input':'Detail' -> 'Noise Texture':'Detail'
+  'Group Input':'Roughness' -> 'Noise Texture':'Roughness'
+  'Group Input':'Distortion' -> 'Noise Texture':'Distortion'
+  'Noise Texture':'Color' -> 'Bright/Contrast':'Color'
+  'Group Input':'Contrast' -> 'Bright/Contrast':'Contrast'
+  'Group Input':'Bright' -> 'Bright/Contrast':'Bright'
+  'Mix':'Color' -> 'Group Output':'Color'
+  'Bright/Contrast':'Color' -> 'Mix':'Color1'
+  'Noise Texture':'Fac' -> 'Mix':'Fac'
+  'Group Input':'Color2' -> 'Mix':'Color2'
+  'Mix':'Color' -> 'Bump':'Height'
+  'Bump':'Normal' -> 'Group Output':'Normal'
+  'Bright/Contrast':'Color' -> 'Group Output':'Color'
+  'Noise Texture':'Fac' -> 'Group Output':'Fac'
+  'Group Input':'Strength' -> 'Bump':'Strength'
+  'Group Input':'Scale' -> 'Mapping':'Scale'

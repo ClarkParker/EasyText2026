@@ -1,0 +1,508 @@
+##### TREE Geo_MeshGenerationNodeGroup  (GeometryNodeTree)  nodes=119 links=157
+--- GROUP INPUTS
+  [0] '    =========General Settings=========' (Input_44) NodeSocketFloat {"hide_value": true, "value": 0.0, "min": -3.4028234663852886e+38, "max": 3.4028234663852886e+38, "subtype": "NONE"}
+  [1] 'Extrude' (Input_2) NodeSocketFloat {"value": 0.1, "min": -3.4028234663852886e+38, "max": 3.4028234663852886e+38, "subtype": "NONE"}
+  [2] 'Top Material' (Input_3) NodeSocketMaterial {}
+  [3] 'Side Material' (Input_4) NodeSocketMaterial {}
+  [4] 'Shade Smooth' (Input_12) NodeSocketBool {"default_attribute_name": "1", "value": true}
+  [5] '     ^^^^^^^^   !Danger!' (Input_16) NodeSocketFloat {"hide_value": true, "value": 0.0, "min": -3.4028234663852886e+38, "max": 3.4028234663852886e+38, "subtype": "NONE"}
+  [6] '         ----------==== Animate ====---------' (Input_24) NodeSocketFloat {"hide_value": true, "value": 0.0, "min": -3.4028234663852886e+38, "max": 3.4028234663852886e+38, "subtype": "NONE"}
+  [7] 'Global ON|OFF' (Input_22) NodeSocketBool {"value": true}
+  [8] 'X  ON|OFF' (Input_25) NodeSocketBool {"value": true}
+  [9] 'Invert X' (Input_33) NodeSocketBool {"value": false}
+  [10] 'Y  ON|OFF' (Input_26) NodeSocketBool {"value": true}
+  [11] 'Invert Y' (Input_32) NodeSocketBool {"value": false}
+  [12] 'Z  ON|OFF' (Input_27) NodeSocketBool {"value": true}
+  [13] 'Invert Z' (Input_31) NodeSocketBool {"value": false}
+  [14] 'Animation Driver x|y|z' (Input_28) NodeSocketVector {"value": [5.0, 5.0, 5.0], "min": -3.4028234663852886e+38, "max": 3.4028234663852886e+38, "subtype": "NONE"}
+  [15] 'Rotation' (Input_34) NodeSocketVectorEuler {"value": [0.0, 0.0, 0.0], "min": -3.4028234663852886e+38, "max": 3.4028234663852886e+38, "subtype": "EULER"}
+  [16] 'Letter Bouncing' (Input_23) NodeSocketFloat {"hide_value": true, "value": 0.0, "min": -3.4028234663852886e+38, "max": 3.4028234663852886e+38, "subtype": "NONE"}
+  [17] 'Bounce Strength X' (Input_35) NodeSocketFloatFactor {"value": 1.0, "min": 0.0, "max": 1.0, "subtype": "FACTOR"}
+  [18] 'Bounce Strength Y' (Input_37) NodeSocketFloatFactor {"value": 1.0, "min": 0.0, "max": 1.0, "subtype": "FACTOR"}
+  [19] 'Bounce Strength Z' (Input_38) NodeSocketFloatFactor {"value": 1.0, "min": 0.0, "max": 1.0, "subtype": "FACTOR"}
+  [20] 'Animate x+y+z' (Input_29) NodeSocketBool {"value": false}
+  [21] 'Combined Axes' (Input_30) NodeSocketFloat {"value": 0.0, "min": -3.4028234663852886e+38, "max": 3.4028234663852886e+38, "subtype": "NONE"}
+  [22] '' (Input_36) NodeSocketFloat {"hide_value": true, "value": 0.0, "min": -3.4028234663852886e+38, "max": 3.4028234663852886e+38, "subtype": "NONE"}
+  [23] '     -------=== BEVELED PLATE OPTIONS ===-------' (Input_17) NodeSocketFloat {"hide_value": true, "value": 0.0, "min": -3.4028234663852886e+38, "max": 3.4028234663852886e+38, "subtype": "NONE"}
+  [24] 'Beveled Plate  ON|OFF (disable animation)' (Input_13) NodeSocketBool {"default_attribute_name": "0", "value": false}
+  [25] 'Plate Size X' (Input_7) NodeSocketFloatDistance {"value": 10.0, "min": 0.0, "max": 3.4028234663852886e+38, "subtype": "DISTANCE"}
+  [26] 'Plate Size Y' (Input_8) NodeSocketFloatDistance {"value": 10.0, "min": 0.0, "max": 3.4028234663852886e+38, "subtype": "DISTANCE"}
+  [27] 'Bevel With' (Input_10) NodeSocketFloat {"value": 0.08, "min": 0.0010000000474974513, "max": 3.0, "subtype": "NONE"}
+  [28] 'Bevel Hight' (Input_11) NodeSocketFloat {"value": 0.2, "min": -3.0, "max": 3.0, "subtype": "NONE"}
+  [29] 'Material Shift' (Input_15) NodeSocketFloat {"value": 0.999, "min": 0.0, "max": 1.100000023841858, "subtype": "NONE"}
+  [30] 'Subdivision' (Input_9) NodeSocketInt {"value": 300, "min": 10, "max": 2000, "subtype": "NONE"}
+  [31] '  ^^^^^^^!CAREFULL OVER 1000!^^^^^^^' (Input_21) NodeSocketFloat {"hide_value": true, "value": 0.0, "min": -3.4028234663852886e+38, "max": 3.4028234663852886e+38, "subtype": "NONE"}
+  [32] '' (Input_1) NodeSocketGeometry {}
+--- GROUP OUTPUTS
+  [0] 'Geometry' (Output_0) NodeSocketGeometry
+--- NODES
+NODE GeometryNodeSwitch 'Switch.003' loc=(-2011.5, 299.6) storage={"_type": "NodeSwitch", "input_type": 10}
+      in  'Switch' = False
+      in  'False'  <- linked
+      in  'True'  <- linked
+NODE NodeReroute 'Reroute.051' loc=(-1858.4, 266.0) 
+      in  'Input'  <- linked
+NODE NodeGroupOutput 'Group Output' loc=(2747.1, 217.1) 
+      in  'Geometry'  <- linked
+NODE GeometryNodeRealizeInstances 'Realize Instances.002' loc=(2574.5, 216.6) 
+      in  'Geometry'  <- linked
+NODE GeometryNodeProximity 'Geometry Proximity' loc=(-1840.4, 197.1) storage={"_type": "NodeGeometryProximity", "target_element": 2}
+      in  'Target'  <- linked
+      in  'Source Position' = [0.0, 0.0, 0.0]
+NODE GeometryNodeSetShadeSmooth 'Set Shade Smooth.001' loc=(2408.2, 191.9) 
+      in  'Geometry'  <- linked
+      in  'Selection' = True
+      in  'Shade Smooth'  <- linked
+NODE NodeReroute 'Reroute.050' loc=(-2035.8, 185.9) 
+      in  'Input'  <- linked
+NODE GeometryNodeSetMaterial 'Set Material.001' loc=(2232.0, 167.4) 
+      in  'Geometry'  <- linked
+      in  'Selection'  <- linked
+      in  'Material'  <- linked
+NODE NodeReroute 'Reroute.048' loc=(-2210.2, 163.2) 
+      in  'Input'  <- linked
+NODE GeometryNodeExtrudeMesh 'Extrude Mesh' loc=(-1074.9, 163.0) storage={"_type": "NodeGeometryExtrudeMesh", "mode": 2}
+      in  'Mesh'  <- linked
+      in  'Selection' = True
+      in  'Offset' = [0.0, 0.0, 0.0]  [TRANSLATION]
+      in  'Offset Scale'  <- linked
+      in  'Individual' = False
+NODE NodeReroute 'Reroute.041' loc=(1870.8, 149.2) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.042' loc=(2042.9, 148.9) 
+      in  'Input'  <- linked
+NODE GeometryNodeSetMaterial 'Set Material' loc=(2069.0, 142.8) 
+      in  'Geometry'  <- linked
+      in  'Selection'  <- linked
+      in  'Material'  <- linked
+NODE NodeReroute 'Reroute.033' loc=(-1686.7, 139.9) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.027' loc=(-1427.8, 138.9) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.039' loc=(-907.6, 128.2) 
+      in  'Input'  <- linked
+NODE GeometryNodeRealizeInstances 'Realize Instances.001' loc=(-2194.2, 120.1) 
+      in  'Geometry'  <- linked
+NODE GeometryNodeMergeByDistance 'Merge by Distance' loc=(1895.1, 117.0) storage={"_type": "NodeGeometryMergeByDistance", "mode": 0}
+      in  'Geometry'  <- linked
+      in  'Selection' = True
+      in  'Distance' = 0.001  [DISTANCE]
+NODE NodeReroute 'Reroute.040' loc=(1870.1, 110.8) 
+      in  'Input'  <- linked
+NODE GeometryNodeResampleCurve 'Resample Curve.001' loc=(-2551.1, 108.8) storage={"_type": "NodeGeometryCurveResample", "mode": 2}
+      in  'Curve'  <- linked
+      in  'Selection' = True
+NODE NodeReroute 'Reroute.049' loc=(-2036.0, 85.7) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.052' loc=(-1855.0, 85.7) 
+      in  'Input'  <- linked
+NODE GeometryNodeJoinGeometry 'Join Geometry.001' loc=(83.3, 83.6) 
+      in  'Geometry'  <- linked
+NODE NodeGroupInput 'Group Input.001' loc=(-315.7, 72.0) 
+NODE GeometryNodeSwitch 'Switch.001' loc=(1693.8, 63.7) storage={"_type": "NodeSwitch", "input_type": 10}
+      in  'Switch'  <- linked
+      in  'False'  <- linked
+      in  'True'  <- linked
+NODE NodeReroute 'Reroute.011' loc=(2215.7, 63.2) 
+      in  'Input'  <- linked
+NODE GeometryNodeRealizeInstances 'Realize Instances' loc=(-675.7, 62.8) 
+      in  'Geometry'  <- linked
+NODE GeometryNodeSwitch 'Switch' loc=(-127.5, 62.2) storage={"_type": "NodeSwitch", "input_type": 10}
+      in  'Switch'  <- linked
+      in  'False'  <- linked
+      in  'True'  <- linked
+NODE GeometryNodeFillCurve 'Fill Curve' loc=(-2377.5, 61.8) storage={"_type": "NodeGeometryCurveFill", "mode": 1}
+      in  'Curve'  <- linked
+NODE NodeReroute 'Reroute.043' loc=(2045.9, 61.0) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.015' loc=(-2212.4, 59.7) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.009' loc=(2046.0, 38.6) 
+      in  'Input'  <- linked
+NODE NodeGroupInput 'Group Input.002' loc=(2234.3, 35.5) 
+NODE GeometryNodeSwitch 'Switch.002' loc=(-441.7, 30.8) storage={"_type": "NodeSwitch", "input_type": 10}
+      in  'Switch'  <- linked
+      in  'False'  <- linked
+      in  'True'  <- linked
+NODE NodeReroute 'Reroute.055' loc=(-1229.5, 28.9) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.014' loc=(-2212.1, 27.0) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.006' loc=(316.5, 26.2) 
+      in  'Input'  <- linked
+NODE NodeGroupInput 'Group Input.004' loc=(1505.2, -2.4) 
+NODE GeometryNodeJoinGeometry 'Join Geometry' loc=(-837.6, -24.4) 
+      in  'Geometry'  <- linked
+NODE NodeGroupInput 'Group Input.003' loc=(-675.4, -25.0) 
+NODE NodeReroute 'Reroute.056' loc=(-2565.3, -35.5) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.035' loc=(-1878.7, -37.7) 
+      in  'Input'  <- linked
+NODE NodeGroupInput 'Group Input' loc=(-2772.5, -48.7) 
+NODE NodeReroute 'Reroute.045' loc=(316.3, -48.7) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.054' loc=(1628.9, -72.2) 
+      in  'Input'  <- linked
+NODE GeometryNodeFlipFaces 'Flip Faces' loc=(-1075.6, -78.1) 
+      in  'Mesh'  <- linked
+      in  'Selection' = True
+NODE NodeReroute 'Reroute.017' loc=(-262.2, -91.5) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.037' loc=(-905.6, -92.6) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.038' loc=(-905.2, -102.7) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.044' loc=(-2325.6, -106.3) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.036' loc=(-906.7, -112.7) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.008' loc=(2043.8, -115.7) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.002' loc=(-1919.0, -127.1) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.010' loc=(2215.6, -134.1) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.047' loc=(-1106.3, -138.0) 
+      in  'Input'  <- linked
+NODE GeometryNodeRotateInstances 'Rotate Instances' loc=(1343.8, -138.3) 
+      in  'Instances'  <- linked
+      in  'Selection' = True
+      in  'Rotation'  <- linked
+      in  'Pivot Point' = [0.0, 0.0, 0.0]  [TRANSLATION]
+      in  'Local Space' = True
+NODE NodeReroute 'Reroute.001' loc=(-2212.8, -140.0) 
+      in  'Input'  <- linked
+NODE GeometryNodeScaleInstances 'Scale Instances.002' loc=(1002.4, -145.6) 
+      in  'Instances'  <- linked
+      in  'Selection' = True
+      in  'Scale'  <- linked
+      in  'Center' = [0.0, 0.0, 0.0]  [TRANSLATION]
+      in  'Local Space' = True
+NODE ShaderNodeCombineXYZ 'Combine XYZ' loc=(-1271.6, -153.4) 
+      in  'X' = 0.0
+      in  'Y' = 0.0
+      in  'Z'  <- linked
+NODE ShaderNodeMapRange 'Map Range' loc=(-1628.0, -164.0) c1=1 c2=0 storage={"_type": "NodeMapRange", "data_type": 10, "interpolation_type": 0, "clamp": 1}
+      in  'Value'  <- linked
+      in  'From Min' = 0.0
+      in  'From Max'  <- linked
+      in  'To Min'  <- linked
+      in  'To Max' = 0.0
+NODE GeometryNodeScaleInstances 'Scale Instances.001' loc=(752.3, -171.4) 
+      in  'Instances'  <- linked
+      in  'Selection' = True
+      in  'Scale'  <- linked
+      in  'Center' = [0.0, 0.0, 0.0]  [TRANSLATION]
+      in  'Local Space' = True
+NODE ShaderNodeFloatCurve 'Float Curve' loc=(-58.3, -171.5) storage={"_type": "CurveMapping"}
+      in  'Factor'  <- linked
+      in  'Value'  <- linked
+NODE NodeReroute 'Reroute.053' loc=(1627.8, -180.3) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.034' loc=(-1878.0, -195.5) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.028' loc=(-1326.3, -200.1) 
+      in  'Input'  <- linked
+NODE GeometryNodeScaleInstances 'Scale Instances' loc=(481.3, -202.3) 
+      in  'Instances'  <- linked
+      in  'Selection' = True
+      in  'Scale'  <- linked
+      in  'Center' = [0.0, 0.0, 0.0]  [TRANSLATION]
+      in  'Local Space' = True
+NODE GeometryNodeSetMaterial 'Set Material.003' loc=(-2270.4, -220.7) 
+      in  'Geometry'  <- linked
+      in  'Selection' = True
+      in  'Material'  <- linked
+NODE GeometryNodeMeshGrid 'Grid' loc=(-2535.0, -246.1) 
+      in  'Size X'  <- linked
+      in  'Size Y'  <- linked
+      in  'Vertices X'  <- linked
+      in  'Vertices Y'  <- linked
+NODE NodeReroute 'Reroute.046' loc=(318.8, -251.9) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.004' loc=(-1944.0, -257.4) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.029' loc=(-1326.1, -257.4) 
+      in  'Input'  <- linked
+NODE ShaderNodeMath 'Math.001' loc=(-1382.8, -280.0) c1=2 c2=0
+      in  'Value'  <- linked
+      in  'Value'  <- linked
+NODE NodeReroute 'Reroute.012' loc=(-2347.0, -281.0) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.032' loc=(-1689.1, -305.0) 
+      in  'Input'  <- linked
+NODE ShaderNodeMath 'Math' loc=(-1205.4, -305.2) c1=16 c2=0
+      in  'Value'  <- linked
+      in  'Value'  <- linked
+NODE NodeReroute 'Reroute.030' loc=(-1222.3, -314.9) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.007' loc=(-2324.7, -324.8) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.018' loc=(-995.6, -340.1) 
+      in  'Input'  <- linked
+NODE GeometryNodeProximity 'Geometry Proximity.001' loc=(-2275.8, -343.0) storage={"_type": "NodeGeometryProximity", "target_element": 2}
+      in  'Target'  <- linked
+      in  'Source Position' = [0.0, 0.0, 0.0]
+NODE GeometryNodeSwitch 'Switch.006' loc=(-236.8, -343.9) storage={"_type": "NodeSwitch", "input_type": 0}
+      in  'Switch'  <- linked
+      in  'False' = 1.0
+      in  'True'  <- linked
+NODE NodeReroute 'Reroute.026' loc=(-1428.7, -394.9) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.020' loc=(-2380.5, -395.5) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.024' loc=(-2076.2, -400.6) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute' loc=(-2593.3, -414.0) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.023' loc=(-1429.5, -416.6) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.031' loc=(-1222.3, -419.1) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.025' loc=(-2076.6, -433.4) 
+      in  'Input'  <- linked
+NODE ShaderNodeFloatCurve 'Float Curve.001' loc=(208.1, -435.2) storage={"_type": "CurveMapping"}
+      in  'Factor'  <- linked
+      in  'Value'  <- linked
+NODE GeometryNodeSetMaterial 'Set Material.002' loc=(-984.2, -450.8) 
+      in  'Geometry'  <- linked
+      in  'Selection'  <- linked
+      in  'Material'  <- linked
+NODE NodeReroute 'Reroute.013' loc=(-2347.7, -454.1) 
+      in  'Input'  <- linked
+NODE GeometryNodeSetPosition 'Set Position' loc=(-1142.8, -476.3) 
+      in  'Geometry'  <- linked
+      in  'Selection' = True
+      in  'Position' = [0.0, 0.0, 0.0]
+      in  'Offset'  <- linked
+NODE NodeReroute 'Reroute.016' loc=(-264.9, -480.1) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.021' loc=(-2381.5, -504.5) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.022' loc=(-1429.7, -509.9) 
+      in  'Input'  <- linked
+NODE ShaderNodeFloatCurve 'Float Curve.002' loc=(488.0, -514.6) storage={"_type": "CurveMapping"}
+      in  'Factor'  <- linked
+      in  'Value'  <- linked
+NODE NodeReroute 'Reroute.005' loc=(-1946.1, -531.6) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.019' loc=(-994.4, -532.5) 
+      in  'Input'  <- linked
+NODE NodeGroupInput 'Group Input.006' loc=(-560.3, -546.0) 
+NODE GeometryNodeSwitch 'Switch.005' loc=(47.4, -548.3) storage={"_type": "NodeSwitch", "input_type": 0}
+      in  'Switch'  <- linked
+      in  'False' = 1.0
+      in  'True'  <- linked
+NODE NodeReroute 'Reroute.003' loc=(-1924.0, -551.1) 
+      in  'Input'  <- linked
+NODE ShaderNodeMath 'Math.002' loc=(-285.9, -561.8) c1=1 c2=1
+      in  'Value'  <- linked
+      in  'Value'  <- linked
+NODE ShaderNodeMath 'Math.003' loc=(-111.3, -581.3) c1=1 c2=1
+      in  'Value'  <- linked
+      in  'Value'  <- linked
+NODE ShaderNodeSeparateXYZ 'Separate XYZ.001' loc=(-463.8, -606.0) 
+      in  'Vector'  <- linked
+NODE GeometryNodeSwitch 'Switch.007' loc=(-661.8, -610.8) storage={"_type": "NodeSwitch", "input_type": 1}
+      in  'Switch'  <- linked
+      in  'False' = [0.0, 0.0, 0.0]
+      in  'True'  <- linked
+NODE NodeGroupInput 'Group Input.005' loc=(-916.7, -771.4) 
+NODE ShaderNodeVectorMath 'Vector Math' loc=(-466.0, -775.4) 
+      in  'Vector'  <- linked
+      in  'Vector'  <- linked
+NODE GeometryNodeSwitch 'Switch.008' loc=(-294.2, -804.0) storage={"_type": "NodeSwitch", "input_type": 0}
+      in  'Switch'  <- linked
+      in  'False'  <- linked
+      in  'True'  <- linked
+NODE GeometryNodeSwitch 'Switch.004' loc=(255.5, -806.5) storage={"_type": "NodeSwitch", "input_type": 0}
+      in  'Switch'  <- linked
+      in  'False' = 1.0
+      in  'True'  <- linked
+NODE GeometryNodeSwitch 'Switch.011' loc=(-123.2, -806.8) storage={"_type": "NodeSwitch", "input_type": 0}
+      in  'Switch'  <- linked
+      in  'False'  <- linked
+      in  'True'  <- linked
+NODE NodeReroute 'Reroute.059' loc=(-706.5, -813.1) 
+      in  'Input'  <- linked
+NODE ShaderNodeMath 'Math.004' loc=(65.4, -819.5) c1=1 c2=1
+      in  'Value'  <- linked
+      in  'Value'  <- linked
+NODE NodeReroute 'Reroute.058' loc=(-517.7, -879.6) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.057' loc=(-585.1, -902.7) 
+      in  'Input'  <- linked
+NODE ShaderNodeMath 'Math.006' loc=(-493.3, -961.7) c1=2 c2=0
+      in  'Value'  <- linked
+      in  'Value' = -1.0
+NODE GeometryNodeInputPosition 'Position' loc=(-875.3, -984.7) 
+NODE ShaderNodeSeparateXYZ 'Separate XYZ' loc=(-680.4, -986.8) 
+      in  'Vector'  <- linked
+NODE ShaderNodeMath 'Math.008' loc=(-293.5, -1025.6) c1=2 c2=0
+      in  'Value'  <- linked
+      in  'Value' = -1.0
+NODE GeometryNodeSwitch 'Switch.010' loc=(-96.7, -1038.2) storage={"_type": "NodeSwitch", "input_type": 0}
+      in  'Switch'  <- linked
+      in  'False'  <- linked
+      in  'True'  <- linked
+NODE ShaderNodeMath 'Math.007' loc=(-486.7, -1173.4) c1=2 c2=0
+      in  'Value'  <- linked
+      in  'Value' = -1.0
+--- LINKS
+  'Reroute.038':'Output' -> 'Join Geometry':'Geometry'
+  'Join Geometry':'Geometry' -> 'Realize Instances':'Geometry'
+  'Reroute.037':'Output' -> 'Join Geometry':'Geometry'
+  'Reroute.035':'Output' -> 'Extrude Mesh':'Offset Scale'
+  'Resample Curve.001':'Curve' -> 'Fill Curve':'Curve'
+  'Reroute.056':'Output' -> 'Resample Curve.001':'Curve'
+  'Realize Instances.002':'Geometry' -> 'Group Output':'Geometry'
+  'Merge by Distance':'Geometry' -> 'Set Material':'Geometry'
+  'Reroute.009':'Output' -> 'Set Material':'Material'
+  'Reroute.043':'Output' -> 'Set Material':'Selection'
+  'Set Material':'Geometry' -> 'Set Material.001':'Geometry'
+  'Extrude Mesh':'Side' -> 'Set Material.001':'Selection'
+  'Reroute.011':'Output' -> 'Set Material.001':'Material'
+  'Switch.001':'Output' -> 'Merge by Distance':'Geometry'
+  'Group Input':'Plate Size X' -> 'Grid':'Size X'
+  'Group Input':'Plate Size Y' -> 'Grid':'Size Y'
+  'Reroute':'Output' -> 'Grid':'Vertices X'
+  'Group Input':'Subdivision' -> 'Reroute':'Input'
+  'Reroute':'Output' -> 'Grid':'Vertices Y'
+  'Combine XYZ':'Vector' -> 'Set Position':'Offset'
+  'Reroute.029':'Output' -> 'Combine XYZ':'Z'
+  'Reroute.032':'Output' -> 'Map Range':'Value'
+  'Group Input':'Bevel With' -> 'Map Range':'From Max'
+  'Group Input':'Bevel Hight' -> 'Map Range':'To Min'
+  'Set Material.001':'Geometry' -> 'Set Shade Smooth.001':'Geometry'
+  'Group Input.001':'Beveled Plate  ON|OFF (disable animation)' -> 'Switch':'Switch'
+  'Group Input.002':'Shade Smooth' -> 'Set Shade Smooth.001':'Shade Smooth'
+  'Reroute.005':'Output' -> 'Set Position':'Geometry'
+  'Reroute.017':'Output' -> 'Switch':'True'
+  'Set Position':'Geometry' -> 'Set Material.002':'Geometry'
+  'Reroute.019':'Output' -> 'Set Material.002':'Selection'
+  'Reroute.025':'Output' -> 'Math':'Value'
+  'Reroute.031':'Output' -> 'Math':'Value'
+  'Reroute.012':'Output' -> 'Set Material.003':'Geometry'
+  'Reroute.007':'Output' -> 'Set Material.003':'Material'
+  'Reroute.003':'Output' -> 'Set Material.002':'Material'
+  'Reroute.026':'Output' -> 'Math.001':'Value'
+  'Reroute.023':'Output' -> 'Math.001':'Value'
+  'Reroute.047':'Output' -> 'Flip Faces':'Mesh'
+  'Group Input':'Side Material' -> 'Reroute.002':'Input'
+  'Reroute.002':'Output' -> 'Reroute.003':'Input'
+  'Set Material.003':'Geometry' -> 'Reroute.004':'Input'
+  'Reroute.004':'Output' -> 'Reroute.005':'Input'
+  'Reroute.044':'Output' -> 'Reroute.008':'Input'
+  'Reroute.008':'Output' -> 'Reroute.009':'Input'
+  'Group Input':'Side Material' -> 'Reroute.010':'Input'
+  'Reroute.010':'Output' -> 'Reroute.011':'Input'
+  'Grid':'Mesh' -> 'Reroute.012':'Input'
+  'Reroute.013':'Output' -> 'Geometry Proximity.001':'Target'
+  'Reroute.012':'Output' -> 'Reroute.013':'Input'
+  'Fill Curve':'Mesh' -> 'Reroute.014':'Input'
+  'Reroute.015':'Output' -> 'Realize Instances.001':'Geometry'
+  'Reroute.014':'Output' -> 'Reroute.015':'Input'
+  'Reroute.014':'Output' -> 'Reroute.001':'Input'
+  'Set Material.002':'Geometry' -> 'Reroute.016':'Input'
+  'Reroute.016':'Output' -> 'Reroute.017':'Input'
+  'Math':'Value' -> 'Reroute.018':'Input'
+  'Reroute.018':'Output' -> 'Reroute.019':'Input'
+  'Group Input':'Material Shift' -> 'Reroute.020':'Input'
+  'Reroute.020':'Output' -> 'Reroute.021':'Input'
+  'Reroute.021':'Output' -> 'Reroute.022':'Input'
+  'Reroute.022':'Output' -> 'Reroute.023':'Input'
+  'Geometry Proximity.001':'Distance' -> 'Reroute.024':'Input'
+  'Reroute.024':'Output' -> 'Reroute.025':'Input'
+  'Reroute.027':'Output' -> 'Reroute.026':'Input'
+  'Map Range':'Result' -> 'Reroute.028':'Input'
+  'Reroute.028':'Output' -> 'Reroute.029':'Input'
+  'Math.001':'Value' -> 'Reroute.030':'Input'
+  'Reroute.030':'Output' -> 'Reroute.031':'Input'
+  'Reroute.033':'Output' -> 'Reroute.027':'Input'
+  'Geometry Proximity':'Distance' -> 'Reroute.033':'Input'
+  'Reroute.033':'Output' -> 'Reroute.032':'Input'
+  'Group Input':'Extrude' -> 'Reroute.034':'Input'
+  'Reroute.034':'Output' -> 'Reroute.035':'Input'
+  'Flip Faces':'Mesh' -> 'Reroute.036':'Input'
+  'Reroute.036':'Output' -> 'Reroute.038':'Input'
+  'Reroute.039':'Output' -> 'Reroute.037':'Input'
+  'Extrude Mesh':'Mesh' -> 'Reroute.039':'Input'
+  'Reroute.040':'Output' -> 'Reroute.041':'Input'
+  'Reroute.041':'Output' -> 'Reroute.042':'Input'
+  'Reroute.042':'Output' -> 'Reroute.043':'Input'
+  'Group Input':'Top Material' -> 'Reroute.044':'Input'
+  'Reroute.044':'Output' -> 'Reroute.007':'Input'
+  'Join Geometry.001':'Geometry' -> 'Reroute.006':'Input'
+  'Reroute.006':'Output' -> 'Reroute.045':'Input'
+  'Reroute.045':'Output' -> 'Switch.001':'False'
+  'Reroute.045':'Output' -> 'Reroute.046':'Input'
+  'Position':'Position' -> 'Separate XYZ':'Vector'
+  'Reroute.054':'Output' -> 'Switch.001':'True'
+  'Reroute.001':'Output' -> 'Reroute.047':'Input'
+  'Reroute.046':'Output' -> 'Scale Instances':'Instances'
+  'Separate XYZ.001':'X' -> 'Math.002':'Value'
+  'Realize Instances':'Geometry' -> 'Switch.002':'False'
+  'Join Geometry':'Geometry' -> 'Switch.002':'True'
+  'Switch.002':'Output' -> 'Switch':'False'
+  'Reroute.048':'Output' -> 'Switch.003':'True'
+  'Reroute.015':'Output' -> 'Reroute.048':'Input'
+  'Reroute.050':'Output' -> 'Switch.003':'False'
+  'Realize Instances.001':'Geometry' -> 'Reroute.049':'Input'
+  'Reroute.049':'Output' -> 'Reroute.050':'Input'
+  'Reroute.052':'Output' -> 'Geometry Proximity':'Target'
+  'Switch.003':'Output' -> 'Reroute.051':'Input'
+  'Reroute.051':'Output' -> 'Reroute.052':'Input'
+  'Separate XYZ.001':'Y' -> 'Math.003':'Value'
+  'Switch.011':'Output' -> 'Math.003':'Value'
+  'Switch.010':'Output' -> 'Math.004':'Value'
+  'Math.004':'Value' -> 'Switch.004':'True'
+  'Math.002':'Value' -> 'Switch.006':'True'
+  'Math.003':'Value' -> 'Switch.005':'True'
+  'Scale Instances':'Instances' -> 'Scale Instances.001':'Instances'
+  'Float Curve':'Value' -> 'Scale Instances':'Scale'
+  'Float Curve.001':'Value' -> 'Scale Instances.001':'Scale'
+  'Scale Instances.001':'Instances' -> 'Scale Instances.002':'Instances'
+  'Float Curve.002':'Value' -> 'Scale Instances.002':'Scale'
+  'Rotate Instances':'Instances' -> 'Reroute.053':'Input'
+  'Reroute.053':'Output' -> 'Reroute.054':'Input'
+  'Group Input.004':'Global ON|OFF' -> 'Switch.001':'Switch'
+  'Group Input.006':'X  ON|OFF' -> 'Switch.006':'Switch'
+  'Group Input.006':'Y  ON|OFF' -> 'Switch.005':'Switch'
+  'Group Input.006':'Z  ON|OFF' -> 'Switch.004':'Switch'
+  'Group Input.005':'Animate x+y+z' -> 'Switch.007':'Switch'
+  'Group Input.005':'Combined Axes' -> 'Switch.007':'True'
+  'Group Input.005':'Animation Driver x|y|z' -> 'Vector Math':'Vector'
+  'Vector Math':'Vector' -> 'Separate XYZ.001':'Vector'
+  'Switch.007':'Output' -> 'Vector Math':'Vector'
+  'Separate XYZ':'X' -> 'Math.006':'Value'
+  'Separate XYZ':'X' -> 'Switch.008':'False'
+  'Math.006':'Value' -> 'Switch.008':'True'
+  'Switch.008':'Output' -> 'Math.002':'Value'
+  'Separate XYZ.001':'Z' -> 'Math.004':'Value'
+  'Separate XYZ':'Z' -> 'Math.007':'Value'
+  'Math.007':'Value' -> 'Switch.010':'True'
+  'Separate XYZ':'Z' -> 'Switch.010':'False'
+  'Separate XYZ':'Y' -> 'Math.008':'Value'
+  'Math.008':'Value' -> 'Switch.011':'True'
+  'Separate XYZ':'Y' -> 'Switch.011':'False'
+  'Reroute.057':'Output' -> 'Switch.010':'Switch'
+  'Reroute.058':'Output' -> 'Switch.011':'Switch'
+  'Reroute.059':'Output' -> 'Switch.008':'Switch'
+  'Scale Instances.002':'Instances' -> 'Rotate Instances':'Instances'
+  'Group Input.006':'Rotation' -> 'Rotate Instances':'Rotation'
+  'Switch.006':'Output' -> 'Float Curve':'Value'
+  'Group Input.006':'Bounce Strength X' -> 'Float Curve':'Factor'
+  'Switch.005':'Output' -> 'Float Curve.001':'Value'
+  'Switch.004':'Output' -> 'Float Curve.002':'Value'
+  'Group Input.006':'Bounce Strength Y' -> 'Float Curve.001':'Factor'
+  'Group Input.006':'Bounce Strength Z' -> 'Float Curve.002':'Factor'
+  'Reroute.014':'Output' -> 'Reroute.055':'Input'
+  'Reroute.055':'Output' -> 'Extrude Mesh':'Mesh'
+  'Switch':'Output' -> 'Join Geometry.001':'Geometry'
+  'Group Input':'' -> 'Reroute.056':'Input'
+  'Extrude Mesh':'Top' -> 'Reroute.040':'Input'
+  'Group Input.003':'Global ON|OFF' -> 'Switch.002':'Switch'
+  'Group Input.005':'Invert Z' -> 'Reroute.057':'Input'
+  'Group Input.005':'Invert Y' -> 'Reroute.058':'Input'
+  'Group Input.005':'Invert X' -> 'Reroute.059':'Input'
+  'Set Shade Smooth.001':'Geometry' -> 'Realize Instances.002':'Geometry'

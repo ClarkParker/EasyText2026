@@ -1,0 +1,15 @@
+SCENE SCupload frames 1-250 cfra=1 fps=24/1.0 res=1920x1080@100% engine='BLENDER_EEVEE'
+  camera: None
+  world: None
+COLLECTION GREasy Text Geometry Node
+OBJECT OBEasy Text Geometry Node type=1 loc=[0.0, 0.0, 0.0] rot=[0.0, 0.0, 0.0] scale=[0.8393298387527466, 0.8393298387527466, 0.8393298387527466]
+  data: MECube.001
+  MODIFIER NodesModifierData name='GeometryNodes' type=57 mode=7
+    node_group: NTEasyTextGeometryNodeV2.1
+  MODIFIER BevelModifierData name='Bevel' type=24 mode=7
+  MODIFIER SimpleDeformModifierData name='SimpleDeform' type=28 mode=0
+  totcol=2
+MESH MECube.001 totvert=8 totpoly=6 totcol=2
+MATERIAL MAText Side use_nodes=1 r,g,b=0.800000011920929,0.800000011920929,0.800000011920929
+MATERIAL MAText Top use_nodes=1 r,g,b=0.12371045351028442,0.12371045351028442,0.12371045351028442
+FONT VFMonoton Regular filepath=None packed=yes

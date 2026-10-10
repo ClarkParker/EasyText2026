@@ -1,0 +1,89 @@
+##### TREE EasyTextGeometryNodeV2.1  (GeometryNodeTree)  nodes=17 links=11
+--- GROUP INPUTS
+  [0] 'Geometry' (Input_0) NodeSocketGeometry {}
+--- GROUP OUTPUTS
+  [0] 'Geometry' (Output_1) NodeSocketGeometry
+--- NODES
+NODE NodeGroupOutput 'Group Output' loc=(-27.9, 337.5) 
+      in  'Geometry'  <- linked
+NODE NodeFrame 'Frame.004' loc=(-1042.2, 83.7) label='Easy Text Geometry Node V2.1' storage={"_type": "NodeFrame", "flag": 1, "label_size": 21}
+NODE FunctionNodeInputString 'String' loc=(-117.0, 84.5) label='1st Text Line' parent='Frame' storage={"_type": "NodeInputString", "string": "Easy"}
+NODE FunctionNodeInputString 'String.001' loc=(-117.0, -6.0) label='2nd Text Line' parent='Frame' storage={"_type": "NodeInputString", "string": "Text"}
+NODE FunctionNodeInputString 'String.002' loc=(-118.1, -97.6) label='3rd Text Line' parent='Frame' storage={"_type": "NodeInputString", "string": "Geometry"}
+NODE FunctionNodeInputString 'String.003' loc=(-117.0, -192.6) label='4th Text Line' parent='Frame' storage={"_type": "NodeInputString", "string": "Node"}
+NODE GeometryNodeStringToCurves 'Text settings' loc=(-492.1, 564.6) label='Text settings' parent='Frame.001' id=VFMonoton Regular storage={"_type": "NodeGeometryStringToCurves", "overflow": 0, "align_x": 1, "align_y": 2, "pivot_mode": 0}
+      in  'String'  <- linked
+      in  'Size' = 0.9  [DISTANCE]
+      in  'Character Spacing' = 1.0  [DISTANCE]
+      in  'Word Spacing' = 1.0  [DISTANCE]
+      in  'Line Spacing' = 0.8  [DISTANCE]
+      in  'Text Box Width' = 0.0  [DISTANCE]
+NODE NodeReroute 'Reroute' loc=(85.4, 529.6) parent='Frame.001'
+      in  'Input'  <- linked
+NODE NodeFrame 'Frame.002' loc=(182.7, 472.0) label='Mesh Settings' parent='Frame.001' storage={"_type": "NodeFrame", "flag": 1, "label_size": 20}
+NODE NodeReroute 'Reroute.003' loc=(43.0, 188.8) parent='Frame.001'
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.002' loc=(-492.8, 188.4) parent='Frame.001'
+      in  'Input'  <- linked
+NODE GeometryNodeGroup 'Line Combiner' loc=(-97.7, 179.2) label='Line Combiner' parent='Frame.001' id=NTGeo_LineCombinerNodeGroup
+      in  '' = 0.0
+      in  '--=Number of Lines=--' = 0.0
+      in  '1 Line of text' = True
+      in  '2 Lines of text' = True
+      in  '3 Lines of text' = True
+      in  '4 Lines of text' = True
+      in  '1st Line'  <- linked
+      in  '2nd Line'  <- linked
+      in  '3rd Line'  <- linked
+      in  '4th Line'  <- linked
+NODE NodeFrame 'Frame' loc=(-346.9, 63.7) label='Text Input' parent='Frame.001' storage={"_type": "NodeFrame", "flag": 1, "label_size": 20}
+NODE NodeFrame 'Frame.003' loc=(-291.1, -291.8) parent='Frame.001' id=TXExportMesh storage={"_type": "NodeFrame", "flag": 3, "label_size": 20}
+NODE GeometryNodeGroup 'Mesh Generation Group' loc=(-92.6, 61.9) label='Mesh Generation' parent='Frame.002' id=NTGeo_MeshGenerationNodeGroup
+      in  '    =========General Settings=========' = 0.0
+      in  'Extrude' = 0.6
+      in  'Top Material' = MAText Top
+      in  'Side Material' = MAText Side
+      in  'Shade Smooth' = False
+      in  '     ^^^^^^^^   !Danger!' = 0.0
+      in  '         ----------==== Animate ====---------' = 0.0
+      in  'Global ON|OFF' = True
+      in  'X  ON|OFF' = True
+      in  'Invert X' = True
+      in  'Y  ON|OFF' = True
+      in  'Invert Y' = False
+      in  'Z  ON|OFF' = True
+      in  'Invert Z' = False
+      in  'Animation Driver x|y|z' = [3.7, 5.0, 5.0]
+      in  'Rotation' = [0.0, 0.0, 0.0]  [EULER]
+      in  'Letter Bouncing' = 0.0
+      in  'Bounce Strength X' = 0.5  [FACTOR]
+      in  'Bounce Strength Y' = 0.5  [FACTOR]
+      in  'Bounce Strength Z' = 0.5  [FACTOR]
+      in  'Animate x+y+z' = False
+      in  'Combined Axes' = 0.9
+      in  '' = 0.0
+      in  '     -------=== BEVELED PLATE OPTIONS ===-------' = 0.0
+      in  'Beveled Plate  ON|OFF (disable animation)' = False
+      in  'Plate Size X' = 5.0  [DISTANCE]
+      in  'Plate Size Y' = 5.0  [DISTANCE]
+      in  'Bevel With' = 0.08
+      in  'Bevel Hight' = 0.05
+      in  'Material Shift' = 0.9999
+      in  'Subdivision' = 300
+      in  '  ^^^^^^^!CAREFULL OVER 1000!^^^^^^^' = 0.0
+      in  ''  <- linked
+NODE NodeFrame 'Frame.001' loc=(488.4, -280.8) label='Font Settings' parent='Frame.004' storage={"_type": "NodeFrame", "flag": 1, "label_size": 20}
+NODE NodeReroute 'Reroute.001' loc=(577.6, -661.4) parent='Frame.004'
+      in  'Input'  <- linked
+--- LINKS
+  'Mesh Generation Group':'Geometry' -> 'Group Output':'Geometry'
+  'Reroute.001':'Output' -> 'Mesh Generation Group':''
+  'String.001':'String' -> 'Line Combiner':'2nd Line'
+  'String.002':'String' -> 'Line Combiner':'3rd Line'
+  'String.003':'String' -> 'Line Combiner':'4th Line'
+  'String':'String' -> 'Line Combiner':'1st Line'
+  'Text settings':'Curve Instances' -> 'Reroute':'Input'
+  'Reroute':'Output' -> 'Reroute.001':'Input'
+  'Reroute.002':'Output' -> 'Text settings':'String'
+  'Reroute.003':'Output' -> 'Reroute.002':'Input'
+  'Line Combiner':'String' -> 'Reroute.003':'Input'

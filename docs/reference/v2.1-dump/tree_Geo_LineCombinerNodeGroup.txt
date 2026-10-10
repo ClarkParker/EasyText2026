@@ -1,0 +1,216 @@
+##### TREE Geo_LineCombinerNodeGroup  (GeometryNodeTree)  nodes=56 links=74
+--- GROUP INPUTS
+  [0] '' (Input_11) NodeSocketFloat {"hide_value": true, "value": 0.0, "min": -3.4028234663852886e+38, "max": 3.4028234663852886e+38, "subtype": "NONE"}
+  [1] '--=Number of Lines=--' (Input_12) NodeSocketFloat {"hide_value": true, "value": 0.0, "min": -3.4028234663852886e+38, "max": 3.4028234663852886e+38, "subtype": "NONE"}
+  [2] '1 Line of text' (Input_7) NodeSocketBool {"value": false}
+  [3] '2 Lines of text' (Input_8) NodeSocketBool {"value": false}
+  [4] '3 Lines of text' (Input_9) NodeSocketBool {"value": false}
+  [5] '4 Lines of text' (Input_10) NodeSocketBool {"value": false}
+  [6] '1st Line' (Input_0) NodeSocketString {"hide_value": true, "value": ""}
+  [7] '2nd Line' (Input_2) NodeSocketString {"hide_value": true, "value": ""}
+  [8] '3rd Line' (Input_3) NodeSocketString {"hide_value": true, "value": ""}
+  [9] '4th Line' (Input_4) NodeSocketString {"hide_value": true, "value": ""}
+--- GROUP OUTPUTS
+  [0] 'String' (Output_1) NodeSocketString
+--- NODES
+NODE GeometryNodeSwitch 'Switch.001' loc=(578.1, 211.8) label='Switch L2' storage={"_type": "NodeSwitch", "input_type": 7}
+      in  'Switch'  <- linked
+      in  'False' = 
+      in  'True'  <- linked
+NODE NodeReroute 'Reroute.043' loc=(54.0, 81.6) 
+      in  'Input'  <- linked
+NODE FunctionNodeInputSpecialCharacters 'Special Characters' loc=(-400.0, 40.0) label='LineBreak'
+NODE GeometryNodeStringJoin 'Join Strings' loc=(-140.0, 40.0) label='Join Text 1L'
+      in  'Delimiter'  <- linked
+      in  'Strings'  <- linked
+NODE NodeReroute 'Reroute' loc=(-196.7, 37.8) 
+      in  'Input'  <- linked
+NODE GeometryNodeSwitch 'Switch.002' loc=(540.1, 20.7) label='Switch L2' storage={"_type": "NodeSwitch", "input_type": 7}
+      in  'Switch'  <- linked
+      in  'False' = 
+      in  'True'  <- linked
+NODE NodeReroute 'Reroute.037' loc=(51.7, 6.3) 
+      in  'Input'  <- linked
+NODE NodeGroupOutput 'Group Output' loc=(1039.0, -10.6) 
+      in  'String'  <- linked
+NODE GeometryNodeStringJoin 'Join Strings.004' loc=(827.5, -10.9) label='Join Text 2L'
+      in  'Delimiter' = 
+      in  'Strings'  <- linked
+NODE NodeReroute 'Reroute.007' loc=(-197.4, -20.8) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.005' loc=(-315.6, -42.2) 
+      in  'Input'  <- linked
+NODE GeometryNodeStringJoin 'Join Strings.001' loc=(-140.0, -80.0) label='Join Text 2L'
+      in  'Delimiter'  <- linked
+      in  'Strings'  <- linked
+NODE NodeReroute 'Reroute.006' loc=(-314.6, -114.5) 
+      in  'Input'  <- linked
+NODE NodeGroupInput 'Group Input' loc=(-640.0, -120.0) 
+NODE NodeReroute 'Reroute.001' loc=(-196.0, -139.9) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.004' loc=(-314.5, -153.9) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.015' loc=(-314.9, -159.4) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.013' loc=(-236.9, -164.7) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.011' loc=(-337.0, -175.7) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.012' loc=(-236.5, -175.7) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.016' loc=(-361.6, -198.2) 
+      in  'Input'  <- linked
+NODE GeometryNodeStringJoin 'Join Strings.002' loc=(-140.0, -200.0) label='Join Text 3L'
+      in  'Delimiter'  <- linked
+      in  'Strings'  <- linked
+NODE GeometryNodeGroup 'Group' loc=(288.1, -206.1) id=NTLogicBoardNodeGroup
+      in  '1 Line'  <- linked
+      in  '2 Lines'  <- linked
+      in  '3 Lines'  <- linked
+      in  '4 Lines'  <- linked
+NODE NodeReroute 'Reroute.019' loc=(-406.2, -220.8) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.039' loc=(90.4, -236.6) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.002' loc=(-193.0, -259.3) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.008' loc=(-313.5, -277.2) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.009' loc=(-235.9, -283.8) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.032' loc=(-426.7, -286.5) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.017' loc=(-358.8, -286.6) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.031' loc=(-447.2, -308.3) 
+      in  'Input'  <- linked
+NODE GeometryNodeStringJoin 'Join Strings.003' loc=(-140.0, -320.0) label='Join Text 4L'
+      in  'Delimiter'  <- linked
+      in  'Strings'  <- linked
+NODE NodeReroute 'Reroute.030' loc=(-461.2, -330.2) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.029' loc=(-478.3, -352.3) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.038' loc=(52.7, -355.2) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.024' loc=(130.5, -361.9) 
+      in  'Input'  <- linked
+NODE GeometryNodeSwitch 'Switch.003' loc=(518.1, -374.0) label='Switch L2' storage={"_type": "NodeSwitch", "input_type": 7}
+      in  'Switch'  <- linked
+      in  'False' = 
+      in  'True'  <- linked
+NODE NodeReroute 'Reroute.003' loc=(-190.8, -379.8) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.023' loc=(172.7, -385.8) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.010' loc=(-310.9, -397.7) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.014' loc=(-235.5, -403.5) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.022' loc=(214.1, -406.7) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.018' loc=(-357.1, -407.2) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.020' loc=(-404.8, -413.3) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.021' loc=(256.6, -427.5) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.042' loc=(92.6, -511.8) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.036' loc=(-423.6, -520.9) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.025' loc=(132.3, -526.8) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.035' loc=(-444.1, -557.8) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.026' loc=(176.3, -565.4) 
+      in  'Input'  <- linked
+NODE GeometryNodeSwitch 'Switch.004' loc=(478.1, -568.3) label='Switch L2' storage={"_type": "NodeSwitch", "input_type": 7}
+      in  'Switch'  <- linked
+      in  'False' = 
+      in  'True'  <- linked
+NODE NodeReroute 'Reroute.034' loc=(-460.0, -592.5) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.027' loc=(217.4, -600.6) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.033' loc=(-481.0, -640.1) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.028' loc=(259.2, -649.8) 
+      in  'Input'  <- linked
+NODE NodeReroute 'Reroute.041' loc=(50.0, -699.0) 
+      in  'Input'  <- linked
+--- LINKS
+  'Special Characters':'Line Break' -> 'Reroute':'Input'
+  'Reroute.001':'Output' -> 'Join Strings.001':'Delimiter'
+  'Reroute.002':'Output' -> 'Join Strings.002':'Delimiter'
+  'Reroute.001':'Output' -> 'Reroute.002':'Input'
+  'Reroute.003':'Output' -> 'Join Strings.003':'Delimiter'
+  'Reroute.002':'Output' -> 'Reroute.003':'Input'
+  'Reroute.005':'Output' -> 'Join Strings':'Strings'
+  'Reroute.043':'Output' -> 'Switch.001':'True'
+  'Group Input':'1st Line' -> 'Reroute.004':'Input'
+  'Reroute.006':'Output' -> 'Reroute.005':'Input'
+  'Reroute.004':'Output' -> 'Reroute.006':'Input'
+  'Reroute.008':'Output' -> 'Join Strings.002':'Strings'
+  'Reroute.015':'Output' -> 'Reroute.008':'Input'
+  'Reroute.007':'Output' -> 'Reroute.001':'Input'
+  'Switch.001':'Output' -> 'Join Strings.004':'Strings'
+  'Switch.002':'Output' -> 'Join Strings.004':'Strings'
+  'Switch.003':'Output' -> 'Join Strings.004':'Strings'
+  'Join Strings.004':'String' -> 'Group Output':'String'
+  'Switch.004':'Output' -> 'Join Strings.004':'Strings'
+  'Join Strings.001':'String' -> 'Switch.002':'True'
+  'Reroute.042':'Output' -> 'Switch.003':'True'
+  'Reroute.041':'Output' -> 'Switch.004':'True'
+  'Reroute.010':'Output' -> 'Join Strings.003':'Strings'
+  'Reroute.008':'Output' -> 'Reroute.010':'Input'
+  'Reroute.013':'Output' -> 'Join Strings.001':'Strings'
+  'Group Input':'2nd Line' -> 'Reroute.011':'Input'
+  'Reroute.011':'Output' -> 'Reroute.012':'Input'
+  'Reroute.012':'Output' -> 'Reroute.013':'Input'
+  'Reroute':'Output' -> 'Reroute.007':'Input'
+  'Reroute.007':'Output' -> 'Join Strings':'Delimiter'
+  'Reroute.009':'Output' -> 'Join Strings.002':'Strings'
+  'Reroute.012':'Output' -> 'Reroute.009':'Input'
+  'Reroute.014':'Output' -> 'Join Strings.003':'Strings'
+  'Reroute.009':'Output' -> 'Reroute.014':'Input'
+  'Reroute.004':'Output' -> 'Reroute.015':'Input'
+  'Reroute.015':'Output' -> 'Join Strings.001':'Strings'
+  'Reroute.017':'Output' -> 'Join Strings.002':'Strings'
+  'Group Input':'3rd Line' -> 'Reroute.016':'Input'
+  'Reroute.016':'Output' -> 'Reroute.017':'Input'
+  'Reroute.018':'Output' -> 'Join Strings.003':'Strings'
+  'Reroute.017':'Output' -> 'Reroute.018':'Input'
+  'Reroute.020':'Output' -> 'Join Strings.003':'Strings'
+  'Group Input':'4th Line' -> 'Reroute.019':'Input'
+  'Reroute.019':'Output' -> 'Reroute.020':'Input'
+  'Group':'Output1l' -> 'Switch.002':'Switch'
+  'Group':'Output2l' -> 'Switch.003':'Switch'
+  'Group':'Output3l' -> 'Switch.001':'Switch'
+  'Group':'Output4l' -> 'Switch.004':'Switch'
+  'Reroute.024':'Output' -> 'Group':'1 Line'
+  'Reroute.023':'Output' -> 'Group':'2 Lines'
+  'Reroute.022':'Output' -> 'Group':'3 Lines'
+  'Reroute.021':'Output' -> 'Group':'4 Lines'
+  'Reroute.028':'Output' -> 'Reroute.021':'Input'
+  'Reroute.027':'Output' -> 'Reroute.022':'Input'
+  'Reroute.026':'Output' -> 'Reroute.023':'Input'
+  'Reroute.025':'Output' -> 'Reroute.024':'Input'
+  'Reroute.036':'Output' -> 'Reroute.025':'Input'
+  'Reroute.035':'Output' -> 'Reroute.026':'Input'
+  'Reroute.034':'Output' -> 'Reroute.027':'Input'
+  'Reroute.033':'Output' -> 'Reroute.028':'Input'
+  'Group Input':'4 Lines of text' -> 'Reroute.029':'Input'
+  'Group Input':'3 Lines of text' -> 'Reroute.030':'Input'
+  'Group Input':'2 Lines of text' -> 'Reroute.031':'Input'
+  'Group Input':'1 Line of text' -> 'Reroute.032':'Input'
+  'Reroute.029':'Output' -> 'Reroute.033':'Input'
+  'Reroute.030':'Output' -> 'Reroute.034':'Input'
+  'Reroute.031':'Output' -> 'Reroute.035':'Input'
+  'Reroute.032':'Output' -> 'Reroute.036':'Input'
+  'Join Strings':'String' -> 'Reroute.037':'Input'
+  'Join Strings.003':'String' -> 'Reroute.038':'Input'
+  'Join Strings.002':'String' -> 'Reroute.039':'Input'
+  'Reroute.038':'Output' -> 'Reroute.041':'Input'
+  'Reroute.039':'Output' -> 'Reroute.042':'Input'
+  'Reroute.037':'Output' -> 'Reroute.043':'Input'
