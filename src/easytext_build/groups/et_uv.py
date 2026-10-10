@@ -11,6 +11,7 @@ NAME = ".ET Text UV"
 def build():
     g = GroupBuilder(NAME, description="Writes the UV map 'UVMap' on face corners.")
     g.input("Mesh", "geometry")
+    g.input("UV", "bool", True, description="Off: the mesh passes through unchanged.")
     g.input("Depth", "float", 0.1, min=0.0, max=10.0, subtype="DISTANCE")
     g.input("Radius", "float", 0.0, min=0.0, max=1.0, subtype="DISTANCE", description="Effective bevel radius.")
     g.input("Normalize to Text", "bool", True)
@@ -129,5 +130,9 @@ def build():
         is_cap = g.boolean("OR", is_front, is_back, name="Is Cap")[0]
         uv = g.switch("VECTOR", is_cap, band_uv, cap_uv, name="UV")[0]
         with_uv = g.store(gi["Mesh"], "UVMap", uv, domain="CORNER", data_type="FLOAT2", name="Store UVMap")[0]
-    g.set_output("Mesh", with_uv)
+
+    with g.frame("Bypass"):
+        gi = g.inputs("UV", "Mesh", label="Bypass")
+        result = g.switch("GEOMETRY", gi["UV"], gi["Mesh"], with_uv, name="Use UV")[0]
+    g.set_output("Mesh", result)
     return g.finish()

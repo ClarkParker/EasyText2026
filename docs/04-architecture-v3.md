@@ -68,11 +68,15 @@ remain unchanged.
 
 | Group | Catalog | Phase | Content |
 |---|---|---|---|
-| `ET Text` | Easy Text | 1 | Main modifier for users without a node editor. Encapsulates source, mesh, material, output; from Phase 2 an animation panel with preset menu. |
-| `ET Text Source` | Text | 1 | Line join, String to Curves (all options as inputs), attribute contract. |
-| `.ET Lines Join` | internal | 1 | 4 string inputs → one string with Line Break, empty lines skipped (String Length > 0). |
-| `ET Glyph Mesh` | Mesh | 1 | Realize → Fill (Mode/Fill Rule) → Extrude → optional Mesh Bevel → Split to Instances; outputs: instances, Front/Side/Bevel selections as attributes. |
-| `ET Finish` | Mesh | 1 | Realize, Set Material (Front/Side/Bevel), Merge by Distance (optional), Shade Smooth by Angle. |
+| `Easy Text` | Easy Text | 1 (built) | Control panel in the node editor: the ET Text Mesh pipeline with value nodes as controls next to each stage, Depth reroute bus, Read Me frame. |
+| `ET Text Mesh` | Text | 1 (built) | Main modifier for the properties editor: inputs as panels (Text, Typography, Outline, Shape, Material, UV, Output); six stage frames, one sub-group each. From Phase 2 an animation panel with preset menu. |
+| `.ET Text Source` | internal | 1 (built) | Line join, String to Curves (all options as inputs), `et_char_index`, "No text" warning. |
+| `.ET Lines Join` | internal | 1 (built) | 4 string inputs → one string with Line Break, empty lines skipped. |
+| `.ET Outline Clean` | internal | 1 (built) | Spline resolution, resample, collinear/duplicate point removal, `et_u` and `et_loop_len`. |
+| `.ET Solid` | internal | 1 (built) | Fill (Mode/Fill Rule) → front material → attribute transfer → back copy + extrude → merge; `et_face_group`. |
+| `.ET Bevel` | internal | 1 (built) | Radius clamped to half the depth, face-set boundary edges, Mesh Bevel, bevel face group, "limited" warning. |
+| `.ET Text UV` | internal | 1 (built) | `UVMap`: planar caps, continuous band for sides and bevel (U = contour length, V = arc length); bypass toggle. |
+| `.ET Finish` | internal | 1 (built) | Side/bevel materials, Shade Smooth by Angle, removal of the `et_*` helper attributes. |
 | `ET Time` | Animators | 2 | Frame (default input SCENE_FRAME), Start, Duration, Stagger, Order (Index/Random/Reverse/From Center), Easing menu, Loop/Ping-Pong → `et_time`. |
 | `ET Select Range` | Selectors | 2 | AE model: Start/End/Offset, Unit (Percent/Index), Basis (Character/Word/Line), Shape, Ease, Random + Seed, Mode → `et_weight`. |
 | `ET Select Transition` | Selectors | 2 | Cavalry model: Completion 0..1 + Width + Direction → `et_weight`. Centerpiece of the reveals. |

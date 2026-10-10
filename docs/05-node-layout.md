@@ -35,3 +35,24 @@ draws). The pipeline follows Node Arrange, the add-on the Geometry Nodes team in
 6. Positions snap to the 20 px node grid.
 
 Theme-level looks (noodle curving, wire colours, dashed field links) are not stored in the asset and are left alone.
+
+## Control panel (Easy Text)
+
+The node-editor front end is built only from what Blender 5.2 draws itself: frames, constant input nodes, group
+nodes, reroutes and wires. Rules, derived from the conventions above and from what works in a landscape editor:
+
+1. Same shape as the engine: the panel is the ET Text Mesh pipeline (frames as stages, left to right, mesh along the
+   top), not a tall column of inputs feeding one node. A user who tabs into `ET Text Mesh` sees the same picture.
+2. Controls are Blender's constant input nodes, one per value, labelled with the value's name: String (multi-line
+   text box), Font, Value, Integer, Boolean, Menu (items appear once linked, defaults set after wiring), Material.
+   They are placed by hand in a grid left of the stage node they feed (two columns when a stage has more than four),
+   starting one socket row below the geometry bus so the bus passes above them.
+3. A value that several stages need (Depth) exists once; the later stages get a labelled reroute in their own
+   frame, and the reroutes form a bus below the frames involved (Essentials rule 4).
+4. Stage nodes hide sockets the panel does not use (Line 2–4: the text box carries all lines).
+5. One outer frame carries the title (label size 32) and a "Read Me" note frame (frame text, full panel width) with
+   the five lines a new user needs. Explanations live in frame texts, never in socket names.
+6. Nothing is selected or active when the file opens; the node editor has its sidebar hidden so the panel gets the
+   width, and the view is framed on the whole panel.
+7. Layout lives in `groups/et_easy_text.py` (`Controls` provider + `_layout`); the engine stays in
+   `et_text_mesh.build_pipeline`, so both trees are always wired identically.

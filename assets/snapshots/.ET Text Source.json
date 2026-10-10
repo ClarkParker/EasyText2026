@@ -380,13 +380,19 @@
   [
    "Character Count",
    "Length",
+   "Reroute.008",
+   "Input"
+  ],
+  [
+   "Curves",
+   "Output",
    "Group Output",
-   "Socket_16"
+   "Socket_15"
   ],
   [
    "Font Fallback",
    "Output",
-   "Reroute.002",
+   "Reroute.004",
    "Input"
   ],
   [
@@ -398,14 +404,14 @@
   [
    "Group Input (Font)",
    "Socket_4",
-   "Font Fallback",
-   "False"
+   "Font Is None",
+   "A"
   ],
   [
    "Group Input (Font)",
    "Socket_4",
-   "Font Is None",
-   "A"
+   "Reroute",
+   "Input"
   ],
   [
    "Group Input (Lines)",
@@ -506,14 +512,26 @@
   [
    "Lines Join",
    "Socket_4",
-   "Reroute",
+   "Reroute.002",
    "Input"
+  ],
+  [
+   "No Text",
+   "Result",
+   "Warn Empty",
+   "Show"
   ],
   [
    "Realize Glyphs",
    "Geometry",
-   "Group Output",
-   "Socket_15"
+   "Curves",
+   "False"
+  ],
+  [
+   "Realize Glyphs",
+   "Geometry",
+   "Curves",
+   "True"
   ],
   [
    "Reroute",
@@ -524,8 +542,8 @@
   [
    "Reroute.001",
    "Output",
-   "Reroute.004",
-   "Input"
+   "Font Fallback",
+   "False"
   ],
   [
    "Reroute.002",
@@ -537,7 +555,7 @@
    "Reroute.003",
    "Output",
    "String to Curves",
-   "Font"
+   "String"
   ],
   [
    "Reroute.004",
@@ -549,7 +567,31 @@
    "Reroute.005",
    "Output",
    "String to Curves",
-   "String"
+   "Font"
+  ],
+  [
+   "Reroute.006",
+   "Output",
+   "Reroute.007",
+   "Input"
+  ],
+  [
+   "Reroute.007",
+   "Output",
+   "Group Output",
+   "Socket_16"
+  ],
+  [
+   "Reroute.008",
+   "Output",
+   "No Text",
+   "A"
+  ],
+  [
+   "Reroute.008",
+   "Output",
+   "Reroute.006",
+   "Input"
   ],
   [
    "Store et_char_index",
@@ -562,6 +604,12 @@
    "Curve Instances",
    "Store et_char_index",
    "Geometry"
+  ],
+  [
+   "Warn Empty",
+   "Show",
+   "Curves",
+   "Switch"
   ]
  ],
  "name": ".ET Text Source",
@@ -577,8 +625,8 @@
    },
    "label": "Character Count",
    "location": [
-    -340,
-    -340
+    -700,
+    160
    ],
    "mute": false,
    "name": "Character Count",
@@ -586,6 +634,39 @@
     "Length"
    ],
    "parent": "[Lines]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSwitch",
+   "inputs": {
+    "False": {
+     "linked": true,
+     "name": "False"
+    },
+    "Switch": {
+     "linked": true,
+     "name": "Switch"
+    },
+    "True": {
+     "linked": true,
+     "name": "True"
+    }
+   },
+   "label": "Curves",
+   "location": [
+    1280,
+    120
+   ],
+   "mute": false,
+   "name": "Curves",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Warning]",
+   "props": {
+    "input_type": "GEOMETRY"
+   },
    "width": 140.0
   },
   {
@@ -610,8 +691,8 @@
    },
    "label": "Font Fallback",
    "location": [
-    -340,
-    -40
+    -700,
+    -100
    ],
    "mute": false,
    "name": "Font Fallback",
@@ -639,8 +720,8 @@
    },
    "label": "Font Is None",
    "location": [
-    -540,
-    -100
+    -900,
+    -180
    ],
    "mute": false,
    "name": "Font Is None",
@@ -661,8 +742,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    -760,
-    -100
+    -1120,
+    -180
    ],
    "mute": false,
    "name": "Group Input (Font)",
@@ -693,8 +774,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    -760,
-    -300
+    -1120,
+    160
    ],
    "mute": false,
    "name": "Group Input (Lines)",
@@ -725,8 +806,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    20,
-    200
+    -360,
+    -120
    ],
    "mute": false,
    "name": "Group Input (Typography)",
@@ -769,8 +850,8 @@
    },
    "label": "",
    "location": [
-    1200,
-    0
+    1500,
+    120
    ],
    "mute": false,
    "name": "Group Output",
@@ -787,8 +868,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    600,
-    0
+    240,
+    -60
    ],
    "mute": false,
    "name": "Index",
@@ -821,8 +902,8 @@
    },
    "label": "Lines Join",
    "location": [
-    -580,
-    -300
+    -940,
+    160
    ],
    "mute": false,
    "name": "Lines Join",
@@ -837,6 +918,37 @@
     }
    },
    "width": 200.0
+  },
+  {
+   "hide": true,
+   "idname": "FunctionNodeCompare",
+   "inputs": {
+    "A": {
+     "linked": true,
+     "name": "A"
+    },
+    "B": {
+     "name": "B",
+     "value": 0
+    }
+   },
+   "label": "No Text",
+   "location": [
+    960,
+    100
+   ],
+   "mute": false,
+   "name": "No Text",
+   "outputs": [
+    "Result"
+   ],
+   "parent": "[Warning]",
+   "props": {
+    "data_type": "INT",
+    "mode": "ELEMENT",
+    "operation": "EQUAL"
+   },
+   "width": 100.0
   },
   {
    "hide": false,
@@ -861,8 +973,8 @@
    },
    "label": "Realize Glyphs",
    "location": [
-    980,
-    120
+    620,
+    60
    ],
    "mute": false,
    "name": "Realize Glyphs",
@@ -886,11 +998,61 @@
    },
    "label": "",
    "location": [
-    -340,
-    -300
+    -942,
+    -232
    ],
    "mute": false,
    "name": "Reroute",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Font]",
+   "props": {
+    "socket_idname": "NodeSocketFont"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -742,
+    -232
+   ],
+   "mute": false,
+   "name": "Reroute.001",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Font]",
+   "props": {
+    "socket_idname": "NodeSocketFont"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -700,
+    55
+   ],
+   "mute": false,
+   "name": "Reroute.002",
    "outputs": [
     "Output"
    ],
@@ -911,58 +1073,8 @@
    },
    "label": "",
    "location": [
-    -200,
-    -300
-   ],
-   "mute": false,
-   "name": "Reroute.001",
-   "outputs": [
-    "Output"
-   ],
-   "parent": null,
-   "props": {
-    "socket_idname": "NodeSocketString"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    -106,
-    316
-   ],
-   "mute": false,
-   "name": "Reroute.002",
-   "outputs": [
-    "Output"
-   ],
-   "parent": null,
-   "props": {
-    "socket_idname": "NodeSocketFont"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    150,
-    316
+    -220,
+    55
    ],
    "mute": false,
    "name": "Reroute.003",
@@ -971,6 +1083,31 @@
    ],
    "parent": "[Typeset]",
    "props": {
+    "socket_idname": "NodeSocketString"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -490,
+    -79
+   ],
+   "mute": false,
+   "name": "Reroute.004",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
     "socket_idname": "NodeSocketFont"
    },
    "width": 140.0
@@ -986,17 +1123,17 @@
    },
    "label": "",
    "location": [
-    -106,
-    235
+    -220,
+    -79
    ],
    "mute": false,
-   "name": "Reroute.004",
+   "name": "Reroute.005",
    "outputs": [
     "Output"
    ],
-   "parent": null,
+   "parent": "[Typeset]",
    "props": {
-    "socket_idname": "NodeSocketString"
+    "socket_idname": "NodeSocketFont"
    },
    "width": 140.0
   },
@@ -1011,17 +1148,67 @@
    },
    "label": "",
    "location": [
-    150,
-    235
+    960,
+    -86
    ],
    "mute": false,
-   "name": "Reroute.005",
+   "name": "Reroute.006",
    "outputs": [
     "Output"
    ],
-   "parent": "[Typeset]",
+   "parent": null,
    "props": {
-    "socket_idname": "NodeSocketString"
+    "socket_idname": "NodeSocketInt"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    1420,
+    -86
+   ],
+   "mute": false,
+   "name": "Reroute.007",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketInt"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    872,
+    125
+   ],
+   "mute": false,
+   "name": "Reroute.008",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketInt"
    },
    "width": 140.0
   },
@@ -1048,8 +1235,8 @@
    },
    "label": "Store et_char_index",
    "location": [
-    780,
-    120
+    420,
+    60
    ],
    "mute": false,
    "name": "Store et_char_index",
@@ -1118,8 +1305,8 @@
    },
    "label": "",
    "location": [
-    200,
-    320
+    -160,
+    40
    ],
    "mute": false,
    "name": "String to Curves",
@@ -1132,6 +1319,35 @@
    ],
    "parent": "[Typeset]",
    "width": 200.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeWarning",
+   "inputs": {
+    "Message": {
+     "name": "Message",
+     "value": "No text."
+    },
+    "Show": {
+     "linked": true,
+     "name": "Show"
+    }
+   },
+   "label": "Warn Empty",
+   "location": [
+    1100,
+    160
+   ],
+   "mute": false,
+   "name": "Warn Empty",
+   "outputs": [
+    "Show"
+   ],
+   "parent": "[Warning]",
+   "props": {
+    "warning_type": "WARNING"
+   },
+   "width": 140.0
   },
   {
    "hide": false,
@@ -1201,6 +1417,25 @@
    ],
    "mute": false,
    "name": "[Typeset]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Warning",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Warning]",
    "outputs": [],
    "parent": null,
    "props": {

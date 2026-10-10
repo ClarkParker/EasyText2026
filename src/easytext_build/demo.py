@@ -10,24 +10,20 @@ from .groups import registry
 def populate_scene(scene) -> None:
     import bpy
 
-    tree = bpy.data.node_groups[registry.MAIN]
+    tree = bpy.data.node_groups[registry.PANEL]
     mesh = bpy.data.meshes.new("Easy Text")
     text_ob = bpy.data.objects.new("Easy Text", mesh)
     scene.collection.objects.link(text_ob)
     mod = text_ob.modifiers.new("Easy Text", "NODES")
     mod.node_group = tree
-    ids = {}
-    for item in tree.interface.items_tree:
-        if item.item_type == "SOCKET" and item.in_out == "INPUT":
-            ids.setdefault(item.name, item.identifier)
-    mod.properties.inputs[ids["Bevel"]]["value"] = 1
-    mod.properties.inputs[ids["Line 2"]]["value"] = "Geometry Node v3"
+    tree.nodes["Bevel"].boolean = True  # show the bevel in the demo
+    text_ob.rotation_euler = (math.radians(90), 0.0, 0.0)  # upright, readable from the front (-Y)
 
     cam_data = bpy.data.cameras.new("Camera")
-    cam_data.lens = 50
+    cam_data.lens = 35
     cam = bpy.data.objects.new("Camera", cam_data)
-    cam.location = (0.0, -7.5, 1.2)
-    cam.rotation_euler = (math.radians(81), 0.0, 0.0)
+    cam.location = (0.0, -10.0, 1.0)
+    cam.rotation_euler = (math.radians(85), 0.0, 0.0)
     scene.collection.objects.link(cam)
     scene.camera = cam
 
@@ -53,7 +49,9 @@ def populate_scene(scene) -> None:
     scene.render.resolution_x = 1920
     scene.render.resolution_y = 1080
 
-    # On opening: text object active and the properties editor on the modifier tab
+    # On opening: text object active and the properties editor on the modifier tab. The window layout itself
+    # (workspace "Easy Text": 3D viewport on top, node editor with the control panel below) needs a real Blender
+    # window and is applied by demo_ui.py; headless Blender does not persist workspace or area changes.
     bpy.context.view_layer.objects.active = text_ob
     text_ob.select_set(True)
     for screen in bpy.data.screens:

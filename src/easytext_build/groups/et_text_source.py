@@ -85,6 +85,18 @@ def build():
             name="Store et_char_index",
         )
         curves = g.node("GeometryNodeRealizeInstances", "Realize Glyphs", inputs={"Geometry": with_char[0]})[0]
+
+    with g.frame("Warning"):
+        # Shown on the modifier (warnings of nested groups propagate). The pass-through switch only makes sure
+        # the Warning node is evaluated.
+        no_text = g.compare("EQUAL", char_count, 0, data_type="INT", name="No Text")[0]
+        shown = g.node(
+            "GeometryNodeWarning",
+            "Warn Empty",
+            inputs={"Show": no_text, "Message": "No text."},
+            props={"warning_type": "WARNING"},
+        )["Show"]
+        curves = g.switch("GEOMETRY", shown, curves, curves, name="Curves")[0]
     g.set_output("Curves", curves)
     g.set_output("Character Count", char_count)
     return g.finish()

@@ -1,14 +1,80 @@
 """ET Text Mesh: text -> clean, export-ready mesh with UVs (core of Easy Text v3, no animation yet).
 
-Main group with six frames; the work happens in the sub-groups Text Source, Outline Clean, Solid, Bevel,
-Text UV and Finish.
+Six stages, left to right, each one a frame with a single sub-group node: Text Source, Outline Clean, Solid,
+Bevel, Text UV and Finish. `build_pipeline` wires the stages and is shared with the Easy Text control panel,
+which feeds the same pipeline from value nodes instead of the group interface.
 """
 
 from .. import catalog, materials
-from ..core import GroupBuilder, builtin_font
+from ..core import GroupBuilder, SocketRef, builtin_font
 from . import et_bevel, et_finish, et_outline, et_solid, et_text_source, et_uv
 
 NAME = "ET Text Mesh"
+
+
+def _wire(gi: dict, names) -> dict:
+    """Only the inputs the provider has; a provider may leave some out (the panel has no Line 2-4)."""
+    return {n: gi[n] for n in names if n in gi}
+
+
+def build_pipeline(g: GroupBuilder, provide) -> SocketRef:
+    """The six stages. `provide(stage, *names)` returns {name: SocketRef} for the inputs a stage needs: local
+    Group Input copies in ET Text Mesh, value nodes (controls) in the Easy Text panel. Returns the final mesh."""
+    with g.frame("Text"):
+        names = et_text_source.LINE_INPUTS + et_text_source.TYPOGRAPHY_INPUTS
+        gi = provide("Text", *names)
+        curves = g.group(et_text_source.NAME, inputs=_wire(gi, names))["Curves"]
+
+    with g.frame("Outline"):
+        gi = provide("Outline", "Resolution", "Simplify")
+        outline = g.group(et_outline.NAME, inputs={"Curves": curves, **_wire(gi, ("Resolution", "Simplify"))})["Curves"]
+
+    with g.frame("Solid"):
+        # Depth last: in the panel it sits closest to the bus that carries it on to Bevel and UV.
+        gi = provide("Solid", "Fill Mode", "Fill Rule", "Front Material", "Depth")
+        solid = g.group(
+            et_solid.NAME,
+            inputs={"Curves": outline, **_wire(gi, ("Fill Mode", "Fill Rule", "Front Material", "Depth"))},
+        )["Mesh"]
+
+    with g.frame("Bevel"):
+        gi = provide("Bevel", "Bevel", "Bevel Width", "Segments", "Profile", "Depth")
+        bevel = g.group(
+            et_bevel.NAME,
+            inputs={
+                "Mesh": solid,
+                "Bevel": gi["Bevel"],
+                "Width": gi["Bevel Width"],
+                "Segments": gi["Segments"],
+                "Profile": gi["Profile"],
+                "Depth": gi["Depth"],
+            },
+        )
+
+    with g.frame("UV"):
+        gi = provide("UV", "UV", "Normalize to Text", "UV Scale", "Depth")
+        mesh = g.group(
+            et_uv.NAME,
+            inputs={
+                "Mesh": bevel["Mesh"],
+                "UV": gi["UV"],
+                "Depth": gi["Depth"],
+                "Radius": bevel["Radius"],
+                "Normalize to Text": gi["Normalize to Text"],
+                "Scale": gi["UV Scale"],
+            },
+        )["Mesh"]
+
+    with g.frame("Finish"):
+        gi = provide("Finish", "Side Material", "Bevel Material", "Smooth Angle", "Keep Helper Attributes")
+        final = g.group(
+            et_finish.NAME,
+            inputs={
+                "Mesh": mesh,
+                **_wire(gi, ("Side Material", "Bevel Material", "Smooth Angle", "Keep Helper Attributes")),
+            },
+        )["Mesh"]
+    return final
 
 
 def build():
@@ -106,92 +172,7 @@ def build():
     ):
         g.menu_default(name, value)
 
-    # ------------------------------------------------------------------ Text
-    with g.frame("Text"):
-        names = et_text_source.LINE_INPUTS + et_text_source.TYPOGRAPHY_INPUTS
-        gi = g.inputs(*names, label="Text")
-        source = g.group(et_text_source.NAME, inputs={n: gi[n] for n in names})
-        curves, char_count = source["Curves"], source["Character Count"]
-        # Warn where the problem arises; the pass-through switch only forces evaluation of the warning.
-        no_text = g.compare("EQUAL", char_count, 0, data_type="INT", name="No Text")[0]
-        warn_empty = g.node(
-            "GeometryNodeWarning",
-            "Warn Empty",
-            inputs={"Show": no_text, "Message": "No text."},
-            props={"warning_type": "WARNING"},
-        )["Show"]
-        curves = g.switch("GEOMETRY", warn_empty, curves, curves, name="Curves")[0]
-
-    # ------------------------------------------------------------------ Outline
-    with g.frame("Outline"):
-        gi = g.inputs("Resolution", "Simplify")
-        outline = g.group(
-            et_outline.NAME, inputs={"Curves": curves, "Resolution": gi["Resolution"], "Simplify": gi["Simplify"]}
-        )["Curves"]
-
-    # ------------------------------------------------------------------ Solid
-    with g.frame("Solid"):
-        gi = g.inputs("Depth", "Fill Mode", "Fill Rule", "Front Material")
-        solid = g.group(
-            et_solid.NAME,
-            inputs={
-                "Curves": outline,
-                "Depth": gi["Depth"],
-                "Fill Mode": gi["Fill Mode"],
-                "Fill Rule": gi["Fill Rule"],
-                "Front Material": gi["Front Material"],
-            },
-        )["Mesh"]
-
-    # ------------------------------------------------------------------ Bevel
-    with g.frame("Bevel"):
-        gi = g.inputs("Bevel", "Bevel Width", "Segments", "Profile", "Depth", label="Bevel")
-        bevel = g.group(
-            et_bevel.NAME,
-            inputs={
-                "Mesh": solid,
-                "Bevel": gi["Bevel"],
-                "Width": gi["Bevel Width"],
-                "Segments": gi["Segments"],
-                "Profile": gi["Profile"],
-                "Depth": gi["Depth"],
-            },
-        )
-        warn_bevel = g.node(
-            "GeometryNodeWarning",
-            "Warn Bevel",
-            inputs={"Show": bevel["Limited"], "Message": "Bevel width limited to half the depth."},
-            props={"warning_type": "INFO"},
-        )["Show"]
-        bevel_mesh = g.switch("GEOMETRY", warn_bevel, bevel["Mesh"], bevel["Mesh"], name="Mesh")[0]
-
-    # ------------------------------------------------------------------ UV
-    with g.frame("UV"):
-        gi = g.inputs("UV", "Normalize to Text", "UV Scale", "Depth", label="UV")
-        with_uv = g.group(
-            et_uv.NAME,
-            inputs={
-                "Mesh": bevel_mesh,
-                "Depth": gi["Depth"],
-                "Radius": bevel["Radius"],
-                "Normalize to Text": gi["Normalize to Text"],
-                "Scale": gi["UV Scale"],
-            },
-        )["Mesh"]
-        mesh = g.switch("GEOMETRY", gi["UV"], bevel_mesh, with_uv, name="Use UV")[0]
-
-    # ------------------------------------------------------------------ Output
-    with g.frame("Output"):
-        gi = g.inputs("Side Material", "Bevel Material", "Smooth Angle", "Keep Helper Attributes", label="Output")
-        final = g.group(
-            et_finish.NAME,
-            inputs={
-                "Mesh": mesh,
-                "Side Material": gi["Side Material"],
-                "Bevel Material": gi["Bevel Material"],
-                "Smooth Angle": gi["Smooth Angle"],
-                "Keep Helper Attributes": gi["Keep Helper Attributes"],
-            },
-        )["Mesh"]
+    # ------------------------------------------------------------------ Stages: local Group Input copies
+    final = build_pipeline(g, lambda stage, *names: g.inputs(*names, label=stage))
     g.set_output("Geometry", final)
     return g.finish()

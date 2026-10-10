@@ -212,8 +212,8 @@
   [
    "Cap Edges",
    "Boundary Edges",
-   "Reroute.004",
-   "Input"
+   "Mesh Bevel",
+   "Selection"
   ],
   [
    "Clamp Max",
@@ -224,37 +224,37 @@
   [
    "Clamp Min",
    "Value",
-   "Mesh Bevel",
-   "End Left Offset"
-  ],
-  [
-   "Clamp Min",
-   "Value",
-   "Mesh Bevel",
-   "End Right Offset"
-  ],
-  [
-   "Clamp Min",
-   "Value",
-   "Mesh Bevel",
-   "Offset"
-  ],
-  [
-   "Clamp Min",
-   "Value",
-   "Mesh Bevel",
-   "Start Right Offset"
-  ],
-  [
-   "Clamp Min",
-   "Value",
    "Radius",
    "True"
   ],
   [
    "Clamp Min",
    "Value",
+   "Reroute.005",
+   "Input"
+  ],
+  [
+   "Clamp Min",
+   "Value",
+   "Reroute.007",
+   "Input"
+  ],
+  [
+   "Clamp Min",
+   "Value",
    "Reroute.009",
+   "Input"
+  ],
+  [
+   "Clamp Min",
+   "Value",
+   "Reroute.011",
+   "Input"
+  ],
+  [
+   "Clamp Min",
+   "Value",
+   "Reroute.033",
    "Input"
   ],
   [
@@ -272,14 +272,14 @@
   [
    "Group Input (Bevel, Width, Depth)",
    "Socket_1",
-   "Limited",
-   "Boolean"
+   "Radius",
+   "Switch"
   ],
   [
    "Group Input (Bevel, Width, Depth)",
    "Socket_1",
-   "Radius",
-   "Switch"
+   "Reroute",
+   "Input"
   ],
   [
    "Group Input (Bevel, Width, Depth)",
@@ -290,8 +290,8 @@
   [
    "Group Input (Bevel, Width, Depth)",
    "Socket_2",
-   "Reroute",
-   "Input"
+   "Too Wide",
+   "A"
   ],
   [
    "Group Input (Bevel, Width, Depth)",
@@ -308,13 +308,13 @@
   [
    "Group Input (Mesh, Bevel, Segments, Profile)",
    "Socket_0",
-   "Reroute.006",
+   "Reroute.003",
    "Input"
   ],
   [
    "Group Input (Mesh, Bevel, Segments, Profile)",
    "Socket_1",
-   "Reroute.002",
+   "Reroute.021",
    "Input"
   ],
   [
@@ -338,8 +338,14 @@
   [
    "Limited",
    "Boolean",
-   "Reroute.019",
+   "Reroute.035",
    "Input"
+  ],
+  [
+   "Limited",
+   "Boolean",
+   "Warn Bevel",
+   "Show"
   ],
   [
    "Max Radius",
@@ -352,6 +358,12 @@
    "Value",
    "Too Wide",
    "B"
+  ],
+  [
+   "Mesh",
+   "Output",
+   "Group Output",
+   "Socket_6"
   ],
   [
    "Mesh Bevel",
@@ -374,7 +386,7 @@
   [
    "Radius",
    "Output",
-   "Reroute.005",
+   "Reroute.002",
    "Input"
   ],
   [
@@ -386,38 +398,38 @@
   [
    "Reroute.001",
    "Output",
-   "Too Wide",
-   "A"
+   "Limited",
+   "Boolean"
   ],
   [
    "Reroute.002",
    "Output",
-   "Reroute.003",
+   "Reroute.039",
    "Input"
   ],
   [
    "Reroute.003",
    "Output",
-   "Reroute.007",
+   "Reroute.004",
    "Input"
   ],
   [
    "Reroute.004",
    "Output",
-   "Reroute.011",
-   "Input"
+   "Use Bevel",
+   "False"
   ],
   [
    "Reroute.005",
    "Output",
-   "Reroute.017",
+   "Reroute.006",
    "Input"
   ],
   [
    "Reroute.006",
    "Output",
-   "Use Bevel",
-   "False"
+   "Reroute.013",
+   "Input"
   ],
   [
    "Reroute.007",
@@ -428,8 +440,8 @@
   [
    "Reroute.008",
    "Output",
-   "Use Bevel",
-   "Switch"
+   "Reroute.015",
+   "Input"
   ],
   [
    "Reroute.009",
@@ -440,7 +452,7 @@
   [
    "Reroute.010",
    "Output",
-   "Reroute.013",
+   "Reroute.017",
    "Input"
   ],
   [
@@ -452,8 +464,8 @@
   [
    "Reroute.012",
    "Output",
-   "Mesh Bevel",
-   "Selection"
+   "Reroute.019",
+   "Input"
   ],
   [
    "Reroute.013",
@@ -464,7 +476,7 @@
   [
    "Reroute.014",
    "Output",
-   "Reroute.015",
+   "Reroute.025",
    "Input"
   ],
   [
@@ -476,8 +488,8 @@
   [
    "Reroute.016",
    "Output",
-   "Mesh Bevel",
-   "Start Left Offset"
+   "Reroute.027",
+   "Input"
   ],
   [
    "Reroute.017",
@@ -488,8 +500,8 @@
   [
    "Reroute.018",
    "Output",
-   "Group Output",
-   "Socket_7"
+   "Reroute.029",
+   "Input"
   ],
   [
    "Reroute.019",
@@ -500,8 +512,128 @@
   [
    "Reroute.020",
    "Output",
+   "Reroute.031",
+   "Input"
+  ],
+  [
+   "Reroute.021",
+   "Output",
+   "Reroute.022",
+   "Input"
+  ],
+  [
+   "Reroute.022",
+   "Output",
+   "Use Bevel",
+   "Switch"
+  ],
+  [
+   "Reroute.023",
+   "Output",
+   "Reroute.024",
+   "Input"
+  ],
+  [
+   "Reroute.024",
+   "Output",
+   "Mesh Bevel",
+   "End Right Offset"
+  ],
+  [
+   "Reroute.025",
+   "Output",
+   "Reroute.026",
+   "Input"
+  ],
+  [
+   "Reroute.026",
+   "Output",
+   "Mesh Bevel",
+   "Offset"
+  ],
+  [
+   "Reroute.027",
+   "Output",
+   "Reroute.028",
+   "Input"
+  ],
+  [
+   "Reroute.028",
+   "Output",
+   "Mesh Bevel",
+   "Start Left Offset"
+  ],
+  [
+   "Reroute.029",
+   "Output",
+   "Reroute.030",
+   "Input"
+  ],
+  [
+   "Reroute.030",
+   "Output",
+   "Mesh Bevel",
+   "Start Right Offset"
+  ],
+  [
+   "Reroute.031",
+   "Output",
+   "Reroute.032",
+   "Input"
+  ],
+  [
+   "Reroute.032",
+   "Output",
+   "Mesh Bevel",
+   "End Left Offset"
+  ],
+  [
+   "Reroute.033",
+   "Output",
+   "Reroute.034",
+   "Input"
+  ],
+  [
+   "Reroute.034",
+   "Output",
+   "Reroute.023",
+   "Input"
+  ],
+  [
+   "Reroute.035",
+   "Output",
+   "Reroute.036",
+   "Input"
+  ],
+  [
+   "Reroute.036",
+   "Output",
    "Group Output",
    "Socket_8"
+  ],
+  [
+   "Reroute.037",
+   "Output",
+   "Reroute.038",
+   "Input"
+  ],
+  [
+   "Reroute.038",
+   "Output",
+   "Group Output",
+   "Socket_7"
+  ],
+  [
+   "Reroute.039",
+   "Output",
+   "Reroute.040",
+   "Input"
+  ],
+  [
+   "Reroute.040",
+   "Output",
+   "Reroute.037",
+   "Input"
   ],
   [
    "Too Wide",
@@ -512,8 +644,20 @@
   [
    "Use Bevel",
    "Output",
-   "Group Output",
-   "Socket_6"
+   "Mesh",
+   "False"
+  ],
+  [
+   "Use Bevel",
+   "Output",
+   "Mesh",
+   "True"
+  ],
+  [
+   "Warn Bevel",
+   "Show",
+   "Mesh",
+   "Switch"
   ]
  ],
  "name": ".ET Bevel",
@@ -533,8 +677,8 @@
    },
    "label": "Bevel Faces",
    "location": [
-    520,
-    -240
+    440,
+    -260
    ],
    "mute": false,
    "name": "Bevel Faces",
@@ -558,8 +702,8 @@
    },
    "label": "Cap Edges",
    "location": [
-    -360,
-    320
+    -460,
+    440
    ],
    "mute": false,
    "name": "Cap Edges",
@@ -584,8 +728,8 @@
    },
    "label": "Clamp Max",
    "location": [
-    -740,
-    -240
+    -820,
+    -80
    ],
    "mute": false,
    "name": "Clamp Max",
@@ -614,8 +758,8 @@
    },
    "label": "Clamp Min",
    "location": [
-    -740,
-    -280
+    -820,
+    -140
    ],
    "mute": false,
    "name": "Clamp Min",
@@ -640,8 +784,8 @@
    },
    "label": "Face Group",
    "location": [
-    -560,
-    320
+    -640,
+    420
    ],
    "mute": false,
    "name": "Face Group",
@@ -678,8 +822,8 @@
    },
    "label": "Group Bevel",
    "location": [
-    680,
-    20
+    600,
+    80
    ],
    "mute": false,
    "name": "Group Bevel",
@@ -699,8 +843,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    -940,
-    -100
+    -1020,
+    140
    ],
    "mute": false,
    "name": "Group Input (Bevel, Width, Depth)",
@@ -722,8 +866,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    80,
-    -20
+    -20,
+    -40
    ],
    "mute": false,
    "name": "Group Input (Mesh, Bevel, Segments, Profile)",
@@ -761,8 +905,8 @@
    },
    "label": "",
    "location": [
-    1120,
-    180
+    1560,
+    320
    ],
    "mute": false,
    "name": "Group Output",
@@ -788,8 +932,8 @@
    },
    "label": "Half Depth",
    "location": [
-    -740,
-    -160
+    -820,
+    0
    ],
    "mute": false,
    "name": "Half Depth",
@@ -818,8 +962,8 @@
    },
    "label": "Limited",
    "location": [
-    -340,
-    -120
+    -420,
+    160
    ],
    "mute": false,
    "name": "Limited",
@@ -847,8 +991,8 @@
    },
    "label": "Max Radius",
    "location": [
-    -740,
-    -200
+    -820,
+    -40
    ],
    "mute": false,
    "name": "Max Radius",
@@ -861,6 +1005,39 @@
     "use_clamp": false
    },
    "width": 107.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSwitch",
+   "inputs": {
+    "False": {
+     "linked": true,
+     "name": "False"
+    },
+    "Switch": {
+     "linked": true,
+     "name": "Switch"
+    },
+    "True": {
+     "linked": true,
+     "name": "True"
+    }
+   },
+   "label": "Mesh",
+   "location": [
+    1320,
+    320
+   ],
+   "mute": false,
+   "name": "Mesh",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Warning]",
+   "props": {
+    "input_type": "GEOMETRY"
+   },
+   "width": 140.0
   },
   {
    "hide": false,
@@ -920,8 +1097,8 @@
    },
    "label": "",
    "location": [
-    300,
-    -20
+    220,
+    40
    ],
    "mute": false,
    "name": "Mesh Bevel",
@@ -954,8 +1131,8 @@
    },
    "label": "Radius",
    "location": [
-    -560,
-    40
+    -640,
+    80
    ],
    "mute": false,
    "name": "Radius",
@@ -979,8 +1156,8 @@
    },
    "label": "",
    "location": [
-    -742,
-    -116
+    -640,
+    184
    ],
    "mute": false,
    "name": "Reroute",
@@ -989,7 +1166,7 @@
    ],
    "parent": "[Radius]",
    "props": {
-    "socket_idname": "NodeSocketFloatDistance"
+    "socket_idname": "NodeSocketBool"
    },
    "width": 140.0
   },
@@ -1004,8 +1181,8 @@
    },
    "label": "",
    "location": [
-    -636,
-    -116
+    -500,
+    184
    ],
    "mute": false,
    "name": "Reroute.001",
@@ -1014,7 +1191,7 @@
    ],
    "parent": "[Radius]",
    "props": {
-    "socket_idname": "NodeSocketFloatDistance"
+    "socket_idname": "NodeSocketBool"
    },
    "width": 140.0
   },
@@ -1029,86 +1206,11 @@
    },
    "label": "",
    "location": [
-    310,
-    54
+    -290,
+    45
    ],
    "mute": false,
    "name": "Reroute.002",
-   "outputs": [
-    "Output"
-   ],
-   "parent": "[Mesh Bevel]",
-   "props": {
-    "socket_idname": "NodeSocketBool"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    522,
-    54
-   ],
-   "mute": false,
-   "name": "Reroute.003",
-   "outputs": [
-    "Output"
-   ],
-   "parent": "[Mesh Bevel]",
-   "props": {
-    "socket_idname": "NodeSocketBool"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    -32,
-    285
-   ],
-   "mute": false,
-   "name": "Reroute.004",
-   "outputs": [
-    "Output"
-   ],
-   "parent": null,
-   "props": {
-    "socket_idname": "NodeSocketBool"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    -210,
-    5
-   ],
-   "mute": false,
-   "name": "Reroute.005",
    "outputs": [
     "Output"
    ],
@@ -1129,11 +1231,11 @@
    },
    "label": "",
    "location": [
-    310,
-    81
+    220,
+    145
    ],
    "mute": false,
-   "name": "Reroute.006",
+   "name": "Reroute.003",
    "outputs": [
     "Output"
    ],
@@ -1154,17 +1256,92 @@
    },
    "label": "",
    "location": [
-    680,
-    60
+    600,
+    145
+   ],
+   "mute": false,
+   "name": "Reroute.004",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Mesh Bevel]",
+   "props": {
+    "socket_idname": "NodeSocketGeometry"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -640,
+    -113
+   ],
+   "mute": false,
+   "name": "Reroute.005",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Radius]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -290,
+    -113
+   ],
+   "mute": false,
+   "name": "Reroute.006",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -625,
+    -139
    ],
    "mute": false,
    "name": "Reroute.007",
    "outputs": [
     "Output"
    ],
-   "parent": "[Mesh Bevel]",
+   "parent": "[Radius]",
    "props": {
-    "socket_idname": "NodeSocketBool"
+    "socket_idname": "NodeSocketFloat"
    },
    "width": 140.0
   },
@@ -1179,17 +1356,17 @@
    },
    "label": "",
    "location": [
-    840,
-    60
+    -290,
+    -131
    ],
    "mute": false,
    "name": "Reroute.008",
    "outputs": [
     "Output"
    ],
-   "parent": "[Mesh Bevel]",
+   "parent": null,
    "props": {
-    "socket_idname": "NodeSocketBool"
+    "socket_idname": "NodeSocketFloat"
    },
    "width": 140.0
   },
@@ -1204,8 +1381,8 @@
    },
    "label": "",
    "location": [
-    -555,
-    -284
+    -625,
+    -158
    ],
    "mute": false,
    "name": "Reroute.009",
@@ -1229,8 +1406,8 @@
    },
    "label": "",
    "location": [
-    -210,
-    -295
+    -290,
+    -150
    ],
    "mute": false,
    "name": "Reroute.010",
@@ -1254,17 +1431,17 @@
    },
    "label": "",
    "location": [
-    80,
-    -192
+    -625,
+    -176
    ],
    "mute": false,
    "name": "Reroute.011",
    "outputs": [
     "Output"
    ],
-   "parent": "[Mesh Bevel]",
+   "parent": "[Radius]",
    "props": {
-    "socket_idname": "NodeSocketBool"
+    "socket_idname": "NodeSocketFloat"
    },
    "width": 140.0
   },
@@ -1279,17 +1456,17 @@
    },
    "label": "",
    "location": [
-    220,
-    -192
+    -300,
+    -168
    ],
    "mute": false,
    "name": "Reroute.012",
    "outputs": [
     "Output"
    ],
-   "parent": "[Mesh Bevel]",
+   "parent": null,
    "props": {
-    "socket_idname": "NodeSocketBool"
+    "socket_idname": "NodeSocketFloat"
    },
    "width": 140.0
   },
@@ -1304,8 +1481,8 @@
    },
    "label": "",
    "location": [
-    -80,
-    192
+    -196,
+    -51
    ],
    "mute": false,
    "name": "Reroute.013",
@@ -1329,8 +1506,8 @@
    },
    "label": "",
    "location": [
-    -32,
-    192
+    -148,
+    -51
    ],
    "mute": false,
    "name": "Reroute.014",
@@ -1354,15 +1531,15 @@
    },
    "label": "",
    "location": [
-    80,
-    -233
+    -196,
+    -92
    ],
    "mute": false,
    "name": "Reroute.015",
    "outputs": [
     "Output"
    ],
-   "parent": "[Mesh Bevel]",
+   "parent": null,
    "props": {
     "socket_idname": "NodeSocketFloat"
    },
@@ -1379,15 +1556,15 @@
    },
    "label": "",
    "location": [
-    220,
-    -233
+    -148,
+    -92
    ],
    "mute": false,
    "name": "Reroute.016",
    "outputs": [
     "Output"
    ],
-   "parent": "[Mesh Bevel]",
+   "parent": null,
    "props": {
     "socket_idname": "NodeSocketFloat"
    },
@@ -1404,8 +1581,8 @@
    },
    "label": "",
    "location": [
-    -80,
-    262
+    -196,
+    -111
    ],
    "mute": false,
    "name": "Reroute.017",
@@ -1429,8 +1606,8 @@
    },
    "label": "",
    "location": [
-    1020,
-    262
+    -148,
+    -111
    ],
    "mute": false,
    "name": "Reroute.018",
@@ -1454,11 +1631,411 @@
    },
    "label": "",
    "location": [
-    -80,
-    244
+    -196,
+    -129
    ],
    "mute": false,
    "name": "Reroute.019",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -148,
+    -129
+   ],
+   "mute": false,
+   "name": "Reroute.020",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    220,
+    120
+   ],
+   "mute": false,
+   "name": "Reroute.021",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Mesh Bevel]",
+   "props": {
+    "socket_idname": "NodeSocketBool"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    760,
+    120
+   ],
+   "mute": false,
+   "name": "Reroute.022",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Mesh Bevel]",
+   "props": {
+    "socket_idname": "NodeSocketBool"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -20,
+    -299
+   ],
+   "mute": false,
+   "name": "Reroute.023",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Mesh Bevel]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    120,
+    -299
+   ],
+   "mute": false,
+   "name": "Reroute.024",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Mesh Bevel]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -20,
+    -225
+   ],
+   "mute": false,
+   "name": "Reroute.025",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Mesh Bevel]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    120,
+    -225
+   ],
+   "mute": false,
+   "name": "Reroute.026",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Mesh Bevel]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -20,
+    -244
+   ],
+   "mute": false,
+   "name": "Reroute.027",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Mesh Bevel]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    120,
+    -244
+   ],
+   "mute": false,
+   "name": "Reroute.028",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Mesh Bevel]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -20,
+    -262
+   ],
+   "mute": false,
+   "name": "Reroute.029",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Mesh Bevel]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    120,
+    -262
+   ],
+   "mute": false,
+   "name": "Reroute.030",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Mesh Bevel]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -20,
+    -281
+   ],
+   "mute": false,
+   "name": "Reroute.031",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Mesh Bevel]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    120,
+    -281
+   ],
+   "mute": false,
+   "name": "Reroute.032",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Mesh Bevel]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -625,
+    -195
+   ],
+   "mute": false,
+   "name": "Reroute.033",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Radius]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -148,
+    -187
+   ],
+   "mute": false,
+   "name": "Reroute.034",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    1140,
+    429
+   ],
+   "mute": false,
+   "name": "Reroute.035",
    "outputs": [
     "Output"
    ],
@@ -1479,17 +2056,117 @@
    },
    "label": "",
    "location": [
-    1020,
-    244
+    1460,
+    429
    ],
    "mute": false,
-   "name": "Reroute.020",
+   "name": "Reroute.036",
    "outputs": [
     "Output"
    ],
    "parent": null,
    "props": {
     "socket_idname": "NodeSocketBool"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    1140,
+    126
+   ],
+   "mute": false,
+   "name": "Reroute.037",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    1460,
+    126
+   ],
+   "mute": false,
+   "name": "Reroute.038",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -210,
+    339
+   ],
+   "mute": false,
+   "name": "Reroute.039",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    1052,
+    339
+   ],
+   "mute": false,
+   "name": "Reroute.040",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFloat"
    },
    "width": 140.0
   },
@@ -1508,8 +2185,8 @@
    },
    "label": "Too Wide",
    "location": [
-    -540,
-    -160
+    -620,
+    140
    ],
    "mute": false,
    "name": "Too Wide",
@@ -1543,8 +2220,8 @@
    },
    "label": "Use Bevel",
    "location": [
-    880,
-    180
+    800,
+    240
    ],
    "mute": false,
    "name": "Use Bevel",
@@ -1554,6 +2231,35 @@
    "parent": "[Mesh Bevel]",
    "props": {
     "input_type": "GEOMETRY"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeWarning",
+   "inputs": {
+    "Message": {
+     "name": "Message",
+     "value": "Bevel width limited to half the depth."
+    },
+    "Show": {
+     "linked": true,
+     "name": "Show"
+    }
+   },
+   "label": "Warn Bevel",
+   "location": [
+    1140,
+    360
+   ],
+   "mute": false,
+   "name": "Warn Bevel",
+   "outputs": [
+    "Show"
+   ],
+   "parent": "[Warning]",
+   "props": {
+    "warning_type": "INFO"
    },
    "width": 140.0
   },
@@ -1606,6 +2312,25 @@
    ],
    "mute": false,
    "name": "[Radius]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Warning",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Warning]",
    "outputs": [],
    "parent": null,
    "props": {

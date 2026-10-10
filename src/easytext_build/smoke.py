@@ -47,6 +47,18 @@ def main() -> int:
     if any(w[0] == "ERROR" for w in warnings):
         errors.append(f"modifier reports errors: {warnings}")
 
+    panel = bpy.data.objects.new("panel", None)
+    bpy.context.scene.collection.objects.link(panel)
+    pmod = panel.modifiers.new("EasyText", "NODES")
+    pmod.node_group = bpy.data.node_groups[registry.PANEL]
+    depsgraph.update()
+    pgeo = panel.evaluated_get(depsgraph).evaluated_geometry()  # keep the geometry set alive while reading it
+    pverts = len(pgeo.mesh.vertices) if pgeo.mesh else 0
+    pwarn = [(w.type, w.message) for w in pmod.node_warnings]
+    print(f"[smoke] {registry.PANEL}: {pverts} vertices, warnings: {pwarn or 'none'}")
+    if pverts == 0:
+        errors.append(f"{registry.PANEL} produces no geometry")
+
     if errors:
         print("[smoke] FAILED:\n  " + "\n  ".join(errors))
         return 1

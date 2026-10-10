@@ -1,8 +1,19 @@
 """Order of the group builders. Dependencies (sub-groups) come before their users."""
 
-from . import et_bevel, et_finish, et_lines_join, et_outline, et_solid, et_text_mesh, et_text_source, et_uv
+from . import (
+    et_bevel,
+    et_easy_text,
+    et_finish,
+    et_lines_join,
+    et_outline,
+    et_solid,
+    et_text_mesh,
+    et_text_source,
+    et_uv,
+)
 
-MODULES = [et_lines_join, et_text_source, et_outline, et_solid, et_bevel, et_uv, et_finish, et_text_mesh]
+MODULES = [et_lines_join, et_text_source, et_outline, et_solid, et_bevel, et_uv, et_finish, et_text_mesh, et_easy_text]
+PANEL = et_easy_text.NAME
 MAIN = et_text_mesh.NAME
 
 

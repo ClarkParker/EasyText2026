@@ -1,0 +1,1375 @@
+{
+ "asset_catalog_id": "7ed3049d-2082-4f93-a0fe-900274de8933",
+ "description": "Easy Text control panel: the text pipeline with value nodes as controls.",
+ "flags": {
+  "color_tag": "GEOMETRY",
+  "default_group_node_width": 240,
+  "is_modifier": true,
+  "is_tool": false
+ },
+ "interface": [
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_0",
+   "in_out": "OUTPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Geometry",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketGeometry",
+   "structure_type": "AUTO"
+  }
+ ],
+ "links": [
+  [
+   "Align X",
+   "Menu",
+   "ET Text Source",
+   "Socket_6"
+  ],
+  [
+   "Align Y",
+   "Menu",
+   "ET Text Source",
+   "Socket_7"
+  ],
+  [
+   "Bevel",
+   "Boolean",
+   "ET Bevel",
+   "Socket_1"
+  ],
+  [
+   "Bevel Material",
+   "Material",
+   "ET Finish",
+   "Socket_2"
+  ],
+  [
+   "Bevel Width",
+   "Value",
+   "ET Bevel",
+   "Socket_2"
+  ],
+  [
+   "Box Height",
+   "Value",
+   "ET Text Source",
+   "Socket_13"
+  ],
+  [
+   "Box Width",
+   "Value",
+   "ET Text Source",
+   "Socket_12"
+  ],
+  [
+   "Character Spacing",
+   "Value",
+   "ET Text Source",
+   "Socket_9"
+  ],
+  [
+   "Depth",
+   "Value",
+   "Depth (Bevel)",
+   "Input"
+  ],
+  [
+   "Depth",
+   "Value",
+   "ET Solid",
+   "Socket_1"
+  ],
+  [
+   "Depth (Bevel)",
+   "Output",
+   "Depth (UV)",
+   "Input"
+  ],
+  [
+   "Depth (Bevel)",
+   "Output",
+   "ET Bevel",
+   "Socket_5"
+  ],
+  [
+   "Depth (UV)",
+   "Output",
+   "ET Text UV",
+   "Socket_2"
+  ],
+  [
+   "ET Bevel",
+   "Socket_6",
+   "ET Text UV",
+   "Socket_0"
+  ],
+  [
+   "ET Bevel",
+   "Socket_7",
+   "ET Text UV",
+   "Socket_3"
+  ],
+  [
+   "ET Finish",
+   "Socket_5",
+   "Group Output",
+   "Socket_0"
+  ],
+  [
+   "ET Outline Clean",
+   "Socket_3",
+   "ET Solid",
+   "Socket_0"
+  ],
+  [
+   "ET Solid",
+   "Socket_5",
+   "ET Bevel",
+   "Socket_0"
+  ],
+  [
+   "ET Text Source",
+   "Socket_15",
+   "ET Outline Clean",
+   "Socket_0"
+  ],
+  [
+   "ET Text UV",
+   "Socket_6",
+   "ET Finish",
+   "Socket_0"
+  ],
+  [
+   "Fill Mode",
+   "Menu",
+   "ET Solid",
+   "Socket_2"
+  ],
+  [
+   "Fill Rule",
+   "Menu",
+   "ET Solid",
+   "Socket_3"
+  ],
+  [
+   "Font",
+   "Font",
+   "ET Text Source",
+   "Socket_4"
+  ],
+  [
+   "Front Material",
+   "Material",
+   "ET Solid",
+   "Socket_4"
+  ],
+  [
+   "Keep Helper Attributes",
+   "Boolean",
+   "ET Finish",
+   "Socket_4"
+  ],
+  [
+   "Line Spacing",
+   "Value",
+   "ET Text Source",
+   "Socket_11"
+  ],
+  [
+   "Normalize to Text",
+   "Boolean",
+   "ET Text UV",
+   "Socket_4"
+  ],
+  [
+   "Overflow",
+   "Menu",
+   "ET Text Source",
+   "Socket_14"
+  ],
+  [
+   "Pivot",
+   "Menu",
+   "ET Text Source",
+   "Socket_8"
+  ],
+  [
+   "Profile",
+   "Value",
+   "ET Bevel",
+   "Socket_4"
+  ],
+  [
+   "Resolution",
+   "Integer",
+   "ET Outline Clean",
+   "Socket_1"
+  ],
+  [
+   "Segments",
+   "Integer",
+   "ET Bevel",
+   "Socket_3"
+  ],
+  [
+   "Side Material",
+   "Material",
+   "ET Finish",
+   "Socket_1"
+  ],
+  [
+   "Simplify",
+   "Value",
+   "ET Outline Clean",
+   "Socket_2"
+  ],
+  [
+   "Size",
+   "Value",
+   "ET Text Source",
+   "Socket_5"
+  ],
+  [
+   "Smooth Angle",
+   "Value",
+   "ET Finish",
+   "Socket_3"
+  ],
+  [
+   "Text",
+   "String",
+   "ET Text Source",
+   "Socket_0"
+  ],
+  [
+   "UV",
+   "Boolean",
+   "ET Text UV",
+   "Socket_1"
+  ],
+  [
+   "UV Scale",
+   "Value",
+   "ET Text UV",
+   "Socket_5"
+  ],
+  [
+   "Word Spacing",
+   "Value",
+   "ET Text Source",
+   "Socket_10"
+  ]
+ ],
+ "name": "Easy Text",
+ "nodes": [
+  {
+   "hide": false,
+   "idname": "FunctionNodeInputMenu",
+   "inputs": {},
+   "label": "Align X",
+   "location": [
+    0,
+    -246
+   ],
+   "mute": false,
+   "name": "Align X",
+   "outputs": [
+    "Menu"
+   ],
+   "parent": "[Text]",
+   "props": {
+    "value": "Center"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "FunctionNodeInputMenu",
+   "inputs": {},
+   "label": "Align Y",
+   "location": [
+    180,
+    -246
+   ],
+   "mute": false,
+   "name": "Align Y",
+   "outputs": [
+    "Menu"
+   ],
+   "parent": "[Text]",
+   "props": {
+    "value": "Middle"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "FunctionNodeInputBool",
+   "inputs": {},
+   "label": "Bevel",
+   "location": [
+    1740,
+    -90
+   ],
+   "mute": false,
+   "name": "Bevel",
+   "outputs": [
+    "Boolean"
+   ],
+   "parent": "[Bevel]",
+   "props": {
+    "boolean": false
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeInputMaterial",
+   "inputs": {},
+   "label": "Bevel Material",
+   "location": [
+    2780,
+    -186
+   ],
+   "mute": false,
+   "name": "Bevel Material",
+   "outputs": [
+    "Material"
+   ],
+   "parent": "[Finish]",
+   "props": {
+    "material": {
+     "id": "ET Bevel",
+     "type": "Material"
+    }
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "ShaderNodeValue",
+   "inputs": {},
+   "label": "Bevel Width",
+   "location": [
+    1740,
+    -186
+   ],
+   "mute": false,
+   "name": "Bevel Width",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Bevel]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "ShaderNodeValue",
+   "inputs": {},
+   "label": "Box Height",
+   "location": [
+    180,
+    -534
+   ],
+   "mute": false,
+   "name": "Box Height",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Text]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "ShaderNodeValue",
+   "inputs": {},
+   "label": "Box Width",
+   "location": [
+    0,
+    -534
+   ],
+   "mute": false,
+   "name": "Box Width",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Text]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "ShaderNodeValue",
+   "inputs": {},
+   "label": "Character Spacing",
+   "location": [
+    180,
+    -342
+   ],
+   "mute": false,
+   "name": "Character Spacing",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Text]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "ShaderNodeValue",
+   "inputs": {},
+   "label": "Depth",
+   "location": [
+    1220,
+    -378
+   ],
+   "mute": false,
+   "name": "Depth",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Solid]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "Depth",
+   "location": [
+    1740,
+    -524
+   ],
+   "mute": false,
+   "name": "Depth (Bevel)",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Bevel]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "Depth",
+   "location": [
+    2260,
+    -524
+   ],
+   "mute": false,
+   "name": "Depth (UV)",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[UV]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeGroup",
+   "inputs": {
+    "Socket_0": {
+     "linked": true,
+     "name": "Mesh"
+    },
+    "Socket_1": {
+     "linked": true,
+     "name": "Bevel"
+    },
+    "Socket_2": {
+     "linked": true,
+     "name": "Width"
+    },
+    "Socket_3": {
+     "linked": true,
+     "name": "Segments"
+    },
+    "Socket_4": {
+     "linked": true,
+     "name": "Profile"
+    },
+    "Socket_5": {
+     "linked": true,
+     "name": "Depth"
+    }
+   },
+   "label": "ET Bevel",
+   "location": [
+    1940,
+    0
+   ],
+   "mute": false,
+   "name": "ET Bevel",
+   "outputs": [
+    "Socket_6",
+    "Socket_7",
+    "Socket_8"
+   ],
+   "parent": "[Bevel]",
+   "props": {
+    "node_tree": {
+     "id": ".ET Bevel",
+     "type": "GeometryNodeTree"
+    }
+   },
+   "width": 200.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeGroup",
+   "inputs": {
+    "Socket_0": {
+     "linked": true,
+     "name": "Mesh"
+    },
+    "Socket_1": {
+     "linked": true,
+     "name": "Side Material"
+    },
+    "Socket_2": {
+     "linked": true,
+     "name": "Bevel Material"
+    },
+    "Socket_3": {
+     "linked": true,
+     "name": "Smooth Angle"
+    },
+    "Socket_4": {
+     "linked": true,
+     "name": "Keep Helper Attributes"
+    }
+   },
+   "label": "ET Finish",
+   "location": [
+    2980,
+    0
+   ],
+   "mute": false,
+   "name": "ET Finish",
+   "outputs": [
+    "Socket_5"
+   ],
+   "parent": "[Finish]",
+   "props": {
+    "node_tree": {
+     "id": ".ET Finish",
+     "type": "GeometryNodeTree"
+    }
+   },
+   "width": 200.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeGroup",
+   "inputs": {
+    "Socket_0": {
+     "linked": true,
+     "name": "Curves"
+    },
+    "Socket_1": {
+     "linked": true,
+     "name": "Resolution"
+    },
+    "Socket_2": {
+     "linked": true,
+     "name": "Simplify"
+    }
+   },
+   "label": "ET Outline Clean",
+   "location": [
+    900,
+    0
+   ],
+   "mute": false,
+   "name": "ET Outline Clean",
+   "outputs": [
+    "Socket_3"
+   ],
+   "parent": "[Outline]",
+   "props": {
+    "node_tree": {
+     "id": ".ET Outline Clean",
+     "type": "GeometryNodeTree"
+    }
+   },
+   "width": 200.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeGroup",
+   "inputs": {
+    "Socket_0": {
+     "linked": true,
+     "name": "Curves"
+    },
+    "Socket_1": {
+     "linked": true,
+     "name": "Depth"
+    },
+    "Socket_2": {
+     "linked": true,
+     "name": "Fill Mode"
+    },
+    "Socket_3": {
+     "linked": true,
+     "name": "Fill Rule"
+    },
+    "Socket_4": {
+     "linked": true,
+     "name": "Front Material"
+    }
+   },
+   "label": "ET Solid",
+   "location": [
+    1420,
+    0
+   ],
+   "mute": false,
+   "name": "ET Solid",
+   "outputs": [
+    "Socket_5"
+   ],
+   "parent": "[Solid]",
+   "props": {
+    "node_tree": {
+     "id": ".ET Solid",
+     "type": "GeometryNodeTree"
+    }
+   },
+   "width": 200.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeGroup",
+   "inputs": {
+    "Socket_0": {
+     "linked": true,
+     "name": "Text"
+    },
+    "Socket_1": {
+     "hide": true,
+     "name": "Line 2",
+     "value": ""
+    },
+    "Socket_10": {
+     "linked": true,
+     "name": "Word Spacing"
+    },
+    "Socket_11": {
+     "linked": true,
+     "name": "Line Spacing"
+    },
+    "Socket_12": {
+     "linked": true,
+     "name": "Box Width"
+    },
+    "Socket_13": {
+     "linked": true,
+     "name": "Box Height"
+    },
+    "Socket_14": {
+     "linked": true,
+     "name": "Overflow"
+    },
+    "Socket_2": {
+     "hide": true,
+     "name": "Line 3",
+     "value": ""
+    },
+    "Socket_3": {
+     "hide": true,
+     "name": "Line 4",
+     "value": ""
+    },
+    "Socket_4": {
+     "linked": true,
+     "name": "Font"
+    },
+    "Socket_5": {
+     "linked": true,
+     "name": "Size"
+    },
+    "Socket_6": {
+     "linked": true,
+     "name": "Align X"
+    },
+    "Socket_7": {
+     "linked": true,
+     "name": "Align Y"
+    },
+    "Socket_8": {
+     "linked": true,
+     "name": "Pivot"
+    },
+    "Socket_9": {
+     "linked": true,
+     "name": "Character Spacing"
+    }
+   },
+   "label": "ET Text Source",
+   "location": [
+    380,
+    0
+   ],
+   "mute": false,
+   "name": "ET Text Source",
+   "outputs": [
+    "Socket_15",
+    "Socket_16"
+   ],
+   "parent": "[Text]",
+   "props": {
+    "node_tree": {
+     "id": ".ET Text Source",
+     "type": "GeometryNodeTree"
+    }
+   },
+   "width": 200.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeGroup",
+   "inputs": {
+    "Socket_0": {
+     "linked": true,
+     "name": "Mesh"
+    },
+    "Socket_1": {
+     "linked": true,
+     "name": "UV"
+    },
+    "Socket_2": {
+     "linked": true,
+     "name": "Depth"
+    },
+    "Socket_3": {
+     "linked": true,
+     "name": "Radius"
+    },
+    "Socket_4": {
+     "linked": true,
+     "name": "Normalize to Text"
+    },
+    "Socket_5": {
+     "linked": true,
+     "name": "Scale"
+    }
+   },
+   "label": "ET Text UV",
+   "location": [
+    2460,
+    0
+   ],
+   "mute": false,
+   "name": "ET Text UV",
+   "outputs": [
+    "Socket_6"
+   ],
+   "parent": "[UV]",
+   "props": {
+    "node_tree": {
+     "id": ".ET Text UV",
+     "type": "GeometryNodeTree"
+    }
+   },
+   "width": 200.0
+  },
+  {
+   "hide": false,
+   "idname": "FunctionNodeInputMenu",
+   "inputs": {},
+   "label": "Fill Mode",
+   "location": [
+    1220,
+    -90
+   ],
+   "mute": false,
+   "name": "Fill Mode",
+   "outputs": [
+    "Menu"
+   ],
+   "parent": "[Solid]",
+   "props": {
+    "value": "N-gons"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "FunctionNodeInputMenu",
+   "inputs": {},
+   "label": "Fill Rule",
+   "location": [
+    1220,
+    -186
+   ],
+   "mute": false,
+   "name": "Fill Rule",
+   "outputs": [
+    "Menu"
+   ],
+   "parent": "[Solid]",
+   "props": {
+    "value": "Even-Odd"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeInputFont",
+   "inputs": {},
+   "label": "Font",
+   "location": [
+    0,
+    -150
+   ],
+   "mute": false,
+   "name": "Font",
+   "outputs": [
+    "Font"
+   ],
+   "parent": "[Text]",
+   "props": {
+    "font": {
+     "id": "Bfont Regular",
+     "type": "VectorFont"
+    }
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeInputMaterial",
+   "inputs": {},
+   "label": "Front Material",
+   "location": [
+    1220,
+    -282
+   ],
+   "mute": false,
+   "name": "Front Material",
+   "outputs": [
+    "Material"
+   ],
+   "parent": "[Solid]",
+   "props": {
+    "material": {
+     "id": "ET Front",
+     "type": "Material"
+    }
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupOutput",
+   "inputs": {
+    "Socket_0": {
+     "linked": true,
+     "name": "Geometry"
+    },
+    "__extend__": {
+     "name": ""
+    }
+   },
+   "label": "",
+   "location": [
+    3300,
+    0
+   ],
+   "mute": false,
+   "name": "Group Output",
+   "outputs": [],
+   "parent": "[Easy Text 3]",
+   "props": {
+    "is_active_output": true
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "FunctionNodeInputBool",
+   "inputs": {},
+   "label": "Keep Helper Attributes",
+   "location": [
+    2780,
+    -378
+   ],
+   "mute": false,
+   "name": "Keep Helper Attributes",
+   "outputs": [
+    "Boolean"
+   ],
+   "parent": "[Finish]",
+   "props": {
+    "boolean": false
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "ShaderNodeValue",
+   "inputs": {},
+   "label": "Line Spacing",
+   "location": [
+    180,
+    -438
+   ],
+   "mute": false,
+   "name": "Line Spacing",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Text]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "FunctionNodeInputBool",
+   "inputs": {},
+   "label": "Normalize to Text",
+   "location": [
+    2260,
+    -186
+   ],
+   "mute": false,
+   "name": "Normalize to Text",
+   "outputs": [
+    "Boolean"
+   ],
+   "parent": "[UV]",
+   "props": {
+    "boolean": true
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "FunctionNodeInputMenu",
+   "inputs": {},
+   "label": "Overflow",
+   "location": [
+    0,
+    -630
+   ],
+   "mute": false,
+   "name": "Overflow",
+   "outputs": [
+    "Menu"
+   ],
+   "parent": "[Text]",
+   "props": {
+    "value": "Overflow"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "FunctionNodeInputMenu",
+   "inputs": {},
+   "label": "Pivot",
+   "location": [
+    0,
+    -342
+   ],
+   "mute": false,
+   "name": "Pivot",
+   "outputs": [
+    "Menu"
+   ],
+   "parent": "[Text]",
+   "props": {
+    "value": "Midpoint"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "ShaderNodeValue",
+   "inputs": {},
+   "label": "Profile",
+   "location": [
+    1740,
+    -378
+   ],
+   "mute": false,
+   "name": "Profile",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Bevel]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "FunctionNodeInputInt",
+   "inputs": {},
+   "label": "Resolution",
+   "location": [
+    700,
+    -90
+   ],
+   "mute": false,
+   "name": "Resolution",
+   "outputs": [
+    "Integer"
+   ],
+   "parent": "[Outline]",
+   "props": {
+    "integer": 12
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "FunctionNodeInputInt",
+   "inputs": {},
+   "label": "Segments",
+   "location": [
+    1740,
+    -282
+   ],
+   "mute": false,
+   "name": "Segments",
+   "outputs": [
+    "Integer"
+   ],
+   "parent": "[Bevel]",
+   "props": {
+    "integer": 3
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeInputMaterial",
+   "inputs": {},
+   "label": "Side Material",
+   "location": [
+    2780,
+    -90
+   ],
+   "mute": false,
+   "name": "Side Material",
+   "outputs": [
+    "Material"
+   ],
+   "parent": "[Finish]",
+   "props": {
+    "material": {
+     "id": "ET Side",
+     "type": "Material"
+    }
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "ShaderNodeValue",
+   "inputs": {},
+   "label": "Simplify",
+   "location": [
+    700,
+    -186
+   ],
+   "mute": false,
+   "name": "Simplify",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Outline]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "ShaderNodeValue",
+   "inputs": {},
+   "label": "Size",
+   "location": [
+    180,
+    -150
+   ],
+   "mute": false,
+   "name": "Size",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Text]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "ShaderNodeValue",
+   "inputs": {},
+   "label": "Smooth Angle",
+   "location": [
+    2780,
+    -282
+   ],
+   "mute": false,
+   "name": "Smooth Angle",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Finish]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "FunctionNodeInputString",
+   "inputs": {},
+   "label": "Text",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "Text",
+   "outputs": [
+    "String"
+   ],
+   "parent": "[Text]",
+   "props": {
+    "string": "Easy Text\nGeometry Node 3"
+   },
+   "width": 320.0
+  },
+  {
+   "hide": false,
+   "idname": "FunctionNodeInputBool",
+   "inputs": {},
+   "label": "UV",
+   "location": [
+    2260,
+    -90
+   ],
+   "mute": false,
+   "name": "UV",
+   "outputs": [
+    "Boolean"
+   ],
+   "parent": "[UV]",
+   "props": {
+    "boolean": true
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "ShaderNodeValue",
+   "inputs": {},
+   "label": "UV Scale",
+   "location": [
+    2260,
+    -282
+   ],
+   "mute": false,
+   "name": "UV Scale",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[UV]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "ShaderNodeValue",
+   "inputs": {},
+   "label": "Word Spacing",
+   "location": [
+    0,
+    -438
+   ],
+   "mute": false,
+   "name": "Word Spacing",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Text]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Bevel",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Bevel]",
+   "outputs": [],
+   "parent": "[Easy Text 3]",
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Easy Text 3",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Easy Text 3]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 32,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Finish",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Finish]",
+   "outputs": [],
+   "parent": "[Easy Text 3]",
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Outline",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Outline]",
+   "outputs": [],
+   "parent": "[Easy Text 3]",
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Read Me",
+   "location": [
+    0,
+    290
+   ],
+   "mute": false,
+   "name": "[Read Me]",
+   "outputs": [],
+   "parent": "[Easy Text 3]",
+   "props": {
+    "label_size": 20,
+    "shrink": false,
+    "text": {
+     "id": "Easy Text – Read Me",
+     "type": "Text"
+    }
+   },
+   "width": 3180.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Solid",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Solid]",
+   "outputs": [],
+   "parent": "[Easy Text 3]",
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Text",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Text]",
+   "outputs": [],
+   "parent": "[Easy Text 3]",
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "UV",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[UV]",
+   "outputs": [],
+   "parent": "[Easy Text 3]",
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  }
+ ],
+ "tree_type": "GeometryNodeTree"
+}

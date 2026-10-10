@@ -126,7 +126,9 @@ class GroupBuilder:
         default_width: int | None = 200,
         compact: bool = True,
         reroutes: bool = False,
+        arrange: bool = True,
     ):
+        self.arrange = arrange  # False: positions are set by hand (control-panel trees)
         self.compact = compact  # draw small math nodes collapsed (as in Blender's Essentials)
         self.reroutes = reroutes  # fallback layout only: route long links through reroute stations
         old = bpy.data.node_groups.get(name)
@@ -234,7 +236,16 @@ class GroupBuilder:
 
     # ---------------------------------------------------------------- frames
     @contextlib.contextmanager
-    def frame(self, label: str, *, color: tuple | None = None, label_size: int = 20, text: str | None = None):
+    def frame(
+        self,
+        label: str,
+        *,
+        color: tuple | None = None,
+        label_size: int = 20,
+        text: str | None = None,
+        size: tuple | None = None,
+        location: tuple | None = None,
+    ):
         node = self.tree.nodes.new("NodeFrame")
         node.name = f"[{label}]"  # frames share the node namespace; keep the plain name free for nodes
         node.label = label
@@ -247,6 +258,11 @@ class GroupBuilder:
             note = bpy.data.texts.new(f"{self.tree.name} – {label}")
             note.write(text)
             node.text = note
+        if size is not None:
+            node.shrink = False
+            node.width, node.height = size
+        if location is not None:
+            node.location_absolute = location
         if self._frames:
             node.parent = self._frames[-1]
         self._frames.append(node)
@@ -285,6 +301,11 @@ class GroupBuilder:
         ref = NodeRef(node)
         for key, value in (inputs or {}).items():
             self.set_input(ref, key, value)
+        return ref
+
+    def place(self, ref: NodeRef, x: float, y: float) -> NodeRef:
+        """Manual position (absolute canvas coordinates); used by hand-laid-out trees."""
+        ref.node.location_absolute = (x, y)
         return ref
 
     def group(self, tree_or_name, name: str | None = None, *, inputs: dict | None = None, label=None) -> NodeRef:
@@ -412,8 +433,10 @@ class GroupBuilder:
         if not any(link.from_node == self.group_in for link in self.tree.links):
             self.tree.nodes.remove(self.group_in)  # all inputs go through local copies
             self.group_in = None
-        if not self._arrange():
+        if self.arrange and not self._arrange():
             self._layout()
+        for node in self.tree.nodes:
+            node.select = False  # a saved file should not open with every node highlighted
         if self.catalog is not None:
             self.tree.asset_mark()
             self.tree.asset_data.catalog_id = self.catalog.uuid

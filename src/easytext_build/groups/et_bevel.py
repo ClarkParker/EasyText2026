@@ -65,6 +65,15 @@ def build():
             name="Group Bevel",
         )[0]
         body = g.switch("GEOMETRY", gi["Bevel"], gi["Mesh"], ring, name="Use Bevel")[0]
+
+    with g.frame("Warning"):
+        shown = g.node(
+            "GeometryNodeWarning",
+            "Warn Bevel",
+            inputs={"Show": limited, "Message": "Bevel width limited to half the depth."},
+            props={"warning_type": "INFO"},
+        )["Show"]
+        body = g.switch("GEOMETRY", shown, body, body, name="Mesh")[0]
     g.set_output("Mesh", body)
     g.set_output("Radius", radius)
     g.set_output("Limited", limited)

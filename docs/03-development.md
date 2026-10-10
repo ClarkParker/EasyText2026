@@ -30,6 +30,24 @@ ruff check .
 The smoke test loads the built file, checks that no node was loaded as `NodeUndefined`,
 attaches the test group as a modifier to an object and evaluates it.
 
+### Demo file: window layout and screenshots
+
+`build` writes the demo scene headless. The window layout (workspace "Easy Text", camera view on top, node editor
+below, properties on the modifier tab) is applied afterwards by `easytext_build.demo_ui` in a real Blender 5.2.0
+window, because headless Blender neither switches workspaces nor keeps area changes in the saved file. It runs under
+Xvfb (see README) and also captures a screenshot of every node group into `docs/screenshots/` for layout review.
+
+What the script has to work around (all verified on 5.2.0):
+
+- `window.workspace = ...` and redraws only happen in Blender's event loop, so the work is a generator driven by
+  `bpy.app.timers`; every `yield` hands one tick to the event loop.
+- The timer must be registered with `persistent=True`; a file load removes all other timers.
+- After `wm.open_mainfile` the old window reference is gone; fetch `window_manager.windows[0]` again.
+- `screen.screenshot_area` reads the GL front buffer, which stays black on a virtual display; the X server is
+  captured instead with ImageMagick's `import` and cropped to the area.
+- Areas are joined with `screen.area_join(source_xy, target_xy)` (5.x signature); `space_type_set_or_cycle` changes
+  an area type, `screen_full_area` / `back_to_previous` maximise the node editor for the screenshots.
+
 ## Target version
 
 Blender 5.2 LTS, Python 3.13. API specifics that the builder relies on:
