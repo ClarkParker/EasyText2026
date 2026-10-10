@@ -1,7 +1,28 @@
 # Architektur v3 (Entwurf für Phase 1 und 2)
 
 Stand: 2026-10-10. Baut auf `02-zielbild-v3.md` auf; konkretisiert Gruppen, Attribut-Vertrag und Modifier-UI.
-Entwurf zur Besprechung, noch nicht umgesetzt.
+
+**Prioritätsänderung nach Rücksprache:** Der Hauptgrund für das Werkzeug ist saubere Mesh-Topologie und brauchbare UVs
+für Text. Deshalb ist Phase 1 die Gruppe `ET Text Mesh` (umgesetzt, siehe `src/easytext_build/groups/et_text_mesh.py`);
+Animation (Selektoren/Animatoren) folgt danach. Die Abschnitte 2 bis 4 beschreiben weiterhin das Zielbild für die Animationsphase.
+
+## 0. Umgesetzt: ET Text Mesh (Phase 1)
+
+```
+Zeilen joinen (.ET Lines Join) → String to Curves → Instanz-Index speichern → Realize
+→ Set Spline Resolution → Resample (Evaluated) → kollineare und doppelte Punkte löschen
+→ Konturlänge (et_u) und Schleifenlänge (et_loop_len) speichern
+→ Fill Curve (Mode/Fill Rule) → Normalen auf +Z → Front-Material → Attribute per Sample Nearest nachholen
+→ Rückseite (Flip) + Extrude (Faces) → Join → Merge by Distance   [et_face_group: 0 Seite, 1 Front, 2 Rück, 3 Bevel]
+→ Mesh Bevel auf Face-Group-Grenzkanten (alle fünf Offsets = Radius) → neue Flächen = Gruppe 3
+→ UVMap (Face Corner, 2D): Deckflächen planar aus XY, Band aus U = et_u (am Nahtquad um Schleifenlänge aufgeklappt)
+   und V(z) = Bogenlänge über Rück-Bevel, Seite, Front-Bevel; Skalierung normiert auf die Textbox oder in Metern
+→ Materialien Seite/Bevel per Selektion → Shade Smooth + harte Kanten über Winkel → et_*-Attribute entfernen (optional)
+→ Warning-Nodes (leerer Text, Bevel begrenzt)
+```
+
+Bekannte Grenzen: Bevel-Radius ≥ halbe Strichstärke erzeugt Überlappungen (wie beim Bevel-Modifier ohne Clamp);
+überlappende Glyphen füllen sich gegenseitig aus (Even-Odd); echte Quad-Deckflächen sind nicht enthalten.
 
 ## 1. Pipeline
 

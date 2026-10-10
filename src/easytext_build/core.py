@@ -126,6 +126,7 @@ class GroupBuilder:
         self.group_out.name = "Group Output"
         self.group_out.is_active_output = True
         self._panels: list[bpy.types.NodeTreeInterfacePanel] = []
+        self._menu_defaults: dict[str, str] = {}
 
     # ---------------------------------------------------------------- interface
     @contextlib.contextmanager
@@ -176,6 +177,10 @@ class GroupBuilder:
         if panel_toggle:
             sock.is_panel_toggle = True
         return SocketRef(self.group_in, sock.identifier, True)
+
+    def menu_default(self, name: str, value: str) -> None:
+        """Default eines Menü-Inputs; wird in finish() gesetzt, wenn die Menü-Einträge über Links bekannt sind."""
+        self._menu_defaults[name] = value
 
     def output(self, name: str, type: str, *, description: str = "") -> SocketRef:
         parent = self._panels[-1] if self._panels else None
@@ -239,9 +244,79 @@ class GroupBuilder:
         else:
             sock.default_value = value
 
+    # ---------------------------------------------------------------- Kurzformen für häufige Nodes
+    def math(self, op: str, a, b=None, c=None, *, name: str | None = None, clamp: bool = False) -> NodeRef:
+        inputs = {"Value": a}
+        if b is not None:
+            inputs["Value_001"] = b
+        if c is not None:
+            inputs["Value_002"] = c
+        return self.node("ShaderNodeMath", name, props={"operation": op, "use_clamp": clamp}, inputs=inputs)
+
+    def vmath(self, op: str, a, b=None, *, scale=None, name: str | None = None) -> NodeRef:
+        inputs = {"Vector": a}
+        if b is not None:
+            inputs["Vector_001"] = b
+        if scale is not None:
+            inputs["Scale"] = scale
+        return self.node("ShaderNodeVectorMath", name, props={"operation": op}, inputs=inputs)
+
+    def compare(self, op: str, a, b, *, data_type: str = "FLOAT", name: str | None = None) -> NodeRef:
+        return self.node(
+            "FunctionNodeCompare", name, props={"operation": op, "data_type": data_type}, inputs={"A": a, "B": b}
+        )
+
+    def boolean(self, op: str, a, b=None, *, name: str | None = None) -> NodeRef:
+        inputs = {"Boolean": a}
+        if b is not None:
+            inputs["Boolean_001"] = b
+        return self.node("FunctionNodeBooleanMath", name, props={"operation": op}, inputs=inputs)
+
+    def switch(self, type: str, condition, false, true, *, name: str | None = None) -> NodeRef:
+        return self.node(
+            "GeometryNodeSwitch",
+            name,
+            props={"input_type": type},
+            inputs={"Switch": condition, "False": false, "True": true},
+        )
+
+    def named(self, attr: str, data_type: str = "FLOAT", *, name: str | None = None) -> NodeRef:
+        return self.node("GeometryNodeInputNamedAttribute", name, props={"data_type": data_type}, inputs={"Name": attr})
+
+    def store(
+        self, geometry, attr: str, value, *, domain: str = "POINT", data_type: str = "FLOAT", selection=None, name=None
+    ) -> NodeRef:
+        inputs = {"Geometry": geometry, "Name": attr, "Value": value}
+        if selection is not None:
+            inputs["Selection"] = selection
+        return self.node(
+            "GeometryNodeStoreNamedAttribute",
+            name,
+            props={"data_type": data_type, "domain": domain},
+            inputs=inputs,
+        )
+
+    def sample_index(
+        self, geometry, value, index, *, domain: str = "POINT", data_type: str = "FLOAT", name=None
+    ) -> NodeRef:
+        return self.node(
+            "GeometryNodeSampleIndex",
+            name,
+            props={"data_type": data_type, "domain": domain},
+            inputs={"Geometry": geometry, "Value": value, "Index": index},
+        )
+
+    def separate_xyz(self, vector, *, name=None) -> NodeRef:
+        return self.node("ShaderNodeSeparateXYZ", name, inputs={"Vector": vector})
+
+    def combine_xyz(self, x=0.0, y=0.0, z=0.0, *, name=None) -> NodeRef:
+        return self.node("ShaderNodeCombineXYZ", name, inputs={"X": x, "Y": y, "Z": z})
+
     # ---------------------------------------------------------------- finish
     def finish(self) -> bpy.types.NodeTree:
         self._layout()
+        for name, value in self._menu_defaults.items():
+            self.tree.interface.items_tree[name].default_value = value
         if self.catalog is not None:
             self.tree.asset_mark()
             self.tree.asset_data.catalog_id = self.catalog.uuid
@@ -285,6 +360,14 @@ def _node_height(node: bpy.types.Node) -> float:
         s for s in node.outputs if s.enabled and not s.hide
     ]
     return 60 + 22 * len(visible)
+
+
+def builtin_font() -> bpy.types.VectorFont:
+    """Blenders eingebauter Font (Bfont Regular); wird bei Bedarf geladen."""
+    font = bpy.data.fonts.get("Bfont Regular")
+    if font is None:
+        font = bpy.data.fonts.load("<builtin>")
+    return font
 
 
 def iter_trees(names: Iterable[str]):

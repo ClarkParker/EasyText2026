@@ -1,0 +1,732 @@
+{
+ "asset_catalog_id": null,
+ "description": "Vier Zeilen zu einem String mit Zeilenumbrüchen; leere Zeilen entfallen.",
+ "flags": {
+  "color_tag": "NONE",
+  "default_group_node_width": 140,
+  "is_modifier": false,
+  "is_tool": false
+ },
+ "interface": [
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": "",
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_4",
+   "in_out": "OUTPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "String",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketString",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": "",
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": true,
+   "identifier": "Socket_0",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Line 1",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketString",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": "",
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": true,
+   "identifier": "Socket_1",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Line 2",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketString",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": "",
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": true,
+   "identifier": "Socket_2",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Line 3",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketString",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": "",
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": true,
+   "identifier": "Socket_3",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Line 4",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketString",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  }
+ ],
+ "links": [
+  [
+   "Break + Line 2",
+   "String",
+   "Use Line 2",
+   "True"
+  ],
+  [
+   "Break + Line 3",
+   "String",
+   "Use Line 3",
+   "True"
+  ],
+  [
+   "Break + Line 4",
+   "String",
+   "Use Line 4",
+   "True"
+  ],
+  [
+   "Group Input",
+   "Socket_0",
+   "Join Lines",
+   "Strings"
+  ],
+  [
+   "Group Input",
+   "Socket_1",
+   "Break + Line 2",
+   "Strings"
+  ],
+  [
+   "Group Input",
+   "Socket_1",
+   "Length 2",
+   "String"
+  ],
+  [
+   "Group Input",
+   "Socket_2",
+   "Break + Line 3",
+   "Strings"
+  ],
+  [
+   "Group Input",
+   "Socket_2",
+   "Length 3",
+   "String"
+  ],
+  [
+   "Group Input",
+   "Socket_3",
+   "Break + Line 4",
+   "Strings"
+  ],
+  [
+   "Group Input",
+   "Socket_3",
+   "Length 4",
+   "String"
+  ],
+  [
+   "Has Text 2",
+   "Result",
+   "Use Line 2",
+   "Switch"
+  ],
+  [
+   "Has Text 3",
+   "Result",
+   "Use Line 3",
+   "Switch"
+  ],
+  [
+   "Has Text 4",
+   "Result",
+   "Use Line 4",
+   "Switch"
+  ],
+  [
+   "Join Lines",
+   "String",
+   "Trim",
+   "String"
+  ],
+  [
+   "Length 2",
+   "Length",
+   "Has Text 2",
+   "A"
+  ],
+  [
+   "Length 3",
+   "Length",
+   "Has Text 3",
+   "A"
+  ],
+  [
+   "Length 4",
+   "Length",
+   "Has Text 4",
+   "A"
+  ],
+  [
+   "Line Break",
+   "Line Break",
+   "Break + Line 2",
+   "Strings"
+  ],
+  [
+   "Line Break",
+   "Line Break",
+   "Break + Line 3",
+   "Strings"
+  ],
+  [
+   "Line Break",
+   "Line Break",
+   "Break + Line 4",
+   "Strings"
+  ],
+  [
+   "Trim",
+   "String",
+   "Group Output",
+   "Socket_4"
+  ],
+  [
+   "Use Line 2",
+   "Output",
+   "Join Lines",
+   "Strings"
+  ],
+  [
+   "Use Line 3",
+   "Output",
+   "Join Lines",
+   "Strings"
+  ],
+  [
+   "Use Line 4",
+   "Output",
+   "Join Lines",
+   "Strings"
+  ]
+ ],
+ "name": ".ET Lines Join",
+ "nodes": [
+  {
+   "hide": false,
+   "idname": "GeometryNodeStringJoin",
+   "inputs": {
+    "Delimiter": {
+     "name": "Delimiter",
+     "value": ""
+    },
+    "Strings": {
+     "linked": true,
+     "name": "Strings"
+    }
+   },
+   "label": "",
+   "location": [
+    280,
+    0
+   ],
+   "mute": false,
+   "name": "Break + Line 2",
+   "outputs": [
+    "String"
+   ],
+   "parent": null,
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeStringJoin",
+   "inputs": {
+    "Delimiter": {
+     "name": "Delimiter",
+     "value": ""
+    },
+    "Strings": {
+     "linked": true,
+     "name": "Strings"
+    }
+   },
+   "label": "",
+   "location": [
+    280,
+    -166
+   ],
+   "mute": false,
+   "name": "Break + Line 3",
+   "outputs": [
+    "String"
+   ],
+   "parent": null,
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeStringJoin",
+   "inputs": {
+    "Delimiter": {
+     "name": "Delimiter",
+     "value": ""
+    },
+    "Strings": {
+     "linked": true,
+     "name": "Strings"
+    }
+   },
+   "label": "",
+   "location": [
+    280,
+    -332
+   ],
+   "mute": false,
+   "name": "Break + Line 4",
+   "outputs": [
+    "String"
+   ],
+   "parent": null,
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "Group Input",
+   "outputs": [
+    "Socket_0",
+    "Socket_1",
+    "Socket_2",
+    "Socket_3",
+    "__extend__"
+   ],
+   "parent": null,
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupOutput",
+   "inputs": {
+    "Socket_4": {
+     "linked": true,
+     "name": "String"
+    },
+    "__extend__": {
+     "name": ""
+    }
+   },
+   "label": "",
+   "location": [
+    1680,
+    0
+   ],
+   "mute": false,
+   "name": "Group Output",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "is_active_output": true
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "FunctionNodeCompare",
+   "inputs": {
+    "A": {
+     "linked": true,
+     "name": "A"
+    },
+    "B": {
+     "name": "B",
+     "value": 0
+    }
+   },
+   "label": "",
+   "location": [
+    560,
+    0
+   ],
+   "mute": false,
+   "name": "Has Text 2",
+   "outputs": [
+    "Result"
+   ],
+   "parent": null,
+   "props": {
+    "data_type": "INT",
+    "mode": "ELEMENT",
+    "operation": "GREATER_THAN"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "FunctionNodeCompare",
+   "inputs": {
+    "A": {
+     "linked": true,
+     "name": "A"
+    },
+    "B": {
+     "name": "B",
+     "value": 0
+    }
+   },
+   "label": "",
+   "location": [
+    560,
+    -166
+   ],
+   "mute": false,
+   "name": "Has Text 3",
+   "outputs": [
+    "Result"
+   ],
+   "parent": null,
+   "props": {
+    "data_type": "INT",
+    "mode": "ELEMENT",
+    "operation": "GREATER_THAN"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "FunctionNodeCompare",
+   "inputs": {
+    "A": {
+     "linked": true,
+     "name": "A"
+    },
+    "B": {
+     "name": "B",
+     "value": 0
+    }
+   },
+   "label": "",
+   "location": [
+    560,
+    -332
+   ],
+   "mute": false,
+   "name": "Has Text 4",
+   "outputs": [
+    "Result"
+   ],
+   "parent": null,
+   "props": {
+    "data_type": "INT",
+    "mode": "ELEMENT",
+    "operation": "GREATER_THAN"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeStringJoin",
+   "inputs": {
+    "Delimiter": {
+     "name": "Delimiter",
+     "value": ""
+    },
+    "Strings": {
+     "linked": true,
+     "name": "Strings"
+    }
+   },
+   "label": "",
+   "location": [
+    1120,
+    0
+   ],
+   "mute": false,
+   "name": "Join Lines",
+   "outputs": [
+    "String"
+   ],
+   "parent": null,
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "FunctionNodeStringLength",
+   "inputs": {
+    "String": {
+     "linked": true,
+     "name": "String"
+    }
+   },
+   "label": "",
+   "location": [
+    280,
+    -498
+   ],
+   "mute": false,
+   "name": "Length 2",
+   "outputs": [
+    "Length"
+   ],
+   "parent": null,
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "FunctionNodeStringLength",
+   "inputs": {
+    "String": {
+     "linked": true,
+     "name": "String"
+    }
+   },
+   "label": "",
+   "location": [
+    280,
+    -642
+   ],
+   "mute": false,
+   "name": "Length 3",
+   "outputs": [
+    "Length"
+   ],
+   "parent": null,
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "FunctionNodeStringLength",
+   "inputs": {
+    "String": {
+     "linked": true,
+     "name": "String"
+    }
+   },
+   "label": "",
+   "location": [
+    280,
+    -786
+   ],
+   "mute": false,
+   "name": "Length 4",
+   "outputs": [
+    "Length"
+   ],
+   "parent": null,
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "FunctionNodeInputSpecialCharacters",
+   "inputs": {},
+   "label": "",
+   "location": [
+    0,
+    -210
+   ],
+   "mute": false,
+   "name": "Line Break",
+   "outputs": [
+    "Line Break",
+    "Tab"
+   ],
+   "parent": null,
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "FunctionNodeTrimString",
+   "inputs": {
+    "Characters": {
+     "name": "Characters",
+     "value": ""
+    },
+    "End": {
+     "name": "End",
+     "value": true
+    },
+    "Start": {
+     "name": "Start",
+     "value": true
+    },
+    "String": {
+     "linked": true,
+     "name": "String"
+    },
+    "Whitespace": {
+     "name": "Whitespace",
+     "value": true
+    }
+   },
+   "label": "",
+   "location": [
+    1400,
+    0
+   ],
+   "mute": false,
+   "name": "Trim",
+   "outputs": [
+    "String"
+   ],
+   "parent": null,
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSwitch",
+   "inputs": {
+    "False": {
+     "name": "False",
+     "value": ""
+    },
+    "Switch": {
+     "linked": true,
+     "name": "Switch"
+    },
+    "True": {
+     "linked": true,
+     "name": "True"
+    }
+   },
+   "label": "",
+   "location": [
+    840,
+    0
+   ],
+   "mute": false,
+   "name": "Use Line 2",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "input_type": "STRING"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSwitch",
+   "inputs": {
+    "False": {
+     "name": "False",
+     "value": ""
+    },
+    "Switch": {
+     "linked": true,
+     "name": "Switch"
+    },
+    "True": {
+     "linked": true,
+     "name": "True"
+    }
+   },
+   "label": "",
+   "location": [
+    840,
+    -188
+   ],
+   "mute": false,
+   "name": "Use Line 3",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "input_type": "STRING"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSwitch",
+   "inputs": {
+    "False": {
+     "name": "False",
+     "value": ""
+    },
+    "Switch": {
+     "linked": true,
+     "name": "Switch"
+    },
+    "True": {
+     "linked": true,
+     "name": "True"
+    }
+   },
+   "label": "",
+   "location": [
+    840,
+    -376
+   ],
+   "mute": false,
+   "name": "Use Line 4",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "input_type": "STRING"
+   },
+   "width": 140.0
+  }
+ ],
+ "tree_type": "GeometryNodeTree"
+}

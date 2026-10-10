@@ -1,8 +1,9 @@
 """Reihenfolge der Gruppen-Builder. Abhängigkeiten (Untergruppen) stehen vor ihren Nutzern."""
 
-from . import et_smoke
+from . import et_lines_join, et_text_mesh
 
-MODULES = [et_smoke]
+MODULES = [et_lines_join, et_text_mesh]
+MAIN = et_text_mesh.NAME
 
 
 def names() -> list[str]:

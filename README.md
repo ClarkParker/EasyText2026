@@ -4,8 +4,24 @@ Geometry-Nodes-Typografie und Text-Animation für **Blender 5.2 LTS**: Node-Grou
 (funktionieren als Modifier ohne Add-on) plus eine optionale Extension für Font-Picker,
 mehrzeiligen Text, Presets sowie Kamera- und Licht-Rigs.
 
-Status: Phase 0 (Infrastruktur). Die Analyse der Vorgängerversion und das Zielbild stehen in
-`docs/01-analyse-v2.1.md` und `docs/02-zielbild-v3.md`, die Entwicklungsregeln in `docs/03-entwicklung.md`.
+Status: Phase 1, erste Node-Gruppe `ET Text Mesh` (Text → sauberes Mesh mit Extrusion, Bevel, Materialien, UVs).
+Analyse der Vorgängerversion: `docs/01-analyse-v2.1.md`, Zielbild: `docs/02-zielbild-v3.md`,
+Entwicklungsregeln und API-Fallen: `docs/03-entwicklung.md`, Architektur: `docs/04-architektur-v3.md`.
+
+## Testen in Blender (5.2 LTS)
+
+1. `assets/easytext_v3.blend` herunterladen (aus dem Repo oder als CI-Artefakt).
+2. In einer eigenen Datei: File → Append → `easytext_v3.blend` → NodeTree → `ET Text Mesh`.
+   Alternativ den Ordner `assets/` in den Preferences als Asset-Bibliothek eintragen; die Gruppe erscheint dann
+   im Add-Modifier-Menü unter "Easy Text".
+3. Ein beliebiges Mesh-Objekt (oder seit 5.2 ein Empty) anlegen, Modifier "Geometry Nodes" hinzufügen, Gruppe `ET Text Mesh` wählen.
+4. Panels im Modifier: Text (4 Zeilen), Typografie (Font-Socket, Größe, Ausrichtung, Abstände, Textbox),
+   Kontur (Auflösung, Vereinfachen, Füllung), Form (Tiefe, Bevel, Glättungswinkel), Material, UV, Ausgabe.
+
+Was die Gruppe garantiert (headless geprüft): geschlossenes, manifoldes Mesh ohne doppelte Vertices; Deckflächen als
+N-Gons oder Dreiecke; Seiten als Quads; Bevel als Quads; UV-Map `UVMap` mit planaren Deckflächen und einer
+durchgehenden, unverzerrten UV-Bahn für Seiten und Bevel (U = Konturlänge, V = Bogenlänge über Rück-Bevel, Seite, Front-Bevel);
+Materialien in den Slots Front/Seite/Bevel; Warnungen bei leerem Text und zu breitem Bevel.
 
 ## Aufbau
 

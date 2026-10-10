@@ -52,3 +52,16 @@ Blender 5.2 LTS, Python 3.13. API-Besonderheiten, die der Builder voraussetzt:
 - Kamera: `GeometryNodeInputActiveCamera`, `GeometryNodeCameraInfo` (Projection Matrix, Focal Length, Sensor, Shift, Clip, Focus Distance, Is Orthographic, Orthographic Scale).
 - Gizmo: `GeometryNodeGizmoLinear` (Value, Position, Direction; `color_id`, `draw_style`).
 - Modifier: `mod.properties.inputs[<identifier>]`, `.outputs`, `.panels`; `mod.node_warnings`, `mod.bakes`, `mod.bake_target`.
+
+## Fallen in der 5.2-API (beim Bau von ET Text Mesh gefunden)
+
+- **Mesh Bevel:** Die Inputs `Start Left Offset`, `Start Right Offset`, `End Left Offset`, `End Right Offset` haben Default 0.1 und überstimmen `Offset`. Ohne sie explizit zu setzen entstehen Spitzen an Ecken, nicht-manifolde Kanten und bei ungerader Segmentzahl doppelte Vertices. Mit allen fünf Offsets auf dem Radius ist das Ergebnis sauber. `Miter = True` auf Textkonturen explodiert die Geometrie (Faces mit Hunderten Ecken).
+- **Fill Curve** übernimmt keine Punkt-Attribute der Kurve. Transport über `Curve to Points` (Property `mode = 'EVALUATED'`) → `Sample Nearest` (nur Mesh/Punktwolke als Quelle) → `Sample Index`.
+- **Extrude Mesh** und **Mesh Bevel** kopieren Vertex-Attribute auf neue Vertices (keine Interpolation).
+- **Set Material** mit Selektion auf einem Mesh, das schon `material_index` trägt, legt einen leeren Slot 0 an. Erstes Material ohne Selektion direkt nach dem Fill setzen, danach selektiv überschreiben.
+- **Menü-Inputs** am Group-Interface bekommen ihre Einträge über den verlinkten Node; `default_value` lässt sich erst nach dem Verlinken setzen (Builder: `menu_default()` in `finish()`).
+- **Font-Socket:** Ohne Default-Font liefert String to Curves den Fehler "Font not specified". Eingebauter Font über `bpy.data.fonts.load('<builtin>')` (Name `Bfont Regular`).
+- **String to Curves** erzeugt für Leerzeichen eine leere Instanz (Referenz `None`); der Instanz-Index zählt Leerzeichen mit.
+- **Modifier-Inputs in Python 5.2:** `mod.properties.inputs[identifier]` ist eine `IDPropertyGroup` mit Schlüsseln `value` und `type` (`p['value'] = …`). Nach dem Setzen `mod.node_group = mod.node_group` plus `ob.update_tag()`, sonst bleibt die Auswertung alt. Gleichnamige Inputs (z. B. "Breite" in zwei Panels) brauchen die Identifier, nicht den Namen.
+- **Remove Named Attribute:** `Pattern Mode` kennt nur `Exact` und `Wildcard` (`et_*`).
+- **Delete Geometry** auf Kurvenpunkten funktioniert für zyklische Poly-Kurven ohne Nebenwirkung; `Offset Point in Curve` liefert für zyklische Kurven immer gültige Nachbarn.
