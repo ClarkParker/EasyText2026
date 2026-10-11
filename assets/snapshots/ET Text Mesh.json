@@ -15,7 +15,7 @@
    "description": "",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_41",
+   "identifier": "Socket_67",
    "in_out": "OUTPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -669,6 +669,481 @@
    "subtype": "NONE"
   },
   {
+   "default_closed": false,
+   "description": "Per-letter animation driven by the scene frame.",
+   "item_type": "PANEL",
+   "name": "Animate",
+   "parent": null
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": false,
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_35",
+   "in_out": "INPUT",
+   "is_panel_toggle": true,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Animate",
+   "optional_label": false,
+   "parent": "Animate",
+   "socket_type": "NodeSocketBool",
+   "structure_type": "AUTO"
+  },
+  {
+   "default_closed": false,
+   "description": "",
+   "item_type": "PANEL",
+   "name": "Timing",
+   "parent": "Animate"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 1,
+   "description": "Frame at which the first element starts.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_37",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 100000,
+   "menu_expanded": false,
+   "min_value": -10000,
+   "name": "Start",
+   "optional_label": false,
+   "parent": "Timing",
+   "socket_type": "NodeSocketInt",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 24,
+   "description": "Frames one element needs.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_38",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 10000,
+   "menu_expanded": false,
+   "min_value": 1,
+   "name": "Duration",
+   "optional_label": false,
+   "parent": "Timing",
+   "socket_type": "NodeSocketInt",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 2.0,
+   "description": "Frames between two elements.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_39",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 1000.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
+   "name": "Stagger",
+   "optional_label": false,
+   "parent": "Timing",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": "Left to Right",
+   "description": "Which element starts first.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_40",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Order",
+   "optional_label": false,
+   "parent": "Timing",
+   "socket_type": "NodeSocketMenu",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": "Letters",
+   "description": "What counts as one element.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_41",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Basis",
+   "optional_label": false,
+   "parent": "Timing",
+   "socket_type": "NodeSocketMenu",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": "Ease Out",
+   "description": "Speed curve of one element.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_42",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Easing",
+   "optional_label": false,
+   "parent": "Timing",
+   "socket_type": "NodeSocketMenu",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": "Once",
+   "description": "Play once, repeat, or go back and forth.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_43",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Loop",
+   "optional_label": false,
+   "parent": "Timing",
+   "socket_type": "NodeSocketMenu",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": "In",
+   "description": "In: from the start state into place. Out: from place away.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_44",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Direction",
+   "optional_label": false,
+   "parent": "Timing",
+   "socket_type": "NodeSocketMenu",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0,
+   "description": "Seed for the Random order.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_45",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 10000,
+   "menu_expanded": false,
+   "min_value": 0,
+   "name": "Seed",
+   "optional_label": false,
+   "parent": "Timing",
+   "socket_type": "NodeSocketInt",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  },
+  {
+   "default_closed": false,
+   "description": "",
+   "item_type": "PANEL",
+   "name": "Move",
+   "parent": "Animate"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "description": "Where an element starts, relative to its place.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_47",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 3.4028234663852886e+38,
+   "menu_expanded": false,
+   "min_value": -3.4028234663852886e+38,
+   "name": "Offset",
+   "optional_label": false,
+   "parent": "Move",
+   "socket_type": "NodeSocketVector",
+   "structure_type": "AUTO",
+   "subtype": "TRANSLATION"
+  },
+  {
+   "default_closed": false,
+   "description": "",
+   "item_type": "PANEL",
+   "name": "Rotate",
+   "parent": "Animate"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "description": "Start rotation.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_49",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 3.4028234663852886e+38,
+   "menu_expanded": false,
+   "min_value": -3.4028234663852886e+38,
+   "name": "Rotation",
+   "optional_label": false,
+   "parent": "Rotate",
+   "socket_type": "NodeSocketVector",
+   "structure_type": "AUTO",
+   "subtype": "EULER"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": "Letter",
+   "description": "Rotation and scale centre: glyph pivot, word, line or text.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_50",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Center",
+   "optional_label": false,
+   "parent": "Rotate",
+   "socket_type": "NodeSocketMenu",
+   "structure_type": "AUTO"
+  },
+  {
+   "default_closed": false,
+   "description": "",
+   "item_type": "PANEL",
+   "name": "Scale",
+   "parent": "Animate"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "description": "Start scale.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_52",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 3.4028234663852886e+38,
+   "menu_expanded": false,
+   "min_value": -3.4028234663852886e+38,
+   "name": "Scale",
+   "optional_label": false,
+   "parent": "Scale",
+   "socket_type": "NodeSocketVector",
+   "structure_type": "AUTO",
+   "subtype": "XYZ"
+  },
+  {
+   "default_closed": true,
+   "description": "",
+   "item_type": "PANEL",
+   "name": "Reveal",
+   "parent": "Animate"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": false,
+   "description": "Elements are invisible until they start.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_54",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Hide Before Start",
+   "optional_label": false,
+   "parent": "Reveal",
+   "socket_type": "NodeSocketBool",
+   "structure_type": "AUTO"
+  },
+  {
+   "default_closed": true,
+   "description": "Continuous wobble, independent of the timing.",
+   "item_type": "PANEL",
+   "name": "Bounce",
+   "parent": "Animate"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": false,
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_56",
+   "in_out": "INPUT",
+   "is_panel_toggle": true,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Bounce",
+   "optional_label": false,
+   "parent": "Bounce",
+   "socket_type": "NodeSocketBool",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": [
+    0.0,
+    0.1,
+    0.0
+   ],
+   "description": "Amplitude per axis.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_57",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 3.4028234663852886e+38,
+   "menu_expanded": false,
+   "min_value": -3.4028234663852886e+38,
+   "name": "Bounce Strength",
+   "optional_label": false,
+   "parent": "Bounce",
+   "socket_type": "NodeSocketVector",
+   "structure_type": "AUTO",
+   "subtype": "TRANSLATION"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 1.0,
+   "description": "Cycles per second.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_58",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 100.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
+   "name": "Bounce Speed",
+   "optional_label": false,
+   "parent": "Bounce",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.1,
+   "description": "Cycle offset per element.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_59",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 10.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
+   "name": "Bounce Phase",
+   "optional_label": false,
+   "parent": "Bounce",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  },
+  {
    "default_closed": true,
    "description": "Quality of the glyph outlines.",
    "item_type": "PANEL",
@@ -683,7 +1158,7 @@
    "description": "Points per curve segment.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_35",
+   "identifier": "Socket_61",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -706,7 +1181,7 @@
    "description": "Remove points whose direction changes less than this angle (degrees). 0 = off.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_36",
+   "identifier": "Socket_62",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -729,7 +1204,7 @@
    "description": "N-gons or triangles on the caps.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_37",
+   "identifier": "Socket_63",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -749,7 +1224,7 @@
    "description": "Even-Odd or Non-Zero for overlapping outlines.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_38",
+   "identifier": "Socket_64",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -773,10 +1248,10 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": false,
-   "description": "Keep the et_* attributes (character index, contour length, face group) on the mesh.",
+   "description": "Keep the et_* attributes (character, word, line index, pivot, weight) on the mesh.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_40",
+   "identifier": "Socket_66",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -790,6 +1265,132 @@
   }
  ],
  "links": [
+  [
+   "Animation",
+   "Socket_29",
+   "Group Output",
+   "Socket_67"
+  ],
+  [
+   "Group Input (Animation)",
+   "Socket_35",
+   "Animation",
+   "Socket_2"
+  ],
+  [
+   "Group Input (Animation)",
+   "Socket_37",
+   "Animation",
+   "Socket_4"
+  ],
+  [
+   "Group Input (Animation)",
+   "Socket_38",
+   "Animation",
+   "Socket_5"
+  ],
+  [
+   "Group Input (Animation)",
+   "Socket_39",
+   "Animation",
+   "Socket_6"
+  ],
+  [
+   "Group Input (Animation)",
+   "Socket_40",
+   "Animation",
+   "Socket_7"
+  ],
+  [
+   "Group Input (Animation)",
+   "Socket_41",
+   "Animation",
+   "Socket_8"
+  ],
+  [
+   "Group Input (Animation)",
+   "Socket_42",
+   "Animation",
+   "Socket_9"
+  ],
+  [
+   "Group Input (Animation)",
+   "Socket_43",
+   "Animation",
+   "Socket_10"
+  ],
+  [
+   "Group Input (Animation)",
+   "Socket_44",
+   "Animation",
+   "Socket_11"
+  ],
+  [
+   "Group Input (Animation)",
+   "Socket_45",
+   "Animation",
+   "Socket_12"
+  ],
+  [
+   "Group Input (Animation)",
+   "Socket_47",
+   "Animation",
+   "Socket_14"
+  ],
+  [
+   "Group Input (Animation)",
+   "Socket_49",
+   "Animation",
+   "Socket_16"
+  ],
+  [
+   "Group Input (Animation)",
+   "Socket_50",
+   "Animation",
+   "Socket_17"
+  ],
+  [
+   "Group Input (Animation)",
+   "Socket_52",
+   "Animation",
+   "Socket_19"
+  ],
+  [
+   "Group Input (Animation)",
+   "Socket_54",
+   "Animation",
+   "Socket_21"
+  ],
+  [
+   "Group Input (Animation)",
+   "Socket_56",
+   "Animation",
+   "Socket_23"
+  ],
+  [
+   "Group Input (Animation)",
+   "Socket_57",
+   "Animation",
+   "Socket_24"
+  ],
+  [
+   "Group Input (Animation)",
+   "Socket_58",
+   "Animation",
+   "Socket_25"
+  ],
+  [
+   "Group Input (Animation)",
+   "Socket_59",
+   "Animation",
+   "Socket_26"
+  ],
+  [
+   "Group Input (Animation)",
+   "Socket_66",
+   "Animation",
+   "Socket_28"
+  ],
   [
    "Group Input (Lines)",
    "Socket_1",
@@ -888,33 +1489,27 @@
   ],
   [
    "Group Input (Mesh)",
-   "Socket_35",
+   "Socket_61",
    "Mesh Generation",
    "Socket_18"
   ],
   [
    "Group Input (Mesh)",
-   "Socket_36",
+   "Socket_62",
    "Mesh Generation",
    "Socket_19"
   ],
   [
    "Group Input (Mesh)",
-   "Socket_37",
+   "Socket_63",
    "Mesh Generation",
    "Socket_20"
   ],
   [
    "Group Input (Mesh)",
-   "Socket_38",
+   "Socket_64",
    "Mesh Generation",
    "Socket_21"
-  ],
-  [
-   "Group Input (Mesh)",
-   "Socket_40",
-   "Mesh Generation",
-   "Socket_23"
   ],
   [
    "Group Input (Typography)",
@@ -990,9 +1585,9 @@
   ],
   [
    "Mesh Generation",
-   "Socket_24",
-   "Group Output",
-   "Socket_41"
+   "Socket_22",
+   "Animation",
+   "Socket_0"
   ],
   [
    "Text Source",
@@ -1005,12 +1600,188 @@
  "nodes": [
   {
    "hide": false,
+   "idname": "GeometryNodeGroup",
+   "inputs": {
+    "Socket_0": {
+     "linked": true,
+     "name": "Mesh"
+    },
+    "Socket_10": {
+     "linked": true,
+     "name": "Loop"
+    },
+    "Socket_11": {
+     "linked": true,
+     "name": "Direction"
+    },
+    "Socket_12": {
+     "linked": true,
+     "name": "Seed"
+    },
+    "Socket_14": {
+     "linked": true,
+     "name": "Offset"
+    },
+    "Socket_16": {
+     "linked": true,
+     "name": "Rotation"
+    },
+    "Socket_17": {
+     "linked": true,
+     "name": "Center"
+    },
+    "Socket_19": {
+     "linked": true,
+     "name": "Scale"
+    },
+    "Socket_2": {
+     "linked": true,
+     "name": "-=| Animate |=-"
+    },
+    "Socket_21": {
+     "linked": true,
+     "name": "Hide Before Start"
+    },
+    "Socket_23": {
+     "linked": true,
+     "name": "-- Bounce --"
+    },
+    "Socket_24": {
+     "linked": true,
+     "name": "Bounce Strength"
+    },
+    "Socket_25": {
+     "linked": true,
+     "name": "Bounce Speed"
+    },
+    "Socket_26": {
+     "linked": true,
+     "name": "Bounce Phase"
+    },
+    "Socket_28": {
+     "linked": true,
+     "name": "Keep Helper Attributes"
+    },
+    "Socket_4": {
+     "linked": true,
+     "name": "Start"
+    },
+    "Socket_5": {
+     "linked": true,
+     "name": "Duration"
+    },
+    "Socket_6": {
+     "linked": true,
+     "name": "Stagger"
+    },
+    "Socket_7": {
+     "linked": true,
+     "name": "Order"
+    },
+    "Socket_8": {
+     "linked": true,
+     "name": "Basis"
+    },
+    "Socket_9": {
+     "linked": true,
+     "name": "Easing"
+    }
+   },
+   "label": "Animation",
+   "location": [
+    860,
+    100
+   ],
+   "mute": false,
+   "name": "Animation",
+   "outputs": [
+    "Socket_29"
+   ],
+   "parent": "[Animation]",
+   "props": {
+    "node_tree": {
+     "id": ".ET Animation",
+     "type": "GeometryNodeTree"
+    }
+   },
+   "width": 320.0
+  },
+  {
+   "hide": false,
    "idname": "NodeGroupInput",
    "inputs": {},
    "label": "",
    "location": [
-    -620,
-    40
+    680,
+    -20
+   ],
+   "mute": false,
+   "name": "Group Input (Animation)",
+   "outputs": [
+    "Socket_1",
+    "Socket_2",
+    "Socket_3",
+    "Socket_4",
+    "Socket_6",
+    "Socket_7",
+    "Socket_8",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_12",
+    "Socket_13",
+    "Socket_15",
+    "Socket_16",
+    "Socket_17",
+    "Socket_19",
+    "Socket_25",
+    "Socket_21",
+    "Socket_22",
+    "Socket_23",
+    "Socket_24",
+    "Socket_27",
+    "Socket_28",
+    "Socket_29",
+    "Socket_31",
+    "Socket_32",
+    "Socket_33",
+    "Socket_35",
+    "Socket_37",
+    "Socket_38",
+    "Socket_39",
+    "Socket_40",
+    "Socket_41",
+    "Socket_42",
+    "Socket_43",
+    "Socket_44",
+    "Socket_45",
+    "Socket_47",
+    "Socket_49",
+    "Socket_50",
+    "Socket_52",
+    "Socket_54",
+    "Socket_56",
+    "Socket_57",
+    "Socket_58",
+    "Socket_59",
+    "Socket_61",
+    "Socket_62",
+    "Socket_63",
+    "Socket_64",
+    "Socket_66",
+    "__extend__"
+   ],
+   "parent": "[Animation]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    -940,
+    20
    ],
    "mute": false,
    "name": "Group Input (Lines)",
@@ -1043,10 +1814,29 @@
     "Socket_32",
     "Socket_33",
     "Socket_35",
-    "Socket_36",
     "Socket_37",
     "Socket_38",
+    "Socket_39",
     "Socket_40",
+    "Socket_41",
+    "Socket_42",
+    "Socket_43",
+    "Socket_44",
+    "Socket_45",
+    "Socket_47",
+    "Socket_49",
+    "Socket_50",
+    "Socket_52",
+    "Socket_54",
+    "Socket_56",
+    "Socket_57",
+    "Socket_58",
+    "Socket_59",
+    "Socket_61",
+    "Socket_62",
+    "Socket_63",
+    "Socket_64",
+    "Socket_66",
     "__extend__"
    ],
    "parent": "[Text]",
@@ -1058,7 +1848,7 @@
    "inputs": {},
    "label": "",
    "location": [
-    300,
+    -20,
     -60
    ],
    "mute": false,
@@ -1092,10 +1882,29 @@
     "Socket_32",
     "Socket_33",
     "Socket_35",
-    "Socket_36",
     "Socket_37",
     "Socket_38",
+    "Socket_39",
     "Socket_40",
+    "Socket_41",
+    "Socket_42",
+    "Socket_43",
+    "Socket_44",
+    "Socket_45",
+    "Socket_47",
+    "Socket_49",
+    "Socket_50",
+    "Socket_52",
+    "Socket_54",
+    "Socket_56",
+    "Socket_57",
+    "Socket_58",
+    "Socket_59",
+    "Socket_61",
+    "Socket_62",
+    "Socket_63",
+    "Socket_64",
+    "Socket_66",
     "__extend__"
    ],
    "parent": "[Mesh]",
@@ -1107,8 +1916,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    -420,
-    -160
+    -720,
+    -180
    ],
    "mute": false,
    "name": "Group Input (Typography)",
@@ -1141,10 +1950,29 @@
     "Socket_32",
     "Socket_33",
     "Socket_35",
-    "Socket_36",
     "Socket_37",
     "Socket_38",
+    "Socket_39",
     "Socket_40",
+    "Socket_41",
+    "Socket_42",
+    "Socket_43",
+    "Socket_44",
+    "Socket_45",
+    "Socket_47",
+    "Socket_49",
+    "Socket_50",
+    "Socket_52",
+    "Socket_54",
+    "Socket_56",
+    "Socket_57",
+    "Socket_58",
+    "Socket_59",
+    "Socket_61",
+    "Socket_62",
+    "Socket_63",
+    "Socket_64",
+    "Socket_66",
     "__extend__"
    ],
    "parent": "[Text]",
@@ -1154,7 +1982,7 @@
    "hide": false,
    "idname": "NodeGroupOutput",
    "inputs": {
-    "Socket_41": {
+    "Socket_67": {
      "linked": true,
      "name": "Geometry"
     },
@@ -1164,8 +1992,8 @@
    },
    "label": "",
    "location": [
-    880,
-    60
+    1240,
+    100
    ],
    "mute": false,
    "name": "Group Output",
@@ -1199,8 +2027,8 @@
    },
    "label": "Lines Join",
    "location": [
-    -440,
-    40
+    -760,
+    20
    ],
    "mute": false,
    "name": "Lines Join",
@@ -1268,10 +2096,6 @@
      "linked": true,
      "name": "Fill Rule"
     },
-    "Socket_23": {
-     "linked": true,
-     "name": "Keep Helper Attributes"
-    },
     "Socket_4": {
      "linked": true,
      "name": "-- Bevel --"
@@ -1295,13 +2119,13 @@
    },
    "label": "Mesh Generation",
    "location": [
-    480,
+    160,
     60
    ],
    "mute": false,
    "name": "Mesh Generation",
    "outputs": [
-    "Socket_24"
+    "Socket_22"
    ],
    "parent": "[Mesh]",
    "props": {
@@ -1367,7 +2191,7 @@
    },
    "label": "Text Source",
    "location": [
-    -200,
+    -520,
     -20
    ],
    "mute": false,
@@ -1384,6 +2208,25 @@
     }
    },
    "width": 300.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Animation",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Animation]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
   },
   {
    "hide": false,

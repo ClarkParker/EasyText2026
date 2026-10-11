@@ -15,7 +15,7 @@
    "description": "",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_24",
+   "identifier": "Socket_22",
    "in_out": "OUTPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -433,33 +433,6 @@
    "parent": "-=| Outline |=-",
    "socket_type": "NodeSocketMenu",
    "structure_type": "AUTO"
-  },
-  {
-   "default_closed": true,
-   "description": "",
-   "item_type": "PANEL",
-   "name": "-=| Output |=-",
-   "parent": null
-  },
-  {
-   "attribute_domain": "POINT",
-   "default_attribute_name": "",
-   "default_input": "VALUE",
-   "default_value": false,
-   "description": "Keep the et_* attributes (character index, contour length, face group) on the mesh.",
-   "hide_in_modifier": false,
-   "hide_value": false,
-   "identifier": "Socket_23",
-   "in_out": "INPUT",
-   "is_panel_toggle": false,
-   "item_type": "SOCKET",
-   "layer_selection_field": false,
-   "menu_expanded": false,
-   "name": "Keep Helper Attributes",
-   "optional_label": false,
-   "parent": "-=| Output |=-",
-   "socket_type": "NodeSocketBool",
-   "structure_type": "AUTO"
   }
  ],
  "links": [
@@ -477,9 +450,9 @@
   ],
   [
    "ET Finish",
-   "Socket_5",
+   "Socket_4",
    "Group Output",
-   "Socket_24"
+   "Socket_22"
   ],
   [
    "ET Outline Clean",
@@ -540,12 +513,6 @@
    "Socket_12",
    "ET Finish",
    "Socket_2"
-  ],
-  [
-   "Group Input (Finish)",
-   "Socket_23",
-   "ET Finish",
-   "Socket_4"
   ],
   [
    "Group Input (Finish)",
@@ -703,10 +670,6 @@
     "Socket_3": {
      "linked": true,
      "name": "Smooth Angle"
-    },
-    "Socket_4": {
-     "linked": true,
-     "name": "Keep Helper Attributes"
     }
    },
    "label": "ET Finish",
@@ -717,7 +680,7 @@
    "mute": false,
    "name": "ET Finish",
    "outputs": [
-    "Socket_5"
+    "Socket_4"
    ],
    "parent": "[Finish]",
    "props": {
@@ -885,7 +848,6 @@
     "Socket_19",
     "Socket_20",
     "Socket_21",
-    "Socket_23",
     "__extend__"
    ],
    "parent": "[Bevel]",
@@ -920,7 +882,6 @@
     "Socket_19",
     "Socket_20",
     "Socket_21",
-    "Socket_23",
     "__extend__"
    ],
    "parent": "[Finish]",
@@ -955,7 +916,6 @@
     "Socket_19",
     "Socket_20",
     "Socket_21",
-    "Socket_23",
     "__extend__"
    ],
    "parent": "[Outline]",
@@ -990,7 +950,6 @@
     "Socket_19",
     "Socket_20",
     "Socket_21",
-    "Socket_23",
     "__extend__"
    ],
    "parent": "[Solid]",
@@ -1025,7 +984,6 @@
     "Socket_19",
     "Socket_20",
     "Socket_21",
-    "Socket_23",
     "__extend__"
    ],
    "parent": "[UV]",
@@ -1035,7 +993,7 @@
    "hide": false,
    "idname": "NodeGroupOutput",
    "inputs": {
-    "Socket_24": {
+    "Socket_22": {
      "linked": true,
      "name": "Mesh"
     },

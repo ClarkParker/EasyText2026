@@ -1,0 +1,6179 @@
+{
+ "asset_catalog_id": null,
+ "description": "Per-letter animation (timing, move, rotate, scale, bounce) and cleanup of helper attributes.",
+ "flags": {
+  "color_tag": "NONE",
+  "default_group_node_width": 320,
+  "is_modifier": false,
+  "is_tool": false
+ },
+ "interface": [
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_29",
+   "in_out": "OUTPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Mesh",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketGeometry",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_0",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Mesh",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketGeometry",
+   "structure_type": "AUTO"
+  },
+  {
+   "default_closed": false,
+   "description": "Per-letter animation driven by the scene frame.",
+   "item_type": "PANEL",
+   "name": "-=| Animate |=-",
+   "parent": null
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": false,
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_2",
+   "in_out": "INPUT",
+   "is_panel_toggle": true,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "-=| Animate |=-",
+   "optional_label": false,
+   "parent": "-=| Animate |=-",
+   "socket_type": "NodeSocketBool",
+   "structure_type": "AUTO"
+  },
+  {
+   "default_closed": false,
+   "description": "",
+   "item_type": "PANEL",
+   "name": "-- Timing --",
+   "parent": "-=| Animate |=-"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 1,
+   "description": "Frame at which the first element starts.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_4",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 100000,
+   "menu_expanded": false,
+   "min_value": -10000,
+   "name": "Start",
+   "optional_label": false,
+   "parent": "-- Timing --",
+   "socket_type": "NodeSocketInt",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 24,
+   "description": "Frames one element needs.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_5",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 10000,
+   "menu_expanded": false,
+   "min_value": 1,
+   "name": "Duration",
+   "optional_label": false,
+   "parent": "-- Timing --",
+   "socket_type": "NodeSocketInt",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 2.0,
+   "description": "Frames between two elements.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_6",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 1000.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
+   "name": "Stagger",
+   "optional_label": false,
+   "parent": "-- Timing --",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": "Left to Right",
+   "description": "Which element starts first.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_7",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Order",
+   "optional_label": false,
+   "parent": "-- Timing --",
+   "socket_type": "NodeSocketMenu",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": "Letters",
+   "description": "What counts as one element.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_8",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Basis",
+   "optional_label": false,
+   "parent": "-- Timing --",
+   "socket_type": "NodeSocketMenu",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": "Ease Out",
+   "description": "Speed curve of one element.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_9",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Easing",
+   "optional_label": false,
+   "parent": "-- Timing --",
+   "socket_type": "NodeSocketMenu",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": "Once",
+   "description": "Play once, repeat, or go back and forth.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_10",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Loop",
+   "optional_label": false,
+   "parent": "-- Timing --",
+   "socket_type": "NodeSocketMenu",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": "In",
+   "description": "In: from the start state into place. Out: from place away.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_11",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Direction",
+   "optional_label": false,
+   "parent": "-- Timing --",
+   "socket_type": "NodeSocketMenu",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0,
+   "description": "Seed for the Random order.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_12",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 10000,
+   "menu_expanded": false,
+   "min_value": 0,
+   "name": "Seed",
+   "optional_label": false,
+   "parent": "-- Timing --",
+   "socket_type": "NodeSocketInt",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  },
+  {
+   "default_closed": false,
+   "description": "",
+   "item_type": "PANEL",
+   "name": "-- Move --",
+   "parent": "-=| Animate |=-"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "description": "Where an element starts, relative to its place.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_14",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 3.4028234663852886e+38,
+   "menu_expanded": false,
+   "min_value": -3.4028234663852886e+38,
+   "name": "Offset",
+   "optional_label": false,
+   "parent": "-- Move --",
+   "socket_type": "NodeSocketVector",
+   "structure_type": "AUTO",
+   "subtype": "TRANSLATION"
+  },
+  {
+   "default_closed": false,
+   "description": "",
+   "item_type": "PANEL",
+   "name": "-- Rotate --",
+   "parent": "-=| Animate |=-"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "description": "Start rotation.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_16",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 3.4028234663852886e+38,
+   "menu_expanded": false,
+   "min_value": -3.4028234663852886e+38,
+   "name": "Rotation",
+   "optional_label": false,
+   "parent": "-- Rotate --",
+   "socket_type": "NodeSocketVector",
+   "structure_type": "AUTO",
+   "subtype": "EULER"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": "Letter",
+   "description": "Rotation and scale centre: glyph pivot, word, line or text.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_17",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Center",
+   "optional_label": false,
+   "parent": "-- Rotate --",
+   "socket_type": "NodeSocketMenu",
+   "structure_type": "AUTO"
+  },
+  {
+   "default_closed": false,
+   "description": "",
+   "item_type": "PANEL",
+   "name": "-- Scale --",
+   "parent": "-=| Animate |=-"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "description": "Start scale.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_19",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 3.4028234663852886e+38,
+   "menu_expanded": false,
+   "min_value": -3.4028234663852886e+38,
+   "name": "Scale",
+   "optional_label": false,
+   "parent": "-- Scale --",
+   "socket_type": "NodeSocketVector",
+   "structure_type": "AUTO",
+   "subtype": "XYZ"
+  },
+  {
+   "default_closed": true,
+   "description": "",
+   "item_type": "PANEL",
+   "name": "-- Reveal --",
+   "parent": "-=| Animate |=-"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": false,
+   "description": "Elements are invisible until they start.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_21",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Hide Before Start",
+   "optional_label": false,
+   "parent": "-- Reveal --",
+   "socket_type": "NodeSocketBool",
+   "structure_type": "AUTO"
+  },
+  {
+   "default_closed": true,
+   "description": "Continuous wobble, independent of the timing.",
+   "item_type": "PANEL",
+   "name": "-- Bounce --",
+   "parent": "-=| Animate |=-"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": false,
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_23",
+   "in_out": "INPUT",
+   "is_panel_toggle": true,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "-- Bounce --",
+   "optional_label": false,
+   "parent": "-- Bounce --",
+   "socket_type": "NodeSocketBool",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": [
+    0.0,
+    0.1,
+    0.0
+   ],
+   "description": "Amplitude per axis.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_24",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 3.4028234663852886e+38,
+   "menu_expanded": false,
+   "min_value": -3.4028234663852886e+38,
+   "name": "Bounce Strength",
+   "optional_label": false,
+   "parent": "-- Bounce --",
+   "socket_type": "NodeSocketVector",
+   "structure_type": "AUTO",
+   "subtype": "TRANSLATION"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 1.0,
+   "description": "Cycles per second.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_25",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 100.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
+   "name": "Bounce Speed",
+   "optional_label": false,
+   "parent": "-- Bounce --",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.1,
+   "description": "Cycle offset per element.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_26",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 10.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
+   "name": "Bounce Phase",
+   "optional_label": false,
+   "parent": "-- Bounce --",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  },
+  {
+   "default_closed": true,
+   "description": "",
+   "item_type": "PANEL",
+   "name": "-=| Output |=-",
+   "parent": null
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": false,
+   "description": "Keep the et_* attributes (character, word, line index, pivot, weight) on the mesh.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_28",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Keep Helper Attributes",
+   "optional_label": false,
+   "parent": "-=| Output |=-",
+   "socket_type": "NodeSocketBool",
+   "structure_type": "AUTO"
+  }
+ ],
+ "links": [
+  [
+   "(1 - t)²",
+   "Value",
+   "Ease Out",
+   "Value_001"
+  ],
+  [
+   "(t-1)²",
+   "Value",
+   "c1 (t-1)²",
+   "Value"
+  ],
+  [
+   "(t-1)³",
+   "Value",
+   "c3 (t-1)³",
+   "Value"
+  ],
+  [
+   "1 - t",
+   "Value",
+   "(1 - t)²",
+   "Value"
+  ],
+  [
+   "1 - t",
+   "Value",
+   "(1 - t)²",
+   "Value_001"
+  ],
+  [
+   "Angle",
+   "Value",
+   "Wave",
+   "Value"
+  ],
+  [
+   "Animate Position",
+   "Geometry",
+   "Store et_weight",
+   "Geometry"
+  ],
+  [
+   "Animate?",
+   "Output",
+   "Remove et_*",
+   "Geometry"
+  ],
+  [
+   "Animate?",
+   "Output",
+   "Reroute.032",
+   "Input"
+  ],
+  [
+   "Back to Pivot",
+   "Vector",
+   "Moved",
+   "Vector"
+  ],
+  [
+   "Basis",
+   "Output",
+   "Element Count",
+   "Attribute"
+  ],
+  [
+   "Basis",
+   "Output",
+   "Reroute.009",
+   "Input"
+  ],
+  [
+   "Bounce Offset",
+   "Vector",
+   "Bounce?",
+   "True"
+  ],
+  [
+   "Bounce?",
+   "Output",
+   "Final Position",
+   "Vector_001"
+  ],
+  [
+   "Center",
+   "Output",
+   "Reroute.057",
+   "Input"
+  ],
+  [
+   "Center Out",
+   "Value",
+   "Reroute.005",
+   "Input"
+  ],
+  [
+   "Cycles",
+   "Value",
+   "Angle",
+   "Value"
+  ],
+  [
+   "Delay",
+   "Value",
+   "Element Start",
+   "Value_001"
+  ],
+  [
+   "Direction",
+   "Output",
+   "Reroute.046",
+   "Input"
+  ],
+  [
+   "Duration (min 1)",
+   "Value",
+   "Time Raw",
+   "Value_001"
+  ],
+  [
+   "Ease In",
+   "Value",
+   "Reroute.033",
+   "Input"
+  ],
+  [
+   "Ease In-Out",
+   "Result",
+   "Easing",
+   "Item_5"
+  ],
+  [
+   "Ease Out",
+   "Value",
+   "Easing",
+   "Item_4"
+  ],
+  [
+   "Easing",
+   "Output",
+   "Direction",
+   "Item_3"
+  ],
+  [
+   "Easing",
+   "Output",
+   "Weight In",
+   "Value_001"
+  ],
+  [
+   "Elapsed",
+   "Value",
+   "Time Raw",
+   "Value"
+  ],
+  [
+   "Element Count",
+   "Max",
+   "Middle",
+   "Value"
+  ],
+  [
+   "Element Count",
+   "Max",
+   "Reroute.011",
+   "Input"
+  ],
+  [
+   "Element Count",
+   "Max",
+   "Right to Left",
+   "Value"
+  ],
+  [
+   "Element Start",
+   "Value",
+   "Elapsed",
+   "Value_001"
+  ],
+  [
+   "Final Position",
+   "Vector",
+   "Reroute.054",
+   "Input"
+  ],
+  [
+   "From Middle",
+   "Value",
+   "Center Out",
+   "Value"
+  ],
+  [
+   "From Pivot",
+   "Vector",
+   "Scaled",
+   "Vector"
+  ],
+  [
+   "Glyph Pivot",
+   "Attribute",
+   "Center",
+   "Item_2"
+  ],
+  [
+   "Glyph Pivot",
+   "Attribute",
+   "Line Pivot Sum",
+   "Value"
+  ],
+  [
+   "Glyph Pivot",
+   "Attribute",
+   "Text Pivot",
+   "Attribute"
+  ],
+  [
+   "Glyph Pivot",
+   "Attribute",
+   "Word Pivot Sum",
+   "Value"
+  ],
+  [
+   "Group Input (Apply)",
+   "Socket_0",
+   "Animate Position",
+   "Geometry"
+  ],
+  [
+   "Group Input (Apply)",
+   "Socket_0",
+   "Reroute.025",
+   "Input"
+  ],
+  [
+   "Group Input (Apply)",
+   "Socket_2",
+   "Reroute.026",
+   "Input"
+  ],
+  [
+   "Group Input (Apply)",
+   "Socket_21",
+   "Hide",
+   "Boolean"
+  ],
+  [
+   "Group Input (Apply)",
+   "Socket_28",
+   "Reroute.043",
+   "Input"
+  ],
+  [
+   "Group Input (Bounce)",
+   "Socket_23",
+   "Reroute.022",
+   "Input"
+  ],
+  [
+   "Group Input (Bounce)",
+   "Socket_24",
+   "Bounce Offset",
+   "Vector"
+  ],
+  [
+   "Group Input (Bounce)",
+   "Socket_25",
+   "Seconds × Speed",
+   "Value_001"
+  ],
+  [
+   "Group Input (Bounce)",
+   "Socket_26",
+   "Index × Phase",
+   "Value_001"
+  ],
+  [
+   "Group Input (Easing)",
+   "Socket_11",
+   "Reroute.017",
+   "Input"
+  ],
+  [
+   "Group Input (Easing)",
+   "Socket_9",
+   "Easing",
+   "Menu"
+  ],
+  [
+   "Group Input (Elements)",
+   "Socket_0",
+   "Element Count",
+   "Geometry"
+  ],
+  [
+   "Group Input (Elements)",
+   "Socket_8",
+   "Basis",
+   "Menu"
+  ],
+  [
+   "Group Input (Pivot)",
+   "Socket_0",
+   "Text Pivot",
+   "Geometry"
+  ],
+  [
+   "Group Input (Pivot)",
+   "Socket_17",
+   "Reroute.003",
+   "Input"
+  ],
+  [
+   "Group Input (Timing)",
+   "Socket_10",
+   "Reroute.040",
+   "Input"
+  ],
+  [
+   "Group Input (Timing)",
+   "Socket_12",
+   "Random Order",
+   "Seed"
+  ],
+  [
+   "Group Input (Timing)",
+   "Socket_4",
+   "Reroute.015",
+   "Input"
+  ],
+  [
+   "Group Input (Timing)",
+   "Socket_5",
+   "Reroute.034",
+   "Input"
+  ],
+  [
+   "Group Input (Timing)",
+   "Socket_6",
+   "Reroute.013",
+   "Input"
+  ],
+  [
+   "Group Input (Timing)",
+   "Socket_7",
+   "Reroute.001",
+   "Input"
+  ],
+  [
+   "Group Input (Transform)",
+   "Socket_14",
+   "Offset Now",
+   "Vector"
+  ],
+  [
+   "Group Input (Transform)",
+   "Socket_16",
+   "Rotation Now",
+   "Vector"
+  ],
+  [
+   "Group Input (Transform)",
+   "Socket_19",
+   "Scale - 1",
+   "Vector"
+  ],
+  [
+   "Hide",
+   "Boolean",
+   "Reroute.042",
+   "Input"
+  ],
+  [
+   "Hide Elements",
+   "Geometry",
+   "Animate?",
+   "True"
+  ],
+  [
+   "Index × Phase",
+   "Value",
+   "Cycles",
+   "Value_001"
+  ],
+  [
+   "Keep Attributes",
+   "Output",
+   "Group Output",
+   "Socket_29"
+  ],
+  [
+   "Letter Index",
+   "Attribute",
+   "Basis",
+   "Item_2"
+  ],
+  [
+   "Line Count XYZ",
+   "Vector",
+   "Line Pivot",
+   "Vector_001"
+  ],
+  [
+   "Line Index",
+   "Attribute",
+   "Basis",
+   "Item_4"
+  ],
+  [
+   "Line Index",
+   "Attribute",
+   "Reroute.010",
+   "Input"
+  ],
+  [
+   "Line Pivot",
+   "Vector",
+   "Center",
+   "Item_4"
+  ],
+  [
+   "Line Pivot Sum",
+   "Total",
+   "Line Pivot",
+   "Vector"
+  ],
+  [
+   "Line Point Count",
+   "Total",
+   "Line Count XYZ",
+   "X"
+  ],
+  [
+   "Line Point Count",
+   "Total",
+   "Line Count XYZ",
+   "Y"
+  ],
+  [
+   "Line Point Count",
+   "Total",
+   "Line Count XYZ",
+   "Z"
+  ],
+  [
+   "Loop",
+   "Value",
+   "Reroute.007",
+   "Input"
+  ],
+  [
+   "Loop.001",
+   "Output",
+   "1 - t",
+   "Value_001"
+  ],
+  [
+   "Loop.001",
+   "Output",
+   "Ease In",
+   "Value"
+  ],
+  [
+   "Loop.001",
+   "Output",
+   "Ease In",
+   "Value_001"
+  ],
+  [
+   "Loop.001",
+   "Output",
+   "Ease In-Out",
+   "Value"
+  ],
+  [
+   "Loop.001",
+   "Output",
+   "Easing",
+   "Item_2"
+  ],
+  [
+   "Loop.001",
+   "Output",
+   "t - 1",
+   "Value"
+  ],
+  [
+   "Middle",
+   "Value",
+   "From Middle",
+   "Value_001"
+  ],
+  [
+   "Moved",
+   "Vector",
+   "Reroute.052",
+   "Input"
+  ],
+  [
+   "Not Started",
+   "Result",
+   "Hide",
+   "Boolean_001"
+  ],
+  [
+   "Offset Now",
+   "Vector",
+   "Reroute.045",
+   "Input"
+  ],
+  [
+   "Once",
+   "Value",
+   "Loop.001",
+   "Item_2"
+  ],
+  [
+   "Order",
+   "Output",
+   "Delay",
+   "Value"
+  ],
+  [
+   "Overshoot",
+   "Value",
+   "Easing",
+   "Item_6"
+  ],
+  [
+   "Ping-Pong",
+   "Value",
+   "Loop.001",
+   "Item_4"
+  ],
+  [
+   "Position",
+   "Position",
+   "From Pivot",
+   "Vector"
+  ],
+  [
+   "Random Order",
+   "Value",
+   "Order",
+   "Item_5"
+  ],
+  [
+   "Remove et_*",
+   "Geometry",
+   "Keep Attributes",
+   "False"
+  ],
+  [
+   "Reroute",
+   "Output",
+   "Word Pivot Sum",
+   "Group Index"
+  ],
+  [
+   "Reroute.001",
+   "Output",
+   "Reroute.002",
+   "Input"
+  ],
+  [
+   "Reroute.002",
+   "Output",
+   "Order",
+   "Menu"
+  ],
+  [
+   "Reroute.003",
+   "Output",
+   "Reroute.004",
+   "Input"
+  ],
+  [
+   "Reroute.004",
+   "Output",
+   "Center",
+   "Menu"
+  ],
+  [
+   "Reroute.005",
+   "Output",
+   "Reroute.006",
+   "Input"
+  ],
+  [
+   "Reroute.006",
+   "Output",
+   "Order",
+   "Item_4"
+  ],
+  [
+   "Reroute.007",
+   "Output",
+   "Reroute.008",
+   "Input"
+  ],
+  [
+   "Reroute.008",
+   "Output",
+   "Loop.001",
+   "Item_3"
+  ],
+  [
+   "Reroute.009",
+   "Output",
+   "Reroute.018",
+   "Input"
+  ],
+  [
+   "Reroute.010",
+   "Output",
+   "Reroute.020",
+   "Input"
+  ],
+  [
+   "Reroute.011",
+   "Output",
+   "Reroute.012",
+   "Input"
+  ],
+  [
+   "Reroute.012",
+   "Output",
+   "Random Order",
+   "Max"
+  ],
+  [
+   "Reroute.013",
+   "Output",
+   "Reroute.014",
+   "Input"
+  ],
+  [
+   "Reroute.014",
+   "Output",
+   "Delay",
+   "Value_001"
+  ],
+  [
+   "Reroute.015",
+   "Output",
+   "Reroute.016",
+   "Input"
+  ],
+  [
+   "Reroute.016",
+   "Output",
+   "Element Start",
+   "Value"
+  ],
+  [
+   "Reroute.017",
+   "Output",
+   "Direction",
+   "Menu"
+  ],
+  [
+   "Reroute.018",
+   "Output",
+   "Reroute.019",
+   "Input"
+  ],
+  [
+   "Reroute.019",
+   "Output",
+   "From Middle",
+   "Value"
+  ],
+  [
+   "Reroute.019",
+   "Output",
+   "Reroute.028",
+   "Input"
+  ],
+  [
+   "Reroute.019",
+   "Output",
+   "Right to Left",
+   "Value_001"
+  ],
+  [
+   "Reroute.020",
+   "Output",
+   "Reroute.021",
+   "Input"
+  ],
+  [
+   "Reroute.021",
+   "Output",
+   "Line Pivot Sum",
+   "Group Index"
+  ],
+  [
+   "Reroute.021",
+   "Output",
+   "Line Point Count",
+   "Group Index"
+  ],
+  [
+   "Reroute.022",
+   "Output",
+   "Reroute.023",
+   "Input"
+  ],
+  [
+   "Reroute.023",
+   "Output",
+   "Bounce?",
+   "Switch"
+  ],
+  [
+   "Reroute.024",
+   "Output",
+   "Reroute.036",
+   "Input"
+  ],
+  [
+   "Reroute.025",
+   "Output",
+   "Animate?",
+   "False"
+  ],
+  [
+   "Reroute.026",
+   "Output",
+   "Animate?",
+   "Switch"
+  ],
+  [
+   "Reroute.027",
+   "Output",
+   "Reroute.038",
+   "Input"
+  ],
+  [
+   "Reroute.028",
+   "Output",
+   "Random Order",
+   "ID"
+  ],
+  [
+   "Reroute.028",
+   "Output",
+   "Reroute.031",
+   "Input"
+  ],
+  [
+   "Reroute.029",
+   "Output",
+   "Reroute.030",
+   "Input"
+  ],
+  [
+   "Reroute.030",
+   "Output",
+   "Order",
+   "Item_3"
+  ],
+  [
+   "Reroute.031",
+   "Output",
+   "Order",
+   "Item_2"
+  ],
+  [
+   "Reroute.031",
+   "Output",
+   "Reroute.061",
+   "Input"
+  ],
+  [
+   "Reroute.032",
+   "Output",
+   "Keep Attributes",
+   "True"
+  ],
+  [
+   "Reroute.033",
+   "Output",
+   "Easing",
+   "Item_3"
+  ],
+  [
+   "Reroute.034",
+   "Output",
+   "Reroute.035",
+   "Input"
+  ],
+  [
+   "Reroute.035",
+   "Output",
+   "Duration (min 1)",
+   "Value"
+  ],
+  [
+   "Reroute.036",
+   "Output",
+   "Reroute.037",
+   "Input"
+  ],
+  [
+   "Reroute.037",
+   "Output",
+   "From Pivot",
+   "Vector_001"
+  ],
+  [
+   "Reroute.037",
+   "Output",
+   "Reroute.027",
+   "Input"
+  ],
+  [
+   "Reroute.038",
+   "Output",
+   "Reroute.039",
+   "Input"
+  ],
+  [
+   "Reroute.039",
+   "Output",
+   "Back to Pivot",
+   "Vector"
+  ],
+  [
+   "Reroute.040",
+   "Output",
+   "Reroute.041",
+   "Input"
+  ],
+  [
+   "Reroute.041",
+   "Output",
+   "Loop.001",
+   "Menu"
+  ],
+  [
+   "Reroute.042",
+   "Output",
+   "Hide Elements",
+   "Selection"
+  ],
+  [
+   "Reroute.043",
+   "Output",
+   "Reroute.044",
+   "Input"
+  ],
+  [
+   "Reroute.044",
+   "Output",
+   "Keep Attributes",
+   "Switch"
+  ],
+  [
+   "Reroute.045",
+   "Output",
+   "Moved",
+   "Vector_001"
+  ],
+  [
+   "Reroute.046",
+   "Output",
+   "Reroute.047",
+   "Input"
+  ],
+  [
+   "Reroute.047",
+   "Output",
+   "Offset Now",
+   "Scale"
+  ],
+  [
+   "Reroute.047",
+   "Output",
+   "Reroute.059",
+   "Input"
+  ],
+  [
+   "Reroute.047",
+   "Output",
+   "Rotation Now",
+   "Scale"
+  ],
+  [
+   "Reroute.047",
+   "Output",
+   "Scale Δ × w",
+   "Scale"
+  ],
+  [
+   "Reroute.048",
+   "Output",
+   "Reroute.049",
+   "Input"
+  ],
+  [
+   "Reroute.049",
+   "Output",
+   "Final Position",
+   "Vector"
+  ],
+  [
+   "Reroute.050",
+   "Output",
+   "Reroute.051",
+   "Input"
+  ],
+  [
+   "Reroute.051",
+   "Output",
+   "Store et_weight",
+   "Value"
+  ],
+  [
+   "Reroute.052",
+   "Output",
+   "Reroute.053",
+   "Input"
+  ],
+  [
+   "Reroute.053",
+   "Output",
+   "Reroute.048",
+   "Input"
+  ],
+  [
+   "Reroute.054",
+   "Output",
+   "Reroute.055",
+   "Input"
+  ],
+  [
+   "Reroute.055",
+   "Output",
+   "Animate Position",
+   "Position"
+  ],
+  [
+   "Reroute.056",
+   "Output",
+   "Index × Phase",
+   "Value"
+  ],
+  [
+   "Reroute.057",
+   "Output",
+   "Reroute.058",
+   "Input"
+  ],
+  [
+   "Reroute.058",
+   "Output",
+   "Reroute.024",
+   "Input"
+  ],
+  [
+   "Reroute.059",
+   "Output",
+   "Reroute.060",
+   "Input"
+  ],
+  [
+   "Reroute.060",
+   "Output",
+   "Reroute.050",
+   "Input"
+  ],
+  [
+   "Reroute.061",
+   "Output",
+   "Reroute.056",
+   "Input"
+  ],
+  [
+   "Reroute.062",
+   "Output",
+   "Reroute.063",
+   "Input"
+  ],
+  [
+   "Reroute.063",
+   "Output",
+   "Not Started",
+   "A"
+  ],
+  [
+   "Right to Left",
+   "Value",
+   "Reroute.029",
+   "Input"
+  ],
+  [
+   "Rotated",
+   "Vector",
+   "Back to Pivot",
+   "Vector_001"
+  ],
+  [
+   "Rotation Now",
+   "Vector",
+   "Rotated",
+   "Rotation"
+  ],
+  [
+   "Scale - 1",
+   "Vector",
+   "Scale Δ × w",
+   "Vector"
+  ],
+  [
+   "Scale Now",
+   "Vector",
+   "Scaled",
+   "Vector_001"
+  ],
+  [
+   "Scale Δ × w",
+   "Vector",
+   "Scale Now",
+   "Vector"
+  ],
+  [
+   "Scaled",
+   "Vector",
+   "Rotated",
+   "Vector"
+  ],
+  [
+   "Scene Time",
+   "Frame",
+   "Elapsed",
+   "Value"
+  ],
+  [
+   "Scene Time",
+   "Seconds",
+   "Seconds × Speed",
+   "Value"
+  ],
+  [
+   "Seconds × Speed",
+   "Value",
+   "Cycles",
+   "Value"
+  ],
+  [
+   "Store et_weight",
+   "Geometry",
+   "Hide Elements",
+   "Geometry"
+  ],
+  [
+   "Text Pivot",
+   "Mean",
+   "Center",
+   "Item_5"
+  ],
+  [
+   "Time Raw",
+   "Value",
+   "Reroute.062",
+   "Input"
+  ],
+  [
+   "Time Raw",
+   "Value",
+   "Time ≥ 0",
+   "Value"
+  ],
+  [
+   "Time ≥ 0",
+   "Value",
+   "Loop",
+   "Value"
+  ],
+  [
+   "Time ≥ 0",
+   "Value",
+   "Once",
+   "Value"
+  ],
+  [
+   "Time ≥ 0",
+   "Value",
+   "Ping-Pong",
+   "Value"
+  ],
+  [
+   "Wave",
+   "Value",
+   "Bounce Offset",
+   "Scale"
+  ],
+  [
+   "Weight In",
+   "Value",
+   "Direction",
+   "Item_2"
+  ],
+  [
+   "Word Count XYZ",
+   "Vector",
+   "Word Pivot",
+   "Vector_001"
+  ],
+  [
+   "Word Index",
+   "Attribute",
+   "Basis",
+   "Item_3"
+  ],
+  [
+   "Word Index",
+   "Attribute",
+   "Reroute",
+   "Input"
+  ],
+  [
+   "Word Index",
+   "Attribute",
+   "Word Point Count",
+   "Group Index"
+  ],
+  [
+   "Word Pivot",
+   "Vector",
+   "Center",
+   "Item_3"
+  ],
+  [
+   "Word Pivot Sum",
+   "Total",
+   "Word Pivot",
+   "Vector"
+  ],
+  [
+   "Word Point Count",
+   "Total",
+   "Word Count XYZ",
+   "X"
+  ],
+  [
+   "Word Point Count",
+   "Total",
+   "Word Count XYZ",
+   "Y"
+  ],
+  [
+   "Word Point Count",
+   "Total",
+   "Word Count XYZ",
+   "Z"
+  ],
+  [
+   "back terms",
+   "Value",
+   "Overshoot",
+   "Value_001"
+  ],
+  [
+   "c1 (t-1)²",
+   "Value",
+   "back terms",
+   "Value_001"
+  ],
+  [
+   "c3 (t-1)³",
+   "Value",
+   "back terms",
+   "Value"
+  ],
+  [
+   "t - 1",
+   "Value",
+   "(t-1)²",
+   "Value"
+  ],
+  [
+   "t - 1",
+   "Value",
+   "(t-1)²",
+   "Value_001"
+  ],
+  [
+   "t - 1",
+   "Value",
+   "(t-1)³",
+   "Value"
+  ]
+ ],
+ "name": ".ET Animation",
+ "nodes": [
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "(1 - t)²",
+   "location": [
+    -280,
+    380
+   ],
+   "mute": false,
+   "name": "(1 - t)²",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Easing]",
+   "props": {
+    "operation": "MULTIPLY",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "(t-1)²",
+   "location": [
+    -280,
+    20
+   ],
+   "mute": false,
+   "name": "(t-1)²",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Easing]",
+   "props": {
+    "operation": "MULTIPLY",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "name": "Value",
+     "value": 3.0
+    }
+   },
+   "label": "(t-1)³",
+   "location": [
+    -460,
+    -20
+   ],
+   "mute": false,
+   "name": "(t-1)³",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Easing]",
+   "props": {
+    "operation": "POWER",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "name": "Value",
+     "value": 1.0
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "1 - t",
+   "location": [
+    -460,
+    380
+   ],
+   "mute": false,
+   "name": "1 - t",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Easing]",
+   "props": {
+    "operation": "SUBTRACT",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "name": "Value",
+     "value": 6.28319
+    }
+   },
+   "label": "Angle",
+   "location": [
+    2100,
+    20
+   ],
+   "mute": false,
+   "name": "Angle",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Bounce]",
+   "props": {
+    "operation": "MULTIPLY",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSetPosition",
+   "inputs": {
+    "Geometry": {
+     "linked": true,
+     "name": "Geometry"
+    },
+    "Offset": {
+     "name": "Offset",
+     "value": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "Position": {
+     "linked": true,
+     "name": "Position"
+    },
+    "Selection": {
+     "name": "Selection",
+     "value": true
+    }
+   },
+   "label": "Animate Position",
+   "location": [
+    3000,
+    180
+   ],
+   "mute": false,
+   "name": "Animate Position",
+   "outputs": [
+    "Geometry"
+   ],
+   "parent": "[Apply]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSwitch",
+   "inputs": {
+    "False": {
+     "linked": true,
+     "name": "False"
+    },
+    "Switch": {
+     "linked": true,
+     "name": "Switch"
+    },
+    "True": {
+     "linked": true,
+     "name": "True"
+    }
+   },
+   "label": "Animate?",
+   "location": [
+    3560,
+    320
+   ],
+   "mute": false,
+   "name": "Animate?",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Apply]",
+   "props": {
+    "input_type": "GEOMETRY"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeVectorMath",
+   "inputs": {
+    "Vector": {
+     "linked": true,
+     "name": "Vector"
+    },
+    "Vector_001": {
+     "linked": true,
+     "name": "Vector"
+    }
+   },
+   "label": "Back to Pivot",
+   "location": [
+    1380,
+    400
+   ],
+   "mute": false,
+   "name": "Back to Pivot",
+   "outputs": [
+    "Vector"
+   ],
+   "parent": "[Transform]",
+   "props": {
+    "operation": "ADD"
+   },
+   "width": 115.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeMenuSwitch",
+   "inputs": {
+    "Item_2": {
+     "linked": true,
+     "name": "Letters"
+    },
+    "Item_3": {
+     "linked": true,
+     "name": "Words"
+    },
+    "Item_4": {
+     "linked": true,
+     "name": "Lines"
+    },
+    "Menu": {
+     "linked": true,
+     "name": "Menu"
+    },
+    "__extend__": {
+     "name": ""
+    }
+   },
+   "label": "Basis",
+   "location": [
+    -2720,
+    300
+   ],
+   "mute": false,
+   "name": "Basis",
+   "outputs": [
+    "Output",
+    "Item_2",
+    "Item_3",
+    "Item_4"
+   ],
+   "parent": "[Elements]",
+   "props": {
+    "active_index": 2,
+    "active_item": {
+     "id": "Lines",
+     "type": "NodeEnumItem"
+    },
+    "data_type": "INT"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeVectorMath",
+   "inputs": {
+    "Scale": {
+     "linked": true,
+     "name": "Scale"
+    },
+    "Vector": {
+     "linked": true,
+     "name": "Vector"
+    }
+   },
+   "label": "Bounce Offset",
+   "location": [
+    2100,
+    -80
+   ],
+   "mute": false,
+   "name": "Bounce Offset",
+   "outputs": [
+    "Vector"
+   ],
+   "parent": "[Bounce]",
+   "props": {
+    "operation": "SCALE"
+   },
+   "width": 121.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSwitch",
+   "inputs": {
+    "False": {
+     "name": "False",
+     "value": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "Switch": {
+     "linked": true,
+     "name": "Switch"
+    },
+    "True": {
+     "linked": true,
+     "name": "True"
+    }
+   },
+   "label": "Bounce?",
+   "location": [
+    2260,
+    180
+   ],
+   "mute": false,
+   "name": "Bounce?",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Bounce]",
+   "props": {
+    "input_type": "VECTOR"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeMenuSwitch",
+   "inputs": {
+    "Item_2": {
+     "linked": true,
+     "name": "Letter"
+    },
+    "Item_3": {
+     "linked": true,
+     "name": "Word"
+    },
+    "Item_4": {
+     "linked": true,
+     "name": "Line"
+    },
+    "Item_5": {
+     "linked": true,
+     "name": "Text"
+    },
+    "Menu": {
+     "linked": true,
+     "name": "Menu"
+    },
+    "__extend__": {
+     "name": ""
+    }
+   },
+   "label": "Center",
+   "location": [
+    -1420,
+    400
+   ],
+   "mute": false,
+   "name": "Center",
+   "outputs": [
+    "Output",
+    "Item_2",
+    "Item_3",
+    "Item_4",
+    "Item_5"
+   ],
+   "parent": "[Pivot]",
+   "props": {
+    "active_index": 3,
+    "active_item": {
+     "id": "Text",
+     "type": "NodeEnumItem"
+    },
+    "data_type": "VECTOR"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Center Out",
+   "location": [
+    -2080,
+    -940
+   ],
+   "mute": false,
+   "name": "Center Out",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "operation": "ABSOLUTE",
+    "use_clamp": false
+   },
+   "width": 103.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Cycles",
+   "location": [
+    2100,
+    60
+   ],
+   "mute": false,
+   "name": "Cycles",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Bounce]",
+   "props": {
+    "operation": "ADD",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Delay",
+   "location": [
+    -1400,
+    -680
+   ],
+   "mute": false,
+   "name": "Delay",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "operation": "MULTIPLY",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeMenuSwitch",
+   "inputs": {
+    "Item_2": {
+     "linked": true,
+     "name": "In"
+    },
+    "Item_3": {
+     "linked": true,
+     "name": "Out"
+    },
+    "Menu": {
+     "linked": true,
+     "name": "Menu"
+    },
+    "__extend__": {
+     "name": ""
+    }
+   },
+   "label": "Direction",
+   "location": [
+    260,
+    480
+   ],
+   "mute": false,
+   "name": "Direction",
+   "outputs": [
+    "Output",
+    "Item_2",
+    "Item_3"
+   ],
+   "parent": "[Easing]",
+   "props": {
+    "active_index": 1,
+    "active_item": {
+     "id": "Out",
+     "type": "NodeEnumItem"
+    },
+    "data_type": "FLOAT"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "name": "Value",
+     "value": 1.0
+    }
+   },
+   "label": "Duration (min 1)",
+   "location": [
+    -1180,
+    -740
+   ],
+   "mute": false,
+   "name": "Duration (min 1)",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "operation": "MAXIMUM",
+    "use_clamp": false
+   },
+   "width": 133.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Ease In",
+   "location": [
+    -460,
+    440
+   ],
+   "mute": false,
+   "name": "Ease In",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Easing]",
+   "props": {
+    "operation": "MULTIPLY",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": false,
+   "idname": "ShaderNodeMapRange",
+   "inputs": {
+    "From Max": {
+     "name": "From Max",
+     "value": 1.0
+    },
+    "From Min": {
+     "name": "From Min",
+     "value": 0.0
+    },
+    "To Max": {
+     "name": "To Max",
+     "value": 1.0
+    },
+    "To Min": {
+     "name": "To Min",
+     "value": 0.0
+    },
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Ease In-Out",
+   "location": [
+    -480,
+    300
+   ],
+   "mute": false,
+   "name": "Ease In-Out",
+   "outputs": [
+    "Result"
+   ],
+   "parent": "[Easing]",
+   "props": {
+    "clamp": true,
+    "data_type": "FLOAT",
+    "interpolation_type": "SMOOTHSTEP"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "name": "Value",
+     "value": 1.0
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Ease Out",
+   "location": [
+    -280,
+    340
+   ],
+   "mute": false,
+   "name": "Ease Out",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Easing]",
+   "props": {
+    "operation": "SUBTRACT",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeMenuSwitch",
+   "inputs": {
+    "Item_2": {
+     "linked": true,
+     "name": "Linear"
+    },
+    "Item_3": {
+     "linked": true,
+     "name": "Ease In"
+    },
+    "Item_4": {
+     "linked": true,
+     "name": "Ease Out"
+    },
+    "Item_5": {
+     "linked": true,
+     "name": "Ease In-Out"
+    },
+    "Item_6": {
+     "linked": true,
+     "name": "Overshoot"
+    },
+    "Menu": {
+     "linked": true,
+     "name": "Menu"
+    },
+    "__extend__": {
+     "name": ""
+    }
+   },
+   "label": "Easing",
+   "location": [
+    -80,
+    380
+   ],
+   "mute": false,
+   "name": "Easing",
+   "outputs": [
+    "Output",
+    "Item_2",
+    "Item_3",
+    "Item_4",
+    "Item_5",
+    "Item_6"
+   ],
+   "parent": "[Easing]",
+   "props": {
+    "active_index": 4,
+    "active_item": {
+     "id": "Overshoot",
+     "type": "NodeEnumItem"
+    },
+    "data_type": "FLOAT"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Elapsed",
+   "location": [
+    -1400,
+    -780
+   ],
+   "mute": false,
+   "name": "Elapsed",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "operation": "SUBTRACT",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeAttributeStatistic",
+   "inputs": {
+    "Attribute": {
+     "linked": true,
+     "name": "Attribute"
+    },
+    "Geometry": {
+     "linked": true,
+     "name": "Geometry"
+    },
+    "Selection": {
+     "name": "Selection",
+     "value": true
+    }
+   },
+   "label": "Element Count",
+   "location": [
+    -2540,
+    220
+   ],
+   "mute": false,
+   "name": "Element Count",
+   "outputs": [
+    "Mean",
+    "Median",
+    "Sum",
+    "Min",
+    "Max",
+    "Range",
+    "Standard Deviation",
+    "Variance"
+   ],
+   "parent": "[Elements]",
+   "props": {
+    "data_type": "FLOAT",
+    "domain": "POINT"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Element Start",
+   "location": [
+    -1400,
+    -740
+   ],
+   "mute": false,
+   "name": "Element Start",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "operation": "ADD",
+    "use_clamp": false
+   },
+   "width": 117.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeVectorMath",
+   "inputs": {
+    "Vector": {
+     "linked": true,
+     "name": "Vector"
+    },
+    "Vector_001": {
+     "linked": true,
+     "name": "Vector"
+    }
+   },
+   "label": "Final Position",
+   "location": [
+    2440,
+    180
+   ],
+   "mute": false,
+   "name": "Final Position",
+   "outputs": [
+    "Vector"
+   ],
+   "parent": "[Bounce]",
+   "props": {
+    "operation": "ADD"
+   },
+   "width": 119.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "From Middle",
+   "location": [
+    -2100,
+    -900
+   ],
+   "mute": false,
+   "name": "From Middle",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "operation": "SUBTRACT",
+    "use_clamp": false
+   },
+   "width": 113.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeVectorMath",
+   "inputs": {
+    "Vector": {
+     "linked": true,
+     "name": "Vector"
+    },
+    "Vector_001": {
+     "linked": true,
+     "name": "Vector"
+    }
+   },
+   "label": "From Pivot",
+   "location": [
+    1040,
+    460
+   ],
+   "mute": false,
+   "name": "From Pivot",
+   "outputs": [
+    "Vector"
+   ],
+   "parent": "[Transform]",
+   "props": {
+    "operation": "SUBTRACT"
+   },
+   "width": 104.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeInputNamedAttribute",
+   "inputs": {
+    "Name": {
+     "name": "Name",
+     "value": "et_pivot"
+    }
+   },
+   "label": "Glyph Pivot",
+   "location": [
+    -2100,
+    340
+   ],
+   "mute": false,
+   "name": "Glyph Pivot",
+   "outputs": [
+    "Attribute",
+    "Exists"
+   ],
+   "parent": "[Pivot]",
+   "props": {
+    "data_type": "FLOAT_VECTOR"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    2780,
+    180
+   ],
+   "mute": false,
+   "name": "Group Input (Apply)",
+   "outputs": [
+    "Socket_0",
+    "Socket_2",
+    "Socket_4",
+    "Socket_5",
+    "Socket_6",
+    "Socket_7",
+    "Socket_8",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_12",
+    "Socket_14",
+    "Socket_16",
+    "Socket_17",
+    "Socket_19",
+    "Socket_21",
+    "Socket_23",
+    "Socket_24",
+    "Socket_25",
+    "Socket_26",
+    "Socket_28",
+    "__extend__"
+   ],
+   "parent": "[Apply]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    1700,
+    20
+   ],
+   "mute": false,
+   "name": "Group Input (Bounce)",
+   "outputs": [
+    "Socket_0",
+    "Socket_2",
+    "Socket_4",
+    "Socket_5",
+    "Socket_6",
+    "Socket_7",
+    "Socket_8",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_12",
+    "Socket_14",
+    "Socket_16",
+    "Socket_17",
+    "Socket_19",
+    "Socket_21",
+    "Socket_23",
+    "Socket_24",
+    "Socket_25",
+    "Socket_26",
+    "Socket_28",
+    "__extend__"
+   ],
+   "parent": "[Bounce]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    -300,
+    640
+   ],
+   "mute": false,
+   "name": "Group Input (Easing)",
+   "outputs": [
+    "Socket_0",
+    "Socket_2",
+    "Socket_4",
+    "Socket_5",
+    "Socket_6",
+    "Socket_7",
+    "Socket_8",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_12",
+    "Socket_14",
+    "Socket_16",
+    "Socket_17",
+    "Socket_19",
+    "Socket_21",
+    "Socket_23",
+    "Socket_24",
+    "Socket_25",
+    "Socket_26",
+    "Socket_28",
+    "__extend__"
+   ],
+   "parent": "[Easing]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    -2940,
+    0
+   ],
+   "mute": false,
+   "name": "Group Input (Elements)",
+   "outputs": [
+    "Socket_0",
+    "Socket_2",
+    "Socket_4",
+    "Socket_5",
+    "Socket_6",
+    "Socket_7",
+    "Socket_8",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_12",
+    "Socket_14",
+    "Socket_16",
+    "Socket_17",
+    "Socket_19",
+    "Socket_21",
+    "Socket_23",
+    "Socket_24",
+    "Socket_25",
+    "Socket_26",
+    "Socket_28",
+    "__extend__"
+   ],
+   "parent": "[Elements]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    -1840,
+    460
+   ],
+   "mute": false,
+   "name": "Group Input (Pivot)",
+   "outputs": [
+    "Socket_0",
+    "Socket_2",
+    "Socket_4",
+    "Socket_5",
+    "Socket_6",
+    "Socket_7",
+    "Socket_8",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_12",
+    "Socket_14",
+    "Socket_16",
+    "Socket_17",
+    "Socket_19",
+    "Socket_21",
+    "Socket_23",
+    "Socket_24",
+    "Socket_25",
+    "Socket_26",
+    "Socket_28",
+    "__extend__"
+   ],
+   "parent": "[Pivot]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    -2100,
+    -640
+   ],
+   "mute": false,
+   "name": "Group Input (Timing)",
+   "outputs": [
+    "Socket_0",
+    "Socket_2",
+    "Socket_4",
+    "Socket_5",
+    "Socket_6",
+    "Socket_7",
+    "Socket_8",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_12",
+    "Socket_14",
+    "Socket_16",
+    "Socket_17",
+    "Socket_19",
+    "Socket_21",
+    "Socket_23",
+    "Socket_24",
+    "Socket_25",
+    "Socket_26",
+    "Socket_28",
+    "__extend__"
+   ],
+   "parent": "[Time]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    620,
+    340
+   ],
+   "mute": false,
+   "name": "Group Input (Transform)",
+   "outputs": [
+    "Socket_0",
+    "Socket_2",
+    "Socket_4",
+    "Socket_5",
+    "Socket_6",
+    "Socket_7",
+    "Socket_8",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_12",
+    "Socket_14",
+    "Socket_16",
+    "Socket_17",
+    "Socket_19",
+    "Socket_21",
+    "Socket_23",
+    "Socket_24",
+    "Socket_25",
+    "Socket_26",
+    "Socket_28",
+    "__extend__"
+   ],
+   "parent": "[Transform]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupOutput",
+   "inputs": {
+    "Socket_29": {
+     "linked": true,
+     "name": "Mesh"
+    },
+    "__extend__": {
+     "name": ""
+    }
+   },
+   "label": "",
+   "location": [
+    4180,
+    320
+   ],
+   "mute": false,
+   "name": "Group Output",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "is_active_output": true
+   },
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "FunctionNodeBooleanMath",
+   "inputs": {
+    "Boolean": {
+     "linked": true,
+     "name": "Boolean"
+    },
+    "Boolean_001": {
+     "linked": true,
+     "name": "Boolean"
+    }
+   },
+   "label": "Hide",
+   "location": [
+    3020,
+    -80
+   ],
+   "mute": false,
+   "name": "Hide",
+   "outputs": [
+    "Boolean"
+   ],
+   "parent": "[Apply]",
+   "props": {
+    "operation": "AND"
+   },
+   "width": 100.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeDeleteGeometry",
+   "inputs": {
+    "Geometry": {
+     "linked": true,
+     "name": "Geometry"
+    },
+    "Selection": {
+     "linked": true,
+     "name": "Selection"
+    }
+   },
+   "label": "Hide Elements",
+   "location": [
+    3380,
+    180
+   ],
+   "mute": false,
+   "name": "Hide Elements",
+   "outputs": [
+    "Geometry"
+   ],
+   "parent": "[Apply]",
+   "props": {
+    "domain": "POINT",
+    "mode": "ALL"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Index × Phase",
+   "location": [
+    2100,
+    100
+   ],
+   "mute": false,
+   "name": "Index × Phase",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Bounce]",
+   "props": {
+    "operation": "MULTIPLY",
+    "use_clamp": false
+   },
+   "width": 122.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSwitch",
+   "inputs": {
+    "False": {
+     "linked": true,
+     "name": "False"
+    },
+    "Switch": {
+     "linked": true,
+     "name": "Switch"
+    },
+    "True": {
+     "linked": true,
+     "name": "True"
+    }
+   },
+   "label": "Keep Attributes",
+   "location": [
+    3960,
+    320
+   ],
+   "mute": false,
+   "name": "Keep Attributes",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Apply]",
+   "props": {
+    "input_type": "GEOMETRY"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeInputNamedAttribute",
+   "inputs": {
+    "Name": {
+     "name": "Name",
+     "value": "et_char_index"
+    }
+   },
+   "label": "Letter Index",
+   "location": [
+    -2940,
+    300
+   ],
+   "mute": false,
+   "name": "Letter Index",
+   "outputs": [
+    "Attribute",
+    "Exists"
+   ],
+   "parent": "[Elements]",
+   "props": {
+    "data_type": "INT"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeCombineXYZ",
+   "inputs": {
+    "X": {
+     "linked": true,
+     "name": "X"
+    },
+    "Y": {
+     "linked": true,
+     "name": "Y"
+    },
+    "Z": {
+     "linked": true,
+     "name": "Z"
+    }
+   },
+   "label": "Line Count XYZ",
+   "location": [
+    -1840,
+    0
+   ],
+   "mute": false,
+   "name": "Line Count XYZ",
+   "outputs": [
+    "Vector"
+   ],
+   "parent": "[Pivot]",
+   "width": 129.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeInputNamedAttribute",
+   "inputs": {
+    "Name": {
+     "name": "Name",
+     "value": "et_line_index"
+    }
+   },
+   "label": "Line Index",
+   "location": [
+    -2940,
+    460
+   ],
+   "mute": false,
+   "name": "Line Index",
+   "outputs": [
+    "Attribute",
+    "Exists"
+   ],
+   "parent": "[Elements]",
+   "props": {
+    "data_type": "INT"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeVectorMath",
+   "inputs": {
+    "Vector": {
+     "linked": true,
+     "name": "Vector"
+    },
+    "Vector_001": {
+     "linked": true,
+     "name": "Vector"
+    }
+   },
+   "label": "Line Pivot",
+   "location": [
+    -1620,
+    140
+   ],
+   "mute": false,
+   "name": "Line Pivot",
+   "outputs": [
+    "Vector"
+   ],
+   "parent": "[Pivot]",
+   "props": {
+    "operation": "DIVIDE"
+   },
+   "width": 100.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeAccumulateField",
+   "inputs": {
+    "Group Index": {
+     "linked": true,
+     "name": "Group ID"
+    },
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Line Pivot Sum",
+   "location": [
+    -1840,
+    280
+   ],
+   "mute": false,
+   "name": "Line Pivot Sum",
+   "outputs": [
+    "Leading",
+    "Trailing",
+    "Total"
+   ],
+   "parent": "[Pivot]",
+   "props": {
+    "data_type": "FLOAT_VECTOR",
+    "domain": "POINT"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeAccumulateField",
+   "inputs": {
+    "Group Index": {
+     "linked": true,
+     "name": "Group ID"
+    },
+    "Value": {
+     "name": "Value",
+     "value": 1.0
+    }
+   },
+   "label": "Line Point Count",
+   "location": [
+    -2100,
+    60
+   ],
+   "mute": false,
+   "name": "Line Point Count",
+   "outputs": [
+    "Leading",
+    "Trailing",
+    "Total"
+   ],
+   "parent": "[Pivot]",
+   "props": {
+    "data_type": "FLOAT",
+    "domain": "POINT"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Loop",
+   "location": [
+    -1180,
+    -860
+   ],
+   "mute": false,
+   "name": "Loop",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "operation": "FRACT",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeMenuSwitch",
+   "inputs": {
+    "Item_2": {
+     "linked": true,
+     "name": "Once"
+    },
+    "Item_3": {
+     "linked": true,
+     "name": "Loop"
+    },
+    "Item_4": {
+     "linked": true,
+     "name": "Ping-Pong"
+    },
+    "Menu": {
+     "linked": true,
+     "name": "Menu"
+    },
+    "__extend__": {
+     "name": ""
+    }
+   },
+   "label": "Loop",
+   "location": [
+    -840,
+    -660
+   ],
+   "mute": false,
+   "name": "Loop.001",
+   "outputs": [
+    "Output",
+    "Item_2",
+    "Item_3",
+    "Item_4"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "active_index": 2,
+    "active_item": {
+     "id": "Ping-Pong",
+     "type": "NodeEnumItem"
+    },
+    "data_type": "FLOAT"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "name": "Value",
+     "value": 0.5
+    }
+   },
+   "label": "Middle",
+   "location": [
+    -2080,
+    -840
+   ],
+   "mute": false,
+   "name": "Middle",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "operation": "MULTIPLY",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeVectorMath",
+   "inputs": {
+    "Vector": {
+     "linked": true,
+     "name": "Vector"
+    },
+    "Vector_001": {
+     "linked": true,
+     "name": "Vector"
+    }
+   },
+   "label": "Moved",
+   "location": [
+    1400,
+    360
+   ],
+   "mute": false,
+   "name": "Moved",
+   "outputs": [
+    "Vector"
+   ],
+   "parent": "[Transform]",
+   "props": {
+    "operation": "ADD"
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "FunctionNodeCompare",
+   "inputs": {
+    "A": {
+     "linked": true,
+     "name": "A"
+    },
+    "B": {
+     "name": "B",
+     "value": 0.0
+    }
+   },
+   "label": "Not Started",
+   "location": [
+    2800,
+    -80
+   ],
+   "mute": false,
+   "name": "Not Started",
+   "outputs": [
+    "Result"
+   ],
+   "parent": "[Apply]",
+   "props": {
+    "data_type": "FLOAT",
+    "mode": "ELEMENT",
+    "operation": "LESS_EQUAL"
+   },
+   "width": 106.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeVectorMath",
+   "inputs": {
+    "Scale": {
+     "linked": true,
+     "name": "Scale"
+    },
+    "Vector": {
+     "linked": true,
+     "name": "Vector"
+    }
+   },
+   "label": "Offset Now",
+   "location": [
+    880,
+    240
+   ],
+   "mute": false,
+   "name": "Offset Now",
+   "outputs": [
+    "Vector"
+   ],
+   "parent": "[Transform]",
+   "props": {
+    "operation": "SCALE"
+   },
+   "width": 105.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "name": "Value",
+     "value": 1.0
+    }
+   },
+   "label": "Once",
+   "location": [
+    -1000,
+    -720
+   ],
+   "mute": false,
+   "name": "Once",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "operation": "MINIMUM",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeMenuSwitch",
+   "inputs": {
+    "Item_2": {
+     "linked": true,
+     "name": "Left to Right"
+    },
+    "Item_3": {
+     "linked": true,
+     "name": "Right to Left"
+    },
+    "Item_4": {
+     "linked": true,
+     "name": "Center Out"
+    },
+    "Item_5": {
+     "linked": true,
+     "name": "Random"
+    },
+    "Menu": {
+     "linked": true,
+     "name": "Menu"
+    },
+    "__extend__": {
+     "name": ""
+    }
+   },
+   "label": "Order",
+   "location": [
+    -1640,
+    -480
+   ],
+   "mute": false,
+   "name": "Order",
+   "outputs": [
+    "Output",
+    "Item_2",
+    "Item_3",
+    "Item_4",
+    "Item_5"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "active_index": 3,
+    "active_item": {
+     "id": "Random",
+     "type": "NodeEnumItem"
+    },
+    "data_type": "FLOAT"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "name": "Value",
+     "value": 1.0
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Overshoot",
+   "location": [
+    -280,
+    -100
+   ],
+   "mute": false,
+   "name": "Overshoot",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Easing]",
+   "props": {
+    "operation": "ADD",
+    "use_clamp": false
+   },
+   "width": 101.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "name": "Value",
+     "value": 1.0
+    }
+   },
+   "label": "Ping-Pong",
+   "location": [
+    -1000,
+    -820
+   ],
+   "mute": false,
+   "name": "Ping-Pong",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "operation": "PINGPONG",
+    "use_clamp": false
+   },
+   "width": 105.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeInputPosition",
+   "inputs": {},
+   "label": "",
+   "location": [
+    860,
+    540
+   ],
+   "mute": false,
+   "name": "Position",
+   "outputs": [
+    "Position"
+   ],
+   "parent": "[Transform]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "FunctionNodeRandomValue",
+   "inputs": {
+    "ID": {
+     "linked": true,
+     "name": "ID"
+    },
+    "Max": {
+     "linked": true,
+     "name": "Max"
+    },
+    "Min": {
+     "name": "Min",
+     "value": 0.0
+    },
+    "Seed": {
+     "linked": true,
+     "name": "Seed"
+    }
+   },
+   "label": "Random Order",
+   "location": [
+    -1840,
+    -560
+   ],
+   "mute": false,
+   "name": "Random Order",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "data_type": "FLOAT"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeRemoveAttribute",
+   "inputs": {
+    "Geometry": {
+     "linked": true,
+     "name": "Geometry"
+    },
+    "Name": {
+     "name": "Name",
+     "value": "et_*"
+    },
+    "Pattern Mode": {
+     "name": "Pattern Mode",
+     "value": "Wildcard"
+    }
+   },
+   "label": "Remove et_*",
+   "location": [
+    3740,
+    320
+   ],
+   "mute": false,
+   "name": "Remove et_*",
+   "outputs": [
+    "Geometry"
+   ],
+   "parent": "[Apply]",
+   "width": 180.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -2100,
+    750
+   ],
+   "mute": false,
+   "name": "Reroute",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Pivot]",
+   "props": {
+    "socket_idname": "NodeSocketInt"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1840,
+    -469
+   ],
+   "mute": false,
+   "name": "Reroute.001",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "socket_idname": "NodeSocketMenu"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1700,
+    -469
+   ],
+   "mute": false,
+   "name": "Reroute.002",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "socket_idname": "NodeSocketMenu"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1640,
+    329
+   ],
+   "mute": false,
+   "name": "Reroute.003",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Pivot]",
+   "props": {
+    "socket_idname": "NodeSocketMenu"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1510,
+    329
+   ],
+   "mute": false,
+   "name": "Reroute.004",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Pivot]",
+   "props": {
+    "socket_idname": "NodeSocketMenu"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1840,
+    -518
+   ],
+   "mute": false,
+   "name": "Reroute.005",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1700,
+    -518
+   ],
+   "mute": false,
+   "name": "Reroute.006",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1002,
+    -774
+   ],
+   "mute": false,
+   "name": "Reroute.007",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -898,
+    -774
+   ],
+   "mute": false,
+   "name": "Reroute.008",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -2400,
+    265
+   ],
+   "mute": false,
+   "name": "Reroute.009",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketInt"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -2390,
+    425
+   ],
+   "mute": false,
+   "name": "Reroute.010",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketInt"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -2098,
+    -1010
+   ],
+   "mute": false,
+   "name": "Reroute.011",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1958,
+    -1010
+   ],
+   "mute": false,
+   "name": "Reroute.012",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1840,
+    -778
+   ],
+   "mute": false,
+   "name": "Reroute.013",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1510,
+    -792
+   ],
+   "mute": false,
+   "name": "Reroute.014",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1840,
+    -796
+   ],
+   "mute": false,
+   "name": "Reroute.015",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "socket_idname": "NodeSocketInt"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1510,
+    -811
+   ],
+   "mute": false,
+   "name": "Reroute.016",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "socket_idname": "NodeSocketInt"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    200,
+    583
+   ],
+   "mute": false,
+   "name": "Reroute.017",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Easing]",
+   "props": {
+    "socket_idname": "NodeSocketMenu"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -2286,
+    -201
+   ],
+   "mute": false,
+   "name": "Reroute.018",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketInt"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -2208,
+    -201
+   ],
+   "mute": false,
+   "name": "Reroute.019",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketInt"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -2300,
+    110
+   ],
+   "mute": false,
+   "name": "Reroute.020",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketInt"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -2208,
+    110
+   ],
+   "mute": false,
+   "name": "Reroute.021",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Pivot]",
+   "props": {
+    "socket_idname": "NodeSocketInt"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    1890,
+    152
+   ],
+   "mute": false,
+   "name": "Reroute.022",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Bounce]",
+   "props": {
+    "socket_idname": "NodeSocketBool"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    2222,
+    144
+   ],
+   "mute": false,
+   "name": "Reroute.023",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Bounce]",
+   "props": {
+    "socket_idname": "NodeSocketBool"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    620,
+    572
+   ],
+   "mute": false,
+   "name": "Reroute.024",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Transform]",
+   "props": {
+    "socket_idname": "NodeSocketVector"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    3000,
+    215
+   ],
+   "mute": false,
+   "name": "Reroute.025",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Apply]",
+   "props": {
+    "socket_idname": "NodeSocketGeometry"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    3000,
+    239
+   ],
+   "mute": false,
+   "name": "Reroute.026",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Apply]",
+   "props": {
+    "socket_idname": "NodeSocketBool"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    1040,
+    568
+   ],
+   "mute": false,
+   "name": "Reroute.027",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Transform]",
+   "props": {
+    "socket_idname": "NodeSocketVector"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1960,
+    -201
+   ],
+   "mute": false,
+   "name": "Reroute.028",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketInt"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1840,
+    -499
+   ],
+   "mute": false,
+   "name": "Reroute.029",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1700,
+    -499
+   ],
+   "mute": false,
+   "name": "Reroute.030",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1706,
+    -201
+   ],
+   "mute": false,
+   "name": "Reroute.031",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketInt"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    3740,
+    195
+   ],
+   "mute": false,
+   "name": "Reroute.032",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Apply]",
+   "props": {
+    "socket_idname": "NodeSocketGeometry"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -160,
+    428
+   ],
+   "mute": false,
+   "name": "Reroute.033",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Easing]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1854,
+    -335
+   ],
+   "mute": false,
+   "name": "Reroute.034",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "socket_idname": "NodeSocketInt"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1280,
+    -336
+   ],
+   "mute": false,
+   "name": "Reroute.035",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "socket_idname": "NodeSocketInt"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    860,
+    577
+   ],
+   "mute": false,
+   "name": "Reroute.036",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Transform]",
+   "props": {
+    "socket_idname": "NodeSocketVector"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    1000,
+    577
+   ],
+   "mute": false,
+   "name": "Reroute.037",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Transform]",
+   "props": {
+    "socket_idname": "NodeSocketVector"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    1184,
+    562
+   ],
+   "mute": false,
+   "name": "Reroute.038",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Transform]",
+   "props": {
+    "socket_idname": "NodeSocketVector"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    1320,
+    571
+   ],
+   "mute": false,
+   "name": "Reroute.039",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Transform]",
+   "props": {
+    "socket_idname": "NodeSocketVector"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1854,
+    -301
+   ],
+   "mute": false,
+   "name": "Reroute.040",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "socket_idname": "NodeSocketMenu"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -898,
+    -301
+   ],
+   "mute": false,
+   "name": "Reroute.041",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "socket_idname": "NodeSocketMenu"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    3340,
+    -90
+   ],
+   "mute": false,
+   "name": "Reroute.042",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Apply]",
+   "props": {
+    "socket_idname": "NodeSocketBool"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    2990,
+    358
+   ],
+   "mute": false,
+   "name": "Reroute.043",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Apply]",
+   "props": {
+    "socket_idname": "NodeSocketBool"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    3920,
+    358
+   ],
+   "mute": false,
+   "name": "Reroute.044",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Apply]",
+   "props": {
+    "socket_idname": "NodeSocketBool"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    1332,
+    220
+   ],
+   "mute": false,
+   "name": "Reroute.045",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Transform]",
+   "props": {
+    "socket_idname": "NodeSocketVector"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    484,
+    151
+   ],
+   "mute": false,
+   "name": "Reroute.046",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    760,
+    151
+   ],
+   "mute": false,
+   "name": "Reroute.047",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    2100,
+    214
+   ],
+   "mute": false,
+   "name": "Reroute.048",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Bounce]",
+   "props": {
+    "socket_idname": "NodeSocketVector"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    2400,
+    221
+   ],
+   "mute": false,
+   "name": "Reroute.049",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Bounce]",
+   "props": {
+    "socket_idname": "NodeSocketVector"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    2783,
+    -45
+   ],
+   "mute": false,
+   "name": "Reroute.050",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Apply]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    3140,
+    -45
+   ],
+   "mute": false,
+   "name": "Reroute.051",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Apply]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    1588,
+    205
+   ],
+   "mute": false,
+   "name": "Reroute.052",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketVector"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    1890,
+    215
+   ],
+   "mute": false,
+   "name": "Reroute.053",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Bounce]",
+   "props": {
+    "socket_idname": "NodeSocketVector"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    2637,
+    -27
+   ],
+   "mute": false,
+   "name": "Reroute.054",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketVector"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    2923,
+    -27
+   ],
+   "mute": false,
+   "name": "Reroute.055",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Apply]",
+   "props": {
+    "socket_idname": "NodeSocketVector"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    862,
+    103
+   ],
+   "mute": false,
+   "name": "Reroute.056",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketInt"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1178,
+    713
+   ],
+   "mute": false,
+   "name": "Reroute.057",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketVector"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    528,
+    713
+   ],
+   "mute": false,
+   "name": "Reroute.058",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketVector"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    862,
+    -210
+   ],
+   "mute": false,
+   "name": "Reroute.059",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    2685,
+    -210
+   ],
+   "mute": false,
+   "name": "Reroute.060",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    762,
+    -201
+   ],
+   "mute": false,
+   "name": "Reroute.061",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketInt"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1014,
+    -1024
+   ],
+   "mute": false,
+   "name": "Reroute.062",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    2685,
+    -1020
+   ],
+   "mute": false,
+   "name": "Reroute.063",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Right to Left",
+   "location": [
+    -2100,
+    -480
+   ],
+   "mute": false,
+   "name": "Right to Left",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "operation": "SUBTRACT",
+    "use_clamp": false
+   },
+   "width": 111.0
+  },
+  {
+   "hide": false,
+   "idname": "ShaderNodeVectorRotate",
+   "inputs": {
+    "Center": {
+     "name": "Center",
+     "value": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "Rotation": {
+     "linked": true,
+     "name": "Rotation"
+    },
+    "Vector": {
+     "linked": true,
+     "name": "Vector"
+    }
+   },
+   "label": "Rotated",
+   "location": [
+    1180,
+    500
+   ],
+   "mute": false,
+   "name": "Rotated",
+   "outputs": [
+    "Vector"
+   ],
+   "parent": "[Transform]",
+   "props": {
+    "invert": false,
+    "rotation_type": "EULER_XYZ"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeVectorMath",
+   "inputs": {
+    "Scale": {
+     "linked": true,
+     "name": "Scale"
+    },
+    "Vector": {
+     "linked": true,
+     "name": "Vector"
+    }
+   },
+   "label": "Rotation Now",
+   "location": [
+    860,
+    300
+   ],
+   "mute": false,
+   "name": "Rotation Now",
+   "outputs": [
+    "Vector"
+   ],
+   "parent": "[Transform]",
+   "props": {
+    "operation": "SCALE"
+   },
+   "width": 118.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeVectorMath",
+   "inputs": {
+    "Vector": {
+     "linked": true,
+     "name": "Vector"
+    },
+    "Vector_001": {
+     "name": "Vector",
+     "value": [
+      1.0,
+      1.0,
+      1.0
+     ]
+    }
+   },
+   "label": "Scale - 1",
+   "location": [
+    880,
+    440
+   ],
+   "mute": false,
+   "name": "Scale - 1",
+   "outputs": [
+    "Vector"
+   ],
+   "parent": "[Transform]",
+   "props": {
+    "operation": "SUBTRACT"
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeVectorMath",
+   "inputs": {
+    "Vector": {
+     "linked": true,
+     "name": "Vector"
+    },
+    "Vector_001": {
+     "name": "Vector",
+     "value": [
+      1.0,
+      1.0,
+      1.0
+     ]
+    }
+   },
+   "label": "Scale Now",
+   "location": [
+    880,
+    360
+   ],
+   "mute": false,
+   "name": "Scale Now",
+   "outputs": [
+    "Vector"
+   ],
+   "parent": "[Transform]",
+   "props": {
+    "operation": "ADD"
+   },
+   "width": 101.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeVectorMath",
+   "inputs": {
+    "Scale": {
+     "linked": true,
+     "name": "Scale"
+    },
+    "Vector": {
+     "linked": true,
+     "name": "Vector"
+    }
+   },
+   "label": "Scale Δ × w",
+   "location": [
+    860,
+    400
+   ],
+   "mute": false,
+   "name": "Scale Δ × w",
+   "outputs": [
+    "Vector"
+   ],
+   "parent": "[Transform]",
+   "props": {
+    "operation": "SCALE"
+   },
+   "width": 107.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeVectorMath",
+   "inputs": {
+    "Vector": {
+     "linked": true,
+     "name": "Vector"
+    },
+    "Vector_001": {
+     "linked": true,
+     "name": "Vector"
+    }
+   },
+   "label": "Scaled",
+   "location": [
+    1040,
+    420
+   ],
+   "mute": false,
+   "name": "Scaled",
+   "outputs": [
+    "Vector"
+   ],
+   "parent": "[Transform]",
+   "props": {
+    "operation": "MULTIPLY"
+   },
+   "width": 100.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeInputSceneTime",
+   "inputs": {},
+   "label": "",
+   "location": [
+    -1640,
+    -940
+   ],
+   "mute": false,
+   "name": "Scene Time",
+   "outputs": [
+    "Seconds",
+    "Frame"
+   ],
+   "parent": "[Time]",
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Seconds × Speed",
+   "location": [
+    1900,
+    -140
+   ],
+   "mute": false,
+   "name": "Seconds × Speed",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Bounce]",
+   "props": {
+    "operation": "MULTIPLY",
+    "use_clamp": false
+   },
+   "width": 138.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeStoreNamedAttribute",
+   "inputs": {
+    "Geometry": {
+     "linked": true,
+     "name": "Geometry"
+    },
+    "Name": {
+     "name": "Name",
+     "value": "et_weight"
+    },
+    "Selection": {
+     "name": "Selection",
+     "value": true
+    },
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Store et_weight",
+   "location": [
+    3180,
+    180
+   ],
+   "mute": false,
+   "name": "Store et_weight",
+   "outputs": [
+    "Geometry"
+   ],
+   "parent": "[Apply]",
+   "props": {
+    "data_type": "FLOAT",
+    "domain": "POINT"
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeAttributeStatistic",
+   "inputs": {
+    "Attribute": {
+     "linked": true,
+     "name": "Attribute"
+    },
+    "Geometry": {
+     "linked": true,
+     "name": "Geometry"
+    },
+    "Selection": {
+     "name": "Selection",
+     "value": true
+    }
+   },
+   "label": "Text Pivot",
+   "location": [
+    -1640,
+    680
+   ],
+   "mute": false,
+   "name": "Text Pivot",
+   "outputs": [
+    "Mean",
+    "Median",
+    "Sum",
+    "Min",
+    "Max",
+    "Range",
+    "Standard Deviation",
+    "Variance"
+   ],
+   "parent": "[Pivot]",
+   "props": {
+    "data_type": "FLOAT_VECTOR",
+    "domain": "POINT"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Time Raw",
+   "location": [
+    -1180,
+    -780
+   ],
+   "mute": false,
+   "name": "Time Raw",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "operation": "DIVIDE",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "name": "Value",
+     "value": 0.0
+    }
+   },
+   "label": "Time ≥ 0",
+   "location": [
+    -1180,
+    -820
+   ],
+   "mute": false,
+   "name": "Time ≥ 0",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "operation": "MAXIMUM",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Wave",
+   "location": [
+    2100,
+    -20
+   ],
+   "mute": false,
+   "name": "Wave",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Bounce]",
+   "props": {
+    "operation": "SINE",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "name": "Value",
+     "value": 1.0
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Weight In",
+   "location": [
+    100,
+    400
+   ],
+   "mute": false,
+   "name": "Weight In",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Easing]",
+   "props": {
+    "operation": "SUBTRACT",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeCombineXYZ",
+   "inputs": {
+    "X": {
+     "linked": true,
+     "name": "X"
+    },
+    "Y": {
+     "linked": true,
+     "name": "Y"
+    },
+    "Z": {
+     "linked": true,
+     "name": "Z"
+    }
+   },
+   "label": "Word Count XYZ",
+   "location": [
+    -1840,
+    640
+   ],
+   "mute": false,
+   "name": "Word Count XYZ",
+   "outputs": [
+    "Vector"
+   ],
+   "parent": "[Pivot]",
+   "width": 136.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeInputNamedAttribute",
+   "inputs": {
+    "Name": {
+     "name": "Name",
+     "value": "et_word_index"
+    }
+   },
+   "label": "Word Index",
+   "location": [
+    -2940,
+    620
+   ],
+   "mute": false,
+   "name": "Word Index",
+   "outputs": [
+    "Attribute",
+    "Exists"
+   ],
+   "parent": "[Elements]",
+   "props": {
+    "data_type": "INT"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeVectorMath",
+   "inputs": {
+    "Vector": {
+     "linked": true,
+     "name": "Vector"
+    },
+    "Vector_001": {
+     "linked": true,
+     "name": "Vector"
+    }
+   },
+   "label": "Word Pivot",
+   "location": [
+    -1620,
+    740
+   ],
+   "mute": false,
+   "name": "Word Pivot",
+   "outputs": [
+    "Vector"
+   ],
+   "parent": "[Pivot]",
+   "props": {
+    "operation": "DIVIDE"
+   },
+   "width": 105.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeAccumulateField",
+   "inputs": {
+    "Group Index": {
+     "linked": true,
+     "name": "Group ID"
+    },
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Word Pivot Sum",
+   "location": [
+    -1840,
+    920
+   ],
+   "mute": false,
+   "name": "Word Pivot Sum",
+   "outputs": [
+    "Leading",
+    "Trailing",
+    "Total"
+   ],
+   "parent": "[Pivot]",
+   "props": {
+    "data_type": "FLOAT_VECTOR",
+    "domain": "POINT"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeAccumulateField",
+   "inputs": {
+    "Group Index": {
+     "linked": true,
+     "name": "Group ID"
+    },
+    "Value": {
+     "name": "Value",
+     "value": 1.0
+    }
+   },
+   "label": "Word Point Count",
+   "location": [
+    -2100,
+    700
+   ],
+   "mute": false,
+   "name": "Word Point Count",
+   "outputs": [
+    "Leading",
+    "Trailing",
+    "Total"
+   ],
+   "parent": "[Pivot]",
+   "props": {
+    "data_type": "FLOAT",
+    "domain": "POINT"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Apply",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Apply]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Bounce",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Bounce]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Easing",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Easing]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Elements",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Elements]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Pivot",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Pivot]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Time",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Time]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Transform",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Transform]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "back terms",
+   "location": [
+    -280,
+    -60
+   ],
+   "mute": false,
+   "name": "back terms",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Easing]",
+   "props": {
+    "operation": "ADD",
+    "use_clamp": false
+   },
+   "width": 104.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "name": "Value",
+     "value": 1.70158
+    }
+   },
+   "label": "c1 (t-1)²",
+   "location": [
+    -280,
+    -20
+   ],
+   "mute": false,
+   "name": "c1 (t-1)²",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Easing]",
+   "props": {
+    "operation": "MULTIPLY",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "name": "Value",
+     "value": 2.70158
+    }
+   },
+   "label": "c3 (t-1)³",
+   "location": [
+    -460,
+    -60
+   ],
+   "mute": false,
+   "name": "c3 (t-1)³",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Easing]",
+   "props": {
+    "operation": "MULTIPLY",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "name": "Value",
+     "value": 1.0
+    }
+   },
+   "label": "t - 1",
+   "location": [
+    -460,
+    20
+   ],
+   "mute": false,
+   "name": "t - 1",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Easing]",
+   "props": {
+    "operation": "SUBTRACT",
+    "use_clamp": false
+   },
+   "width": 100.0
+  }
+ ],
+ "tree_type": "GeometryNodeTree"
+}

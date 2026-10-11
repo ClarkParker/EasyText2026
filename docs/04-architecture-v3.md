@@ -57,7 +57,7 @@ and after the Split on instances again).
 | `et_char_in_word` | int | Accumulate Field (Leading, Group ID = word) | Stagger within a word |
 | `et_char_in_line` | int | Accumulate Field (Leading, Group ID = line) | Stagger within a line |
 | `et_char_count`, `et_word_count`, `et_line_count` | int (uniform) | Attribute Statistic (Max + 1) | Percent units in selectors |
-| `et_pivot` | vector | String to Curves "Pivot Point" | Rotation/scale around baseline or center |
+| `et_pivot` | vector | instance Position + String to Curves "Pivot Point" | Rotation/scale around the glyph pivot (built) |
 | `et_weight` | float 0..1 | Selectors | Strength of the animation per element; default 1 |
 | `et_time` | float | ET Time | local, normalized time 0..1 per element |
 
@@ -77,7 +77,8 @@ remain unchanged.
 | `.ET Solid` | internal | 1 (built) | Fill (Mode/Fill Rule) → front material → attribute transfer → back copy + extrude → merge; `et_face_group`. |
 | `.ET Bevel` | internal | 1 (built) | Radius clamped to half the depth, face-set boundary edges, Mesh Bevel, bevel face group, "limited" warning. |
 | `.ET Text UV` | internal | 1 (built) | `UVMap`: planar caps, continuous band for sides and bevel (U = contour length, V = arc length); bypass toggle. |
-| `.ET Finish` | internal | 1 (built) | Side/bevel materials, Shade Smooth by Angle, removal of the `et_*` helper attributes. |
+| `.ET Finish` | internal | 1 (built) | Side/bevel materials, Shade Smooth by Angle. |
+| `.ET Animation` | internal | 2 (built) | "Animation" on the panel: local time per letter/word/line (Start, Duration, Stagger, Order, Loop), easing, direction In/Out, move/rotate/scale around the glyph, word, line or text pivot, Hide Before Start, Bounce; removes the `et_*` helpers unless kept. |
 | `ET Time` | Animators | 2 | Frame (default input SCENE_FRAME), Start, Duration, Stagger, Order (Index/Random/Reverse/From Center), Easing menu, Loop/Ping-Pong → `et_time`. |
 | `ET Select Range` | Selectors | 2 | AE model: Start/End/Offset, Unit (Percent/Index), Basis (Character/Word/Line), Shape, Ease, Random + Seed, Mode → `et_weight`. |
 | `ET Select Transition` | Selectors | 2 | Cavalry model: Completion 0..1 + Width + Direction → `et_weight`. Centerpiece of the reveals. |

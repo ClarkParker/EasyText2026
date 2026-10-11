@@ -6,7 +6,7 @@ Lines Join, Text Source ("Text Settings") and Mesh Generation.
 
 from .. import catalog, materials
 from ..core import GroupBuilder, builtin_font
-from . import et_lines_join, et_mesh_generation, et_text_source
+from . import et_animation, et_lines_join, et_mesh_generation, et_text_source
 
 NAME = "ET Text Mesh"
 LINE_INPUTS = ("Text", "Line 2", "Line 3", "Line 4")
@@ -77,6 +77,7 @@ def build():
             description="Scale the caps into 0..1; off = Blender units (tileable).",
         )
         g.input("UV Scale", "float", 1.0, min=0.0001, max=1000.0, description="Additional UV factor.")
+    et_animation.declare_inputs(g, decorated=False)
     with g.panel("Outline", description="Quality of the glyph outlines.", default_closed=True):
         g.input("Resolution", "int", 12, min=1, max=64, description="Points per curve segment.")
         g.input(
@@ -94,7 +95,7 @@ def build():
             "Keep Helper Attributes",
             "bool",
             False,
-            description="Keep the et_* attributes (character index, contour length, face group) on the mesh.",
+            description="Keep the et_* attributes (character, word, line index, pivot, weight) on the mesh.",
         )
     g.output("Geometry", "geometry")
     for name, value in (
@@ -130,5 +131,13 @@ def build():
             "Mesh Generation",
             inputs={"Curves": curves, **{name: gi[name] for name in et_mesh_generation.MESH_INPUTS}},
         )["Mesh"]
-    g.set_output("Geometry", mesh)
+
+    # ------------------------------------------------------------------ Animation: per-letter motion, cleanup
+    with g.frame("Animation"):
+        names = et_animation.ANIMATION_INPUTS + ("Keep Helper Attributes",)
+        gi = g.inputs(*names, label="Animation")
+        final = g.group(et_animation.NAME, "Animation", inputs={"Mesh": mesh, **{name: gi[name] for name in names}})[
+            "Mesh"
+        ]
+    g.set_output("Geometry", final)
     return g.finish()

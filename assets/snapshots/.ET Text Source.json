@@ -345,7 +345,7 @@
   [
    "Character Count",
    "Length",
-   "Reroute.010",
+   "Reroute.015",
    "Input"
   ],
   [
@@ -357,7 +357,7 @@
   [
    "Font Fallback",
    "Output",
-   "Reroute.006",
+   "Reroute.005",
    "Input"
   ],
   [
@@ -367,16 +367,28 @@
    "Switch"
   ],
   [
-   "Group Input (Font)",
-   "Socket_2",
-   "Font Is None",
-   "A"
+   "Glyph Origin",
+   "Position",
+   "Glyph Pivot",
+   "Vector"
+  ],
+  [
+   "Glyph Pivot",
+   "Vector",
+   "Store et_pivot",
+   "Value"
   ],
   [
    "Group Input (Font)",
    "Socket_2",
-   "Reroute.002",
-   "Input"
+   "Font Fallback",
+   "False"
+  ],
+  [
+   "Group Input (Font)",
+   "Socket_2",
+   "Font Is None",
+   "A"
   ],
   [
    "Group Input (Text)",
@@ -483,73 +495,127 @@
   [
    "Reroute.001",
    "Output",
-   "Reroute.004",
+   "Reroute.003",
    "Input"
   ],
   [
    "Reroute.002",
    "Output",
-   "Reroute.003",
+   "Reroute.007",
    "Input"
   ],
   [
    "Reroute.003",
    "Output",
-   "Font Fallback",
-   "False"
+   "Reroute.004",
+   "Input"
   ],
   [
    "Reroute.004",
-   "Output",
-   "Reroute.005",
-   "Input"
-  ],
-  [
-   "Reroute.005",
    "Output",
    "String to Curves",
    "String"
   ],
   [
-   "Reroute.006",
+   "Reroute.005",
    "Output",
-   "Reroute.007",
+   "Reroute.006",
    "Input"
   ],
   [
-   "Reroute.007",
+   "Reroute.006",
    "Output",
    "String to Curves",
    "Font"
   ],
   [
-   "Reroute.008",
+   "Reroute.007",
    "Output",
-   "Reroute.009",
+   "Reroute.008",
    "Input"
   ],
   [
+   "Reroute.008",
+   "Output",
+   "Store et_word_index",
+   "Value"
+  ],
+  [
    "Reroute.009",
+   "Output",
+   "Reroute.010",
+   "Input"
+  ],
+  [
+   "Reroute.010",
+   "Output",
+   "Store et_line_index",
+   "Value"
+  ],
+  [
+   "Reroute.011",
+   "Output",
+   "Reroute.012",
+   "Input"
+  ],
+  [
+   "Reroute.012",
+   "Output",
+   "Glyph Pivot",
+   "Vector_001"
+  ],
+  [
+   "Reroute.013",
+   "Output",
+   "Reroute.014",
+   "Input"
+  ],
+  [
+   "Reroute.014",
    "Output",
    "Group Output",
    "Socket_17"
   ],
   [
-   "Reroute.010",
+   "Reroute.015",
+   "Output",
+   "Reroute.016",
+   "Input"
+  ],
+  [
+   "Reroute.016",
    "Output",
    "No Text",
    "A"
   ],
   [
-   "Reroute.010",
+   "Reroute.016",
    "Output",
-   "Reroute.008",
+   "Reroute.013",
    "Input"
   ],
   [
    "Store et_char_index",
    "Geometry",
+   "Store et_word_index",
+   "Geometry"
+  ],
+  [
+   "Store et_line_index",
+   "Geometry",
+   "Store et_pivot",
+   "Geometry"
+  ],
+  [
+   "Store et_pivot",
+   "Geometry",
    "Realize Glyphs",
+   "Geometry"
+  ],
+  [
+   "Store et_word_index",
+   "Geometry",
+   "Store et_line_index",
    "Geometry"
   ],
   [
@@ -557,6 +623,24 @@
    "Curve Instances",
    "Store et_char_index",
    "Geometry"
+  ],
+  [
+   "String to Curves",
+   "Line",
+   "Reroute.009",
+   "Input"
+  ],
+  [
+   "String to Curves",
+   "Pivot Point",
+   "Reroute.011",
+   "Input"
+  ],
+  [
+   "String to Curves",
+   "Word",
+   "Reroute.002",
+   "Input"
   ],
   [
    "Warn Empty",
@@ -578,8 +662,8 @@
    },
    "label": "Character Count",
    "location": [
-    -700,
-    200
+    -1060,
+    260
    ],
    "mute": false,
    "name": "Character Count",
@@ -608,8 +692,8 @@
    },
    "label": "Curves",
    "location": [
-    1260,
-    80
+    1540,
+    180
    ],
    "mute": false,
    "name": "Curves",
@@ -644,8 +728,8 @@
    },
    "label": "Font Fallback",
    "location": [
-    -700,
-    20
+    -1060,
+    60
    ],
    "mute": false,
    "name": "Font Fallback",
@@ -673,8 +757,8 @@
    },
    "label": "Font Is None",
    "location": [
-    -880,
-    -60
+    -1240,
+    20
    ],
    "mute": false,
    "name": "Font Is None",
@@ -691,12 +775,58 @@
   },
   {
    "hide": false,
+   "idname": "GeometryNodeInputPosition",
+   "inputs": {},
+   "label": "Glyph Origin",
+   "location": [
+    260,
+    -200
+   ],
+   "mute": false,
+   "name": "Glyph Origin",
+   "outputs": [
+    "Position"
+   ],
+   "parent": "[Instances]",
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeVectorMath",
+   "inputs": {
+    "Vector": {
+     "linked": true,
+     "name": "Vector"
+    },
+    "Vector_001": {
+     "linked": true,
+     "name": "Vector"
+    }
+   },
+   "label": "Glyph Pivot",
+   "location": [
+    480,
+    -240
+   ],
+   "mute": false,
+   "name": "Glyph Pivot",
+   "outputs": [
+    "Vector"
+   ],
+   "parent": "[Instances]",
+   "props": {
+    "operation": "ADD"
+   },
+   "width": 107.0
+  },
+  {
+   "hide": false,
    "idname": "NodeGroupInput",
    "inputs": {},
    "label": "",
    "location": [
-    -1100,
-    -60
+    -1460,
+    0
    ],
    "mute": false,
    "name": "Group Input (Font)",
@@ -724,8 +854,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    -880,
-    200
+    -1240,
+    220
    ],
    "mute": false,
    "name": "Group Input (Text)",
@@ -753,8 +883,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    -360,
-    -120
+    -720,
+    -100
    ],
    "mute": false,
    "name": "Group Input (Typography)",
@@ -794,8 +924,8 @@
    },
    "label": "",
    "location": [
-    1480,
-    80
+    1760,
+    180
    ],
    "mute": false,
    "name": "Group Output",
@@ -812,8 +942,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    220,
-    -100
+    -120,
+    -60
    ],
    "mute": false,
    "name": "Index",
@@ -838,8 +968,8 @@
    },
    "label": "No Text",
    "location": [
-    940,
-    80
+    1220,
+    160
    ],
    "mute": false,
    "name": "No Text",
@@ -877,8 +1007,8 @@
    },
    "label": "Realize Glyphs",
    "location": [
-    600,
-    20
+    860,
+    60
    ],
    "mute": false,
    "name": "Realize Glyphs",
@@ -902,8 +1032,8 @@
    },
    "label": "",
    "location": [
-    -700,
-    94
+    -1060,
+    162
    ],
    "mute": false,
    "name": "Reroute",
@@ -927,8 +1057,8 @@
    },
    "label": "",
    "location": [
-    -560,
-    94
+    -920,
+    162
    ],
    "mute": false,
    "name": "Reroute.001",
@@ -952,161 +1082,11 @@
    },
    "label": "",
    "location": [
-    -892,
-    -113
+    -198,
+    -81
    ],
    "mute": false,
    "name": "Reroute.002",
-   "outputs": [
-    "Output"
-   ],
-   "parent": "[Font]",
-   "props": {
-    "socket_idname": "NodeSocketFont"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    -752,
-    -113
-   ],
-   "mute": false,
-   "name": "Reroute.003",
-   "outputs": [
-    "Output"
-   ],
-   "parent": "[Font]",
-   "props": {
-    "socket_idname": "NodeSocketFont"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    -490,
-    11
-   ],
-   "mute": false,
-   "name": "Reroute.004",
-   "outputs": [
-    "Output"
-   ],
-   "parent": null,
-   "props": {
-    "socket_idname": "NodeSocketString"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    -230,
-    11
-   ],
-   "mute": false,
-   "name": "Reroute.005",
-   "outputs": [
-    "Output"
-   ],
-   "parent": "[Typeset]",
-   "props": {
-    "socket_idname": "NodeSocketString"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    -490,
-    -74
-   ],
-   "mute": false,
-   "name": "Reroute.006",
-   "outputs": [
-    "Output"
-   ],
-   "parent": null,
-   "props": {
-    "socket_idname": "NodeSocketFont"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    -230,
-    -74
-   ],
-   "mute": false,
-   "name": "Reroute.007",
-   "outputs": [
-    "Output"
-   ],
-   "parent": "[Typeset]",
-   "props": {
-    "socket_idname": "NodeSocketFont"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    940,
-    -119
-   ],
-   "mute": false,
-   "name": "Reroute.008",
    "outputs": [
     "Output"
    ],
@@ -1127,8 +1107,158 @@
    },
    "label": "",
    "location": [
-    1400,
-    -119
+    -840,
+    31
+   ],
+   "mute": false,
+   "name": "Reroute.003",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketString"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -570,
+    31
+   ],
+   "mute": false,
+   "name": "Reroute.004",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Typeset]",
+   "props": {
+    "socket_idname": "NodeSocketString"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -840,
+    -58
+   ],
+   "mute": false,
+   "name": "Reroute.005",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFont"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -570,
+    -58
+   ],
+   "mute": false,
+   "name": "Reroute.006",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Typeset]",
+   "props": {
+    "socket_idname": "NodeSocketFont"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -120,
+    -149
+   ],
+   "mute": false,
+   "name": "Reroute.007",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Instances]",
+   "props": {
+    "socket_idname": "NodeSocketInt"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    210,
+    -149
+   ],
+   "mute": false,
+   "name": "Reroute.008",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Instances]",
+   "props": {
+    "socket_idname": "NodeSocketInt"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -240,
+    -167
    ],
    "mute": false,
    "name": "Reroute.009",
@@ -1152,11 +1282,161 @@
    },
    "label": "",
    "location": [
-    852,
-    165
+    410,
+    -167
    ],
    "mute": false,
    "name": "Reroute.010",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Instances]",
+   "props": {
+    "socket_idname": "NodeSocketInt"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -240,
+    -287
+   ],
+   "mute": false,
+   "name": "Reroute.011",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketVector"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    410,
+    -287
+   ],
+   "mute": false,
+   "name": "Reroute.012",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Instances]",
+   "props": {
+    "socket_idname": "NodeSocketVector"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    1220,
+    -24
+   ],
+   "mute": false,
+   "name": "Reroute.013",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketInt"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    1680,
+    -24
+   ],
+   "mute": false,
+   "name": "Reroute.014",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketInt"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -840,
+    155
+   ],
+   "mute": false,
+   "name": "Reroute.015",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketInt"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    1132,
+    155
+   ],
+   "mute": false,
+   "name": "Reroute.016",
    "outputs": [
     "Output"
    ],
@@ -1189,11 +1469,125 @@
    },
    "label": "Store et_char_index",
    "location": [
-    400,
-    20
+    60,
+    60
    ],
    "mute": false,
    "name": "Store et_char_index",
+   "outputs": [
+    "Geometry"
+   ],
+   "parent": "[Instances]",
+   "props": {
+    "data_type": "INT",
+    "domain": "INSTANCE"
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeStoreNamedAttribute",
+   "inputs": {
+    "Geometry": {
+     "linked": true,
+     "name": "Geometry"
+    },
+    "Name": {
+     "name": "Name",
+     "value": "et_line_index"
+    },
+    "Selection": {
+     "name": "Selection",
+     "value": true
+    },
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Store et_line_index",
+   "location": [
+    460,
+    60
+   ],
+   "mute": false,
+   "name": "Store et_line_index",
+   "outputs": [
+    "Geometry"
+   ],
+   "parent": "[Instances]",
+   "props": {
+    "data_type": "INT",
+    "domain": "INSTANCE"
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeStoreNamedAttribute",
+   "inputs": {
+    "Geometry": {
+     "linked": true,
+     "name": "Geometry"
+    },
+    "Name": {
+     "name": "Name",
+     "value": "et_pivot"
+    },
+    "Selection": {
+     "name": "Selection",
+     "value": true
+    },
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Store et_pivot",
+   "location": [
+    660,
+    60
+   ],
+   "mute": false,
+   "name": "Store et_pivot",
+   "outputs": [
+    "Geometry"
+   ],
+   "parent": "[Instances]",
+   "props": {
+    "data_type": "FLOAT_VECTOR",
+    "domain": "INSTANCE"
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeStoreNamedAttribute",
+   "inputs": {
+    "Geometry": {
+     "linked": true,
+     "name": "Geometry"
+    },
+    "Name": {
+     "name": "Name",
+     "value": "et_word_index"
+    },
+    "Selection": {
+     "name": "Selection",
+     "value": true
+    },
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Store et_word_index",
+   "location": [
+    260,
+    60
+   ],
+   "mute": false,
+   "name": "Store et_word_index",
    "outputs": [
     "Geometry"
    ],
@@ -1259,8 +1653,8 @@
    },
    "label": "",
    "location": [
-    -180,
-    0
+    -520,
+    20
    ],
    "mute": false,
    "name": "String to Curves",
@@ -1289,8 +1683,8 @@
    },
    "label": "Warn Empty",
    "location": [
-    1080,
-    120
+    1360,
+    200
    ],
    "mute": false,
    "name": "Warn Empty",

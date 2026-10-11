@@ -149,7 +149,7 @@
   [
    "Extrude",
    "Side",
-   "Reroute.005",
+   "Reroute.004",
    "Input"
   ],
   [
@@ -173,7 +173,13 @@
   [
    "Fetch et_char_index",
    "Value",
-   "Reroute.004",
+   "Reroute.003",
+   "Input"
+  ],
+  [
+   "Fetch et_line_index",
+   "Value",
+   "Reroute.008",
    "Input"
   ],
   [
@@ -183,10 +189,22 @@
    "Value"
   ],
   [
+   "Fetch et_pivot",
+   "Value",
+   "Reroute.010",
+   "Input"
+  ],
+  [
    "Fetch et_u",
    "Value",
    "Store et_u",
    "Value"
+  ],
+  [
+   "Fetch et_word_index",
+   "Value",
+   "Reroute.006",
+   "Input"
   ],
   [
    "Fill",
@@ -263,7 +281,7 @@
   [
    "Group Input (Curves, Fill Mode, Fill Rule, Front Material)",
    "Socket_4",
-   "Reroute.002",
+   "Reroute",
    "Input"
   ],
   [
@@ -293,13 +311,31 @@
   [
    "Nearest Outline Point",
    "Index",
+   "Fetch et_line_index",
+   "Index"
+  ],
+  [
+   "Nearest Outline Point",
+   "Index",
    "Fetch et_loop_len",
    "Index"
   ],
   [
    "Nearest Outline Point",
    "Index",
+   "Fetch et_pivot",
+   "Index"
+  ],
+  [
+   "Nearest Outline Point",
+   "Index",
    "Fetch et_u",
+   "Index"
+  ],
+  [
+   "Nearest Outline Point",
+   "Index",
+   "Fetch et_word_index",
    "Index"
   ],
   [
@@ -323,7 +359,7 @@
   [
    "Outline Points",
    "Points",
-   "Reroute",
+   "Reroute.002",
    "Input"
   ],
   [
@@ -335,23 +371,41 @@
   [
    "Reroute",
    "Output",
-   "Fetch et_loop_len",
-   "Geometry"
-  ],
-  [
-   "Reroute",
-   "Output",
    "Reroute.001",
    "Input"
   ],
   [
    "Reroute.001",
    "Output",
+   "Front Material Fallback",
+   "False"
+  ],
+  [
+   "Reroute.002",
+   "Output",
    "Fetch et_char_index",
    "Geometry"
   ],
   [
-   "Reroute.001",
+   "Reroute.002",
+   "Output",
+   "Fetch et_line_index",
+   "Geometry"
+  ],
+  [
+   "Reroute.002",
+   "Output",
+   "Fetch et_loop_len",
+   "Geometry"
+  ],
+  [
+   "Reroute.002",
+   "Output",
+   "Fetch et_pivot",
+   "Geometry"
+  ],
+  [
+   "Reroute.002",
    "Output",
    "Fetch et_u",
    "Geometry"
@@ -359,32 +413,32 @@
   [
    "Reroute.002",
    "Output",
-   "Reroute.003",
-   "Input"
+   "Fetch et_word_index",
+   "Geometry"
   ],
   [
    "Reroute.003",
-   "Output",
-   "Front Material Fallback",
-   "False"
-  ],
-  [
-   "Reroute.004",
    "Output",
    "Store et_char_index",
    "Value"
   ],
   [
+   "Reroute.004",
+   "Output",
+   "Reroute.005",
+   "Input"
+  ],
+  [
    "Reroute.005",
    "Output",
-   "Reroute.006",
-   "Input"
+   "Group Side",
+   "Selection"
   ],
   [
    "Reroute.006",
    "Output",
-   "Group Side",
-   "Selection"
+   "Store et_word_index",
+   "Value"
   ],
   [
    "Reroute.007",
@@ -395,19 +449,37 @@
   [
    "Reroute.008",
    "Output",
+   "Store et_line_index",
+   "Value"
+  ],
+  [
+   "Reroute.009",
+   "Output",
    "Store et_u",
    "Geometry"
   ],
   [
+   "Reroute.010",
+   "Output",
+   "Store et_pivot",
+   "Value"
+  ],
+  [
    "Set Front Material",
    "Geometry",
-   "Reroute.008",
+   "Reroute.009",
    "Input"
   ],
   [
    "Store et_char_index",
    "Geometry",
-   "Group Back",
+   "Store et_word_index",
+   "Geometry"
+  ],
+  [
+   "Store et_line_index",
+   "Geometry",
+   "Store et_pivot",
    "Geometry"
   ],
   [
@@ -417,9 +489,21 @@
    "Geometry"
   ],
   [
+   "Store et_pivot",
+   "Geometry",
+   "Group Back",
+   "Geometry"
+  ],
+  [
    "Store et_u",
    "Geometry",
    "Store et_loop_len",
+   "Geometry"
+  ],
+  [
+   "Store et_word_index",
+   "Geometry",
+   "Store et_line_index",
    "Geometry"
   ],
   [
@@ -429,15 +513,33 @@
    "Value"
   ],
   [
+   "et_line_index (points)",
+   "Attribute",
+   "Fetch et_line_index",
+   "Value"
+  ],
+  [
    "et_loop_len (points)",
    "Attribute",
    "Fetch et_loop_len",
    "Value"
   ],
   [
+   "et_pivot (points)",
+   "Attribute",
+   "Fetch et_pivot",
+   "Value"
+  ],
+  [
    "et_u (points)",
    "Attribute",
    "Fetch et_u",
+   "Value"
+  ],
+  [
+   "et_word_index (points)",
+   "Attribute",
+   "Fetch et_word_index",
    "Value"
   ]
  ],
@@ -466,8 +568,8 @@
    },
    "label": "Close Solid",
    "location": [
-    1920,
-    0
+    2320,
+    -80
    ],
    "mute": false,
    "name": "Close Solid",
@@ -508,8 +610,8 @@
    },
    "label": "Extrude",
    "location": [
-    1140,
-    120
+    1540,
+    40
    ],
    "mute": false,
    "name": "Extrude",
@@ -539,8 +641,8 @@
    },
    "label": "Face +Z",
    "location": [
-    -1180,
-    120
+    -1440,
+    40
    ],
    "mute": false,
    "name": "Face +Z",
@@ -565,8 +667,8 @@
    },
    "label": "Faces Down",
    "location": [
-    -1360,
-    -60
+    -1620,
+    -140
    ],
    "mute": false,
    "name": "Faces Down",
@@ -600,8 +702,8 @@
    },
    "label": "Fetch et_char_index",
    "location": [
-    -40,
-    -300
+    -280,
+    160
    ],
    "mute": false,
    "name": "Fetch et_char_index",
@@ -633,10 +735,45 @@
      "name": "Value"
     }
    },
+   "label": "Fetch et_line_index",
+   "location": [
+    -280,
+    -420
+   ],
+   "mute": false,
+   "name": "Fetch et_line_index",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Transfer Attributes]",
+   "props": {
+    "clamp": false,
+    "data_type": "INT",
+    "domain": "POINT"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSampleIndex",
+   "inputs": {
+    "Geometry": {
+     "linked": true,
+     "name": "Geometry"
+    },
+    "Index": {
+     "linked": true,
+     "name": "Index"
+    },
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
    "label": "Fetch et_loop_len",
    "location": [
-    -40,
-    80
+    -280,
+    380
    ],
    "mute": false,
    "name": "Fetch et_loop_len",
@@ -668,10 +805,45 @@
      "name": "Value"
     }
    },
+   "label": "Fetch et_pivot",
+   "location": [
+    -280,
+    -640
+   ],
+   "mute": false,
+   "name": "Fetch et_pivot",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Transfer Attributes]",
+   "props": {
+    "clamp": false,
+    "data_type": "FLOAT_VECTOR",
+    "domain": "POINT"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSampleIndex",
+   "inputs": {
+    "Geometry": {
+     "linked": true,
+     "name": "Geometry"
+    },
+    "Index": {
+     "linked": true,
+     "name": "Index"
+    },
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
    "label": "Fetch et_u",
    "location": [
-    -40,
-    300
+    -280,
+    600
    ],
    "mute": false,
    "name": "Fetch et_u",
@@ -682,6 +854,41 @@
    "props": {
     "clamp": false,
     "data_type": "FLOAT",
+    "domain": "POINT"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSampleIndex",
+   "inputs": {
+    "Geometry": {
+     "linked": true,
+     "name": "Geometry"
+    },
+    "Index": {
+     "linked": true,
+     "name": "Index"
+    },
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Fetch et_word_index",
+   "location": [
+    -280,
+    -80
+   ],
+   "mute": false,
+   "name": "Fetch et_word_index",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Transfer Attributes]",
+   "props": {
+    "clamp": false,
+    "data_type": "INT",
     "domain": "POINT"
    },
    "width": 140.0
@@ -709,8 +916,8 @@
    },
    "label": "Fill",
    "location": [
-    -1380,
-    120
+    -1640,
+    40
    ],
    "mute": false,
    "name": "Fill",
@@ -735,8 +942,8 @@
    },
    "label": "Flip Back",
    "location": [
-    1140,
-    -140
+    1540,
+    -220
    ],
    "mute": false,
    "name": "Flip Back",
@@ -768,8 +975,8 @@
    },
    "label": "Front Material Fallback",
    "location": [
-    -1180,
-    -60
+    -1440,
+    -140
    ],
    "mute": false,
    "name": "Front Material Fallback",
@@ -797,8 +1004,8 @@
    },
    "label": "Front Material Is None",
    "location": [
-    -1380,
-    -120
+    -1660,
+    -200
    ],
    "mute": false,
    "name": "Front Material Is None",
@@ -836,8 +1043,8 @@
    },
    "label": "Group Back",
    "location": [
-    920,
-    0
+    1320,
+    -80
    ],
    "mute": false,
    "name": "Group Back",
@@ -874,8 +1081,8 @@
    },
    "label": "Group Front",
    "location": [
-    1320,
-    120
+    1720,
+    40
    ],
    "mute": false,
    "name": "Group Front",
@@ -895,7 +1102,7 @@
    "inputs": {},
    "label": "",
    "location": [
-    -640,
+    -900,
     -100
    ],
    "mute": false,
@@ -917,8 +1124,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    -1580,
-    120
+    -1860,
+    40
    ],
    "mute": false,
    "name": "Group Input (Curves, Fill Mode, Fill Rule, Front Material)",
@@ -939,8 +1146,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    940,
-    120
+    1340,
+    40
    ],
    "mute": false,
    "name": "Group Input (Depth)",
@@ -969,8 +1176,8 @@
    },
    "label": "",
    "location": [
-    2140,
-    0
+    2540,
+    -80
    ],
    "mute": false,
    "name": "Group Output",
@@ -1004,8 +1211,8 @@
    },
    "label": "Group Side",
    "location": [
-    1540,
-    120
+    1940,
+    40
    ],
    "mute": false,
    "name": "Group Side",
@@ -1030,8 +1237,8 @@
    },
    "label": "Join Solid",
    "location": [
-    1740,
-    0
+    2140,
+    -80
    ],
    "mute": false,
    "name": "Join Solid",
@@ -1056,8 +1263,8 @@
    },
    "label": "Nearest Outline Point",
    "location": [
-    -260,
-    -240
+    -540,
+    -220
    ],
    "mute": false,
    "name": "Nearest Outline Point",
@@ -1076,8 +1283,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    -1760,
-    -40
+    -2040,
+    -120
    ],
    "mute": false,
    "name": "Normal",
@@ -1102,8 +1309,8 @@
    },
    "label": "Normal XYZ",
    "location": [
-    -1580,
-    -80
+    -1840,
+    -140
    ],
    "mute": false,
    "name": "Normal XYZ",
@@ -1126,7 +1333,7 @@
    },
    "label": "Outline Points",
    "location": [
-    -460,
+    -720,
     -100
    ],
    "mute": false,
@@ -1149,7 +1356,7 @@
    "inputs": {},
    "label": "",
    "location": [
-    -460,
+    -720,
     -300
    ],
    "mute": false,
@@ -1171,17 +1378,17 @@
    },
    "label": "",
    "location": [
-    -260,
-    -46
+    -1660,
+    -253
    ],
    "mute": false,
    "name": "Reroute",
    "outputs": [
     "Output"
    ],
-   "parent": "[Transfer Attributes]",
+   "parent": "[Fill]",
    "props": {
-    "socket_idname": "NodeSocketGeometry"
+    "socket_idname": "NodeSocketMaterial"
    },
    "width": 140.0
   },
@@ -1196,14 +1403,39 @@
    },
    "label": "",
    "location": [
-    -120,
-    -46
+    -1495,
+    -253
    ],
    "mute": false,
    "name": "Reroute.001",
    "outputs": [
     "Output"
    ],
+   "parent": "[Fill]",
+   "props": {
+    "socket_idname": "NodeSocketMaterial"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -400,
+    -135
+   ],
+   "mute": false,
+   "name": "Reroute.002",
+   "outputs": [
+    "Output"
+   ],
    "parent": "[Transfer Attributes]",
    "props": {
     "socket_idname": "NodeSocketGeometry"
@@ -1221,61 +1453,11 @@
    },
    "label": "",
    "location": [
-    -1380,
-    -181
-   ],
-   "mute": false,
-   "name": "Reroute.002",
-   "outputs": [
-    "Output"
-   ],
-   "parent": "[Fill]",
-   "props": {
-    "socket_idname": "NodeSocketMaterial"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    -1215,
-    -181
+    270,
+    125
    ],
    "mute": false,
    "name": "Reroute.003",
-   "outputs": [
-    "Output"
-   ],
-   "parent": "[Fill]",
-   "props": {
-    "socket_idname": "NodeSocketMaterial"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    510,
-    -335
-   ],
-   "mute": false,
-   "name": "Reroute.004",
    "outputs": [
     "Output"
    ],
@@ -1296,8 +1478,33 @@
    },
    "label": "",
    "location": [
-    1330,
-    -118
+    1730,
+    -190
+   ],
+   "mute": false,
+   "name": "Reroute.004",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Back Face + Extrude]",
+   "props": {
+    "socket_idname": "NodeSocketBool"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    1880,
+    -190
    ],
    "mute": false,
    "name": "Reroute.005",
@@ -1321,17 +1528,17 @@
    },
    "label": "",
    "location": [
-    1480,
-    -118
+    480,
+    -115
    ],
    "mute": false,
    "name": "Reroute.006",
    "outputs": [
     "Output"
    ],
-   "parent": "[Back Face + Extrude]",
+   "parent": "[Transfer Attributes]",
    "props": {
-    "socket_idname": "NodeSocketBool"
+    "socket_idname": "NodeSocketInt"
    },
    "width": 140.0
   },
@@ -1346,8 +1553,8 @@
    },
    "label": "",
    "location": [
-    1690,
-    -175
+    2090,
+    -255
    ],
    "mute": false,
    "name": "Reroute.007",
@@ -1371,17 +1578,67 @@
    },
    "label": "",
    "location": [
-    -760,
-    341
+    694,
+    -455
    ],
    "mute": false,
    "name": "Reroute.008",
    "outputs": [
     "Output"
    ],
+   "parent": "[Transfer Attributes]",
+   "props": {
+    "socket_idname": "NodeSocketInt"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1036,
+    637
+   ],
+   "mute": false,
+   "name": "Reroute.009",
+   "outputs": [
+    "Output"
+   ],
    "parent": null,
    "props": {
     "socket_idname": "NodeSocketGeometry"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    904,
+    -675
+   ],
+   "mute": false,
+   "name": "Reroute.010",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Transfer Attributes]",
+   "props": {
+    "socket_idname": "NodeSocketVector"
    },
    "width": 140.0
   },
@@ -1404,8 +1661,8 @@
    },
    "label": "Set Front Material",
    "location": [
-    -980,
-    120
+    -1240,
+    40
    ],
    "mute": false,
    "name": "Set Front Material",
@@ -1438,11 +1695,49 @@
    },
    "label": "Store et_char_index",
    "location": [
-    560,
-    420
+    320,
+    720
    ],
    "mute": false,
    "name": "Store et_char_index",
+   "outputs": [
+    "Geometry"
+   ],
+   "parent": "[Transfer Attributes]",
+   "props": {
+    "data_type": "INT",
+    "domain": "POINT"
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeStoreNamedAttribute",
+   "inputs": {
+    "Geometry": {
+     "linked": true,
+     "name": "Geometry"
+    },
+    "Name": {
+     "name": "Name",
+     "value": "et_line_index"
+    },
+    "Selection": {
+     "name": "Selection",
+     "value": true
+    },
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Store et_line_index",
+   "location": [
+    740,
+    720
+   ],
+   "mute": false,
+   "name": "Store et_line_index",
    "outputs": [
     "Geometry"
    ],
@@ -1476,8 +1771,8 @@
    },
    "label": "Store et_loop_len",
    "location": [
-    360,
-    420
+    120,
+    720
    ],
    "mute": false,
    "name": "Store et_loop_len",
@@ -1487,6 +1782,44 @@
    "parent": "[Transfer Attributes]",
    "props": {
     "data_type": "FLOAT",
+    "domain": "POINT"
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeStoreNamedAttribute",
+   "inputs": {
+    "Geometry": {
+     "linked": true,
+     "name": "Geometry"
+    },
+    "Name": {
+     "name": "Name",
+     "value": "et_pivot"
+    },
+    "Selection": {
+     "name": "Selection",
+     "value": true
+    },
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Store et_pivot",
+   "location": [
+    960,
+    720
+   ],
+   "mute": false,
+   "name": "Store et_pivot",
+   "outputs": [
+    "Geometry"
+   ],
+   "parent": "[Transfer Attributes]",
+   "props": {
+    "data_type": "FLOAT_VECTOR",
     "domain": "POINT"
    },
    "width": 160.0
@@ -1514,8 +1847,8 @@
    },
    "label": "Store et_u",
    "location": [
-    140,
-    420
+    -100,
+    720
    ],
    "mute": false,
    "name": "Store et_u",
@@ -1525,6 +1858,44 @@
    "parent": "[Transfer Attributes]",
    "props": {
     "data_type": "FLOAT",
+    "domain": "POINT"
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeStoreNamedAttribute",
+   "inputs": {
+    "Geometry": {
+     "linked": true,
+     "name": "Geometry"
+    },
+    "Name": {
+     "name": "Name",
+     "value": "et_word_index"
+    },
+    "Selection": {
+     "name": "Selection",
+     "value": true
+    },
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Store et_word_index",
+   "location": [
+    540,
+    720
+   ],
+   "mute": false,
+   "name": "Store et_word_index",
+   "outputs": [
+    "Geometry"
+   ],
+   "parent": "[Transfer Attributes]",
+   "props": {
+    "data_type": "INT",
     "domain": "POINT"
    },
    "width": 160.0
@@ -1597,11 +1968,37 @@
    },
    "label": "et_char_index (points)",
    "location": [
-    -260,
-    -400
+    -540,
+    160
    ],
    "mute": false,
    "name": "et_char_index (points)",
+   "outputs": [
+    "Attribute",
+    "Exists"
+   ],
+   "parent": "[Transfer Attributes]",
+   "props": {
+    "data_type": "INT"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeInputNamedAttribute",
+   "inputs": {
+    "Name": {
+     "name": "Name",
+     "value": "et_line_index"
+    }
+   },
+   "label": "et_line_index (points)",
+   "location": [
+    -540,
+    -540
+   ],
+   "mute": false,
+   "name": "et_line_index (points)",
    "outputs": [
     "Attribute",
     "Exists"
@@ -1623,8 +2020,8 @@
    },
    "label": "et_loop_len (points)",
    "location": [
-    -260,
-    -80
+    -540,
+    380
    ],
    "mute": false,
    "name": "et_loop_len (points)",
@@ -1644,13 +2041,39 @@
    "inputs": {
     "Name": {
      "name": "Name",
+     "value": "et_pivot"
+    }
+   },
+   "label": "et_pivot (points)",
+   "location": [
+    -540,
+    -700
+   ],
+   "mute": false,
+   "name": "et_pivot (points)",
+   "outputs": [
+    "Attribute",
+    "Exists"
+   ],
+   "parent": "[Transfer Attributes]",
+   "props": {
+    "data_type": "FLOAT_VECTOR"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeInputNamedAttribute",
+   "inputs": {
+    "Name": {
+     "name": "Name",
      "value": "et_u"
     }
    },
    "label": "et_u (points)",
    "location": [
-    -260,
-    300
+    -540,
+    600
    ],
    "mute": false,
    "name": "et_u (points)",
@@ -1661,6 +2084,32 @@
    "parent": "[Transfer Attributes]",
    "props": {
     "data_type": "FLOAT"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeInputNamedAttribute",
+   "inputs": {
+    "Name": {
+     "name": "Name",
+     "value": "et_word_index"
+    }
+   },
+   "label": "et_word_index (points)",
+   "location": [
+    -540,
+    -380
+   ],
+   "mute": false,
+   "name": "et_word_index (points)",
+   "outputs": [
+    "Attribute",
+    "Exists"
+   ],
+   "parent": "[Transfer Attributes]",
+   "props": {
+    "data_type": "INT"
    },
    "width": 140.0
   }

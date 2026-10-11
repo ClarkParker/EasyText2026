@@ -44,7 +44,8 @@ itself: frames, group nodes with their input widgets, reroutes and wires.
 1. The group nodes are the panels. Every control is an input of one of three nodes, shown as a widget on the node
    (text field, slider, dropdown, checkbox, font and material picker). No value nodes, no wire per control.
 2. Reading order is the user's order: `1. Text Input` (four line fields), `2. Font Settings` (font, alignment,
-   spacing, text box), `3. Mesh Settings` (shape with bevel, material, UV; outline and output closed), `Result`.
+   spacing, text box), `3. Mesh Settings` (shape with bevel, material, UV; outline closed), `4. Animation`
+   (animate switch with timing, move, rotate, scale; reveal, bounce and output closed), `Result`.
    Panels inside a node are ordered the same way: what is touched most comes first, advanced panels start closed.
    The pipeline stays inside the nodes; Tab shows it.
 3. Headings in the ASCII style of v2.1: panel and frame titles read `-=| Name |=-`, nested panels `-- Name --`
@@ -53,8 +54,8 @@ itself: frames, group nodes with their input widgets, reroutes and wires.
 4. Three wires, each with a labelled reroute as a marker between the sections (`text`, `glyphs`, `mesh`). The
    markers sit on the socket level of both ends, so the wires run straight; the node positions are tuned for it.
 5. Colours as in v2.1 and used as signals: dark teal outer frame, lighter teal sections, an accent rule under the
-   title, the Text Lines node tinted red (the v2.1 string nodes), Text Settings teal, Mesh Generation green, purple
-   tip boxes and note. Tips are fixed-size frames with frame text, one per section, text size 14; the export note
+   title, the Text Lines node tinted red (the v2.1 string nodes), Text Settings teal, Mesh Generation green,
+   Animation amber (motion), purple tip boxes and note. Tips are fixed-size frames with frame text, one per section, text size 14; the export note
    and a small footer are the same element.
 6. Panel nodes hide what a user does not need: the data-block selector (`show_options` off), unlinked outputs
    meant for builders (Character Count), the "Named Attributes" overlay. Nothing is selected when the file opens,

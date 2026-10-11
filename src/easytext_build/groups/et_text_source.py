@@ -78,16 +78,28 @@ def build():
         )
 
     with g.frame("Instances"):
+        # One instance per glyph: character, word and line index plus the typographic pivot travel with the
+        # points through realize, fill and extrude (see .ET Solid) and drive the per-letter animation.
         index = g.node("GeometryNodeInputIndex", "Index")[0]
-        with_char = g.store(
+        inst = g.store(
             curves_inst["Curve Instances"],
             "et_char_index",
             index,
             domain="INSTANCE",
             data_type="INT",
             name="Store et_char_index",
-        )
-        curves = g.node("GeometryNodeRealizeInstances", "Realize Glyphs", inputs={"Geometry": with_char[0]})[0]
+        )[0]
+        inst = g.store(
+            inst, "et_word_index", curves_inst["Word"], domain="INSTANCE", data_type="INT", name="Store et_word_index"
+        )[0]
+        inst = g.store(
+            inst, "et_line_index", curves_inst["Line"], domain="INSTANCE", data_type="INT", name="Store et_line_index"
+        )[0]
+        # String to Curves gives the pivot relative to the glyph; the instance position places the glyph.
+        glyph_origin = g.node("GeometryNodeInputPosition", "Glyph Origin")[0]
+        pivot = g.vmath("ADD", glyph_origin, curves_inst["Pivot Point"], name="Glyph Pivot")[0]
+        inst = g.store(inst, "et_pivot", pivot, domain="INSTANCE", data_type="FLOAT_VECTOR", name="Store et_pivot")[0]
+        curves = g.node("GeometryNodeRealizeInstances", "Realize Glyphs", inputs={"Geometry": inst})[0]
 
     with g.frame("Warning"):
         # Shown on the modifier (warnings of nested groups propagate). The pass-through switch only makes sure

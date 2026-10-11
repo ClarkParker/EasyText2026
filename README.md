@@ -4,8 +4,9 @@ Geometry Nodes typography and text animation for **Blender 5.2 LTS**: node-group
 (work as a modifier without any add-on) plus an optional extension for a font picker,
 multi-line text, presets, and camera and light rigs.
 
-Status: Phase 1. Node group `ET Text Mesh` (text → clean mesh with extrusion, bevel, materials, UVs) and the
-control panel `Easy Text`, the v3 of the v2.1 GUI: three settings nodes inside the node editor.
+Status: Phase 2 in progress. Node group `ET Text Mesh` (text → clean mesh with extrusion, bevel, materials, UVs,
+per-letter animation) and the control panel `Easy Text`, the v3 of the v2.1 GUI: four settings nodes inside the
+node editor.
 Analysis of the previous version: `docs/01-analysis-v2.1.md`, target picture: `docs/02-target-v3.md`,
 development rules and API pitfalls: `docs/03-development.md`, architecture: `docs/04-architecture-v3.md`,
 node layout rules: `docs/05-node-layout.md`.
@@ -18,12 +19,12 @@ node layout rules: `docs/05-node-layout.md`.
 2. Two ways to operate the tool, same nodes inside:
    - `Easy Text` (the demo): the control panel in the node editor, laid out like the v2.1 GUI and in the user's
      order. Three settings nodes carry every control as a widget: **1. Text Input** (four line fields),
-     **2. Font Settings** (font, size, alignment, spacing, text box) and **3. Mesh Settings** (shape with bevel
-     switch, materials, UV switch; outline and output folded away), a tip box under each, a note with the export
-     hint. Three wires with markers, nothing else to connect.
+     **2. Font Settings** (font, size, alignment, spacing, text box), **3. Mesh Settings** (shape with bevel
+     switch, materials, UV switch; outline folded away) and **4. Animation** (timing, move, rotate, scale, reveal,
+     bounce; output folded away), a tip box under each, a note with the export hint. Four wires with markers,
+     nothing else to connect.
    - `ET Text Mesh`: one node group with inputs as modifier panels: Text (4 lines), Typography (font socket, size,
-     alignment, spacing, text box), Outline (resolution, simplify, fill), Shape (depth, bevel, smooth angle),
-     Material, UV, Output.
+     alignment, spacing, text box), Shape (depth, bevel, smooth angle), Material, UV, Animate, Outline, Output.
 3. For your own file: File → Append → `easytext_v3.blend` → NodeTree → `ET Text Mesh` or `Easy Text`.
    Alternatively register the `assets/` folder as an asset library in the Preferences; both groups then show up in
    the Add Modifier menu under "Easy Text".
@@ -33,6 +34,12 @@ What the group guarantees (verified headless): a closed, manifold mesh without d
 triangles; sides and bevel as quads; a `UVMap` with planar caps and one continuous, undistorted UV band for sides and
 bevel (U = contour length, V = arc length over back bevel, side, front bevel); materials in the slots Front/Side/Bevel;
 warnings for empty text and a bevel that is too wide.
+
+Animation (switch **Animate**): every letter, word or line gets its own local time from Start, Duration, Stagger and
+Order (left to right, right to left, centre out, random), an easing (linear, ease in/out, in-out, overshoot) and a
+loop mode, and travels from its start state (Offset, Rotation, Scale around the glyph, word, line or text pivot)
+into place, or away with Direction = Out. Hide Before Start gives a typewriter reveal, Bounce a continuous wobble.
+Driven by the scene frame, no keyframes needed.
 
 ## Layout
 

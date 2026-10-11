@@ -44,6 +44,18 @@ attaches the test group as a modifier to an object and evaluates it.
 - The node editor overlay "Named Attributes" adds an "n Named Attribute" row to every group node that stores
   attributes; the demo turns it off for the panel view (`space.overlay.show_named_attributes`).
 
+### Animation (found while building .ET Animation)
+
+- A new Menu Switch node starts with the items A and B; clear them before adding your own (`core.menu` does).
+- Input names must be unique across the whole interface, panels included: a second "Pivot" (animation centre next
+  to the typography pivot) broke the menu defaults, so the animation one is called "Center".
+- String to Curves' "Pivot Point" output is relative to the glyph instance; the glyph's place is the instance
+  Position. `et_pivot` = Position + Pivot Point, stored on the instance domain and realized onto the points.
+- A vector socket with subtype EULER stores radians and displays degrees: no conversion in the math, and defaults
+  set from Python are radians.
+- Instance attributes survive Realize Instances onto the points but not Fill Curve; .ET Solid carries them across
+  with Sample Nearest + Sample Index (the list now includes word, line and pivot).
+
 ### Demo file: window layout and screenshots
 
 `build` writes the demo scene headless. The window layout (workspace "Easy Text", camera view on top, node editor

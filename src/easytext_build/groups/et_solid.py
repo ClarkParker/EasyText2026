@@ -48,7 +48,14 @@ def build():
             props={"domain": "POINT"},
         )["Index"]
         cap = fill_up
-        for attr, data_type in (("et_u", "FLOAT"), ("et_loop_len", "FLOAT"), ("et_char_index", "INT")):
+        for attr, data_type in (
+            ("et_u", "FLOAT"),
+            ("et_loop_len", "FLOAT"),
+            ("et_char_index", "INT"),
+            ("et_word_index", "INT"),
+            ("et_line_index", "INT"),
+            ("et_pivot", "FLOAT_VECTOR"),
+        ):
             value = g.sample_index(
                 points,
                 g.named(attr, data_type, name=f"{attr} (points)")["Attribute"],

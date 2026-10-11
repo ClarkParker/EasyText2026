@@ -1,6 +1,7 @@
 """Order of the group builders. Dependencies (sub-groups) come before their users."""
 
 from . import (
+    et_animation,
     et_bevel,
     et_easy_text,
     et_finish,
@@ -22,6 +23,7 @@ MODULES = [
     et_uv,
     et_finish,
     et_mesh_generation,
+    et_animation,
     et_text_mesh,
     et_easy_text,
 ]

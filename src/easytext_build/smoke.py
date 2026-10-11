@@ -59,6 +59,33 @@ def main() -> int:
     if pverts == 0:
         errors.append(f"{registry.PANEL} produces no geometry")
 
+    # animation: with Animate on, the letters must move between two frames and the helper attributes must exist
+    from .core import group_socket
+
+    anim = bpy.data.node_groups[registry.PANEL].nodes["Animation"]
+    group_socket(anim, "Animate").default_value = True
+    group_socket(anim, "Keep Helper Attributes").default_value = True
+    pmod.node_group = pmod.node_group  # re-evaluate with the new defaults
+    panel.update_tag()
+    bounds = []
+    for frame in (1, 20):
+        bpy.context.scene.frame_set(frame)
+        depsgraph.update()
+        geo = panel.evaluated_get(depsgraph).evaluated_geometry()
+        if geo.mesh is None:
+            errors.append(f"animation: no mesh at frame {frame}")
+            break
+        xs = [v.co.y for v in geo.mesh.vertices]
+        bounds.append((round(min(xs), 4), round(max(xs), 4)))
+        anim_attrs = {a.name for a in geo.mesh.attributes}
+    kept = sorted(a for a in anim_attrs if a.startswith("et_"))
+    print(f"[smoke] animation: y-bounds at frame 1 and 20 {bounds}, helper attributes kept: {kept}")
+    if len(bounds) == 2 and bounds[0] == bounds[1]:
+        errors.append("animation: letters do not move between frame 1 and 20")
+    for attr in ("et_char_index", "et_word_index", "et_line_index", "et_pivot", "et_weight"):
+        if attr not in anim_attrs:
+            errors.append(f"animation: attribute {attr} missing on the mesh")
+
     if errors:
         print("[smoke] FAILED:\n  " + "\n  ".join(errors))
         return 1

@@ -25,7 +25,6 @@ MESH_INPUTS = (
     "UV",
     "Normalize to Text",
     "UV Scale",
-    "Keep Helper Attributes",
 )
 
 
@@ -87,13 +86,6 @@ def build():
         )
         g.input("Fill Mode", "menu", description="N-gons or triangles on the caps.")
         g.input("Fill Rule", "menu", description="Even-Odd or Non-Zero for overlapping outlines.")
-    with g.panel(heading("Output"), default_closed=True):
-        g.input(
-            "Keep Helper Attributes",
-            "bool",
-            False,
-            description="Keep the et_* attributes (character index, contour length, face group) on the mesh.",
-        )
     g.output("Mesh", "geometry")
     for name, value in (("Fill Mode", "N-gons"), ("Fill Rule", "Even-Odd")):
         g.menu_default(name, value)
@@ -148,7 +140,7 @@ def build():
         )["Mesh"]
 
     with g.frame("Finish"):
-        gi = g.inputs("Side Material", "Bevel Material", "Smooth Angle", "Keep Helper Attributes", label="Finish")
+        gi = g.inputs("Side Material", "Bevel Material", "Smooth Angle", label="Finish")
         final = g.group(
             et_finish.NAME,
             inputs={
@@ -156,7 +148,6 @@ def build():
                 "Side Material": gi["Side Material"],
                 "Bevel Material": gi["Bevel Material"],
                 "Smooth Angle": gi["Smooth Angle"],
-                "Keep Helper Attributes": gi["Keep Helper Attributes"],
             },
         )["Mesh"]
     g.set_output("Mesh", final)

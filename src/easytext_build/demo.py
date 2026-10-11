@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import math
 
+from .core import group_socket
 from .groups import registry
 
 
@@ -17,6 +18,11 @@ def populate_scene(scene) -> None:
     mod = text_ob.modifiers.new("Easy Text", "NODES")
     mod.node_group = tree
     text_ob.rotation_euler = (math.radians(90), 0.0, 0.0)  # upright, readable from the front (-Y)
+    anim = tree.nodes["Animation"]
+    group_socket(anim, "Animate").default_value = True  # the demo shows the letters arriving
+    group_socket(anim, "Rotation").default_value = (0.0, 0.0, math.radians(90))
+    scene.frame_start, scene.frame_end = 1, 120
+    scene.frame_current = 30  # half the letters are in place, the rest still travelling
 
     cam_data = bpy.data.cameras.new("Camera")
     cam_data.lens = 35

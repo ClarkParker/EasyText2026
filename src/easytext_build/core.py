@@ -401,6 +401,19 @@ class GroupBuilder:
             inputs={"Switch": condition, "False": false, "True": true},
         )
 
+    def menu(self, name: str, options: dict, *, type: str = "FLOAT", select=None) -> NodeRef:
+        """Menu Switch: `options` maps the item label to its value; `select` is the menu input (a group socket).
+        A new Menu Switch starts with the items A and B, which are cleared first."""
+        ref = self.node("GeometryNodeMenuSwitch", name, props={"data_type": type})
+        ref.node.enum_items.clear()
+        for label in options:
+            ref.node.enum_items.new(label)
+        if select is not None:
+            self.set_input(ref, "Menu", select)
+        for label, value in options.items():
+            self.set_input(ref, label, value)
+        return ref
+
     def fallback(self, type: str, value, default, *, name: str | None = None) -> SocketRef:
         """Data-block input with fallback: when `value` is empty (None), `default` is used as the node default.
 

@@ -19,7 +19,7 @@ import bpy
 
 from .. import catalog, materials
 from ..core import GroupBuilder, NodeRef, builtin_font, group_socket, heading
-from . import et_lines_join, et_mesh_generation, et_text_source
+from . import et_animation, et_lines_join, et_mesh_generation, et_text_source
 
 NAME = "Easy Text"
 
@@ -38,10 +38,14 @@ TIP_COLOR = (0.190, 0.085, 0.210)
 TEXT_NODE_COLOR = (0.400, 0.130, 0.170)
 FONT_NODE_COLOR = (0.100, 0.195, 0.205)
 MESH_NODE_COLOR = (0.105, 0.200, 0.150)
+ANIM_NODE_COLOR = (0.215, 0.160, 0.075)  # amber: motion
 
 TIP_TEXT = "Up to four lines; empty lines are skipped.\nNew line = new row of text."
 TIP_FONT = "Size is in metres. Text Box: Box Width > 0 wraps the lines."
 TIP_MESH = "Bevel Width is capped at half the Depth.\nUV: planar caps, one seamless band around the sides."
+TIP_ANIM = (
+    "Animate: letters travel from Offset, Rotation and Scale\ninto place. Start, Duration and Stagger are frames."
+)
 NOTE = "Export: apply the modifier (modifier tab > Apply).\nThe mesh keeps its UVMap and material slots."
 FOOTER = "Easy Text 2026  ·  Blender 5.2 LTS  ·  node assets CC0"
 
@@ -149,22 +153,35 @@ def build():
                 mesh.node.inputs[name].default_value = mats[mat]
             _box(g, "Tip Mesh", TIP_MESH, (NODE_W + 20, TIP_H), (2 * COLUMN, -480.0))
 
+        # ---------------------------------------------------------- 4. animation
+        with g.frame(heading("4. Animation"), color=SECTION_COLOR):
+            mesh_marker = _marker(g, "mesh", mesh["Mesh"], 3 * COLUMN - 70.0, -41.0)
+            anim = g.group(et_animation.NAME, "Animation", inputs={"Mesh": mesh_marker[0]})
+            anim.node.width = NODE_W + 20
+            anim.node.show_options = False
+            anim.node.use_custom_color = True
+            anim.node.color = ANIM_NODE_COLOR
+            for name, value in et_animation.MENU_DEFAULTS:
+                anim.node.inputs[name].default_value = value
+            _box(g, "Tip Animation", TIP_ANIM, (NODE_W + 20, TIP_H), (3 * COLUMN, -800.0))
+
         # ---------------------------------------------------------- result
         with g.frame(heading("Result"), color=RESULT_COLOR):
-            mesh_marker = _marker(g, "mesh", mesh["Mesh"], 3 * COLUMN - 70.0, -41.0)
+            final_marker = _marker(g, "final", anim["Mesh"], 4 * COLUMN - 70.0, -41.0)
             g.group_out.parent = g._frames[-1]
             g.group_out.label = "Easy Text Mesh"
-        g.set_output("Geometry", mesh_marker[0])
+        g.set_output("Geometry", final_marker[0])
 
         # ---------------------------------------------------------- decoration: rule, note, footer
-        right = 3 * COLUMN + 160.0
+        right = 4 * COLUMN + 160.0
         _rule(g, "Title Rule", right + 60.0, (-30.0, 96.0))
         _box(g, "Note", NOTE, (NODE_W, 150.0), (0.0, -320.0), label="Note")
-        _box(g, "Footer", FOOTER, (NODE_W + 160.0, 48.0), (2 * COLUMN, -660.0), color=OUTER_COLOR)
+        _box(g, "Footer", FOOTER, (NODE_W + 160.0, 48.0), (3 * COLUMN, -940.0), color=OUTER_COLOR)
 
     # ---------------------------------------------------------------- positions (sockets of the three wires level)
     g.place(lines, 0.0, -18.0)  # String output meets the Text input of Text Settings
     g.place(text, COLUMN, 0.0)
     g.place(mesh, 2 * COLUMN, 4.0)  # Curves input meets the Curves output of Text Settings
-    g.place(NodeRef(g.group_out), 3 * COLUMN, 4.0)
+    g.place(anim, 3 * COLUMN, 4.0)
+    g.place(NodeRef(g.group_out), 4 * COLUMN, 4.0)
     return g.finish()

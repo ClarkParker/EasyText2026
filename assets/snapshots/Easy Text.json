@@ -30,8 +30,14 @@
  ],
  "links": [
   [
+   "Animation",
+   "Socket_29",
+   "final",
+   "Input"
+  ],
+  [
    "Mesh Generation",
-   "Socket_24",
+   "Socket_22",
    "mesh",
    "Input"
   ],
@@ -48,6 +54,12 @@
    "Input"
   ],
   [
+   "final",
+   "Output",
+   "Group Output",
+   "Socket_0"
+  ],
+  [
    "glyphs",
    "Output",
    "Mesh Generation",
@@ -56,7 +68,7 @@
   [
    "mesh",
    "Output",
-   "Group Output",
+   "Animation",
    "Socket_0"
   ],
   [
@@ -68,6 +80,130 @@
  ],
  "name": "Easy Text",
  "nodes": [
+  {
+   "hide": false,
+   "idname": "GeometryNodeGroup",
+   "inputs": {
+    "Socket_0": {
+     "linked": true,
+     "name": "Mesh"
+    },
+    "Socket_10": {
+     "name": "Loop",
+     "value": "Once"
+    },
+    "Socket_11": {
+     "name": "Direction",
+     "value": "In"
+    },
+    "Socket_12": {
+     "name": "Seed",
+     "value": 0
+    },
+    "Socket_14": {
+     "name": "Offset",
+     "value": [
+      0.0,
+      -1.0,
+      0.0
+     ]
+    },
+    "Socket_16": {
+     "name": "Rotation",
+     "value": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "Socket_17": {
+     "name": "Center",
+     "value": "Letter"
+    },
+    "Socket_19": {
+     "name": "Scale",
+     "value": [
+      1.0,
+      1.0,
+      1.0
+     ]
+    },
+    "Socket_2": {
+     "name": "-=| Animate |=-",
+     "value": false
+    },
+    "Socket_21": {
+     "name": "Hide Before Start",
+     "value": false
+    },
+    "Socket_23": {
+     "name": "-- Bounce --",
+     "value": false
+    },
+    "Socket_24": {
+     "name": "Bounce Strength",
+     "value": [
+      0.0,
+      0.1,
+      0.0
+     ]
+    },
+    "Socket_25": {
+     "name": "Bounce Speed",
+     "value": 1.0
+    },
+    "Socket_26": {
+     "name": "Bounce Phase",
+     "value": 0.1
+    },
+    "Socket_28": {
+     "name": "Keep Helper Attributes",
+     "value": false
+    },
+    "Socket_4": {
+     "name": "Start",
+     "value": 1
+    },
+    "Socket_5": {
+     "name": "Duration",
+     "value": 24
+    },
+    "Socket_6": {
+     "name": "Stagger",
+     "value": 2.0
+    },
+    "Socket_7": {
+     "name": "Order",
+     "value": "Left to Right"
+    },
+    "Socket_8": {
+     "name": "Basis",
+     "value": "Letters"
+    },
+    "Socket_9": {
+     "name": "Easing",
+     "value": "Ease Out"
+    }
+   },
+   "label": "Animation",
+   "location": [
+    1380,
+    4
+   ],
+   "mute": false,
+   "name": "Animation",
+   "outputs": [
+    "Socket_29"
+   ],
+   "parent": "[-=| 4. Animation |=-]",
+   "props": {
+    "node_tree": {
+     "id": ".ET Animation",
+     "type": "GeometryNodeTree"
+    }
+   },
+   "width": 320.0
+  },
   {
    "hide": false,
    "idname": "NodeGroupOutput",
@@ -82,7 +218,7 @@
    },
    "label": "Easy Text Mesh",
    "location": [
-    1380,
+    1840,
     4
    ],
    "mute": false,
@@ -155,10 +291,6 @@
      "name": "Fill Rule",
      "value": "Even-Odd"
     },
-    "Socket_23": {
-     "name": "Keep Helper Attributes",
-     "value": false
-    },
     "Socket_4": {
      "name": "-- Bevel --",
      "value": true
@@ -188,7 +320,7 @@
    "mute": false,
    "name": "Mesh Generation",
    "outputs": [
-    "Socket_24"
+    "Socket_22"
    ],
    "parent": "[-=| 3. Mesh Settings |=-]",
    "props": {
@@ -376,6 +508,25 @@
    "hide": false,
    "idname": "NodeFrame",
    "inputs": {},
+   "label": "-=| 4. Animation |=-",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[-=| 4. Animation |=-]",
+   "outputs": [],
+   "parent": "[Easy Text Geometry Node 3]",
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
    "label": "-=| Result |=-",
    "location": [
     0,
@@ -416,8 +567,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    920,
-    -660
+    1380,
+    -940
    ],
    "mute": false,
    "name": "[Footer]",
@@ -455,6 +606,29 @@
     }
    },
    "width": 300.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "",
+   "location": [
+    1380,
+    -800
+   ],
+   "mute": false,
+   "name": "[Tip Animation]",
+   "outputs": [],
+   "parent": "[-=| 4. Animation |=-]",
+   "props": {
+    "label_size": 14,
+    "shrink": false,
+    "text": {
+     "id": "Easy Text – Tip Animation",
+     "type": "Text"
+    }
+   },
+   "width": 320.0
   },
   {
    "hide": false,
@@ -542,7 +716,32 @@
     "label_size": 20,
     "shrink": false
    },
-   "width": 1600.0
+   "width": 2060.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "final",
+   "location": [
+    1770,
+    -41
+   ],
+   "mute": false,
+   "name": "final",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[-=| Result |=-]",
+   "props": {
+    "socket_idname": "NodeSocketGeometry"
+   },
+   "width": 140.0
   },
   {
    "hide": false,
@@ -588,7 +787,7 @@
    "outputs": [
     "Output"
    ],
-   "parent": "[-=| Result |=-]",
+   "parent": "[-=| 4. Animation |=-]",
    "props": {
     "socket_idname": "NodeSocketGeometry"
    },
