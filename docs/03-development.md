@@ -56,6 +56,16 @@ attaches the test group as a modifier to an object and evaluates it.
 - Instance attributes survive Realize Instances onto the points but not Fill Curve; .ET Solid carries them across
   with Sample Nearest + Sample Index (the list now includes word, line and pivot).
 
+### Plate (found while building .ET Plate)
+
+- Fillet Curve takes its mode as a menu socket (`"Poly"` with `Count` gives real corner vertices for the fill).
+- Extrude Mesh moves the selected region and leaves no face behind: a closed slab is top + flipped copy extruded
+  down + Merge by Distance, the same recipe as .ET Solid.
+- A temporary face attribute (`plate_part`) feeds Mesh Face Set Boundaries to pick the top rim for Mesh Bevel and
+  is removed afterwards; Mesh Bevel needs all five offsets set (see Phase 1 pitfalls).
+- Geometry Proximity (target faces) against the text mesh gives the relief; Map Range with Smooth Step turns the
+  distance into the bump, Triangulate + Subdivide Mesh give the top enough vertices.
+
 ### Demo file: window layout and screenshots
 
 `build` writes the demo scene headless. The window layout (workspace "Easy Text", camera view on top, node editor

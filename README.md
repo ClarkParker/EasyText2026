@@ -20,9 +20,9 @@ node layout rules: `docs/05-node-layout.md`.
    - `Easy Text` (the demo): the control panel in the node editor, laid out like the v2.1 GUI and in the user's
      order. Three settings nodes carry every control as a widget: **1. Text Input** (four line fields),
      **2. Font Settings** (font, size, alignment, spacing, text box), **3. Mesh Settings** (shape with bevel
-     switch, materials, UV switch; outline folded away) and **4. Animation** (timing, move, rotate, scale, reveal,
-     bounce; output folded away), a tip box under each, a note with the export hint. Four wires with markers,
-     nothing else to connect.
+     switch, materials, UV switch; plate and outline folded away) and **4. Animation** (timing, move, rotate,
+     scale, reveal, bounce; output folded away), a tip box under each, a note with the export hint. Four wires
+     with markers, nothing else to connect.
    - `ET Text Mesh`: one node group with inputs as modifier panels: Text (4 lines), Typography (font socket, size,
      alignment, spacing, text box), Shape (depth, bevel, smooth angle), Material, UV, Animate, Outline, Output.
 3. For your own file: File → Append → `easytext_v3.blend` → NodeTree → `ET Text Mesh` or `Easy Text`.
@@ -34,6 +34,10 @@ What the group guarantees (verified headless): a closed, manifold mesh without d
 triangles; sides and bevel as quads; a `UVMap` with planar caps and one continuous, undistorted UV band for sides and
 bevel (U = contour length, V = arc length over back bevel, side, front bevel); materials in the slots Front/Side/Bevel;
 warnings for empty text and a bevel that is too wide.
+
+Plate (switch **Plate**): a rounded base plate behind the text, sized from the text plus margins or by hand, with
+thickness, a bevelled rim, a gap to the text and an optional relief that rises around the letters; own UVMap and
+material slot. The v2.1 "Beveled Plate" without the dense grid.
 
 Animation (switch **Animate**): every letter, word or line gets its own local time from Start, Duration, Stagger and
 Order (left to right, right to left, centre out, random), an easing (linear, ease in/out, in-out, overshoot) and a

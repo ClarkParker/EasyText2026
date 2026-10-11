@@ -78,6 +78,7 @@ remain unchanged.
 | `.ET Bevel` | internal | 1 (built) | Radius clamped to half the depth, face-set boundary edges, Mesh Bevel, bevel face group, "limited" warning. |
 | `.ET Text UV` | internal | 1 (built) | `UVMap`: planar caps, continuous band for sides and bevel (U = contour length, V = arc length); bypass toggle. |
 | `.ET Finish` | internal | 1 (built) | Side/bevel materials, Shade Smooth by Angle. |
+| `.ET Plate` | internal | 2 (built) | "Plate" panel: rounded base plate sized from the text (or by hand), thickness, bevelled top rim, optional relief around the letters (Geometry Proximity on a subdivided top), own planar UVMap, material; face group 4, character index -1 so the animation leaves it. Replaces the v2.1 proximity grid. |
 | `.ET Animation` | internal | 2 (built) | "Animation" on the panel: local time per letter/word/line (Start, Duration, Stagger, Order, Loop), easing, direction In/Out, move/rotate/scale around the glyph, word, line or text pivot, Hide Before Start, Bounce; removes the `et_*` helpers unless kept. |
 | `ET Time` | Animators | 2 | Frame (default input SCENE_FRAME), Start, Duration, Stagger, Order (Index/Random/Reverse/From Center), Easing menu, Loop/Ping-Pong → `et_time`. |
 | `ET Select Range` | Selectors | 2 | AE model: Start/End/Offset, Unit (Percent/Index), Basis (Character/Word/Line), Shape, Ease, Random + Seed, Mode → `et_weight`. |
@@ -90,7 +91,7 @@ remain unchanged.
 | `ET Animate Tracking` | Animators | 2 | Animated character/line spacing (displacement along the baseline). |
 | `ET Typewriter` | Animators | 2 | Visible character count from `et_time`; cursor optional. |
 | `ET Scramble` | Animators | 2 | Replace characters with random characters before fading in (string nodes, Index Switch). |
-| `ET Plate` | Mesh | 5 | Base plate with rounding via Mesh to SDF Grid → Offset → Grid to Mesh, Bake. |
+| `ET Plate` (SDF halo) | Mesh | 5 | Optional later variant: plate outline following the letters via Mesh to SDF Grid → Grid to Mesh with offset threshold. |
 | `ET Outline` | Mesh | 5 | Outline via Curve to Mesh (profile) or SDF. |
 | `ET Fit Camera` | Scene | 3 | Helper group: bounding box → distance/ortho scale for the camera operator (Camera Info). |
 

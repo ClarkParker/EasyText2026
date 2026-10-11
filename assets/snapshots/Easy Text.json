@@ -37,7 +37,7 @@
   ],
   [
    "Mesh Generation",
-   "Socket_22",
+   "Socket_39",
    "mesh",
    "Input"
   ],
@@ -272,22 +272,85 @@
      "value": 1.0
     },
     "Socket_18": {
-     "name": "Resolution",
-     "value": 12
+     "name": "-=| Plate |=-",
+     "value": false
     },
     "Socket_19": {
-     "name": "Simplify",
-     "value": 0.5
+     "name": "Fit to Text",
+     "value": true
     },
     "Socket_2": {
      "name": "Depth",
      "value": 0.1
     },
     "Socket_20": {
+     "name": "Margin X",
+     "value": 0.5
+    },
+    "Socket_21": {
+     "name": "Margin Y",
+     "value": 0.3
+    },
+    "Socket_22": {
+     "name": "Plate Width",
+     "value": 6.0
+    },
+    "Socket_23": {
+     "name": "Plate Height",
+     "value": 3.0
+    },
+    "Socket_24": {
+     "name": "Corner Radius",
+     "value": 0.3
+    },
+    "Socket_25": {
+     "name": "Thickness",
+     "value": 0.2
+    },
+    "Socket_26": {
+     "name": "Edge Bevel",
+     "value": 0.05
+    },
+    "Socket_27": {
+     "name": "Gap",
+     "value": 0.0
+    },
+    "Socket_29": {
+     "name": "-- Relief --",
+     "value": false
+    },
+    "Socket_30": {
+     "name": "Relief Height",
+     "value": 0.05
+    },
+    "Socket_31": {
+     "name": "Relief Width",
+     "value": 0.3
+    },
+    "Socket_32": {
+     "name": "Relief Detail",
+     "value": 3
+    },
+    "Socket_33": {
+     "name": "Plate Material",
+     "value": {
+      "id": "ET Plate",
+      "type": "Material"
+     }
+    },
+    "Socket_35": {
+     "name": "Resolution",
+     "value": 12
+    },
+    "Socket_36": {
+     "name": "Simplify",
+     "value": 0.5
+    },
+    "Socket_37": {
      "name": "Fill Mode",
      "value": "N-gons"
     },
-    "Socket_21": {
+    "Socket_38": {
      "name": "Fill Rule",
      "value": "Even-Odd"
     },
@@ -320,7 +383,7 @@
    "mute": false,
    "name": "Mesh Generation",
    "outputs": [
-    "Socket_22"
+    "Socket_39"
    ],
    "parent": "[-=| 3. Mesh Settings |=-]",
    "props": {

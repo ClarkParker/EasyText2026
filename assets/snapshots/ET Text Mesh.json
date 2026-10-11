@@ -15,7 +15,7 @@
    "description": "",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_67",
+   "identifier": "Socket_84",
    "in_out": "OUTPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -669,6 +669,356 @@
    "subtype": "NONE"
   },
   {
+   "default_closed": true,
+   "description": "A rounded base plate behind the text.",
+   "item_type": "PANEL",
+   "name": "Plate",
+   "parent": null
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": false,
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_35",
+   "in_out": "INPUT",
+   "is_panel_toggle": true,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Plate",
+   "optional_label": false,
+   "parent": "Plate",
+   "socket_type": "NodeSocketBool",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": true,
+   "description": "Size the plate from the text bounds plus the margins.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_36",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Fit to Text",
+   "optional_label": false,
+   "parent": "Plate",
+   "socket_type": "NodeSocketBool",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.5,
+   "description": "Left and right.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_37",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 100.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
+   "name": "Margin X",
+   "optional_label": false,
+   "parent": "Plate",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.3,
+   "description": "Top and bottom.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_38",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 100.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
+   "name": "Margin Y",
+   "optional_label": false,
+   "parent": "Plate",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 6.0,
+   "description": "When not fitted.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_39",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 1000.0,
+   "menu_expanded": false,
+   "min_value": 0.01,
+   "name": "Plate Width",
+   "optional_label": false,
+   "parent": "Plate",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 3.0,
+   "description": "When not fitted.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_40",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 1000.0,
+   "menu_expanded": false,
+   "min_value": 0.01,
+   "name": "Plate Height",
+   "optional_label": false,
+   "parent": "Plate",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.3,
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_41",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 100.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
+   "name": "Corner Radius",
+   "optional_label": false,
+   "parent": "Plate",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.2,
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_42",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 100.0,
+   "menu_expanded": false,
+   "min_value": 0.001,
+   "name": "Thickness",
+   "optional_label": false,
+   "parent": "Plate",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.05,
+   "description": "Top rim; 0 = off.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_43",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 10.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
+   "name": "Edge Bevel",
+   "optional_label": false,
+   "parent": "Plate",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.0,
+   "description": "Space between plate and text back; negative sinks the text into the plate.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_44",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 10.0,
+   "menu_expanded": false,
+   "min_value": -10.0,
+   "name": "Gap",
+   "optional_label": false,
+   "parent": "Plate",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": {
+    "id": "ET Plate",
+    "type": "Material"
+   },
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_50",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Plate Material",
+   "optional_label": false,
+   "parent": "Plate",
+   "socket_type": "NodeSocketMaterial",
+   "structure_type": "AUTO"
+  },
+  {
+   "default_closed": true,
+   "description": "The plate top rises around the letters.",
+   "item_type": "PANEL",
+   "name": "Relief",
+   "parent": "Plate"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": false,
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_46",
+   "in_out": "INPUT",
+   "is_panel_toggle": true,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Relief",
+   "optional_label": false,
+   "parent": "Relief",
+   "socket_type": "NodeSocketBool",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.05,
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_47",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 10.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
+   "name": "Relief Height",
+   "optional_label": false,
+   "parent": "Relief",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.3,
+   "description": "Reach.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_48",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 100.0,
+   "menu_expanded": false,
+   "min_value": 0.001,
+   "name": "Relief Width",
+   "optional_label": false,
+   "parent": "Relief",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 3,
+   "description": "Subdivision levels of the plate top.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_49",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 6,
+   "menu_expanded": false,
+   "min_value": 1,
+   "name": "Relief Detail",
+   "optional_label": false,
+   "parent": "Relief",
+   "socket_type": "NodeSocketInt",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  },
+  {
    "default_closed": false,
    "description": "Per-letter animation driven by the scene frame.",
    "item_type": "PANEL",
@@ -683,7 +1033,7 @@
    "description": "",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_35",
+   "identifier": "Socket_52",
    "in_out": "INPUT",
    "is_panel_toggle": true,
    "item_type": "SOCKET",
@@ -710,7 +1060,7 @@
    "description": "Frame at which the first element starts.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_37",
+   "identifier": "Socket_54",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -733,7 +1083,7 @@
    "description": "Frames one element needs.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_38",
+   "identifier": "Socket_55",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -756,7 +1106,7 @@
    "description": "Frames between two elements.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_39",
+   "identifier": "Socket_56",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -779,7 +1129,7 @@
    "description": "Which element starts first.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_40",
+   "identifier": "Socket_57",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -799,7 +1149,7 @@
    "description": "What counts as one element.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_41",
+   "identifier": "Socket_58",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -819,7 +1169,7 @@
    "description": "Speed curve of one element.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_42",
+   "identifier": "Socket_59",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -839,7 +1189,7 @@
    "description": "Play once, repeat, or go back and forth.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_43",
+   "identifier": "Socket_60",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -859,7 +1209,7 @@
    "description": "In: from the start state into place. Out: from place away.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_44",
+   "identifier": "Socket_61",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -879,7 +1229,7 @@
    "description": "Seed for the Random order.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_45",
+   "identifier": "Socket_62",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -913,7 +1263,7 @@
    "description": "Where an element starts, relative to its place.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_47",
+   "identifier": "Socket_64",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -947,7 +1297,7 @@
    "description": "Start rotation.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_49",
+   "identifier": "Socket_66",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -970,7 +1320,7 @@
    "description": "Rotation and scale centre: glyph pivot, word, line or text.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_50",
+   "identifier": "Socket_67",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -1001,7 +1351,7 @@
    "description": "Start scale.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_52",
+   "identifier": "Socket_69",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -1031,7 +1381,7 @@
    "description": "Elements are invisible until they start.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_54",
+   "identifier": "Socket_71",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -1058,7 +1408,7 @@
    "description": "",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_56",
+   "identifier": "Socket_73",
    "in_out": "INPUT",
    "is_panel_toggle": true,
    "item_type": "SOCKET",
@@ -1082,7 +1432,7 @@
    "description": "Amplitude per axis.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_57",
+   "identifier": "Socket_74",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -1105,7 +1455,7 @@
    "description": "Cycles per second.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_58",
+   "identifier": "Socket_75",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -1128,7 +1478,7 @@
    "description": "Cycle offset per element.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_59",
+   "identifier": "Socket_76",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -1158,7 +1508,7 @@
    "description": "Points per curve segment.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_61",
+   "identifier": "Socket_78",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -1181,7 +1531,7 @@
    "description": "Remove points whose direction changes less than this angle (degrees). 0 = off.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_62",
+   "identifier": "Socket_79",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -1204,7 +1554,7 @@
    "description": "N-gons or triangles on the caps.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_63",
+   "identifier": "Socket_80",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -1224,7 +1574,7 @@
    "description": "Even-Odd or Non-Zero for overlapping outlines.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_64",
+   "identifier": "Socket_81",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -1251,7 +1601,7 @@
    "description": "Keep the et_* attributes (character, word, line index, pivot, weight) on the mesh.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_66",
+   "identifier": "Socket_83",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -1269,125 +1619,125 @@
    "Animation",
    "Socket_29",
    "Group Output",
-   "Socket_67"
-  ],
-  [
-   "Group Input (Animation)",
-   "Socket_35",
-   "Animation",
-   "Socket_2"
-  ],
-  [
-   "Group Input (Animation)",
-   "Socket_37",
-   "Animation",
-   "Socket_4"
-  ],
-  [
-   "Group Input (Animation)",
-   "Socket_38",
-   "Animation",
-   "Socket_5"
-  ],
-  [
-   "Group Input (Animation)",
-   "Socket_39",
-   "Animation",
-   "Socket_6"
-  ],
-  [
-   "Group Input (Animation)",
-   "Socket_40",
-   "Animation",
-   "Socket_7"
-  ],
-  [
-   "Group Input (Animation)",
-   "Socket_41",
-   "Animation",
-   "Socket_8"
-  ],
-  [
-   "Group Input (Animation)",
-   "Socket_42",
-   "Animation",
-   "Socket_9"
-  ],
-  [
-   "Group Input (Animation)",
-   "Socket_43",
-   "Animation",
-   "Socket_10"
-  ],
-  [
-   "Group Input (Animation)",
-   "Socket_44",
-   "Animation",
-   "Socket_11"
-  ],
-  [
-   "Group Input (Animation)",
-   "Socket_45",
-   "Animation",
-   "Socket_12"
-  ],
-  [
-   "Group Input (Animation)",
-   "Socket_47",
-   "Animation",
-   "Socket_14"
-  ],
-  [
-   "Group Input (Animation)",
-   "Socket_49",
-   "Animation",
-   "Socket_16"
-  ],
-  [
-   "Group Input (Animation)",
-   "Socket_50",
-   "Animation",
-   "Socket_17"
+   "Socket_84"
   ],
   [
    "Group Input (Animation)",
    "Socket_52",
    "Animation",
-   "Socket_19"
+   "Socket_2"
   ],
   [
    "Group Input (Animation)",
    "Socket_54",
    "Animation",
-   "Socket_21"
+   "Socket_4"
+  ],
+  [
+   "Group Input (Animation)",
+   "Socket_55",
+   "Animation",
+   "Socket_5"
   ],
   [
    "Group Input (Animation)",
    "Socket_56",
    "Animation",
-   "Socket_23"
+   "Socket_6"
   ],
   [
    "Group Input (Animation)",
    "Socket_57",
    "Animation",
-   "Socket_24"
+   "Socket_7"
   ],
   [
    "Group Input (Animation)",
    "Socket_58",
    "Animation",
-   "Socket_25"
+   "Socket_8"
   ],
   [
    "Group Input (Animation)",
    "Socket_59",
    "Animation",
-   "Socket_26"
+   "Socket_9"
+  ],
+  [
+   "Group Input (Animation)",
+   "Socket_60",
+   "Animation",
+   "Socket_10"
+  ],
+  [
+   "Group Input (Animation)",
+   "Socket_61",
+   "Animation",
+   "Socket_11"
+  ],
+  [
+   "Group Input (Animation)",
+   "Socket_62",
+   "Animation",
+   "Socket_12"
+  ],
+  [
+   "Group Input (Animation)",
+   "Socket_64",
+   "Animation",
+   "Socket_14"
   ],
   [
    "Group Input (Animation)",
    "Socket_66",
+   "Animation",
+   "Socket_16"
+  ],
+  [
+   "Group Input (Animation)",
+   "Socket_67",
+   "Animation",
+   "Socket_17"
+  ],
+  [
+   "Group Input (Animation)",
+   "Socket_69",
+   "Animation",
+   "Socket_19"
+  ],
+  [
+   "Group Input (Animation)",
+   "Socket_71",
+   "Animation",
+   "Socket_21"
+  ],
+  [
+   "Group Input (Animation)",
+   "Socket_73",
+   "Animation",
+   "Socket_23"
+  ],
+  [
+   "Group Input (Animation)",
+   "Socket_74",
+   "Animation",
+   "Socket_24"
+  ],
+  [
+   "Group Input (Animation)",
+   "Socket_75",
+   "Animation",
+   "Socket_25"
+  ],
+  [
+   "Group Input (Animation)",
+   "Socket_76",
+   "Animation",
+   "Socket_26"
+  ],
+  [
+   "Group Input (Animation)",
+   "Socket_83",
    "Animation",
    "Socket_28"
   ],
@@ -1489,27 +1839,117 @@
   ],
   [
    "Group Input (Mesh)",
-   "Socket_61",
+   "Socket_35",
    "Mesh Generation",
    "Socket_18"
   ],
   [
    "Group Input (Mesh)",
-   "Socket_62",
+   "Socket_36",
    "Mesh Generation",
    "Socket_19"
   ],
   [
    "Group Input (Mesh)",
-   "Socket_63",
+   "Socket_37",
    "Mesh Generation",
    "Socket_20"
   ],
   [
    "Group Input (Mesh)",
-   "Socket_64",
+   "Socket_38",
    "Mesh Generation",
    "Socket_21"
+  ],
+  [
+   "Group Input (Mesh)",
+   "Socket_39",
+   "Mesh Generation",
+   "Socket_22"
+  ],
+  [
+   "Group Input (Mesh)",
+   "Socket_40",
+   "Mesh Generation",
+   "Socket_23"
+  ],
+  [
+   "Group Input (Mesh)",
+   "Socket_41",
+   "Mesh Generation",
+   "Socket_24"
+  ],
+  [
+   "Group Input (Mesh)",
+   "Socket_42",
+   "Mesh Generation",
+   "Socket_25"
+  ],
+  [
+   "Group Input (Mesh)",
+   "Socket_43",
+   "Mesh Generation",
+   "Socket_26"
+  ],
+  [
+   "Group Input (Mesh)",
+   "Socket_44",
+   "Mesh Generation",
+   "Socket_27"
+  ],
+  [
+   "Group Input (Mesh)",
+   "Socket_46",
+   "Mesh Generation",
+   "Socket_29"
+  ],
+  [
+   "Group Input (Mesh)",
+   "Socket_47",
+   "Mesh Generation",
+   "Socket_30"
+  ],
+  [
+   "Group Input (Mesh)",
+   "Socket_48",
+   "Mesh Generation",
+   "Socket_31"
+  ],
+  [
+   "Group Input (Mesh)",
+   "Socket_49",
+   "Mesh Generation",
+   "Socket_32"
+  ],
+  [
+   "Group Input (Mesh)",
+   "Socket_50",
+   "Mesh Generation",
+   "Socket_33"
+  ],
+  [
+   "Group Input (Mesh)",
+   "Socket_78",
+   "Mesh Generation",
+   "Socket_35"
+  ],
+  [
+   "Group Input (Mesh)",
+   "Socket_79",
+   "Mesh Generation",
+   "Socket_36"
+  ],
+  [
+   "Group Input (Mesh)",
+   "Socket_80",
+   "Mesh Generation",
+   "Socket_37"
+  ],
+  [
+   "Group Input (Mesh)",
+   "Socket_81",
+   "Mesh Generation",
+   "Socket_38"
   ],
   [
    "Group Input (Typography)",
@@ -1585,7 +2025,7 @@
   ],
   [
    "Mesh Generation",
-   "Socket_22",
+   "Socket_39",
    "Animation",
    "Socket_0"
   ],
@@ -1689,8 +2129,8 @@
    },
    "label": "Animation",
    "location": [
-    860,
-    100
+    900,
+    120
    ],
    "mute": false,
    "name": "Animation",
@@ -1712,8 +2152,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    680,
-    -20
+    720,
+    0
    ],
    "mute": false,
    "name": "Group Input (Animation)",
@@ -1746,6 +2186,7 @@
     "Socket_32",
     "Socket_33",
     "Socket_35",
+    "Socket_36",
     "Socket_37",
     "Socket_38",
     "Socket_39",
@@ -1754,21 +2195,35 @@
     "Socket_42",
     "Socket_43",
     "Socket_44",
-    "Socket_45",
-    "Socket_47",
-    "Socket_49",
     "Socket_50",
+    "Socket_46",
+    "Socket_47",
+    "Socket_48",
+    "Socket_49",
     "Socket_52",
     "Socket_54",
+    "Socket_55",
     "Socket_56",
     "Socket_57",
     "Socket_58",
     "Socket_59",
+    "Socket_60",
     "Socket_61",
     "Socket_62",
-    "Socket_63",
     "Socket_64",
     "Socket_66",
+    "Socket_67",
+    "Socket_69",
+    "Socket_71",
+    "Socket_73",
+    "Socket_74",
+    "Socket_75",
+    "Socket_76",
+    "Socket_78",
+    "Socket_79",
+    "Socket_80",
+    "Socket_81",
+    "Socket_83",
     "__extend__"
    ],
    "parent": "[Animation]",
@@ -1780,8 +2235,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    -940,
-    20
+    -960,
+    -40
    ],
    "mute": false,
    "name": "Group Input (Lines)",
@@ -1814,6 +2269,7 @@
     "Socket_32",
     "Socket_33",
     "Socket_35",
+    "Socket_36",
     "Socket_37",
     "Socket_38",
     "Socket_39",
@@ -1822,21 +2278,35 @@
     "Socket_42",
     "Socket_43",
     "Socket_44",
-    "Socket_45",
-    "Socket_47",
-    "Socket_49",
     "Socket_50",
+    "Socket_46",
+    "Socket_47",
+    "Socket_48",
+    "Socket_49",
     "Socket_52",
     "Socket_54",
+    "Socket_55",
     "Socket_56",
     "Socket_57",
     "Socket_58",
     "Socket_59",
+    "Socket_60",
     "Socket_61",
     "Socket_62",
-    "Socket_63",
     "Socket_64",
     "Socket_66",
+    "Socket_67",
+    "Socket_69",
+    "Socket_71",
+    "Socket_73",
+    "Socket_74",
+    "Socket_75",
+    "Socket_76",
+    "Socket_78",
+    "Socket_79",
+    "Socket_80",
+    "Socket_81",
+    "Socket_83",
     "__extend__"
    ],
    "parent": "[Text]",
@@ -1848,8 +2318,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    -20,
-    -60
+    -60,
+    -40
    ],
    "mute": false,
    "name": "Group Input (Mesh)",
@@ -1882,6 +2352,7 @@
     "Socket_32",
     "Socket_33",
     "Socket_35",
+    "Socket_36",
     "Socket_37",
     "Socket_38",
     "Socket_39",
@@ -1890,21 +2361,35 @@
     "Socket_42",
     "Socket_43",
     "Socket_44",
-    "Socket_45",
-    "Socket_47",
-    "Socket_49",
     "Socket_50",
+    "Socket_46",
+    "Socket_47",
+    "Socket_48",
+    "Socket_49",
     "Socket_52",
     "Socket_54",
+    "Socket_55",
     "Socket_56",
     "Socket_57",
     "Socket_58",
     "Socket_59",
+    "Socket_60",
     "Socket_61",
     "Socket_62",
-    "Socket_63",
     "Socket_64",
     "Socket_66",
+    "Socket_67",
+    "Socket_69",
+    "Socket_71",
+    "Socket_73",
+    "Socket_74",
+    "Socket_75",
+    "Socket_76",
+    "Socket_78",
+    "Socket_79",
+    "Socket_80",
+    "Socket_81",
+    "Socket_83",
     "__extend__"
    ],
    "parent": "[Mesh]",
@@ -1916,8 +2401,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    -720,
-    -180
+    -760,
+    -240
    ],
    "mute": false,
    "name": "Group Input (Typography)",
@@ -1950,6 +2435,7 @@
     "Socket_32",
     "Socket_33",
     "Socket_35",
+    "Socket_36",
     "Socket_37",
     "Socket_38",
     "Socket_39",
@@ -1958,21 +2444,35 @@
     "Socket_42",
     "Socket_43",
     "Socket_44",
-    "Socket_45",
-    "Socket_47",
-    "Socket_49",
     "Socket_50",
+    "Socket_46",
+    "Socket_47",
+    "Socket_48",
+    "Socket_49",
     "Socket_52",
     "Socket_54",
+    "Socket_55",
     "Socket_56",
     "Socket_57",
     "Socket_58",
     "Socket_59",
+    "Socket_60",
     "Socket_61",
     "Socket_62",
-    "Socket_63",
     "Socket_64",
     "Socket_66",
+    "Socket_67",
+    "Socket_69",
+    "Socket_71",
+    "Socket_73",
+    "Socket_74",
+    "Socket_75",
+    "Socket_76",
+    "Socket_78",
+    "Socket_79",
+    "Socket_80",
+    "Socket_81",
+    "Socket_83",
     "__extend__"
    ],
    "parent": "[Text]",
@@ -1982,7 +2482,7 @@
    "hide": false,
    "idname": "NodeGroupOutput",
    "inputs": {
-    "Socket_67": {
+    "Socket_84": {
      "linked": true,
      "name": "Geometry"
     },
@@ -1992,8 +2492,8 @@
    },
    "label": "",
    "location": [
-    1240,
-    100
+    1300,
+    120
    ],
    "mute": false,
    "name": "Group Output",
@@ -2027,8 +2527,8 @@
    },
    "label": "Lines Join",
    "location": [
-    -760,
-    20
+    -780,
+    -40
    ],
    "mute": false,
    "name": "Lines Join",
@@ -2078,11 +2578,11 @@
     },
     "Socket_18": {
      "linked": true,
-     "name": "Resolution"
+     "name": "-=| Plate |=-"
     },
     "Socket_19": {
      "linked": true,
-     "name": "Simplify"
+     "name": "Fit to Text"
     },
     "Socket_2": {
      "linked": true,
@@ -2090,9 +2590,69 @@
     },
     "Socket_20": {
      "linked": true,
-     "name": "Fill Mode"
+     "name": "Margin X"
     },
     "Socket_21": {
+     "linked": true,
+     "name": "Margin Y"
+    },
+    "Socket_22": {
+     "linked": true,
+     "name": "Plate Width"
+    },
+    "Socket_23": {
+     "linked": true,
+     "name": "Plate Height"
+    },
+    "Socket_24": {
+     "linked": true,
+     "name": "Corner Radius"
+    },
+    "Socket_25": {
+     "linked": true,
+     "name": "Thickness"
+    },
+    "Socket_26": {
+     "linked": true,
+     "name": "Edge Bevel"
+    },
+    "Socket_27": {
+     "linked": true,
+     "name": "Gap"
+    },
+    "Socket_29": {
+     "linked": true,
+     "name": "-- Relief --"
+    },
+    "Socket_30": {
+     "linked": true,
+     "name": "Relief Height"
+    },
+    "Socket_31": {
+     "linked": true,
+     "name": "Relief Width"
+    },
+    "Socket_32": {
+     "linked": true,
+     "name": "Relief Detail"
+    },
+    "Socket_33": {
+     "linked": true,
+     "name": "Plate Material"
+    },
+    "Socket_35": {
+     "linked": true,
+     "name": "Resolution"
+    },
+    "Socket_36": {
+     "linked": true,
+     "name": "Simplify"
+    },
+    "Socket_37": {
+     "linked": true,
+     "name": "Fill Mode"
+    },
+    "Socket_38": {
      "linked": true,
      "name": "Fill Rule"
     },
@@ -2119,13 +2679,13 @@
    },
    "label": "Mesh Generation",
    "location": [
-    160,
-    60
+    200,
+    80
    ],
    "mute": false,
    "name": "Mesh Generation",
    "outputs": [
-    "Socket_22"
+    "Socket_39"
    ],
    "parent": "[Mesh]",
    "props": {
@@ -2191,7 +2751,7 @@
    },
    "label": "Text Source",
    "location": [
-    -520,
+    -540,
     -20
    ],
    "mute": false,

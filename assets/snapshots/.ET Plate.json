@@ -1,0 +1,5225 @@
+{
+ "asset_catalog_id": null,
+ "description": "Rounded base plate behind the text with bevelled rim, optional relief, own UVs and material.",
+ "flags": {
+  "color_tag": "NONE",
+  "default_group_node_width": 200,
+  "is_modifier": false,
+  "is_tool": false
+ },
+ "interface": [
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "description": "Text and plate joined.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_18",
+   "in_out": "OUTPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Mesh",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketGeometry",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "description": "The finished text mesh.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_0",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Mesh",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketGeometry",
+   "structure_type": "AUTO"
+  },
+  {
+   "default_closed": true,
+   "description": "A rounded base plate behind the text.",
+   "item_type": "PANEL",
+   "name": "-=| Plate |=-",
+   "parent": null
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": false,
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_2",
+   "in_out": "INPUT",
+   "is_panel_toggle": true,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "-=| Plate |=-",
+   "optional_label": false,
+   "parent": "-=| Plate |=-",
+   "socket_type": "NodeSocketBool",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": true,
+   "description": "Size the plate from the text bounds plus the margins.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_3",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Fit to Text",
+   "optional_label": false,
+   "parent": "-=| Plate |=-",
+   "socket_type": "NodeSocketBool",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.5,
+   "description": "Left and right.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_4",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 100.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
+   "name": "Margin X",
+   "optional_label": false,
+   "parent": "-=| Plate |=-",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.3,
+   "description": "Top and bottom.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_5",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 100.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
+   "name": "Margin Y",
+   "optional_label": false,
+   "parent": "-=| Plate |=-",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 6.0,
+   "description": "When not fitted.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_6",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 1000.0,
+   "menu_expanded": false,
+   "min_value": 0.01,
+   "name": "Plate Width",
+   "optional_label": false,
+   "parent": "-=| Plate |=-",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 3.0,
+   "description": "When not fitted.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_7",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 1000.0,
+   "menu_expanded": false,
+   "min_value": 0.01,
+   "name": "Plate Height",
+   "optional_label": false,
+   "parent": "-=| Plate |=-",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.3,
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_8",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 100.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
+   "name": "Corner Radius",
+   "optional_label": false,
+   "parent": "-=| Plate |=-",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.2,
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_9",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 100.0,
+   "menu_expanded": false,
+   "min_value": 0.001,
+   "name": "Thickness",
+   "optional_label": false,
+   "parent": "-=| Plate |=-",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.05,
+   "description": "Top rim; 0 = off.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_10",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 10.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
+   "name": "Edge Bevel",
+   "optional_label": false,
+   "parent": "-=| Plate |=-",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.0,
+   "description": "Space between plate and text back; negative sinks the text into the plate.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_11",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 10.0,
+   "menu_expanded": false,
+   "min_value": -10.0,
+   "name": "Gap",
+   "optional_label": false,
+   "parent": "-=| Plate |=-",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": {
+    "id": "ET Plate",
+    "type": "Material"
+   },
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_17",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Plate Material",
+   "optional_label": false,
+   "parent": "-=| Plate |=-",
+   "socket_type": "NodeSocketMaterial",
+   "structure_type": "AUTO"
+  },
+  {
+   "default_closed": true,
+   "description": "The plate top rises around the letters.",
+   "item_type": "PANEL",
+   "name": "-- Relief --",
+   "parent": "-=| Plate |=-"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": false,
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_13",
+   "in_out": "INPUT",
+   "is_panel_toggle": true,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "-- Relief --",
+   "optional_label": false,
+   "parent": "-- Relief --",
+   "socket_type": "NodeSocketBool",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.05,
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_14",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 10.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
+   "name": "Relief Height",
+   "optional_label": false,
+   "parent": "-- Relief --",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.3,
+   "description": "Reach.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_15",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 100.0,
+   "menu_expanded": false,
+   "min_value": 0.001,
+   "name": "Relief Width",
+   "optional_label": false,
+   "parent": "-- Relief --",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 3,
+   "description": "Subdivision levels of the plate top.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_16",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 6,
+   "menu_expanded": false,
+   "min_value": 1,
+   "name": "Relief Detail",
+   "optional_label": false,
+   "parent": "-- Relief --",
+   "socket_type": "NodeSocketInt",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  }
+ ],
+ "links": [
+  [
+   "-Thickness",
+   "Value",
+   "Combine XYZ",
+   "Z"
+  ],
+  [
+   "2 × Margin X",
+   "Value",
+   "Fitted Width",
+   "Value_001"
+  ],
+  [
+   "2 × Margin Y",
+   "Value",
+   "Fitted Height",
+   "Value_001"
+  ],
+  [
+   "Bevel Rim",
+   "Mesh",
+   "Rim Bevel",
+   "True"
+  ],
+  [
+   "Bevel?",
+   "Result",
+   "Rim Bevel",
+   "Switch"
+  ],
+  [
+   "Bottom",
+   "Value",
+   "Y - Bottom",
+   "Value_001"
+  ],
+  [
+   "Bottom Faces",
+   "Geometry",
+   "Extrude Down",
+   "Mesh"
+  ],
+  [
+   "Bounds Max",
+   "X",
+   "Min + Max X",
+   "Value_001"
+  ],
+  [
+   "Bounds Max",
+   "X",
+   "Text Width",
+   "Value"
+  ],
+  [
+   "Bounds Max",
+   "Y",
+   "Min + Max Y",
+   "Value_001"
+  ],
+  [
+   "Bounds Max",
+   "Y",
+   "Text Height",
+   "Value"
+  ],
+  [
+   "Bounds Min",
+   "X",
+   "Min + Max X",
+   "Value"
+  ],
+  [
+   "Bounds Min",
+   "X",
+   "Text Width",
+   "Value_001"
+  ],
+  [
+   "Bounds Min",
+   "Y",
+   "Min + Max Y",
+   "Value"
+  ],
+  [
+   "Bounds Min",
+   "Y",
+   "Text Height",
+   "Value_001"
+  ],
+  [
+   "Bump",
+   "Result",
+   "Bump Offset",
+   "Z"
+  ],
+  [
+   "Bump Offset",
+   "Vector",
+   "Raise Top",
+   "Offset"
+  ],
+  [
+   "Centre X",
+   "Output",
+   "Reroute.029",
+   "Input"
+  ],
+  [
+   "Centre X fit",
+   "Value",
+   "Centre X",
+   "True"
+  ],
+  [
+   "Centre Y",
+   "Output",
+   "Reroute.031",
+   "Input"
+  ],
+  [
+   "Centre Y fit",
+   "Value",
+   "Centre Y",
+   "True"
+  ],
+  [
+   "Close Plate",
+   "Geometry",
+   "Group Plate",
+   "Geometry"
+  ],
+  [
+   "Combine XYZ",
+   "Vector",
+   "Extrude Down",
+   "Offset"
+  ],
+  [
+   "Distance to Text",
+   "Distance",
+   "Bump",
+   "Value"
+  ],
+  [
+   "Drop plate_part",
+   "Geometry",
+   "Store UVMap",
+   "Geometry"
+  ],
+  [
+   "Extrude Down",
+   "Mesh",
+   "Join Plate",
+   "Geometry"
+  ],
+  [
+   "Face +Z",
+   "Mesh",
+   "Place Plate",
+   "Geometry"
+  ],
+  [
+   "Faces Down",
+   "Result",
+   "Face +Z",
+   "Selection"
+  ],
+  [
+   "Fill Plate",
+   "Mesh",
+   "Face +Z",
+   "Mesh"
+  ],
+  [
+   "Fitted Height",
+   "Value",
+   "Height",
+   "True"
+  ],
+  [
+   "Fitted Width",
+   "Value",
+   "Width",
+   "True"
+  ],
+  [
+   "Flip Bottom",
+   "Mesh",
+   "Bottom Faces",
+   "Geometry"
+  ],
+  [
+   "Group Input (Body)",
+   "Socket_9",
+   "-Thickness",
+   "Value"
+  ],
+  [
+   "Group Input (Join)",
+   "Socket_0",
+   "Plate?",
+   "False"
+  ],
+  [
+   "Group Input (Join)",
+   "Socket_0",
+   "Text + Plate",
+   "Geometry"
+  ],
+  [
+   "Group Input (Join)",
+   "Socket_2",
+   "Plate?",
+   "Switch"
+  ],
+  [
+   "Group Input (Material)",
+   "Socket_17",
+   "Plate Material Fallback",
+   "False"
+  ],
+  [
+   "Group Input (Material)",
+   "Socket_17",
+   "Plate Material Is None",
+   "A"
+  ],
+  [
+   "Group Input (Outline)",
+   "Socket_11",
+   "Top Z",
+   "Value"
+  ],
+  [
+   "Group Input (Outline)",
+   "Socket_8",
+   "Radius",
+   "Value"
+  ],
+  [
+   "Group Input (Relief)",
+   "Socket_0",
+   "Distance to Text",
+   "Target"
+  ],
+  [
+   "Group Input (Relief)",
+   "Socket_13",
+   "Reroute.026",
+   "Input"
+  ],
+  [
+   "Group Input (Relief)",
+   "Socket_14",
+   "Reroute.001",
+   "Input"
+  ],
+  [
+   "Group Input (Relief)",
+   "Socket_15",
+   "Reroute.003",
+   "Input"
+  ],
+  [
+   "Group Input (Relief)",
+   "Socket_16",
+   "Subdivide Top",
+   "Level"
+  ],
+  [
+   "Group Input (Rim)",
+   "Socket_10",
+   "Reroute",
+   "Input"
+  ],
+  [
+   "Group Input (Rim)",
+   "Socket_10",
+   "Rim",
+   "Value"
+  ],
+  [
+   "Group Input (Rim)",
+   "Socket_9",
+   "Max Rim",
+   "Value"
+  ],
+  [
+   "Group Input (Size)",
+   "Socket_0",
+   "Text Bounds",
+   "Geometry"
+  ],
+  [
+   "Group Input (Size)",
+   "Socket_3",
+   "Reroute.018",
+   "Input"
+  ],
+  [
+   "Group Input (Size)",
+   "Socket_4",
+   "Reroute.005",
+   "Input"
+  ],
+  [
+   "Group Input (Size)",
+   "Socket_5",
+   "Reroute.016",
+   "Input"
+  ],
+  [
+   "Group Input (Size)",
+   "Socket_6",
+   "Reroute.024",
+   "Input"
+  ],
+  [
+   "Group Input (Size)",
+   "Socket_7",
+   "Reroute.010",
+   "Input"
+  ],
+  [
+   "Group Plate",
+   "Geometry",
+   "No Character",
+   "Geometry"
+  ],
+  [
+   "Half Height",
+   "Value",
+   "Bottom",
+   "Value_001"
+  ],
+  [
+   "Half Side",
+   "Value",
+   "Max Radius",
+   "Value"
+  ],
+  [
+   "Half Width",
+   "Value",
+   "Left",
+   "Value_001"
+  ],
+  [
+   "Height",
+   "Output",
+   "Rectangle",
+   "Height"
+  ],
+  [
+   "Height",
+   "Output",
+   "Reroute.014",
+   "Input"
+  ],
+  [
+   "Join Plate",
+   "Geometry",
+   "Close Plate",
+   "Geometry"
+  ],
+  [
+   "Left",
+   "Value",
+   "X - Left",
+   "Value_001"
+  ],
+  [
+   "Max Radius",
+   "Value",
+   "Radius",
+   "Value_001"
+  ],
+  [
+   "Max Rim",
+   "Value",
+   "Rim",
+   "Value_001"
+  ],
+  [
+   "Min + Max X",
+   "Value",
+   "Centre X fit",
+   "Value"
+  ],
+  [
+   "Min + Max Y",
+   "Value",
+   "Centre Y fit",
+   "Value"
+  ],
+  [
+   "No Character",
+   "Geometry",
+   "Reroute.039",
+   "Input"
+  ],
+  [
+   "Normal",
+   "Normal",
+   "Normal XYZ",
+   "Vector"
+  ],
+  [
+   "Normal XYZ",
+   "Z",
+   "Faces Down",
+   "A"
+  ],
+  [
+   "Place Plate",
+   "Geometry",
+   "Relief?",
+   "False"
+  ],
+  [
+   "Place Plate",
+   "Geometry",
+   "Triangulate",
+   "Mesh"
+  ],
+  [
+   "Plate Centre",
+   "Vector",
+   "Reroute.028",
+   "Input"
+  ],
+  [
+   "Plate Material Fallback",
+   "Output",
+   "Set Plate Material",
+   "Material"
+  ],
+  [
+   "Plate Material Is None",
+   "Result",
+   "Plate Material Fallback",
+   "Switch"
+  ],
+  [
+   "Plate Part",
+   "Attribute",
+   "Rim Edges",
+   "Face Set"
+  ],
+  [
+   "Plate U",
+   "Value",
+   "Plate UV",
+   "X"
+  ],
+  [
+   "Plate UV",
+   "Vector",
+   "Store UVMap",
+   "Value"
+  ],
+  [
+   "Plate V",
+   "Value",
+   "Plate UV",
+   "Y"
+  ],
+  [
+   "Plate?",
+   "Output",
+   "Group Output",
+   "Socket_18"
+  ],
+  [
+   "Position",
+   "Position",
+   "Position XYZ",
+   "Vector"
+  ],
+  [
+   "Position XYZ",
+   "X",
+   "X - Left",
+   "Value"
+  ],
+  [
+   "Position XYZ",
+   "Y",
+   "Y - Bottom",
+   "Value"
+  ],
+  [
+   "Radius",
+   "Value",
+   "Round Corners",
+   "Radius"
+  ],
+  [
+   "Raise Top",
+   "Geometry",
+   "Relief?",
+   "True"
+  ],
+  [
+   "Rectangle",
+   "Curve",
+   "Round Corners",
+   "Curve"
+  ],
+  [
+   "Relief?",
+   "Output",
+   "Top Faces",
+   "Geometry"
+  ],
+  [
+   "Reroute",
+   "Output",
+   "Bevel?",
+   "A"
+  ],
+  [
+   "Reroute.001",
+   "Output",
+   "Reroute.002",
+   "Input"
+  ],
+  [
+   "Reroute.002",
+   "Output",
+   "Bump",
+   "To Min"
+  ],
+  [
+   "Reroute.003",
+   "Output",
+   "Reroute.004",
+   "Input"
+  ],
+  [
+   "Reroute.004",
+   "Output",
+   "Bump",
+   "From Max"
+  ],
+  [
+   "Reroute.005",
+   "Output",
+   "2 × Margin X",
+   "Value"
+  ],
+  [
+   "Reroute.006",
+   "Output",
+   "Reroute.007",
+   "Input"
+  ],
+  [
+   "Reroute.007",
+   "Output",
+   "Height",
+   "False"
+  ],
+  [
+   "Reroute.008",
+   "Output",
+   "Reroute.009",
+   "Input"
+  ],
+  [
+   "Reroute.009",
+   "Output",
+   "Centre X",
+   "Switch"
+  ],
+  [
+   "Reroute.009",
+   "Output",
+   "Height",
+   "Switch"
+  ],
+  [
+   "Reroute.009",
+   "Output",
+   "Width",
+   "Switch"
+  ],
+  [
+   "Reroute.010",
+   "Output",
+   "Reroute.011",
+   "Input"
+  ],
+  [
+   "Reroute.011",
+   "Output",
+   "Reroute.006",
+   "Input"
+  ],
+  [
+   "Reroute.012",
+   "Output",
+   "Reroute.013",
+   "Input"
+  ],
+  [
+   "Reroute.013",
+   "Output",
+   "Reroute.041",
+   "Input"
+  ],
+  [
+   "Reroute.013",
+   "Output",
+   "Smaller Side",
+   "Value"
+  ],
+  [
+   "Reroute.014",
+   "Output",
+   "Reroute.015",
+   "Input"
+  ],
+  [
+   "Reroute.015",
+   "Output",
+   "Half Height",
+   "Value"
+  ],
+  [
+   "Reroute.015",
+   "Output",
+   "Plate V",
+   "Value_001"
+  ],
+  [
+   "Reroute.015",
+   "Output",
+   "Smaller Side",
+   "Value_001"
+  ],
+  [
+   "Reroute.016",
+   "Output",
+   "Reroute.017",
+   "Input"
+  ],
+  [
+   "Reroute.017",
+   "Output",
+   "2 × Margin Y",
+   "Value"
+  ],
+  [
+   "Reroute.018",
+   "Output",
+   "Reroute.019",
+   "Input"
+  ],
+  [
+   "Reroute.019",
+   "Output",
+   "Centre Y",
+   "Switch"
+  ],
+  [
+   "Reroute.019",
+   "Output",
+   "Reroute.008",
+   "Input"
+  ],
+  [
+   "Reroute.020",
+   "Output",
+   "Reroute.021",
+   "Input"
+  ],
+  [
+   "Reroute.021",
+   "Output",
+   "Bottom",
+   "Value"
+  ],
+  [
+   "Reroute.021",
+   "Output",
+   "Plate Centre",
+   "Y"
+  ],
+  [
+   "Reroute.022",
+   "Output",
+   "Reroute.023",
+   "Input"
+  ],
+  [
+   "Reroute.023",
+   "Output",
+   "Plate Centre",
+   "X"
+  ],
+  [
+   "Reroute.023",
+   "Output",
+   "Reroute.043",
+   "Input"
+  ],
+  [
+   "Reroute.024",
+   "Output",
+   "Reroute.025",
+   "Input"
+  ],
+  [
+   "Reroute.025",
+   "Output",
+   "Width",
+   "False"
+  ],
+  [
+   "Reroute.026",
+   "Output",
+   "Reroute.027",
+   "Input"
+  ],
+  [
+   "Reroute.027",
+   "Output",
+   "Relief?",
+   "Switch"
+  ],
+  [
+   "Reroute.028",
+   "Output",
+   "Place Plate",
+   "Translation"
+  ],
+  [
+   "Reroute.029",
+   "Output",
+   "Reroute.030",
+   "Input"
+  ],
+  [
+   "Reroute.030",
+   "Output",
+   "Reroute.022",
+   "Input"
+  ],
+  [
+   "Reroute.031",
+   "Output",
+   "Reroute.020",
+   "Input"
+  ],
+  [
+   "Reroute.032",
+   "Output",
+   "Reroute.033",
+   "Input"
+  ],
+  [
+   "Reroute.033",
+   "Output",
+   "Half Width",
+   "Value"
+  ],
+  [
+   "Reroute.033",
+   "Output",
+   "Plate U",
+   "Value_001"
+  ],
+  [
+   "Reroute.034",
+   "Output",
+   "Reroute.035",
+   "Input"
+  ],
+  [
+   "Reroute.035",
+   "Output",
+   "Join Plate",
+   "Geometry"
+  ],
+  [
+   "Reroute.036",
+   "Output",
+   "Reroute.037",
+   "Input"
+  ],
+  [
+   "Reroute.037",
+   "Output",
+   "Left",
+   "Value"
+  ],
+  [
+   "Reroute.038",
+   "Output",
+   "Text + Plate",
+   "Geometry"
+  ],
+  [
+   "Reroute.039",
+   "Output",
+   "Reroute.040",
+   "Input"
+  ],
+  [
+   "Reroute.040",
+   "Output",
+   "Bevel Rim",
+   "Mesh"
+  ],
+  [
+   "Reroute.040",
+   "Output",
+   "Rim Bevel",
+   "False"
+  ],
+  [
+   "Reroute.041",
+   "Output",
+   "Reroute.042",
+   "Input"
+  ],
+  [
+   "Reroute.042",
+   "Output",
+   "Reroute.032",
+   "Input"
+  ],
+  [
+   "Reroute.043",
+   "Output",
+   "Reroute.036",
+   "Input"
+  ],
+  [
+   "Rim",
+   "Value",
+   "Bevel Rim",
+   "End Left Offset"
+  ],
+  [
+   "Rim",
+   "Value",
+   "Bevel Rim",
+   "End Right Offset"
+  ],
+  [
+   "Rim",
+   "Value",
+   "Bevel Rim",
+   "Offset"
+  ],
+  [
+   "Rim",
+   "Value",
+   "Bevel Rim",
+   "Start Left Offset"
+  ],
+  [
+   "Rim",
+   "Value",
+   "Bevel Rim",
+   "Start Right Offset"
+  ],
+  [
+   "Rim Bevel",
+   "Output",
+   "Drop plate_part",
+   "Geometry"
+  ],
+  [
+   "Rim Edges",
+   "Boundary Edges",
+   "Bevel Rim",
+   "Selection"
+  ],
+  [
+   "Round Corners",
+   "Curve",
+   "Fill Plate",
+   "Curve"
+  ],
+  [
+   "Set Plate Material",
+   "Geometry",
+   "Smooth Plate",
+   "Geometry"
+  ],
+  [
+   "Smaller Side",
+   "Value",
+   "Half Side",
+   "Value"
+  ],
+  [
+   "Smooth Plate",
+   "Geometry",
+   "Reroute.038",
+   "Input"
+  ],
+  [
+   "Store UVMap",
+   "Geometry",
+   "Set Plate Material",
+   "Geometry"
+  ],
+  [
+   "Subdivide Top",
+   "Mesh",
+   "Raise Top",
+   "Geometry"
+  ],
+  [
+   "Text + Plate",
+   "Geometry",
+   "Plate?",
+   "True"
+  ],
+  [
+   "Text Bounds",
+   "Max",
+   "Bounds Max",
+   "Vector"
+  ],
+  [
+   "Text Bounds",
+   "Min",
+   "Bounds Min",
+   "Vector"
+  ],
+  [
+   "Text Height",
+   "Value",
+   "Fitted Height",
+   "Value"
+  ],
+  [
+   "Text Width",
+   "Value",
+   "Fitted Width",
+   "Value"
+  ],
+  [
+   "Top Faces",
+   "Geometry",
+   "Flip Bottom",
+   "Mesh"
+  ],
+  [
+   "Top Faces",
+   "Geometry",
+   "Reroute.034",
+   "Input"
+  ],
+  [
+   "Top Z",
+   "Value",
+   "Plate Centre",
+   "Z"
+  ],
+  [
+   "Triangulate",
+   "Mesh",
+   "Subdivide Top",
+   "Mesh"
+  ],
+  [
+   "Width",
+   "Output",
+   "Rectangle",
+   "Width"
+  ],
+  [
+   "Width",
+   "Output",
+   "Reroute.012",
+   "Input"
+  ],
+  [
+   "X - Left",
+   "Value",
+   "Plate U",
+   "Value"
+  ],
+  [
+   "Y - Bottom",
+   "Value",
+   "Plate V",
+   "Value"
+  ]
+ ],
+ "name": ".ET Plate",
+ "nodes": [
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "name": "Value",
+     "value": -1.0
+    }
+   },
+   "label": "-Thickness",
+   "location": [
+    620,
+    20
+   ],
+   "mute": false,
+   "name": "-Thickness",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Body]",
+   "props": {
+    "operation": "MULTIPLY",
+    "use_clamp": false
+   },
+   "width": 107.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "name": "Value",
+     "value": 2.0
+    }
+   },
+   "label": "2 × Margin X",
+   "location": [
+    -2740,
+    140
+   ],
+   "mute": false,
+   "name": "2 × Margin X",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Size]",
+   "props": {
+    "operation": "MULTIPLY",
+    "use_clamp": false
+   },
+   "width": 114.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "name": "Value",
+     "value": 2.0
+    }
+   },
+   "label": "2 × Margin Y",
+   "location": [
+    -2740,
+    -80
+   ],
+   "mute": false,
+   "name": "2 × Margin Y",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Size]",
+   "props": {
+    "operation": "MULTIPLY",
+    "use_clamp": false
+   },
+   "width": 114.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeMeshBevel",
+   "inputs": {
+    "Affect Kind": {
+     "name": "Affect Kind",
+     "value": "Edges"
+    },
+    "End Left Offset": {
+     "linked": true,
+     "name": "End Left Offset"
+    },
+    "End Right Offset": {
+     "linked": true,
+     "name": "End Right Offset"
+    },
+    "Mesh": {
+     "linked": true,
+     "name": "Mesh"
+    },
+    "Miter": {
+     "name": "Miter",
+     "value": false
+    },
+    "Offset": {
+     "linked": true,
+     "name": "Offset"
+    },
+    "Profile": {
+     "name": "Profile"
+    },
+    "Segments": {
+     "name": "Segments",
+     "value": 3
+    },
+    "Selection": {
+     "linked": true,
+     "name": "Selection"
+    },
+    "Shape": {
+     "name": "Shape",
+     "value": 0.5
+    },
+    "Spread": {
+     "name": "Spread",
+     "value": 0.1
+    },
+    "Start Left Offset": {
+     "linked": true,
+     "name": "Start Left Offset"
+    },
+    "Start Right Offset": {
+     "linked": true,
+     "name": "Start Right Offset"
+    }
+   },
+   "label": "Bevel Rim",
+   "location": [
+    2500,
+    160
+   ],
+   "mute": false,
+   "name": "Bevel Rim",
+   "outputs": [
+    "Mesh",
+    "Vertex Face",
+    "Edge Face",
+    "Outer Edge",
+    "Mid Edge"
+   ],
+   "parent": "[Rim]",
+   "width": 180.0
+  },
+  {
+   "hide": true,
+   "idname": "FunctionNodeCompare",
+   "inputs": {
+    "A": {
+     "linked": true,
+     "name": "A"
+    },
+    "B": {
+     "name": "B",
+     "value": 0.0
+    }
+   },
+   "label": "Bevel?",
+   "location": [
+    2540,
+    300
+   ],
+   "mute": false,
+   "name": "Bevel?",
+   "outputs": [
+    "Result"
+   ],
+   "parent": "[Rim]",
+   "props": {
+    "data_type": "FLOAT",
+    "mode": "ELEMENT",
+    "operation": "GREATER_THAN"
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Bottom",
+   "location": [
+    3680,
+    -260
+   ],
+   "mute": false,
+   "name": "Bottom",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[UV + Material]",
+   "props": {
+    "operation": "SUBTRACT",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeStoreNamedAttribute",
+   "inputs": {
+    "Geometry": {
+     "linked": true,
+     "name": "Geometry"
+    },
+    "Name": {
+     "name": "Name",
+     "value": "plate_part"
+    },
+    "Selection": {
+     "name": "Selection",
+     "value": true
+    },
+    "Value": {
+     "name": "Value",
+     "value": 0
+    }
+   },
+   "label": "Bottom Faces",
+   "location": [
+    780,
+    220
+   ],
+   "mute": false,
+   "name": "Bottom Faces",
+   "outputs": [
+    "Geometry"
+   ],
+   "parent": "[Body]",
+   "props": {
+    "data_type": "INT",
+    "domain": "FACE"
+   },
+   "width": 160.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeSeparateXYZ",
+   "inputs": {
+    "Vector": {
+     "linked": true,
+     "name": "Vector"
+    }
+   },
+   "label": "Bounds Max",
+   "location": [
+    -3140,
+    -360
+   ],
+   "mute": false,
+   "name": "Bounds Max",
+   "outputs": [
+    "X",
+    "Y",
+    "Z"
+   ],
+   "parent": "[Size]",
+   "width": 112.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeSeparateXYZ",
+   "inputs": {
+    "Vector": {
+     "linked": true,
+     "name": "Vector"
+    }
+   },
+   "label": "Bounds Min",
+   "location": [
+    -3140,
+    -260
+   ],
+   "mute": false,
+   "name": "Bounds Min",
+   "outputs": [
+    "X",
+    "Y",
+    "Z"
+   ],
+   "parent": "[Size]",
+   "width": 110.0
+  },
+  {
+   "hide": false,
+   "idname": "ShaderNodeMapRange",
+   "inputs": {
+    "From Max": {
+     "linked": true,
+     "name": "From Max"
+    },
+    "From Min": {
+     "name": "From Min",
+     "value": 0.0
+    },
+    "To Max": {
+     "name": "To Max",
+     "value": 0.0
+    },
+    "To Min": {
+     "linked": true,
+     "name": "To Min"
+    },
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Bump",
+   "location": [
+    -440,
+    80
+   ],
+   "mute": false,
+   "name": "Bump",
+   "outputs": [
+    "Result"
+   ],
+   "parent": "[Relief]",
+   "props": {
+    "clamp": true,
+    "data_type": "FLOAT",
+    "interpolation_type": "SMOOTHSTEP"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeCombineXYZ",
+   "inputs": {
+    "X": {
+     "name": "X",
+     "value": 0.0
+    },
+    "Y": {
+     "name": "Y",
+     "value": 0.0
+    },
+    "Z": {
+     "linked": true,
+     "name": "Z"
+    }
+   },
+   "label": "Bump Offset",
+   "location": [
+    -260,
+    60
+   ],
+   "mute": false,
+   "name": "Bump Offset",
+   "outputs": [
+    "Vector"
+   ],
+   "parent": "[Relief]",
+   "width": 112.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSwitch",
+   "inputs": {
+    "False": {
+     "name": "False",
+     "value": 0.0
+    },
+    "Switch": {
+     "linked": true,
+     "name": "Switch"
+    },
+    "True": {
+     "linked": true,
+     "name": "True"
+    }
+   },
+   "label": "Centre X",
+   "location": [
+    -2560,
+    -140
+   ],
+   "mute": false,
+   "name": "Centre X",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Size]",
+   "props": {
+    "input_type": "FLOAT"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "name": "Value",
+     "value": 0.5
+    }
+   },
+   "label": "Centre X fit",
+   "location": [
+    -2940,
+    -240
+   ],
+   "mute": false,
+   "name": "Centre X fit",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Size]",
+   "props": {
+    "operation": "MULTIPLY",
+    "use_clamp": false
+   },
+   "width": 106.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSwitch",
+   "inputs": {
+    "False": {
+     "name": "False",
+     "value": 0.0
+    },
+    "Switch": {
+     "linked": true,
+     "name": "Switch"
+    },
+    "True": {
+     "linked": true,
+     "name": "True"
+    }
+   },
+   "label": "Centre Y",
+   "location": [
+    -2760,
+    -300
+   ],
+   "mute": false,
+   "name": "Centre Y",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Size]",
+   "props": {
+    "input_type": "FLOAT"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "name": "Value",
+     "value": 0.5
+    }
+   },
+   "label": "Centre Y fit",
+   "location": [
+    -2940,
+    -540
+   ],
+   "mute": false,
+   "name": "Centre Y fit",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Size]",
+   "props": {
+    "operation": "MULTIPLY",
+    "use_clamp": false
+   },
+   "width": 105.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeMergeByDistance",
+   "inputs": {
+    "Distance": {
+     "name": "Distance",
+     "value": 1e-05
+    },
+    "Geometry": {
+     "linked": true,
+     "name": "Geometry"
+    },
+    "Mode": {
+     "name": "Mode",
+     "value": "All"
+    },
+    "Selection": {
+     "name": "Selection",
+     "value": true
+    }
+   },
+   "label": "Close Plate",
+   "location": [
+    1340,
+    280
+   ],
+   "mute": false,
+   "name": "Close Plate",
+   "outputs": [
+    "Geometry"
+   ],
+   "parent": "[Body]",
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeCombineXYZ",
+   "inputs": {
+    "X": {
+     "name": "X",
+     "value": 0.0
+    },
+    "Y": {
+     "name": "Y",
+     "value": 0.0
+    },
+    "Z": {
+     "linked": true,
+     "name": "Z"
+    }
+   },
+   "label": "",
+   "location": [
+    800,
+    0
+   ],
+   "mute": false,
+   "name": "Combine XYZ",
+   "outputs": [
+    "Vector"
+   ],
+   "parent": "[Body]",
+   "width": 119.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeProximity",
+   "inputs": {
+    "Group ID": {
+     "name": "Group ID",
+     "value": 0
+    },
+    "Sample Group ID": {
+     "name": "Sample Group ID",
+     "value": 0
+    },
+    "Source Position": {
+     "name": "Sample Position",
+     "value": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "Target": {
+     "linked": true,
+     "name": "Geometry"
+    }
+   },
+   "label": "Distance to Text",
+   "location": [
+    -620,
+    100
+   ],
+   "mute": false,
+   "name": "Distance to Text",
+   "outputs": [
+    "Position",
+    "Distance",
+    "Is Valid"
+   ],
+   "parent": "[Relief]",
+   "props": {
+    "target_element": "FACES"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeRemoveAttribute",
+   "inputs": {
+    "Geometry": {
+     "linked": true,
+     "name": "Geometry"
+    },
+    "Name": {
+     "name": "Name",
+     "value": "plate_part"
+    },
+    "Pattern Mode": {
+     "name": "Pattern Mode",
+     "value": "Exact"
+    }
+   },
+   "label": "Drop plate_part",
+   "location": [
+    2900,
+    300
+   ],
+   "mute": false,
+   "name": "Drop plate_part",
+   "outputs": [
+    "Geometry"
+   ],
+   "parent": "[Rim]",
+   "width": 180.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeExtrudeMesh",
+   "inputs": {
+    "Individual": {
+     "name": "Individual",
+     "value": false
+    },
+    "Mesh": {
+     "linked": true,
+     "name": "Mesh"
+    },
+    "Offset": {
+     "linked": true,
+     "name": "Offset"
+    },
+    "Offset Scale": {
+     "name": "Offset Scale",
+     "value": 1.0
+    },
+    "Selection": {
+     "name": "Selection",
+     "value": true
+    }
+   },
+   "label": "Extrude Down",
+   "location": [
+    980,
+    220
+   ],
+   "mute": false,
+   "name": "Extrude Down",
+   "outputs": [
+    "Mesh",
+    "Top",
+    "Side"
+   ],
+   "parent": "[Body]",
+   "props": {
+    "mode": "FACES"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeFlipFaces",
+   "inputs": {
+    "Mesh": {
+     "linked": true,
+     "name": "Mesh"
+    },
+    "Selection": {
+     "linked": true,
+     "name": "Selection"
+    }
+   },
+   "label": "Face +Z",
+   "location": [
+    -1400,
+    340
+   ],
+   "mute": false,
+   "name": "Face +Z",
+   "outputs": [
+    "Mesh"
+   ],
+   "parent": "[Outline]",
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "FunctionNodeCompare",
+   "inputs": {
+    "A": {
+     "linked": true,
+     "name": "A"
+    },
+    "B": {
+     "name": "B",
+     "value": 0.0
+    }
+   },
+   "label": "Faces Down",
+   "location": [
+    -1580,
+    20
+   ],
+   "mute": false,
+   "name": "Faces Down",
+   "outputs": [
+    "Result"
+   ],
+   "parent": "[Outline]",
+   "props": {
+    "data_type": "FLOAT",
+    "mode": "ELEMENT",
+    "operation": "LESS_THAN"
+   },
+   "width": 111.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeFillCurve",
+   "inputs": {
+    "Curve": {
+     "linked": true,
+     "name": "Curve"
+    },
+    "Fill Rule": {
+     "name": "Fill Rule",
+     "value": "Even-Odd"
+    },
+    "Group ID": {
+     "name": "Group ID",
+     "value": 0
+    },
+    "Mode": {
+     "name": "Mode",
+     "value": "N-gons"
+    }
+   },
+   "label": "Fill Plate",
+   "location": [
+    -1580,
+    340
+   ],
+   "mute": false,
+   "name": "Fill Plate",
+   "outputs": [
+    "Mesh"
+   ],
+   "parent": "[Outline]",
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Fitted Height",
+   "location": [
+    -2740,
+    -120
+   ],
+   "mute": false,
+   "name": "Fitted Height",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Size]",
+   "props": {
+    "operation": "ADD",
+    "use_clamp": false
+   },
+   "width": 115.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Fitted Width",
+   "location": [
+    -2740,
+    80
+   ],
+   "mute": false,
+   "name": "Fitted Width",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Size]",
+   "props": {
+    "operation": "ADD",
+    "use_clamp": false
+   },
+   "width": 112.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeFlipFaces",
+   "inputs": {
+    "Mesh": {
+     "linked": true,
+     "name": "Mesh"
+    },
+    "Selection": {
+     "name": "Selection",
+     "value": true
+    }
+   },
+   "label": "Flip Bottom",
+   "location": [
+    600,
+    160
+   ],
+   "mute": false,
+   "name": "Flip Bottom",
+   "outputs": [
+    "Mesh"
+   ],
+   "parent": "[Body]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    420,
+    20
+   ],
+   "mute": false,
+   "name": "Group Input (Body)",
+   "outputs": [
+    "Socket_0",
+    "Socket_2",
+    "Socket_3",
+    "Socket_4",
+    "Socket_5",
+    "Socket_6",
+    "Socket_7",
+    "Socket_8",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_17",
+    "Socket_13",
+    "Socket_14",
+    "Socket_15",
+    "Socket_16",
+    "__extend__"
+   ],
+   "parent": "[Body]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    4800,
+    60
+   ],
+   "mute": false,
+   "name": "Group Input (Join)",
+   "outputs": [
+    "Socket_0",
+    "Socket_2",
+    "Socket_3",
+    "Socket_4",
+    "Socket_5",
+    "Socket_6",
+    "Socket_7",
+    "Socket_8",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_17",
+    "Socket_13",
+    "Socket_14",
+    "Socket_15",
+    "Socket_16",
+    "__extend__"
+   ],
+   "parent": "[Join]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    3660,
+    -420
+   ],
+   "mute": false,
+   "name": "Group Input (Material)",
+   "outputs": [
+    "Socket_0",
+    "Socket_2",
+    "Socket_3",
+    "Socket_4",
+    "Socket_5",
+    "Socket_6",
+    "Socket_7",
+    "Socket_8",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_17",
+    "Socket_13",
+    "Socket_14",
+    "Socket_15",
+    "Socket_16",
+    "__extend__"
+   ],
+   "parent": "[UV + Material]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    -2180,
+    0
+   ],
+   "mute": false,
+   "name": "Group Input (Outline)",
+   "outputs": [
+    "Socket_0",
+    "Socket_2",
+    "Socket_3",
+    "Socket_4",
+    "Socket_5",
+    "Socket_6",
+    "Socket_7",
+    "Socket_8",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_17",
+    "Socket_13",
+    "Socket_14",
+    "Socket_15",
+    "Socket_16",
+    "__extend__"
+   ],
+   "parent": "[Outline]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    -840,
+    100
+   ],
+   "mute": false,
+   "name": "Group Input (Relief)",
+   "outputs": [
+    "Socket_0",
+    "Socket_2",
+    "Socket_3",
+    "Socket_4",
+    "Socket_5",
+    "Socket_6",
+    "Socket_7",
+    "Socket_8",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_17",
+    "Socket_13",
+    "Socket_14",
+    "Socket_15",
+    "Socket_16",
+    "__extend__"
+   ],
+   "parent": "[Relief]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    2080,
+    -20
+   ],
+   "mute": false,
+   "name": "Group Input (Rim)",
+   "outputs": [
+    "Socket_0",
+    "Socket_2",
+    "Socket_3",
+    "Socket_4",
+    "Socket_5",
+    "Socket_6",
+    "Socket_7",
+    "Socket_8",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_17",
+    "Socket_13",
+    "Socket_14",
+    "Socket_15",
+    "Socket_16",
+    "__extend__"
+   ],
+   "parent": "[Rim]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    -3560,
+    380
+   ],
+   "mute": false,
+   "name": "Group Input (Size)",
+   "outputs": [
+    "Socket_0",
+    "Socket_2",
+    "Socket_3",
+    "Socket_4",
+    "Socket_5",
+    "Socket_6",
+    "Socket_7",
+    "Socket_8",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_17",
+    "Socket_13",
+    "Socket_14",
+    "Socket_15",
+    "Socket_16",
+    "__extend__"
+   ],
+   "parent": "[Size]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupOutput",
+   "inputs": {
+    "Socket_18": {
+     "linked": true,
+     "name": "Mesh"
+    },
+    "__extend__": {
+     "name": ""
+    }
+   },
+   "label": "",
+   "location": [
+    5360,
+    120
+   ],
+   "mute": false,
+   "name": "Group Output",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "is_active_output": true
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeStoreNamedAttribute",
+   "inputs": {
+    "Geometry": {
+     "linked": true,
+     "name": "Geometry"
+    },
+    "Name": {
+     "name": "Name",
+     "value": "et_face_group"
+    },
+    "Selection": {
+     "name": "Selection",
+     "value": true
+    },
+    "Value": {
+     "name": "Value",
+     "value": 4
+    }
+   },
+   "label": "Group Plate",
+   "location": [
+    1520,
+    280
+   ],
+   "mute": false,
+   "name": "Group Plate",
+   "outputs": [
+    "Geometry"
+   ],
+   "parent": "[Body]",
+   "props": {
+    "data_type": "INT",
+    "domain": "FACE"
+   },
+   "width": 160.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "name": "Value",
+     "value": 0.5
+    }
+   },
+   "label": "Half Height",
+   "location": [
+    3680,
+    -200
+   ],
+   "mute": false,
+   "name": "Half Height",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[UV + Material]",
+   "props": {
+    "operation": "MULTIPLY",
+    "use_clamp": false
+   },
+   "width": 105.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "name": "Value",
+     "value": 0.5
+    }
+   },
+   "label": "Half Side",
+   "location": [
+    -1940,
+    200
+   ],
+   "mute": false,
+   "name": "Half Side",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Outline]",
+   "props": {
+    "operation": "MULTIPLY",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "name": "Value",
+     "value": 0.5
+    }
+   },
+   "label": "Half Width",
+   "location": [
+    3680,
+    20
+   ],
+   "mute": false,
+   "name": "Half Width",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[UV + Material]",
+   "props": {
+    "operation": "MULTIPLY",
+    "use_clamp": false
+   },
+   "width": 102.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSwitch",
+   "inputs": {
+    "False": {
+     "linked": true,
+     "name": "False"
+    },
+    "Switch": {
+     "linked": true,
+     "name": "Switch"
+    },
+    "True": {
+     "linked": true,
+     "name": "True"
+    }
+   },
+   "label": "Height",
+   "location": [
+    -2560,
+    40
+   ],
+   "mute": false,
+   "name": "Height",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Size]",
+   "props": {
+    "input_type": "FLOAT"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeJoinGeometry",
+   "inputs": {
+    "Geometry": {
+     "linked": true,
+     "name": "Geometry"
+    }
+   },
+   "label": "Join Plate",
+   "location": [
+    1160,
+    280
+   ],
+   "mute": false,
+   "name": "Join Plate",
+   "outputs": [
+    "Geometry"
+   ],
+   "parent": "[Body]",
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Left",
+   "location": [
+    3680,
+    -40
+   ],
+   "mute": false,
+   "name": "Left",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[UV + Material]",
+   "props": {
+    "operation": "SUBTRACT",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "name": "Value",
+     "value": 0.001
+    }
+   },
+   "label": "Max Radius",
+   "location": [
+    -1940,
+    160
+   ],
+   "mute": false,
+   "name": "Max Radius",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Outline]",
+   "props": {
+    "operation": "SUBTRACT",
+    "use_clamp": false
+   },
+   "width": 107.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "name": "Value",
+     "value": 0.45
+    }
+   },
+   "label": "Max Rim",
+   "location": [
+    2300,
+    -40
+   ],
+   "mute": false,
+   "name": "Max Rim",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Rim]",
+   "props": {
+    "operation": "MULTIPLY",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Min + Max X",
+   "location": [
+    -2940,
+    -200
+   ],
+   "mute": false,
+   "name": "Min + Max X",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Size]",
+   "props": {
+    "operation": "ADD",
+    "use_clamp": false
+   },
+   "width": 112.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Min + Max Y",
+   "location": [
+    -2940,
+    -500
+   ],
+   "mute": false,
+   "name": "Min + Max Y",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Size]",
+   "props": {
+    "operation": "ADD",
+    "use_clamp": false
+   },
+   "width": 112.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeStoreNamedAttribute",
+   "inputs": {
+    "Geometry": {
+     "linked": true,
+     "name": "Geometry"
+    },
+    "Name": {
+     "name": "Name",
+     "value": "et_char_index"
+    },
+    "Selection": {
+     "name": "Selection",
+     "value": true
+    },
+    "Value": {
+     "name": "Value",
+     "value": -1
+    }
+   },
+   "label": "No Character",
+   "location": [
+    1720,
+    280
+   ],
+   "mute": false,
+   "name": "No Character",
+   "outputs": [
+    "Geometry"
+   ],
+   "parent": "[Body]",
+   "props": {
+    "data_type": "INT",
+    "domain": "POINT"
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeInputNormal",
+   "inputs": {},
+   "label": "",
+   "location": [
+    -1960,
+    40
+   ],
+   "mute": false,
+   "name": "Normal",
+   "outputs": [
+    "Normal",
+    "True Normal"
+   ],
+   "parent": "[Outline]",
+   "props": {
+    "legacy_corner_normals": false
+   },
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeSeparateXYZ",
+   "inputs": {
+    "Vector": {
+     "linked": true,
+     "name": "Vector"
+    }
+   },
+   "label": "Normal XYZ",
+   "location": [
+    -1760,
+    0
+   ],
+   "mute": false,
+   "name": "Normal XYZ",
+   "outputs": [
+    "X",
+    "Y",
+    "Z"
+   ],
+   "parent": "[Outline]",
+   "width": 109.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeTransform",
+   "inputs": {
+    "Geometry": {
+     "linked": true,
+     "name": "Geometry"
+    },
+    "Mode": {
+     "name": "Mode",
+     "value": "Components"
+    },
+    "Rotation": {
+     "name": "Rotation",
+     "value": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "Scale": {
+     "name": "Scale",
+     "value": [
+      1.0,
+      1.0,
+      1.0
+     ]
+    },
+    "Transform": {
+     "name": "Transform"
+    },
+    "Translation": {
+     "linked": true,
+     "name": "Translation"
+    }
+   },
+   "label": "Place Plate",
+   "location": [
+    -1200,
+    340
+   ],
+   "mute": false,
+   "name": "Place Plate",
+   "outputs": [
+    "Geometry"
+   ],
+   "parent": "[Outline]",
+   "width": 160.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeCombineXYZ",
+   "inputs": {
+    "X": {
+     "linked": true,
+     "name": "X"
+    },
+    "Y": {
+     "linked": true,
+     "name": "Y"
+    },
+    "Z": {
+     "linked": true,
+     "name": "Z"
+    }
+   },
+   "label": "Plate Centre",
+   "location": [
+    -1760,
+    -100
+   ],
+   "mute": false,
+   "name": "Plate Centre",
+   "outputs": [
+    "Vector"
+   ],
+   "parent": "[Outline]",
+   "width": 110.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSwitch",
+   "inputs": {
+    "False": {
+     "linked": true,
+     "name": "False"
+    },
+    "Switch": {
+     "linked": true,
+     "name": "Switch"
+    },
+    "True": {
+     "name": "True",
+     "value": {
+      "id": "ET Plate",
+      "type": "Material"
+     }
+    }
+   },
+   "label": "Plate Material Fallback",
+   "location": [
+    4060,
+    -360
+   ],
+   "mute": false,
+   "name": "Plate Material Fallback",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[UV + Material]",
+   "props": {
+    "input_type": "MATERIAL"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "FunctionNodeCompare",
+   "inputs": {
+    "A": {
+     "linked": true,
+     "name": "A"
+    },
+    "B": {
+     "name": "B",
+     "value": null
+    }
+   },
+   "label": "Plate Material Is None",
+   "location": [
+    3840,
+    -400
+   ],
+   "mute": false,
+   "name": "Plate Material Is None",
+   "outputs": [
+    "Result"
+   ],
+   "parent": "[UV + Material]",
+   "props": {
+    "data_type": "MATERIAL",
+    "mode": "ELEMENT",
+    "operation": "EQUAL"
+   },
+   "width": 162.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeInputNamedAttribute",
+   "inputs": {
+    "Name": {
+     "name": "Name",
+     "value": "plate_part"
+    }
+   },
+   "label": "Plate Part",
+   "location": [
+    2080,
+    140
+   ],
+   "mute": false,
+   "name": "Plate Part",
+   "outputs": [
+    "Attribute",
+    "Exists"
+   ],
+   "parent": "[Rim]",
+   "props": {
+    "data_type": "INT"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Plate U",
+   "location": [
+    3680,
+    -120
+   ],
+   "mute": false,
+   "name": "Plate U",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[UV + Material]",
+   "props": {
+    "operation": "DIVIDE",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeCombineXYZ",
+   "inputs": {
+    "X": {
+     "linked": true,
+     "name": "X"
+    },
+    "Y": {
+     "linked": true,
+     "name": "Y"
+    },
+    "Z": {
+     "name": "Z",
+     "value": 0.0
+    }
+   },
+   "label": "Plate UV",
+   "location": [
+    3880,
+    -300
+   ],
+   "mute": false,
+   "name": "Plate UV",
+   "outputs": [
+    "Vector"
+   ],
+   "parent": "[UV + Material]",
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Plate V",
+   "location": [
+    3680,
+    -340
+   ],
+   "mute": false,
+   "name": "Plate V",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[UV + Material]",
+   "props": {
+    "operation": "DIVIDE",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSwitch",
+   "inputs": {
+    "False": {
+     "linked": true,
+     "name": "False"
+    },
+    "Switch": {
+     "linked": true,
+     "name": "Switch"
+    },
+    "True": {
+     "linked": true,
+     "name": "True"
+    }
+   },
+   "label": "Plate?",
+   "location": [
+    5160,
+    120
+   ],
+   "mute": false,
+   "name": "Plate?",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Join]",
+   "props": {
+    "input_type": "GEOMETRY"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeInputPosition",
+   "inputs": {},
+   "label": "",
+   "location": [
+    3300,
+    -120
+   ],
+   "mute": false,
+   "name": "Position",
+   "outputs": [
+    "Position"
+   ],
+   "parent": "[UV + Material]",
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeSeparateXYZ",
+   "inputs": {
+    "Vector": {
+     "linked": true,
+     "name": "Vector"
+    }
+   },
+   "label": "Position XYZ",
+   "location": [
+    3480,
+    -140
+   ],
+   "mute": false,
+   "name": "Position XYZ",
+   "outputs": [
+    "X",
+    "Y",
+    "Z"
+   ],
+   "parent": "[UV + Material]",
+   "width": 115.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Radius",
+   "location": [
+    -1940,
+    120
+   ],
+   "mute": false,
+   "name": "Radius",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Outline]",
+   "props": {
+    "operation": "MINIMUM",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSetPosition",
+   "inputs": {
+    "Geometry": {
+     "linked": true,
+     "name": "Geometry"
+    },
+    "Offset": {
+     "linked": true,
+     "name": "Offset"
+    },
+    "Position": {
+     "name": "Position",
+     "value": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "Selection": {
+     "name": "Selection",
+     "value": true
+    }
+   },
+   "label": "Raise Top",
+   "location": [
+    -120,
+    260
+   ],
+   "mute": false,
+   "name": "Raise Top",
+   "outputs": [
+    "Geometry"
+   ],
+   "parent": "[Relief]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeCurvePrimitiveQuadrilateral",
+   "inputs": {
+    "Height": {
+     "linked": true,
+     "name": "Height"
+    },
+    "Width": {
+     "linked": true,
+     "name": "Width"
+    }
+   },
+   "label": "Rectangle",
+   "location": [
+    -2180,
+    340
+   ],
+   "mute": false,
+   "name": "Rectangle",
+   "outputs": [
+    "Curve"
+   ],
+   "parent": "[Outline]",
+   "props": {
+    "mode": "RECTANGLE"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSwitch",
+   "inputs": {
+    "False": {
+     "linked": true,
+     "name": "False"
+    },
+    "Switch": {
+     "linked": true,
+     "name": "Switch"
+    },
+    "True": {
+     "linked": true,
+     "name": "True"
+    }
+   },
+   "label": "Relief?",
+   "location": [
+    60,
+    420
+   ],
+   "mute": false,
+   "name": "Relief?",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Relief]",
+   "props": {
+    "input_type": "GEOMETRY"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    2280,
+    295
+   ],
+   "mute": false,
+   "name": "Reroute",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Rim]",
+   "props": {
+    "socket_idname": "NodeSocketFloatDistance"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -620,
+    -149
+   ],
+   "mute": false,
+   "name": "Reroute.001",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Relief]",
+   "props": {
+    "socket_idname": "NodeSocketFloatDistance"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -480,
+    -149
+   ],
+   "mute": false,
+   "name": "Reroute.002",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Relief]",
+   "props": {
+    "socket_idname": "NodeSocketFloatDistance"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -620,
+    -131
+   ],
+   "mute": false,
+   "name": "Reroute.003",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Relief]",
+   "props": {
+    "socket_idname": "NodeSocketFloatDistance"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -480,
+    -131
+   ],
+   "mute": false,
+   "name": "Reroute.004",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Relief]",
+   "props": {
+    "socket_idname": "NodeSocketFloatDistance"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -3340,
+    135
+   ],
+   "mute": false,
+   "name": "Reroute.005",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Size]",
+   "props": {
+    "socket_idname": "NodeSocketFloatDistance"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -2753,
+    -36
+   ],
+   "mute": false,
+   "name": "Reroute.006",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Size]",
+   "props": {
+    "socket_idname": "NodeSocketFloatDistance"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -2613,
+    -36
+   ],
+   "mute": false,
+   "name": "Reroute.007",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Size]",
+   "props": {
+    "socket_idname": "NodeSocketFloatDistance"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -2754,
+    7
+   ],
+   "mute": false,
+   "name": "Reroute.008",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Size]",
+   "props": {
+    "socket_idname": "NodeSocketBool"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -2614,
+    7
+   ],
+   "mute": false,
+   "name": "Reroute.009",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Size]",
+   "props": {
+    "socket_idname": "NodeSocketBool"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -3340,
+    85
+   ],
+   "mute": false,
+   "name": "Reroute.010",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Size]",
+   "props": {
+    "socket_idname": "NodeSocketFloatDistance"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -2832,
+    85
+   ],
+   "mute": false,
+   "name": "Reroute.011",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Size]",
+   "props": {
+    "socket_idname": "NodeSocketFloatDistance"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -2180,
+    -204
+   ],
+   "mute": false,
+   "name": "Reroute.012",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -2030,
+    -204
+   ],
+   "mute": false,
+   "name": "Reroute.013",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -2180,
+    -257
+   ],
+   "mute": false,
+   "name": "Reroute.014",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -2030,
+    -257
+   ],
+   "mute": false,
+   "name": "Reroute.015",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -3340,
+    40
+   ],
+   "mute": false,
+   "name": "Reroute.016",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Size]",
+   "props": {
+    "socket_idname": "NodeSocketFloatDistance"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -2832,
+    40
+   ],
+   "mute": false,
+   "name": "Reroute.017",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Size]",
+   "props": {
+    "socket_idname": "NodeSocketFloatDistance"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -3341,
+    -149
+   ],
+   "mute": false,
+   "name": "Reroute.018",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Size]",
+   "props": {
+    "socket_idname": "NodeSocketBool"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -2828,
+    -156
+   ],
+   "mute": false,
+   "name": "Reroute.019",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Size]",
+   "props": {
+    "socket_idname": "NodeSocketBool"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1960,
+    -263
+   ],
+   "mute": false,
+   "name": "Reroute.020",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1820,
+    -263
+   ],
+   "mute": false,
+   "name": "Reroute.021",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1960,
+    -214
+   ],
+   "mute": false,
+   "name": "Reroute.022",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1820,
+    -214
+   ],
+   "mute": false,
+   "name": "Reroute.023",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -3340,
+    193
+   ],
+   "mute": false,
+   "name": "Reroute.024",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Size]",
+   "props": {
+    "socket_idname": "NodeSocketFloatDistance"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -2613,
+    193
+   ],
+   "mute": false,
+   "name": "Reroute.025",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Size]",
+   "props": {
+    "socket_idname": "NodeSocketFloatDistance"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -620,
+    403
+   ],
+   "mute": false,
+   "name": "Reroute.026",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Relief]",
+   "props": {
+    "socket_idname": "NodeSocketBool"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    20,
+    403
+   ],
+   "mute": false,
+   "name": "Reroute.027",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Relief]",
+   "props": {
+    "socket_idname": "NodeSocketBool"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1264,
+    -110
+   ],
+   "mute": false,
+   "name": "Reroute.028",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Outline]",
+   "props": {
+    "socket_idname": "NodeSocketVector"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -2330,
+    -276
+   ],
+   "mute": false,
+   "name": "Reroute.029",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -2030,
+    -276
+   ],
+   "mute": false,
+   "name": "Reroute.030",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -2030,
+    -335
+   ],
+   "mute": false,
+   "name": "Reroute.031",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    3300,
+    -37
+   ],
+   "mute": false,
+   "name": "Reroute.032",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[UV + Material]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    3595,
+    -37
+   ],
+   "mute": false,
+   "name": "Reroute.033",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[UV + Material]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    600,
+    254
+   ],
+   "mute": false,
+   "name": "Reroute.034",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Body]",
+   "props": {
+    "socket_idname": "NodeSocketGeometry"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    1120,
+    254
+   ],
+   "mute": false,
+   "name": "Reroute.035",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Body]",
+   "props": {
+    "socket_idname": "NodeSocketGeometry"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    3300,
+    -19
+   ],
+   "mute": false,
+   "name": "Reroute.036",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[UV + Material]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    3600,
+    -37
+   ],
+   "mute": false,
+   "name": "Reroute.037",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[UV + Material]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    4660,
+    -55
+   ],
+   "mute": false,
+   "name": "Reroute.038",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketGeometry"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    1950,
+    206
+   ],
+   "mute": false,
+   "name": "Reroute.039",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketGeometry"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    2440,
+    206
+   ],
+   "mute": false,
+   "name": "Reroute.040",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Rim]",
+   "props": {
+    "socket_idname": "NodeSocketGeometry"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1960,
+    -232
+   ],
+   "mute": false,
+   "name": "Reroute.041",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    3202,
+    -232
+   ],
+   "mute": false,
+   "name": "Reroute.042",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    3202,
+    -214
+   ],
+   "mute": false,
+   "name": "Reroute.043",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Rim",
+   "location": [
+    2300,
+    -80
+   ],
+   "mute": false,
+   "name": "Rim",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Rim]",
+   "props": {
+    "operation": "MINIMUM",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSwitch",
+   "inputs": {
+    "False": {
+     "linked": true,
+     "name": "False"
+    },
+    "Switch": {
+     "linked": true,
+     "name": "Switch"
+    },
+    "True": {
+     "linked": true,
+     "name": "True"
+    }
+   },
+   "label": "Rim Bevel",
+   "location": [
+    2720,
+    300
+   ],
+   "mute": false,
+   "name": "Rim Bevel",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Rim]",
+   "props": {
+    "input_type": "GEOMETRY"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeMeshFaceSetBoundaries",
+   "inputs": {
+    "Face Set": {
+     "linked": true,
+     "name": "Face Group ID"
+    }
+   },
+   "label": "Rim Edges",
+   "location": [
+    2280,
+    140
+   ],
+   "mute": false,
+   "name": "Rim Edges",
+   "outputs": [
+    "Boundary Edges"
+   ],
+   "parent": "[Rim]",
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeFilletCurve",
+   "inputs": {
+    "Count": {
+     "name": "Count",
+     "value": 8
+    },
+    "Curve": {
+     "linked": true,
+     "name": "Curve"
+    },
+    "Limit Radius": {
+     "name": "Limit Radius",
+     "value": true
+    },
+    "Mode": {
+     "name": "Mode",
+     "value": "Poly"
+    },
+    "Radius": {
+     "linked": true,
+     "name": "Radius"
+    }
+   },
+   "label": "Round Corners",
+   "location": [
+    -1760,
+    340
+   ],
+   "mute": false,
+   "name": "Round Corners",
+   "outputs": [
+    "Curve"
+   ],
+   "parent": "[Outline]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSetMaterial",
+   "inputs": {
+    "Geometry": {
+     "linked": true,
+     "name": "Geometry"
+    },
+    "Material": {
+     "linked": true,
+     "name": "Material"
+    },
+    "Selection": {
+     "name": "Selection",
+     "value": true
+    }
+   },
+   "label": "Set Plate Material",
+   "location": [
+    4260,
+    140
+   ],
+   "mute": false,
+   "name": "Set Plate Material",
+   "outputs": [
+    "Geometry"
+   ],
+   "parent": "[UV + Material]",
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Smaller Side",
+   "location": [
+    -1960,
+    240
+   ],
+   "mute": false,
+   "name": "Smaller Side",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Outline]",
+   "props": {
+    "operation": "MINIMUM",
+    "use_clamp": false
+   },
+   "width": 111.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSetShadeSmooth",
+   "inputs": {
+    "Geometry": {
+     "linked": true,
+     "name": "Mesh"
+    },
+    "Selection": {
+     "name": "Selection",
+     "value": true
+    },
+    "Shade Smooth": {
+     "name": "Shade Smooth",
+     "value": true
+    }
+   },
+   "label": "Smooth Plate",
+   "location": [
+    4440,
+    140
+   ],
+   "mute": false,
+   "name": "Smooth Plate",
+   "outputs": [
+    "Geometry"
+   ],
+   "parent": "[UV + Material]",
+   "props": {
+    "domain": "FACE"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeStoreNamedAttribute",
+   "inputs": {
+    "Geometry": {
+     "linked": true,
+     "name": "Geometry"
+    },
+    "Name": {
+     "name": "Name",
+     "value": "UVMap"
+    },
+    "Selection": {
+     "name": "Selection",
+     "value": true
+    },
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Store UVMap",
+   "location": [
+    4060,
+    140
+   ],
+   "mute": false,
+   "name": "Store UVMap",
+   "outputs": [
+    "Geometry"
+   ],
+   "parent": "[UV + Material]",
+   "props": {
+    "data_type": "FLOAT2",
+    "domain": "CORNER"
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSubdivideMesh",
+   "inputs": {
+    "Level": {
+     "linked": true,
+     "name": "Level"
+    },
+    "Mesh": {
+     "linked": true,
+     "name": "Mesh"
+    }
+   },
+   "label": "Subdivide Top",
+   "location": [
+    -620,
+    260
+   ],
+   "mute": false,
+   "name": "Subdivide Top",
+   "outputs": [
+    "Mesh"
+   ],
+   "parent": "[Relief]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeJoinGeometry",
+   "inputs": {
+    "Geometry": {
+     "linked": true,
+     "name": "Geometry"
+    }
+   },
+   "label": "Text + Plate",
+   "location": [
+    4980,
+    -20
+   ],
+   "mute": false,
+   "name": "Text + Plate",
+   "outputs": [
+    "Geometry"
+   ],
+   "parent": "[Join]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeBoundBox",
+   "inputs": {
+    "Geometry": {
+     "linked": true,
+     "name": "Geometry"
+    },
+    "Use Radius": {
+     "name": "Use Radius",
+     "value": true
+    }
+   },
+   "label": "Text Bounds",
+   "location": [
+    -3340,
+    380
+   ],
+   "mute": false,
+   "name": "Text Bounds",
+   "outputs": [
+    "Bounding Box",
+    "Min",
+    "Max"
+   ],
+   "parent": "[Size]",
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Text Height",
+   "location": [
+    -2940,
+    -320
+   ],
+   "mute": false,
+   "name": "Text Height",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Size]",
+   "props": {
+    "operation": "SUBTRACT",
+    "use_clamp": false
+   },
+   "width": 107.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Text Width",
+   "location": [
+    -2940,
+    0
+   ],
+   "mute": false,
+   "name": "Text Width",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Size]",
+   "props": {
+    "operation": "SUBTRACT",
+    "use_clamp": false
+   },
+   "width": 104.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeStoreNamedAttribute",
+   "inputs": {
+    "Geometry": {
+     "linked": true,
+     "name": "Geometry"
+    },
+    "Name": {
+     "name": "Name",
+     "value": "plate_part"
+    },
+    "Selection": {
+     "name": "Selection",
+     "value": true
+    },
+    "Value": {
+     "name": "Value",
+     "value": 1
+    }
+   },
+   "label": "Top Faces",
+   "location": [
+    400,
+    280
+   ],
+   "mute": false,
+   "name": "Top Faces",
+   "outputs": [
+    "Geometry"
+   ],
+   "parent": "[Body]",
+   "props": {
+    "data_type": "INT",
+    "domain": "FACE"
+   },
+   "width": 160.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "name": "Value",
+     "value": -1.0
+    }
+   },
+   "label": "Top Z",
+   "location": [
+    -1940,
+    -100
+   ],
+   "mute": false,
+   "name": "Top Z",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Outline]",
+   "props": {
+    "operation": "MULTIPLY",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeTriangulate",
+   "inputs": {
+    "Mesh": {
+     "linked": true,
+     "name": "Mesh"
+    },
+    "N-gon Method": {
+     "name": "N-gon Method",
+     "value": "Beauty"
+    },
+    "Quad Method": {
+     "name": "Quad Method",
+     "value": "Shortest Diagonal"
+    },
+    "Selection": {
+     "name": "Selection",
+     "value": true
+    }
+   },
+   "label": "",
+   "location": [
+    -840,
+    260
+   ],
+   "mute": false,
+   "name": "Triangulate",
+   "outputs": [
+    "Mesh"
+   ],
+   "parent": "[Relief]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSwitch",
+   "inputs": {
+    "False": {
+     "linked": true,
+     "name": "False"
+    },
+    "Switch": {
+     "linked": true,
+     "name": "Switch"
+    },
+    "True": {
+     "linked": true,
+     "name": "True"
+    }
+   },
+   "label": "Width",
+   "location": [
+    -2560,
+    240
+   ],
+   "mute": false,
+   "name": "Width",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Size]",
+   "props": {
+    "input_type": "FLOAT"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "X - Left",
+   "location": [
+    3680,
+    -80
+   ],
+   "mute": false,
+   "name": "X - Left",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[UV + Material]",
+   "props": {
+    "operation": "SUBTRACT",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Y - Bottom",
+   "location": [
+    3680,
+    -300
+   ],
+   "mute": false,
+   "name": "Y - Bottom",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[UV + Material]",
+   "props": {
+    "operation": "SUBTRACT",
+    "use_clamp": false
+   },
+   "width": 105.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Body",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Body]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Join",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Join]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Outline",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Outline]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Relief",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Relief]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Rim",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Rim]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Size",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Size]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "UV + Material",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[UV + Material]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  }
+ ],
+ "tree_type": "GeometryNodeTree"
+}

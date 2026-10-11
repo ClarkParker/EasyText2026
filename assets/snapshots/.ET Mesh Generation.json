@@ -15,7 +15,7 @@
    "description": "",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_22",
+   "identifier": "Socket_39",
    "in_out": "OUTPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -343,6 +343,356 @@
   },
   {
    "default_closed": true,
+   "description": "A rounded base plate behind the text.",
+   "item_type": "PANEL",
+   "name": "-=| Plate |=-",
+   "parent": null
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": false,
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_18",
+   "in_out": "INPUT",
+   "is_panel_toggle": true,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "-=| Plate |=-",
+   "optional_label": false,
+   "parent": "-=| Plate |=-",
+   "socket_type": "NodeSocketBool",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": true,
+   "description": "Size the plate from the text bounds plus the margins.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_19",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Fit to Text",
+   "optional_label": false,
+   "parent": "-=| Plate |=-",
+   "socket_type": "NodeSocketBool",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.5,
+   "description": "Left and right.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_20",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 100.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
+   "name": "Margin X",
+   "optional_label": false,
+   "parent": "-=| Plate |=-",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.3,
+   "description": "Top and bottom.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_21",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 100.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
+   "name": "Margin Y",
+   "optional_label": false,
+   "parent": "-=| Plate |=-",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 6.0,
+   "description": "When not fitted.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_22",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 1000.0,
+   "menu_expanded": false,
+   "min_value": 0.01,
+   "name": "Plate Width",
+   "optional_label": false,
+   "parent": "-=| Plate |=-",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 3.0,
+   "description": "When not fitted.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_23",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 1000.0,
+   "menu_expanded": false,
+   "min_value": 0.01,
+   "name": "Plate Height",
+   "optional_label": false,
+   "parent": "-=| Plate |=-",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.3,
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_24",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 100.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
+   "name": "Corner Radius",
+   "optional_label": false,
+   "parent": "-=| Plate |=-",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.2,
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_25",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 100.0,
+   "menu_expanded": false,
+   "min_value": 0.001,
+   "name": "Thickness",
+   "optional_label": false,
+   "parent": "-=| Plate |=-",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.05,
+   "description": "Top rim; 0 = off.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_26",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 10.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
+   "name": "Edge Bevel",
+   "optional_label": false,
+   "parent": "-=| Plate |=-",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.0,
+   "description": "Space between plate and text back; negative sinks the text into the plate.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_27",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 10.0,
+   "menu_expanded": false,
+   "min_value": -10.0,
+   "name": "Gap",
+   "optional_label": false,
+   "parent": "-=| Plate |=-",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": {
+    "id": "ET Plate",
+    "type": "Material"
+   },
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_33",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Plate Material",
+   "optional_label": false,
+   "parent": "-=| Plate |=-",
+   "socket_type": "NodeSocketMaterial",
+   "structure_type": "AUTO"
+  },
+  {
+   "default_closed": true,
+   "description": "The plate top rises around the letters.",
+   "item_type": "PANEL",
+   "name": "-- Relief --",
+   "parent": "-=| Plate |=-"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": false,
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_29",
+   "in_out": "INPUT",
+   "is_panel_toggle": true,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "-- Relief --",
+   "optional_label": false,
+   "parent": "-- Relief --",
+   "socket_type": "NodeSocketBool",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.05,
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_30",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 10.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
+   "name": "Relief Height",
+   "optional_label": false,
+   "parent": "-- Relief --",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.3,
+   "description": "Reach.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_31",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 100.0,
+   "menu_expanded": false,
+   "min_value": 0.001,
+   "name": "Relief Width",
+   "optional_label": false,
+   "parent": "-- Relief --",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 3,
+   "description": "Subdivision levels of the plate top.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_32",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 6,
+   "menu_expanded": false,
+   "min_value": 1,
+   "name": "Relief Detail",
+   "optional_label": false,
+   "parent": "-- Relief --",
+   "socket_type": "NodeSocketInt",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  },
+  {
+   "default_closed": true,
    "description": "Quality of the glyph outlines.",
    "item_type": "PANEL",
    "name": "-=| Outline |=-",
@@ -356,7 +706,7 @@
    "description": "Points per curve segment.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_18",
+   "identifier": "Socket_35",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -379,7 +729,7 @@
    "description": "Remove points whose direction changes less than this angle (degrees). 0 = off.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_19",
+   "identifier": "Socket_36",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -402,7 +752,7 @@
    "description": "N-gons or triangles on the caps.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_20",
+   "identifier": "Socket_37",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -422,7 +772,7 @@
    "description": "Even-Odd or Non-Zero for overlapping outlines.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_21",
+   "identifier": "Socket_38",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -451,14 +801,20 @@
   [
    "ET Finish",
    "Socket_4",
-   "Group Output",
-   "Socket_22"
+   "ET Plate",
+   "Socket_0"
   ],
   [
    "ET Outline Clean",
    "Socket_3",
    "ET Solid",
    "Socket_0"
+  ],
+  [
+   "ET Plate",
+   "Socket_18",
+   "Group Output",
+   "Socket_39"
   ],
   [
    "ET Solid",
@@ -528,15 +884,105 @@
   ],
   [
    "Group Input (Outline)",
-   "Socket_18",
+   "Socket_35",
    "ET Outline Clean",
    "Socket_1"
   ],
   [
    "Group Input (Outline)",
-   "Socket_19",
+   "Socket_36",
    "ET Outline Clean",
    "Socket_2"
+  ],
+  [
+   "Group Input (Plate)",
+   "Socket_18",
+   "ET Plate",
+   "Socket_2"
+  ],
+  [
+   "Group Input (Plate)",
+   "Socket_19",
+   "ET Plate",
+   "Socket_3"
+  ],
+  [
+   "Group Input (Plate)",
+   "Socket_20",
+   "ET Plate",
+   "Socket_4"
+  ],
+  [
+   "Group Input (Plate)",
+   "Socket_21",
+   "ET Plate",
+   "Socket_5"
+  ],
+  [
+   "Group Input (Plate)",
+   "Socket_22",
+   "ET Plate",
+   "Socket_6"
+  ],
+  [
+   "Group Input (Plate)",
+   "Socket_23",
+   "ET Plate",
+   "Socket_7"
+  ],
+  [
+   "Group Input (Plate)",
+   "Socket_24",
+   "ET Plate",
+   "Socket_8"
+  ],
+  [
+   "Group Input (Plate)",
+   "Socket_25",
+   "ET Plate",
+   "Socket_9"
+  ],
+  [
+   "Group Input (Plate)",
+   "Socket_26",
+   "ET Plate",
+   "Socket_10"
+  ],
+  [
+   "Group Input (Plate)",
+   "Socket_27",
+   "ET Plate",
+   "Socket_11"
+  ],
+  [
+   "Group Input (Plate)",
+   "Socket_29",
+   "ET Plate",
+   "Socket_13"
+  ],
+  [
+   "Group Input (Plate)",
+   "Socket_30",
+   "ET Plate",
+   "Socket_14"
+  ],
+  [
+   "Group Input (Plate)",
+   "Socket_31",
+   "ET Plate",
+   "Socket_15"
+  ],
+  [
+   "Group Input (Plate)",
+   "Socket_32",
+   "ET Plate",
+   "Socket_16"
+  ],
+  [
+   "Group Input (Plate)",
+   "Socket_33",
+   "ET Plate",
+   "Socket_17"
   ],
   [
    "Group Input (Solid)",
@@ -552,13 +998,13 @@
   ],
   [
    "Group Input (Solid)",
-   "Socket_20",
+   "Socket_37",
    "ET Solid",
    "Socket_2"
   ],
   [
    "Group Input (Solid)",
-   "Socket_21",
+   "Socket_38",
    "ET Solid",
    "Socket_3"
   ],
@@ -632,8 +1078,8 @@
    },
    "label": "ET Bevel",
    "location": [
-    -100,
-    60
+    -360,
+    40
    ],
    "mute": false,
    "name": "ET Bevel",
@@ -674,7 +1120,7 @@
    },
    "label": "ET Finish",
    "location": [
-    1040,
+    800,
     140
    ],
    "mute": false,
@@ -710,8 +1156,8 @@
    },
    "label": "ET Outline Clean",
    "location": [
-    -1260,
-    -80
+    -1500,
+    -100
    ],
    "mute": false,
    "name": "ET Outline Clean",
@@ -722,6 +1168,94 @@
    "props": {
     "node_tree": {
      "id": ".ET Outline Clean",
+     "type": "GeometryNodeTree"
+    }
+   },
+   "width": 200.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeGroup",
+   "inputs": {
+    "Socket_0": {
+     "linked": true,
+     "name": "Mesh"
+    },
+    "Socket_10": {
+     "linked": true,
+     "name": "Edge Bevel"
+    },
+    "Socket_11": {
+     "linked": true,
+     "name": "Gap"
+    },
+    "Socket_13": {
+     "linked": true,
+     "name": "-- Relief --"
+    },
+    "Socket_14": {
+     "linked": true,
+     "name": "Relief Height"
+    },
+    "Socket_15": {
+     "linked": true,
+     "name": "Relief Width"
+    },
+    "Socket_16": {
+     "linked": true,
+     "name": "Relief Detail"
+    },
+    "Socket_17": {
+     "linked": true,
+     "name": "Plate Material"
+    },
+    "Socket_2": {
+     "linked": true,
+     "name": "-=| Plate |=-"
+    },
+    "Socket_3": {
+     "linked": true,
+     "name": "Fit to Text"
+    },
+    "Socket_4": {
+     "linked": true,
+     "name": "Margin X"
+    },
+    "Socket_5": {
+     "linked": true,
+     "name": "Margin Y"
+    },
+    "Socket_6": {
+     "linked": true,
+     "name": "Plate Width"
+    },
+    "Socket_7": {
+     "linked": true,
+     "name": "Plate Height"
+    },
+    "Socket_8": {
+     "linked": true,
+     "name": "Corner Radius"
+    },
+    "Socket_9": {
+     "linked": true,
+     "name": "Thickness"
+    }
+   },
+   "label": "ET Plate",
+   "location": [
+    1460,
+    180
+   ],
+   "mute": false,
+   "name": "ET Plate",
+   "outputs": [
+    "Socket_18"
+   ],
+   "parent": "[Plate]",
+   "props": {
+    "node_tree": {
+     "id": ".ET Plate",
      "type": "GeometryNodeTree"
     }
    },
@@ -754,7 +1288,7 @@
    },
    "label": "ET Solid",
    "location": [
-    -680,
+    -940,
     -40
    ],
    "mute": false,
@@ -802,8 +1336,8 @@
    },
    "label": "ET Text UV",
    "location": [
-    480,
-    100
+    220,
+    80
    ],
    "mute": false,
    "name": "ET Text UV",
@@ -825,7 +1359,7 @@
    "inputs": {},
    "label": "",
    "location": [
-    -280,
+    -540,
     -120
    ],
    "mute": false,
@@ -848,6 +1382,21 @@
     "Socket_19",
     "Socket_20",
     "Socket_21",
+    "Socket_22",
+    "Socket_23",
+    "Socket_24",
+    "Socket_25",
+    "Socket_26",
+    "Socket_27",
+    "Socket_33",
+    "Socket_29",
+    "Socket_30",
+    "Socket_31",
+    "Socket_32",
+    "Socket_35",
+    "Socket_36",
+    "Socket_37",
+    "Socket_38",
     "__extend__"
    ],
    "parent": "[Bevel]",
@@ -859,7 +1408,7 @@
    "inputs": {},
    "label": "",
    "location": [
-    860,
+    620,
     20
    ],
    "mute": false,
@@ -882,6 +1431,21 @@
     "Socket_19",
     "Socket_20",
     "Socket_21",
+    "Socket_22",
+    "Socket_23",
+    "Socket_24",
+    "Socket_25",
+    "Socket_26",
+    "Socket_27",
+    "Socket_33",
+    "Socket_29",
+    "Socket_30",
+    "Socket_31",
+    "Socket_32",
+    "Socket_35",
+    "Socket_36",
+    "Socket_37",
+    "Socket_38",
     "__extend__"
    ],
    "parent": "[Finish]",
@@ -893,8 +1457,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    -1440,
-    -80
+    -1680,
+    -100
    ],
    "mute": false,
    "name": "Group Input (Outline)",
@@ -916,6 +1480,21 @@
     "Socket_19",
     "Socket_20",
     "Socket_21",
+    "Socket_22",
+    "Socket_23",
+    "Socket_24",
+    "Socket_25",
+    "Socket_26",
+    "Socket_27",
+    "Socket_33",
+    "Socket_29",
+    "Socket_30",
+    "Socket_31",
+    "Socket_32",
+    "Socket_35",
+    "Socket_36",
+    "Socket_37",
+    "Socket_38",
     "__extend__"
    ],
    "parent": "[Outline]",
@@ -927,7 +1506,56 @@
    "inputs": {},
    "label": "",
    "location": [
-    -860,
+    1200,
+    60
+   ],
+   "mute": false,
+   "name": "Group Input (Plate)",
+   "outputs": [
+    "Socket_0",
+    "Socket_2",
+    "Socket_8",
+    "Socket_4",
+    "Socket_5",
+    "Socket_6",
+    "Socket_7",
+    "Socket_10",
+    "Socket_11",
+    "Socket_12",
+    "Socket_14",
+    "Socket_15",
+    "Socket_16",
+    "Socket_18",
+    "Socket_19",
+    "Socket_20",
+    "Socket_21",
+    "Socket_22",
+    "Socket_23",
+    "Socket_24",
+    "Socket_25",
+    "Socket_26",
+    "Socket_27",
+    "Socket_33",
+    "Socket_29",
+    "Socket_30",
+    "Socket_31",
+    "Socket_32",
+    "Socket_35",
+    "Socket_36",
+    "Socket_37",
+    "Socket_38",
+    "__extend__"
+   ],
+   "parent": "[Plate]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    -1120,
     -160
    ],
    "mute": false,
@@ -950,6 +1578,21 @@
     "Socket_19",
     "Socket_20",
     "Socket_21",
+    "Socket_22",
+    "Socket_23",
+    "Socket_24",
+    "Socket_25",
+    "Socket_26",
+    "Socket_27",
+    "Socket_33",
+    "Socket_29",
+    "Socket_30",
+    "Socket_31",
+    "Socket_32",
+    "Socket_35",
+    "Socket_36",
+    "Socket_37",
+    "Socket_38",
     "__extend__"
    ],
    "parent": "[Solid]",
@@ -961,7 +1604,7 @@
    "inputs": {},
    "label": "",
    "location": [
-    300,
+    40,
     -40
    ],
    "mute": false,
@@ -984,6 +1627,21 @@
     "Socket_19",
     "Socket_20",
     "Socket_21",
+    "Socket_22",
+    "Socket_23",
+    "Socket_24",
+    "Socket_25",
+    "Socket_26",
+    "Socket_27",
+    "Socket_33",
+    "Socket_29",
+    "Socket_30",
+    "Socket_31",
+    "Socket_32",
+    "Socket_35",
+    "Socket_36",
+    "Socket_37",
+    "Socket_38",
     "__extend__"
    ],
    "parent": "[UV]",
@@ -993,7 +1651,7 @@
    "hide": false,
    "idname": "NodeGroupOutput",
    "inputs": {
-    "Socket_22": {
+    "Socket_39": {
      "linked": true,
      "name": "Mesh"
     },
@@ -1003,8 +1661,8 @@
    },
    "label": "",
    "location": [
-    1320,
-    140
+    1720,
+    180
    ],
    "mute": false,
    "name": "Group Output",
@@ -1026,8 +1684,8 @@
    },
    "label": "",
    "location": [
-    170,
-    -4
+    -90,
+    -10
    ],
    "mute": false,
    "name": "Reroute",
@@ -1051,8 +1709,8 @@
    },
    "label": "",
    "location": [
-    440,
-    -4
+    180,
+    -10
    ],
    "mute": false,
    "name": "Reroute.001",
@@ -1114,6 +1772,25 @@
    ],
    "mute": false,
    "name": "[Outline]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Plate",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Plate]",
    "outputs": [],
    "parent": null,
    "props": {

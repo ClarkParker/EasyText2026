@@ -6,7 +6,7 @@ Lines Join, Text Source ("Text Settings") and Mesh Generation.
 
 from .. import catalog, materials
 from ..core import GroupBuilder, builtin_font
-from . import et_animation, et_lines_join, et_mesh_generation, et_text_source
+from . import et_animation, et_lines_join, et_mesh_generation, et_plate, et_text_source
 
 NAME = "ET Text Mesh"
 LINE_INPUTS = ("Text", "Line 2", "Line 3", "Line 4")
@@ -77,6 +77,7 @@ def build():
             description="Scale the caps into 0..1; off = Blender units (tileable).",
         )
         g.input("UV Scale", "float", 1.0, min=0.0001, max=1000.0, description="Additional UV factor.")
+    et_plate.declare_inputs(g, decorated=False)
     et_animation.declare_inputs(g, decorated=False)
     with g.panel("Outline", description="Quality of the glyph outlines.", default_closed=True):
         g.input("Resolution", "int", 12, min=1, max=64, description="Points per curve segment.")

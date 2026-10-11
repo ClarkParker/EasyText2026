@@ -5,7 +5,7 @@ The inputs are organised in panels so the node itself reads like a settings pane
 
 from .. import materials
 from ..core import GroupBuilder, heading, subheading
-from . import et_bevel, et_finish, et_outline, et_solid, et_uv
+from . import et_bevel, et_finish, et_outline, et_plate, et_solid, et_uv
 
 NAME = ".ET Mesh Generation"
 MESH_INPUTS = (
@@ -25,6 +25,7 @@ MESH_INPUTS = (
     "UV",
     "Normalize to Text",
     "UV Scale",
+    *et_plate.PLATE_INPUTS,
 )
 
 
@@ -74,6 +75,7 @@ def build():
             description="Scale the caps into 0..1; off = Blender units (tileable).",
         )
         g.input("UV Scale", "float", 1.0, min=0.0001, max=1000.0, description="Additional UV factor.")
+    et_plate.declare_inputs(g, decorated=True)
     with g.panel(heading("Outline"), description="Quality of the glyph outlines.", default_closed=True):
         g.input("Resolution", "int", 12, min=1, max=64, description="Points per curve segment.")
         g.input(
@@ -150,5 +152,11 @@ def build():
                 "Smooth Angle": gi["Smooth Angle"],
             },
         )["Mesh"]
+
+    with g.frame("Plate"):
+        gi = g.inputs(*et_plate.PLATE_INPUTS, label="Plate")
+        final = g.group(et_plate.NAME, inputs={"Mesh": final, **{name: gi[name] for name in et_plate.PLATE_INPUTS}})[
+            "Mesh"
+        ]
     g.set_output("Mesh", final)
     return g.finish()

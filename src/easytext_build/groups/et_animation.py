@@ -253,12 +253,16 @@ def build():
     # ------------------------------------------------------------------ apply, reveal, cleanup
     with g.frame("Apply"):
         gi = g.inputs("Mesh", "Animate", "Hide Before Start", "Keep Helper Attributes", label="Apply")
+        is_letter = g.compare("GREATER_EQUAL", char, 0, data_type="INT", name="Is Letter")[0]  # the plate is -1
         animated = g.node(
-            "GeometryNodeSetPosition", "Animate Position", inputs={"Geometry": gi["Mesh"], "Position": final_position}
+            "GeometryNodeSetPosition",
+            "Animate Position",
+            inputs={"Geometry": gi["Mesh"], "Selection": is_letter, "Position": final_position},
         )[0]
         animated = g.store(animated, "et_weight", weight, name="Store et_weight")[0]
         not_started = g.compare("LESS_EQUAL", t_raw, 0.0, name="Not Started")[0]
         hide = g.boolean("AND", gi["Hide Before Start"], not_started, name="Hide")[0]
+        hide = g.boolean("AND", hide, is_letter, name="Hide Letter")[0]
         revealed = g.node(
             "GeometryNodeDeleteGeometry",
             "Hide Elements",

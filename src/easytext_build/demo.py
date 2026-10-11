@@ -18,6 +18,9 @@ def populate_scene(scene) -> None:
     mod = text_ob.modifiers.new("Easy Text", "NODES")
     mod.node_group = tree
     text_ob.rotation_euler = (math.radians(90), 0.0, 0.0)  # upright, readable from the front (-Y)
+    plate = tree.nodes["Mesh Generation"]
+    group_socket(plate, "Plate").default_value = True  # the demo shows the base plate with relief
+    group_socket(plate, "Relief").default_value = True
     anim = tree.nodes["Animation"]
     group_socket(anim, "Animate").default_value = True  # the demo shows the letters arriving
     group_socket(anim, "Rotation").default_value = (0.0, 0.0, math.radians(90))

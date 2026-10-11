@@ -149,6 +149,7 @@ def build():
                 ("Front Material", "ET Front"),
                 ("Side Material", "ET Side"),
                 ("Bevel Material", "ET Bevel"),
+                ("Plate Material", "ET Plate"),
             ):
                 mesh.node.inputs[name].default_value = mats[mat]
             _box(g, "Tip Mesh", TIP_MESH, (NODE_W + 20, TIP_H), (2 * COLUMN, -480.0))

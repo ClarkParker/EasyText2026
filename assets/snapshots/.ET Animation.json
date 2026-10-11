@@ -601,7 +601,7 @@
   [
    "Animate?",
    "Output",
-   "Reroute.032",
+   "Reroute.037",
    "Input"
   ],
   [
@@ -619,7 +619,7 @@
   [
    "Basis",
    "Output",
-   "Reroute.009",
+   "Reroute.012",
    "Input"
   ],
   [
@@ -643,7 +643,7 @@
   [
    "Center Out",
    "Value",
-   "Reroute.005",
+   "Reroute.010",
    "Input"
   ],
   [
@@ -661,7 +661,7 @@
   [
    "Direction",
    "Output",
-   "Reroute.046",
+   "Reroute.053",
    "Input"
   ],
   [
@@ -673,7 +673,7 @@
   [
    "Ease In",
    "Value",
-   "Reroute.033",
+   "Reroute.035",
    "Input"
   ],
   [
@@ -691,8 +691,8 @@
   [
    "Easing",
    "Output",
-   "Direction",
-   "Item_3"
+   "Reroute.038",
+   "Input"
   ],
   [
    "Easing",
@@ -715,7 +715,7 @@
   [
    "Element Count",
    "Max",
-   "Reroute.011",
+   "Reroute.016",
    "Input"
   ],
   [
@@ -733,7 +733,7 @@
   [
    "Final Position",
    "Vector",
-   "Reroute.054",
+   "Reroute.044",
    "Input"
   ],
   [
@@ -781,7 +781,7 @@
   [
    "Group Input (Apply)",
    "Socket_0",
-   "Reroute.025",
+   "Reroute.024",
    "Input"
   ],
   [
@@ -799,20 +799,20 @@
   [
    "Group Input (Apply)",
    "Socket_28",
-   "Reroute.043",
+   "Reroute.045",
    "Input"
   ],
   [
    "Group Input (Bounce)",
    "Socket_23",
-   "Reroute.022",
-   "Input"
+   "Bounce?",
+   "Switch"
   ],
   [
    "Group Input (Bounce)",
    "Socket_24",
-   "Bounce Offset",
-   "Vector"
+   "Reroute.008",
+   "Input"
   ],
   [
    "Group Input (Bounce)",
@@ -829,8 +829,8 @@
   [
    "Group Input (Easing)",
    "Socket_11",
-   "Reroute.017",
-   "Input"
+   "Direction",
+   "Menu"
   ],
   [
    "Group Input (Easing)",
@@ -859,13 +859,13 @@
   [
    "Group Input (Pivot)",
    "Socket_17",
-   "Reroute.003",
+   "Reroute.006",
    "Input"
   ],
   [
    "Group Input (Timing)",
    "Socket_10",
-   "Reroute.040",
+   "Reroute.042",
    "Input"
   ],
   [
@@ -877,25 +877,25 @@
   [
    "Group Input (Timing)",
    "Socket_4",
-   "Reroute.015",
+   "Reroute.004",
    "Input"
   ],
   [
    "Group Input (Timing)",
    "Socket_5",
-   "Reroute.034",
+   "Reroute.030",
    "Input"
   ],
   [
    "Group Input (Timing)",
    "Socket_6",
-   "Reroute.013",
+   "Reroute.003",
    "Input"
   ],
   [
    "Group Input (Timing)",
    "Socket_7",
-   "Reroute.001",
+   "Reroute",
    "Input"
   ],
   [
@@ -919,8 +919,8 @@
   [
    "Hide",
    "Boolean",
-   "Reroute.042",
-   "Input"
+   "Hide Letter",
+   "Boolean"
   ],
   [
    "Hide Elements",
@@ -929,10 +929,28 @@
    "True"
   ],
   [
+   "Hide Letter",
+   "Boolean",
+   "Hide Elements",
+   "Selection"
+  ],
+  [
    "Index × Phase",
    "Value",
    "Cycles",
    "Value_001"
+  ],
+  [
+   "Is Letter",
+   "Result",
+   "Animate Position",
+   "Selection"
+  ],
+  [
+   "Is Letter",
+   "Result",
+   "Reroute.036",
+   "Input"
   ],
   [
    "Keep Attributes",
@@ -945,6 +963,12 @@
    "Attribute",
    "Basis",
    "Item_2"
+  ],
+  [
+   "Letter Index",
+   "Attribute",
+   "Reroute.014",
+   "Input"
   ],
   [
    "Line Count XYZ",
@@ -961,7 +985,7 @@
   [
    "Line Index",
    "Attribute",
-   "Reroute.010",
+   "Reroute.018",
    "Input"
   ],
   [
@@ -997,8 +1021,8 @@
   [
    "Loop",
    "Value",
-   "Reroute.007",
-   "Input"
+   "Loop.001",
+   "Item_3"
   ],
   [
    "Loop.001",
@@ -1027,8 +1051,8 @@
   [
    "Loop.001",
    "Output",
-   "Easing",
-   "Item_2"
+   "Reroute.040",
+   "Input"
   ],
   [
    "Loop.001",
@@ -1045,8 +1069,8 @@
   [
    "Moved",
    "Vector",
-   "Reroute.052",
-   "Input"
+   "Final Position",
+   "Vector"
   ],
   [
    "Not Started",
@@ -1057,7 +1081,7 @@
   [
    "Offset Now",
    "Vector",
-   "Reroute.045",
+   "Reroute.049",
    "Input"
   ],
   [
@@ -1105,110 +1129,116 @@
   [
    "Reroute",
    "Output",
-   "Word Pivot Sum",
-   "Group Index"
+   "Reroute.001",
+   "Input"
   ],
   [
    "Reroute.001",
    "Output",
-   "Reroute.002",
-   "Input"
+   "Order",
+   "Menu"
   ],
   [
    "Reroute.002",
    "Output",
-   "Order",
-   "Menu"
+   "Reroute.005",
+   "Input"
   ],
   [
    "Reroute.003",
-   "Output",
-   "Reroute.004",
-   "Input"
-  ],
-  [
-   "Reroute.004",
-   "Output",
-   "Center",
-   "Menu"
-  ],
-  [
-   "Reroute.005",
-   "Output",
-   "Reroute.006",
-   "Input"
-  ],
-  [
-   "Reroute.006",
-   "Output",
-   "Order",
-   "Item_4"
-  ],
-  [
-   "Reroute.007",
-   "Output",
-   "Reroute.008",
-   "Input"
-  ],
-  [
-   "Reroute.008",
-   "Output",
-   "Loop.001",
-   "Item_3"
-  ],
-  [
-   "Reroute.009",
-   "Output",
-   "Reroute.018",
-   "Input"
-  ],
-  [
-   "Reroute.010",
-   "Output",
-   "Reroute.020",
-   "Input"
-  ],
-  [
-   "Reroute.011",
-   "Output",
-   "Reroute.012",
-   "Input"
-  ],
-  [
-   "Reroute.012",
-   "Output",
-   "Random Order",
-   "Max"
-  ],
-  [
-   "Reroute.013",
-   "Output",
-   "Reroute.014",
-   "Input"
-  ],
-  [
-   "Reroute.014",
    "Output",
    "Delay",
    "Value_001"
   ],
   [
-   "Reroute.015",
-   "Output",
-   "Reroute.016",
-   "Input"
-  ],
-  [
-   "Reroute.016",
+   "Reroute.004",
    "Output",
    "Element Start",
    "Value"
   ],
   [
+   "Reroute.005",
+   "Output",
+   "Line Pivot Sum",
+   "Group Index"
+  ],
+  [
+   "Reroute.005",
+   "Output",
+   "Line Point Count",
+   "Group Index"
+  ],
+  [
+   "Reroute.006",
+   "Output",
+   "Reroute.007",
+   "Input"
+  ],
+  [
+   "Reroute.007",
+   "Output",
+   "Center",
+   "Menu"
+  ],
+  [
+   "Reroute.008",
+   "Output",
+   "Reroute.009",
+   "Input"
+  ],
+  [
+   "Reroute.009",
+   "Output",
+   "Bounce Offset",
+   "Vector"
+  ],
+  [
+   "Reroute.010",
+   "Output",
+   "Reroute.011",
+   "Input"
+  ],
+  [
+   "Reroute.011",
+   "Output",
+   "Order",
+   "Item_4"
+  ],
+  [
+   "Reroute.012",
+   "Output",
+   "Reroute.013",
+   "Input"
+  ],
+  [
+   "Reroute.013",
+   "Output",
+   "Reroute.022",
+   "Input"
+  ],
+  [
+   "Reroute.014",
+   "Output",
+   "Reroute.064",
+   "Input"
+  ],
+  [
+   "Reroute.015",
+   "Output",
+   "Reroute.020",
+   "Input"
+  ],
+  [
+   "Reroute.016",
+   "Output",
+   "Reroute.017",
+   "Input"
+  ],
+  [
    "Reroute.017",
    "Output",
-   "Direction",
-   "Menu"
+   "Random Order",
+   "Max"
   ],
   [
    "Reroute.018",
@@ -1219,20 +1249,8 @@
   [
    "Reroute.019",
    "Output",
-   "From Middle",
-   "Value"
-  ],
-  [
-   "Reroute.019",
-   "Output",
-   "Reroute.028",
+   "Reroute.002",
    "Input"
-  ],
-  [
-   "Reroute.019",
-   "Output",
-   "Right to Left",
-   "Value_001"
   ],
   [
    "Reroute.020",
@@ -1243,13 +1261,13 @@
   [
    "Reroute.021",
    "Output",
-   "Line Pivot Sum",
+   "Word Pivot Sum",
    "Group Index"
   ],
   [
    "Reroute.021",
    "Output",
-   "Line Point Count",
+   "Word Point Count",
    "Group Index"
   ],
   [
@@ -1261,13 +1279,25 @@
   [
    "Reroute.023",
    "Output",
-   "Bounce?",
-   "Switch"
+   "From Middle",
+   "Value"
+  ],
+  [
+   "Reroute.023",
+   "Output",
+   "Reroute.027",
+   "Input"
+  ],
+  [
+   "Reroute.023",
+   "Output",
+   "Right to Left",
+   "Value_001"
   ],
   [
    "Reroute.024",
    "Output",
-   "Reroute.036",
+   "Reroute.025",
    "Input"
   ],
   [
@@ -1285,86 +1315,80 @@
   [
    "Reroute.027",
    "Output",
-   "Reroute.038",
+   "Random Order",
+   "ID"
+  ],
+  [
+   "Reroute.027",
+   "Output",
+   "Reroute.032",
    "Input"
   ],
   [
    "Reroute.028",
    "Output",
-   "Random Order",
-   "ID"
-  ],
-  [
-   "Reroute.028",
-   "Output",
-   "Reroute.031",
+   "Reroute.029",
    "Input"
   ],
   [
    "Reroute.029",
    "Output",
-   "Reroute.030",
-   "Input"
-  ],
-  [
-   "Reroute.030",
-   "Output",
    "Order",
    "Item_3"
   ],
   [
-   "Reroute.031",
+   "Reroute.030",
    "Output",
-   "Order",
-   "Item_2"
-  ],
-  [
    "Reroute.031",
-   "Output",
-   "Reroute.061",
    "Input"
   ],
   [
-   "Reroute.032",
-   "Output",
-   "Keep Attributes",
-   "True"
-  ],
-  [
-   "Reroute.033",
-   "Output",
-   "Easing",
-   "Item_3"
-  ],
-  [
-   "Reroute.034",
-   "Output",
-   "Reroute.035",
-   "Input"
-  ],
-  [
-   "Reroute.035",
+   "Reroute.031",
    "Output",
    "Duration (min 1)",
    "Value"
   ],
   [
+   "Reroute.032",
+   "Output",
+   "Order",
+   "Item_2"
+  ],
+  [
+   "Reroute.032",
+   "Output",
+   "Reroute.061",
+   "Input"
+  ],
+  [
+   "Reroute.033",
+   "Output",
+   "Reroute.034",
+   "Input"
+  ],
+  [
+   "Reroute.034",
+   "Output",
+   "Reroute.062",
+   "Input"
+  ],
+  [
+   "Reroute.035",
+   "Output",
+   "Easing",
+   "Item_3"
+  ],
+  [
    "Reroute.036",
    "Output",
-   "Reroute.037",
-   "Input"
+   "Hide Letter",
+   "Boolean_001"
   ],
   [
    "Reroute.037",
    "Output",
-   "From Pivot",
-   "Vector_001"
-  ],
-  [
-   "Reroute.037",
-   "Output",
-   "Reroute.027",
-   "Input"
+   "Keep Attributes",
+   "True"
   ],
   [
    "Reroute.038",
@@ -1375,8 +1399,8 @@
   [
    "Reroute.039",
    "Output",
-   "Back to Pivot",
-   "Vector"
+   "Direction",
+   "Item_3"
   ],
   [
    "Reroute.040",
@@ -1387,74 +1411,56 @@
   [
    "Reroute.041",
    "Output",
-   "Loop.001",
-   "Menu"
+   "Easing",
+   "Item_2"
   ],
   [
    "Reroute.042",
    "Output",
-   "Hide Elements",
-   "Selection"
+   "Reroute.043",
+   "Input"
   ],
   [
    "Reroute.043",
    "Output",
-   "Reroute.044",
-   "Input"
+   "Loop.001",
+   "Menu"
   ],
   [
    "Reroute.044",
+   "Output",
+   "Reroute.047",
+   "Input"
+  ],
+  [
+   "Reroute.045",
+   "Output",
+   "Reroute.046",
+   "Input"
+  ],
+  [
+   "Reroute.046",
    "Output",
    "Keep Attributes",
    "Switch"
   ],
   [
-   "Reroute.045",
-   "Output",
-   "Moved",
-   "Vector_001"
-  ],
-  [
-   "Reroute.046",
-   "Output",
    "Reroute.047",
+   "Output",
+   "Reroute.048",
    "Input"
-  ],
-  [
-   "Reroute.047",
-   "Output",
-   "Offset Now",
-   "Scale"
-  ],
-  [
-   "Reroute.047",
-   "Output",
-   "Reroute.059",
-   "Input"
-  ],
-  [
-   "Reroute.047",
-   "Output",
-   "Rotation Now",
-   "Scale"
-  ],
-  [
-   "Reroute.047",
-   "Output",
-   "Scale Δ × w",
-   "Scale"
   ],
   [
    "Reroute.048",
    "Output",
-   "Reroute.049",
-   "Input"
+   "Animate Position",
+   "Position"
   ],
   [
    "Reroute.049",
    "Output",
-   "Final Position",
-   "Vector"
+   "Moved",
+   "Vector_001"
   ],
   [
    "Reroute.050",
@@ -1465,32 +1471,56 @@
   [
    "Reroute.051",
    "Output",
-   "Store et_weight",
-   "Value"
+   "From Pivot",
+   "Vector_001"
+  ],
+  [
+   "Reroute.051",
+   "Output",
+   "Reroute.052",
+   "Input"
   ],
   [
    "Reroute.052",
    "Output",
-   "Reroute.053",
-   "Input"
+   "Back to Pivot",
+   "Vector"
   ],
   [
    "Reroute.053",
    "Output",
-   "Reroute.048",
+   "Reroute.054",
    "Input"
   ],
   [
    "Reroute.054",
    "Output",
-   "Reroute.055",
+   "Offset Now",
+   "Scale"
+  ],
+  [
+   "Reroute.054",
+   "Output",
+   "Reroute.059",
    "Input"
+  ],
+  [
+   "Reroute.054",
+   "Output",
+   "Rotation Now",
+   "Scale"
+  ],
+  [
+   "Reroute.054",
+   "Output",
+   "Scale Δ × w",
+   "Scale"
   ],
   [
    "Reroute.055",
    "Output",
-   "Animate Position",
-   "Position"
+   "Reroute.056",
+   "Input"
   ],
   [
    "Reroute.056",
@@ -1507,7 +1537,7 @@
   [
    "Reroute.058",
    "Output",
-   "Reroute.024",
+   "Reroute.050",
    "Input"
   ],
   [
@@ -1519,13 +1549,13 @@
   [
    "Reroute.060",
    "Output",
-   "Reroute.050",
-   "Input"
+   "Store et_weight",
+   "Value"
   ],
   [
    "Reroute.061",
    "Output",
-   "Reroute.056",
+   "Reroute.055",
    "Input"
   ],
   [
@@ -1541,9 +1571,21 @@
    "A"
   ],
   [
+   "Reroute.064",
+   "Output",
+   "Reroute.065",
+   "Input"
+  ],
+  [
+   "Reroute.065",
+   "Output",
+   "Is Letter",
+   "A"
+  ],
+  [
    "Right to Left",
    "Value",
-   "Reroute.029",
+   "Reroute.028",
    "Input"
   ],
   [
@@ -1615,7 +1657,7 @@
   [
    "Time Raw",
    "Value",
-   "Reroute.062",
+   "Reroute.033",
    "Input"
   ],
   [
@@ -1669,14 +1711,8 @@
   [
    "Word Index",
    "Attribute",
-   "Reroute",
+   "Reroute.015",
    "Input"
-  ],
-  [
-   "Word Index",
-   "Attribute",
-   "Word Point Count",
-   "Group Index"
   ],
   [
    "Word Pivot",
@@ -1762,8 +1798,8 @@
    },
    "label": "(1 - t)²",
    "location": [
-    -280,
-    380
+    -180,
+    660
    ],
    "mute": false,
    "name": "(1 - t)²",
@@ -1792,8 +1828,8 @@
    },
    "label": "(t-1)²",
    "location": [
-    -280,
-    20
+    -180,
+    320
    ],
    "mute": false,
    "name": "(t-1)²",
@@ -1822,8 +1858,8 @@
    },
    "label": "(t-1)³",
    "location": [
-    -460,
-    -20
+    -360,
+    280
    ],
    "mute": false,
    "name": "(t-1)³",
@@ -1852,8 +1888,8 @@
    },
    "label": "1 - t",
    "location": [
-    -460,
-    380
+    -360,
+    660
    ],
    "mute": false,
    "name": "1 - t",
@@ -1882,8 +1918,8 @@
    },
    "label": "Angle",
    "location": [
-    2100,
-    20
+    2140,
+    -380
    ],
    "mute": false,
    "name": "Angle",
@@ -1918,14 +1954,14 @@
      "name": "Position"
     },
     "Selection": {
-     "name": "Selection",
-     "value": true
+     "linked": true,
+     "name": "Selection"
     }
    },
    "label": "Animate Position",
    "location": [
-    3000,
-    180
+    3020,
+    -460
    ],
    "mute": false,
    "name": "Animate Position",
@@ -1954,8 +1990,8 @@
    },
    "label": "Animate?",
    "location": [
-    3560,
-    320
+    3600,
+    -320
    ],
    "mute": false,
    "name": "Animate?",
@@ -1983,8 +2019,8 @@
    },
    "label": "Back to Pivot",
    "location": [
-    1380,
-    400
+    1440,
+    700
    ],
    "mute": false,
    "name": "Back to Pivot",
@@ -2023,8 +2059,8 @@
    },
    "label": "Basis",
    "location": [
-    -2720,
-    300
+    -2660,
+    -340
    ],
    "mute": false,
    "name": "Basis",
@@ -2060,8 +2096,8 @@
    },
    "label": "Bounce Offset",
    "location": [
-    2100,
-    -80
+    2120,
+    -460
    ],
    "mute": false,
    "name": "Bounce Offset",
@@ -2097,8 +2133,8 @@
    },
    "label": "Bounce?",
    "location": [
-    2260,
-    180
+    2300,
+    -120
    ],
    "mute": false,
    "name": "Bounce?",
@@ -2141,8 +2177,8 @@
    },
    "label": "Center",
    "location": [
-    -1420,
-    400
+    -1320,
+    700
    ],
    "mute": false,
    "name": "Center",
@@ -2175,8 +2211,8 @@
    },
    "label": "Center Out",
    "location": [
-    -2080,
-    -940
+    -2000,
+    -560
    ],
    "mute": false,
    "name": "Center Out",
@@ -2205,8 +2241,8 @@
    },
    "label": "Cycles",
    "location": [
-    2100,
-    60
+    2140,
+    -340
    ],
    "mute": false,
    "name": "Cycles",
@@ -2235,8 +2271,8 @@
    },
    "label": "Delay",
    "location": [
-    -1400,
-    -680
+    -1300,
+    -500
    ],
    "mute": false,
    "name": "Delay",
@@ -2272,8 +2308,8 @@
    },
    "label": "Direction",
    "location": [
-    260,
-    480
+    340,
+    740
    ],
    "mute": false,
    "name": "Direction",
@@ -2308,8 +2344,8 @@
    },
    "label": "Duration (min 1)",
    "location": [
-    -1180,
-    -740
+    -1100,
+    -480
    ],
    "mute": false,
    "name": "Duration (min 1)",
@@ -2338,8 +2374,8 @@
    },
    "label": "Ease In",
    "location": [
-    -460,
-    440
+    -360,
+    720
    ],
    "mute": false,
    "name": "Ease In",
@@ -2380,8 +2416,8 @@
    },
    "label": "Ease In-Out",
    "location": [
-    -480,
-    300
+    -380,
+    580
    ],
    "mute": false,
    "name": "Ease In-Out",
@@ -2411,8 +2447,8 @@
    },
    "label": "Ease Out",
    "location": [
-    -280,
-    340
+    -180,
+    620
    ],
    "mute": false,
    "name": "Ease Out",
@@ -2460,8 +2496,8 @@
    },
    "label": "Easing",
    "location": [
-    -80,
-    380
+    20,
+    640
    ],
    "mute": false,
    "name": "Easing",
@@ -2499,8 +2535,8 @@
    },
    "label": "Elapsed",
    "location": [
-    -1400,
-    -780
+    -1300,
+    -580
    ],
    "mute": false,
    "name": "Elapsed",
@@ -2533,8 +2569,8 @@
    },
    "label": "Element Count",
    "location": [
-    -2540,
-    220
+    -2460,
+    -400
    ],
    "mute": false,
    "name": "Element Count",
@@ -2570,8 +2606,8 @@
    },
    "label": "Element Start",
    "location": [
-    -1400,
-    -740
+    -1320,
+    -540
    ],
    "mute": false,
    "name": "Element Start",
@@ -2600,8 +2636,8 @@
    },
    "label": "Final Position",
    "location": [
-    2440,
-    180
+    2480,
+    -80
    ],
    "mute": false,
    "name": "Final Position",
@@ -2629,8 +2665,8 @@
    },
    "label": "From Middle",
    "location": [
-    -2100,
-    -900
+    -2020,
+    -520
    ],
    "mute": false,
    "name": "From Middle",
@@ -2659,8 +2695,8 @@
    },
    "label": "From Pivot",
    "location": [
-    1040,
-    460
+    1100,
+    760
    ],
    "mute": false,
    "name": "From Pivot",
@@ -2684,8 +2720,8 @@
    },
    "label": "Glyph Pivot",
    "location": [
-    -2100,
-    340
+    -2020,
+    680
    ],
    "mute": false,
    "name": "Glyph Pivot",
@@ -2705,8 +2741,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    2780,
-    180
+    2800,
+    -460
    ],
    "mute": false,
    "name": "Group Input (Apply)",
@@ -2743,8 +2779,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    1700,
-    20
+    1760,
+    -280
    ],
    "mute": false,
    "name": "Group Input (Bounce)",
@@ -2781,8 +2817,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    -300,
-    640
+    -200,
+    880
    ],
    "mute": false,
    "name": "Group Input (Easing)",
@@ -2819,8 +2855,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    -2940,
-    0
+    -2860,
+    -620
    ],
    "mute": false,
    "name": "Group Input (Elements)",
@@ -2857,8 +2893,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    -1840,
-    460
+    -1760,
+    800
    ],
    "mute": false,
    "name": "Group Input (Pivot)",
@@ -2895,8 +2931,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    -2100,
-    -640
+    -2020,
+    -240
    ],
    "mute": false,
    "name": "Group Input (Timing)",
@@ -2933,8 +2969,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    620,
-    340
+    700,
+    640
    ],
    "mute": false,
    "name": "Group Input (Transform)",
@@ -2979,8 +3015,8 @@
    },
    "label": "",
    "location": [
-    4180,
-    320
+    4200,
+    -320
    ],
    "mute": false,
    "name": "Group Output",
@@ -3006,8 +3042,8 @@
    },
    "label": "Hide",
    "location": [
-    3020,
-    -80
+    3040,
+    -760
    ],
    "mute": false,
    "name": "Hide",
@@ -3035,8 +3071,8 @@
    },
    "label": "Hide Elements",
    "location": [
-    3380,
-    180
+    3420,
+    -460
    ],
    "mute": false,
    "name": "Hide Elements",
@@ -3049,6 +3085,35 @@
     "mode": "ALL"
    },
    "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "FunctionNodeBooleanMath",
+   "inputs": {
+    "Boolean": {
+     "linked": true,
+     "name": "Boolean"
+    },
+    "Boolean_001": {
+     "linked": true,
+     "name": "Boolean"
+    }
+   },
+   "label": "Hide Letter",
+   "location": [
+    3240,
+    -800
+   ],
+   "mute": false,
+   "name": "Hide Letter",
+   "outputs": [
+    "Boolean"
+   ],
+   "parent": "[Apply]",
+   "props": {
+    "operation": "AND"
+   },
+   "width": 103.0
   },
   {
    "hide": true,
@@ -3065,8 +3130,8 @@
    },
    "label": "Index × Phase",
    "location": [
-    2100,
-    100
+    2120,
+    -300
    ],
    "mute": false,
    "name": "Index × Phase",
@@ -3079,6 +3144,37 @@
     "use_clamp": false
    },
    "width": 122.0
+  },
+  {
+   "hide": true,
+   "idname": "FunctionNodeCompare",
+   "inputs": {
+    "A": {
+     "linked": true,
+     "name": "A"
+    },
+    "B": {
+     "name": "B",
+     "value": 0
+    }
+   },
+   "label": "Is Letter",
+   "location": [
+    2820,
+    -760
+   ],
+   "mute": false,
+   "name": "Is Letter",
+   "outputs": [
+    "Result"
+   ],
+   "parent": "[Apply]",
+   "props": {
+    "data_type": "INT",
+    "mode": "ELEMENT",
+    "operation": "GREATER_EQUAL"
+   },
+   "width": 100.0
   },
   {
    "hide": false,
@@ -3099,8 +3195,8 @@
    },
    "label": "Keep Attributes",
    "location": [
-    3960,
-    320
+    4000,
+    -320
    ],
    "mute": false,
    "name": "Keep Attributes",
@@ -3124,8 +3220,8 @@
    },
    "label": "Letter Index",
    "location": [
-    -2940,
-    300
+    -2860,
+    -740
    ],
    "mute": false,
    "name": "Letter Index",
@@ -3158,8 +3254,8 @@
    },
    "label": "Line Count XYZ",
    "location": [
-    -1840,
-    0
+    -1760,
+    320
    ],
    "mute": false,
    "name": "Line Count XYZ",
@@ -3180,8 +3276,8 @@
    },
    "label": "Line Index",
    "location": [
-    -2940,
-    460
+    -2860,
+    -340
    ],
    "mute": false,
    "name": "Line Index",
@@ -3210,8 +3306,8 @@
    },
    "label": "Line Pivot",
    "location": [
-    -1620,
-    140
+    -1540,
+    440
    ],
    "mute": false,
    "name": "Line Pivot",
@@ -3239,8 +3335,8 @@
    },
    "label": "Line Pivot Sum",
    "location": [
-    -1840,
-    280
+    -1760,
+    600
    ],
    "mute": false,
    "name": "Line Pivot Sum",
@@ -3271,8 +3367,8 @@
    },
    "label": "Line Point Count",
    "location": [
-    -2100,
-    60
+    -2020,
+    400
    ],
    "mute": false,
    "name": "Line Point Count",
@@ -3299,8 +3395,8 @@
    },
    "label": "Loop",
    "location": [
-    -1180,
-    -860
+    -1080,
+    -600
    ],
    "mute": false,
    "name": "Loop",
@@ -3340,8 +3436,8 @@
    },
    "label": "Loop",
    "location": [
-    -840,
-    -660
+    -760,
+    -440
    ],
    "mute": false,
    "name": "Loop.001",
@@ -3377,8 +3473,8 @@
    },
    "label": "Middle",
    "location": [
-    -2080,
-    -840
+    -2000,
+    -480
    ],
    "mute": false,
    "name": "Middle",
@@ -3407,8 +3503,8 @@
    },
    "label": "Moved",
    "location": [
-    1400,
-    360
+    1440,
+    660
    ],
    "mute": false,
    "name": "Moved",
@@ -3436,8 +3532,8 @@
    },
    "label": "Not Started",
    "location": [
-    2800,
-    -80
+    2820,
+    -820
    ],
    "mute": false,
    "name": "Not Started",
@@ -3467,8 +3563,8 @@
    },
    "label": "Offset Now",
    "location": [
-    880,
-    240
+    920,
+    520
    ],
    "mute": false,
    "name": "Offset Now",
@@ -3496,8 +3592,8 @@
    },
    "label": "Once",
    "location": [
-    -1000,
-    -720
+    -920,
+    -520
    ],
    "mute": false,
    "name": "Once",
@@ -3541,8 +3637,8 @@
    },
    "label": "Order",
    "location": [
-    -1640,
-    -480
+    -1560,
+    -220
    ],
    "mute": false,
    "name": "Order",
@@ -3579,8 +3675,8 @@
    },
    "label": "Overshoot",
    "location": [
-    -280,
-    -100
+    -180,
+    180
    ],
    "mute": false,
    "name": "Overshoot",
@@ -3609,8 +3705,8 @@
    },
    "label": "Ping-Pong",
    "location": [
-    -1000,
-    -820
+    -920,
+    -620
    ],
    "mute": false,
    "name": "Ping-Pong",
@@ -3630,8 +3726,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    860,
-    540
+    920,
+    820
    ],
    "mute": false,
    "name": "Position",
@@ -3664,8 +3760,8 @@
    },
    "label": "Random Order",
    "location": [
-    -1840,
-    -560
+    -1760,
+    -300
    ],
    "mute": false,
    "name": "Random Order",
@@ -3697,8 +3793,8 @@
    },
    "label": "Remove et_*",
    "location": [
-    3740,
-    320
+    3780,
+    -320
    ],
    "mute": false,
    "name": "Remove et_*",
@@ -3719,17 +3815,17 @@
    },
    "label": "",
    "location": [
-    -2100,
-    750
+    -1774,
+    -177
    ],
    "mute": false,
    "name": "Reroute",
    "outputs": [
     "Output"
    ],
-   "parent": "[Pivot]",
+   "parent": "[Time]",
    "props": {
-    "socket_idname": "NodeSocketInt"
+    "socket_idname": "NodeSocketMenu"
    },
    "width": 140.0
   },
@@ -3744,8 +3840,8 @@
    },
    "label": "",
    "location": [
-    -1840,
-    -469
+    -1630,
+    -177
    ],
    "mute": false,
    "name": "Reroute.001",
@@ -3769,17 +3865,17 @@
    },
    "label": "",
    "location": [
-    -1700,
-    -469
+    -2216,
+    177
    ],
    "mute": false,
    "name": "Reroute.002",
    "outputs": [
     "Output"
    ],
-   "parent": "[Time]",
+   "parent": null,
    "props": {
-    "socket_idname": "NodeSocketMenu"
+    "socket_idname": "NodeSocketInt"
    },
    "width": 140.0
   },
@@ -3794,17 +3890,17 @@
    },
    "label": "",
    "location": [
-    -1640,
-    329
+    -1760,
+    -508
    ],
    "mute": false,
    "name": "Reroute.003",
    "outputs": [
     "Output"
    ],
-   "parent": "[Pivot]",
+   "parent": "[Time]",
    "props": {
-    "socket_idname": "NodeSocketMenu"
+    "socket_idname": "NodeSocketFloat"
    },
    "width": 140.0
   },
@@ -3819,14 +3915,64 @@
    },
    "label": "",
    "location": [
-    -1510,
-    329
+    -1760,
+    -541
    ],
    "mute": false,
    "name": "Reroute.004",
    "outputs": [
     "Output"
    ],
+   "parent": "[Time]",
+   "props": {
+    "socket_idname": "NodeSocketInt"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -2128,
+    438
+   ],
+   "mute": false,
+   "name": "Reroute.005",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Pivot]",
+   "props": {
+    "socket_idname": "NodeSocketInt"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1550,
+    667
+   ],
+   "mute": false,
+   "name": "Reroute.006",
+   "outputs": [
+    "Output"
+   ],
    "parent": "[Pivot]",
    "props": {
     "socket_idname": "NodeSocketMenu"
@@ -3844,67 +3990,17 @@
    },
    "label": "",
    "location": [
-    -1840,
-    -518
-   ],
-   "mute": false,
-   "name": "Reroute.005",
-   "outputs": [
-    "Output"
-   ],
-   "parent": "[Time]",
-   "props": {
-    "socket_idname": "NodeSocketFloat"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    -1700,
-    -518
-   ],
-   "mute": false,
-   "name": "Reroute.006",
-   "outputs": [
-    "Output"
-   ],
-   "parent": "[Time]",
-   "props": {
-    "socket_idname": "NodeSocketFloat"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    -1002,
-    -774
+    -1410,
+    667
    ],
    "mute": false,
    "name": "Reroute.007",
    "outputs": [
     "Output"
    ],
-   "parent": "[Time]",
+   "parent": "[Pivot]",
    "props": {
-    "socket_idname": "NodeSocketFloat"
+    "socket_idname": "NodeSocketMenu"
    },
    "width": 140.0
   },
@@ -3919,14 +4015,64 @@
    },
    "label": "",
    "location": [
-    -898,
-    -774
+    1940,
+    -393
    ],
    "mute": false,
    "name": "Reroute.008",
    "outputs": [
     "Output"
    ],
+   "parent": "[Bounce]",
+   "props": {
+    "socket_idname": "NodeSocketVectorTranslation"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    2078,
+    -393
+   ],
+   "mute": false,
+   "name": "Reroute.009",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Bounce]",
+   "props": {
+    "socket_idname": "NodeSocketVectorTranslation"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1760,
+    -262
+   ],
+   "mute": false,
+   "name": "Reroute.010",
+   "outputs": [
+    "Output"
+   ],
    "parent": "[Time]",
    "props": {
     "socket_idname": "NodeSocketFloat"
@@ -3944,58 +4090,8 @@
    },
    "label": "",
    "location": [
-    -2400,
-    265
-   ],
-   "mute": false,
-   "name": "Reroute.009",
-   "outputs": [
-    "Output"
-   ],
-   "parent": null,
-   "props": {
-    "socket_idname": "NodeSocketInt"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    -2390,
-    425
-   ],
-   "mute": false,
-   "name": "Reroute.010",
-   "outputs": [
-    "Output"
-   ],
-   "parent": null,
-   "props": {
-    "socket_idname": "NodeSocketInt"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    -2098,
-    -1010
+    -1620,
+    -262
    ],
    "mute": false,
    "name": "Reroute.011",
@@ -4019,17 +4115,17 @@
    },
    "label": "",
    "location": [
-    -1958,
-    -1010
+    -2470,
+    -367
    ],
    "mute": false,
    "name": "Reroute.012",
    "outputs": [
     "Output"
    ],
-   "parent": "[Time]",
+   "parent": "[Elements]",
    "props": {
-    "socket_idname": "NodeSocketFloat"
+    "socket_idname": "NodeSocketInt"
    },
    "width": 140.0
   },
@@ -4044,136 +4140,11 @@
    },
    "label": "",
    "location": [
-    -1840,
-    -778
+    -2320,
+    -367
    ],
    "mute": false,
    "name": "Reroute.013",
-   "outputs": [
-    "Output"
-   ],
-   "parent": "[Time]",
-   "props": {
-    "socket_idname": "NodeSocketFloat"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    -1510,
-    -792
-   ],
-   "mute": false,
-   "name": "Reroute.014",
-   "outputs": [
-    "Output"
-   ],
-   "parent": "[Time]",
-   "props": {
-    "socket_idname": "NodeSocketFloat"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    -1840,
-    -796
-   ],
-   "mute": false,
-   "name": "Reroute.015",
-   "outputs": [
-    "Output"
-   ],
-   "parent": "[Time]",
-   "props": {
-    "socket_idname": "NodeSocketInt"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    -1510,
-    -811
-   ],
-   "mute": false,
-   "name": "Reroute.016",
-   "outputs": [
-    "Output"
-   ],
-   "parent": "[Time]",
-   "props": {
-    "socket_idname": "NodeSocketInt"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    200,
-    583
-   ],
-   "mute": false,
-   "name": "Reroute.017",
-   "outputs": [
-    "Output"
-   ],
-   "parent": "[Easing]",
-   "props": {
-    "socket_idname": "NodeSocketMenu"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    -2286,
-    -201
-   ],
-   "mute": false,
-   "name": "Reroute.018",
    "outputs": [
     "Output"
    ],
@@ -4194,8 +4165,133 @@
    },
    "label": "",
    "location": [
-    -2208,
-    -201
+    -2320,
+    -775
+   ],
+   "mute": false,
+   "name": "Reroute.014",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketInt"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -2330,
+    -215
+   ],
+   "mute": false,
+   "name": "Reroute.015",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketInt"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -2018,
+    -630
+   ],
+   "mute": false,
+   "name": "Reroute.016",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1878,
+    -630
+   ],
+   "mute": false,
+   "name": "Reroute.017",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -2650,
+    -292
+   ],
+   "mute": false,
+   "name": "Reroute.018",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Elements]",
+   "props": {
+    "socket_idname": "NodeSocketInt"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -2320,
+    -292
    ],
    "mute": false,
    "name": "Reroute.019",
@@ -4219,8 +4315,8 @@
    },
    "label": "",
    "location": [
-    -2300,
-    110
+    -2216,
+    1050
    ],
    "mute": false,
    "name": "Reroute.020",
@@ -4244,8 +4340,8 @@
    },
    "label": "",
    "location": [
-    -2208,
-    110
+    -2128,
+    1050
    ],
    "mute": false,
    "name": "Reroute.021",
@@ -4269,17 +4365,17 @@
    },
    "label": "",
    "location": [
-    1890,
-    152
+    -2216,
+    78
    ],
    "mute": false,
    "name": "Reroute.022",
    "outputs": [
     "Output"
    ],
-   "parent": "[Bounce]",
+   "parent": null,
    "props": {
-    "socket_idname": "NodeSocketBool"
+    "socket_idname": "NodeSocketInt"
    },
    "width": 140.0
   },
@@ -4294,17 +4390,17 @@
    },
    "label": "",
    "location": [
-    2222,
-    144
+    -2128,
+    78
    ],
    "mute": false,
    "name": "Reroute.023",
    "outputs": [
     "Output"
    ],
-   "parent": "[Bounce]",
+   "parent": null,
    "props": {
-    "socket_idname": "NodeSocketBool"
+    "socket_idname": "NodeSocketInt"
    },
    "width": 140.0
   },
@@ -4319,17 +4415,17 @@
    },
    "label": "",
    "location": [
-    620,
-    572
+    3020,
+    -428
    ],
    "mute": false,
    "name": "Reroute.024",
    "outputs": [
     "Output"
    ],
-   "parent": "[Transform]",
+   "parent": "[Apply]",
    "props": {
-    "socket_idname": "NodeSocketVector"
+    "socket_idname": "NodeSocketGeometry"
    },
    "width": 140.0
   },
@@ -4344,8 +4440,8 @@
    },
    "label": "",
    "location": [
-    3000,
-    215
+    3420,
+    -428
    ],
    "mute": false,
    "name": "Reroute.025",
@@ -4369,8 +4465,8 @@
    },
    "label": "",
    "location": [
-    3000,
-    239
+    3020,
+    -401
    ],
    "mute": false,
    "name": "Reroute.026",
@@ -4394,36 +4490,11 @@
    },
    "label": "",
    "location": [
-    1040,
-    568
+    -1880,
+    78
    ],
    "mute": false,
    "name": "Reroute.027",
-   "outputs": [
-    "Output"
-   ],
-   "parent": "[Transform]",
-   "props": {
-    "socket_idname": "NodeSocketVector"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    -1960,
-    -201
-   ],
-   "mute": false,
-   "name": "Reroute.028",
    "outputs": [
     "Output"
    ],
@@ -4444,8 +4515,33 @@
    },
    "label": "",
    "location": [
-    -1840,
-    -499
+    -1760,
+    -244
+   ],
+   "mute": false,
+   "name": "Reroute.028",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1620,
+    -244
    ],
    "mute": false,
    "name": "Reroute.029",
@@ -4469,8 +4565,8 @@
    },
    "label": "",
    "location": [
-    -1700,
-    -499
+    -1774,
+    -71
    ],
    "mute": false,
    "name": "Reroute.030",
@@ -4479,7 +4575,7 @@
    ],
    "parent": "[Time]",
    "props": {
-    "socket_idname": "NodeSocketFloat"
+    "socket_idname": "NodeSocketInt"
    },
    "width": 140.0
   },
@@ -4494,11 +4590,36 @@
    },
    "label": "",
    "location": [
-    -1706,
-    -201
+    -1190,
+    -71
    ],
    "mute": false,
    "name": "Reroute.031",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Time]",
+   "props": {
+    "socket_idname": "NodeSocketInt"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1626,
+    78
+   ],
+   "mute": false,
+   "name": "Reroute.032",
    "outputs": [
     "Output"
    ],
@@ -4519,17 +4640,17 @@
    },
    "label": "",
    "location": [
-    3740,
-    195
+    -920,
+    -834
    ],
    "mute": false,
-   "name": "Reroute.032",
+   "name": "Reroute.033",
    "outputs": [
     "Output"
    ],
-   "parent": "[Apply]",
+   "parent": "[Time]",
    "props": {
-    "socket_idname": "NodeSocketGeometry"
+    "socket_idname": "NodeSocketFloat"
    },
    "width": 140.0
   },
@@ -4544,11 +4665,36 @@
    },
    "label": "",
    "location": [
-    -160,
-    428
+    -620,
+    -834
    ],
    "mute": false,
-   "name": "Reroute.033",
+   "name": "Reroute.034",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -60,
+    709
+   ],
+   "mute": false,
+   "name": "Reroute.035",
    "outputs": [
     "Output"
    ],
@@ -4569,67 +4715,17 @@
    },
    "label": "",
    "location": [
-    -1854,
-    -335
-   ],
-   "mute": false,
-   "name": "Reroute.034",
-   "outputs": [
-    "Output"
-   ],
-   "parent": "[Time]",
-   "props": {
-    "socket_idname": "NodeSocketInt"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    -1280,
-    -336
-   ],
-   "mute": false,
-   "name": "Reroute.035",
-   "outputs": [
-    "Output"
-   ],
-   "parent": "[Time]",
-   "props": {
-    "socket_idname": "NodeSocketInt"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    860,
-    577
+    3020,
+    -815
    ],
    "mute": false,
    "name": "Reroute.036",
    "outputs": [
     "Output"
    ],
-   "parent": "[Transform]",
+   "parent": "[Apply]",
    "props": {
-    "socket_idname": "NodeSocketVector"
+    "socket_idname": "NodeSocketBool"
    },
    "width": 140.0
   },
@@ -4644,17 +4740,17 @@
    },
    "label": "",
    "location": [
-    1000,
-    577
+    3780,
+    -445
    ],
    "mute": false,
    "name": "Reroute.037",
    "outputs": [
     "Output"
    ],
-   "parent": "[Transform]",
+   "parent": "[Apply]",
    "props": {
-    "socket_idname": "NodeSocketVector"
+    "socket_idname": "NodeSocketGeometry"
    },
    "width": 140.0
   },
@@ -4669,17 +4765,17 @@
    },
    "label": "",
    "location": [
-    1184,
-    562
+    200,
+    592
    ],
    "mute": false,
    "name": "Reroute.038",
    "outputs": [
     "Output"
    ],
-   "parent": "[Transform]",
+   "parent": "[Easing]",
    "props": {
-    "socket_idname": "NodeSocketVector"
+    "socket_idname": "NodeSocketFloat"
    },
    "width": 140.0
   },
@@ -4694,17 +4790,17 @@
    },
    "label": "",
    "location": [
-    1320,
-    571
+    300,
+    592
    ],
    "mute": false,
    "name": "Reroute.039",
    "outputs": [
     "Output"
    ],
-   "parent": "[Transform]",
+   "parent": "[Easing]",
    "props": {
-    "socket_idname": "NodeSocketVector"
+    "socket_idname": "NodeSocketFloat"
    },
    "width": 140.0
   },
@@ -4719,17 +4815,17 @@
    },
    "label": "",
    "location": [
-    -1854,
-    -301
+    -380,
+    765
    ],
    "mute": false,
    "name": "Reroute.040",
    "outputs": [
     "Output"
    ],
-   "parent": "[Time]",
+   "parent": "[Easing]",
    "props": {
-    "socket_idname": "NodeSocketMenu"
+    "socket_idname": "NodeSocketFloat"
    },
    "width": 140.0
   },
@@ -4744,14 +4840,39 @@
    },
    "label": "",
    "location": [
-    -898,
-    -301
+    -60,
+    765
    ],
    "mute": false,
    "name": "Reroute.041",
    "outputs": [
     "Output"
    ],
+   "parent": "[Easing]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1774,
+    -43
+   ],
+   "mute": false,
+   "name": "Reroute.042",
+   "outputs": [
+    "Output"
+   ],
    "parent": "[Time]",
    "props": {
     "socket_idname": "NodeSocketMenu"
@@ -4769,42 +4890,17 @@
    },
    "label": "",
    "location": [
-    3340,
-    -90
-   ],
-   "mute": false,
-   "name": "Reroute.042",
-   "outputs": [
-    "Output"
-   ],
-   "parent": "[Apply]",
-   "props": {
-    "socket_idname": "NodeSocketBool"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    2990,
-    358
+    -818,
+    -43
    ],
    "mute": false,
    "name": "Reroute.043",
    "outputs": [
     "Output"
    ],
-   "parent": "[Apply]",
+   "parent": "[Time]",
    "props": {
-    "socket_idname": "NodeSocketBool"
+    "socket_idname": "NodeSocketMenu"
    },
    "width": 140.0
   },
@@ -4819,11 +4915,36 @@
    },
    "label": "",
    "location": [
-    3920,
-    358
+    2717,
+    -90
    ],
    "mute": false,
    "name": "Reroute.044",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketVector"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    3020,
+    -286
+   ],
+   "mute": false,
+   "name": "Reroute.045",
    "outputs": [
     "Output"
    ],
@@ -4844,11 +4965,86 @@
    },
    "label": "",
    "location": [
-    1332,
-    220
+    3960,
+    -286
    ],
    "mute": false,
-   "name": "Reroute.045",
+   "name": "Reroute.046",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Apply]",
+   "props": {
+    "socket_idname": "NodeSocketBool"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    2800,
+    -670
+   ],
+   "mute": false,
+   "name": "Reroute.047",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Apply]",
+   "props": {
+    "socket_idname": "NodeSocketVector"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    2940,
+    -670
+   ],
+   "mute": false,
+   "name": "Reroute.048",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Apply]",
+   "props": {
+    "socket_idname": "NodeSocketVector"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    1372,
+    508
+   ],
+   "mute": false,
+   "name": "Reroute.049",
    "outputs": [
     "Output"
    ],
@@ -4869,117 +5065,17 @@
    },
    "label": "",
    "location": [
-    484,
-    151
-   ],
-   "mute": false,
-   "name": "Reroute.046",
-   "outputs": [
-    "Output"
-   ],
-   "parent": null,
-   "props": {
-    "socket_idname": "NodeSocketFloat"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    760,
-    151
-   ],
-   "mute": false,
-   "name": "Reroute.047",
-   "outputs": [
-    "Output"
-   ],
-   "parent": null,
-   "props": {
-    "socket_idname": "NodeSocketFloat"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    2100,
-    214
-   ],
-   "mute": false,
-   "name": "Reroute.048",
-   "outputs": [
-    "Output"
-   ],
-   "parent": "[Bounce]",
-   "props": {
-    "socket_idname": "NodeSocketVector"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    2400,
-    221
-   ],
-   "mute": false,
-   "name": "Reroute.049",
-   "outputs": [
-    "Output"
-   ],
-   "parent": "[Bounce]",
-   "props": {
-    "socket_idname": "NodeSocketVector"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    2783,
-    -45
+    700,
+    860
    ],
    "mute": false,
    "name": "Reroute.050",
    "outputs": [
     "Output"
    ],
-   "parent": "[Apply]",
+   "parent": "[Transform]",
    "props": {
-    "socket_idname": "NodeSocketFloat"
+    "socket_idname": "NodeSocketVector"
    },
    "width": 140.0
   },
@@ -4994,15 +5090,65 @@
    },
    "label": "",
    "location": [
-    3140,
-    -45
+    1060,
+    860
    ],
    "mute": false,
    "name": "Reroute.051",
    "outputs": [
     "Output"
    ],
-   "parent": "[Apply]",
+   "parent": "[Transform]",
+   "props": {
+    "socket_idname": "NodeSocketVector"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    1380,
+    860
+   ],
+   "mute": false,
+   "name": "Reroute.052",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Transform]",
+   "props": {
+    "socket_idname": "NodeSocketVector"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    574,
+    443
+   ],
+   "mute": false,
+   "name": "Reroute.053",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
    "props": {
     "socket_idname": "NodeSocketFloat"
    },
@@ -5019,58 +5165,8 @@
    },
    "label": "",
    "location": [
-    1588,
-    205
-   ],
-   "mute": false,
-   "name": "Reroute.052",
-   "outputs": [
-    "Output"
-   ],
-   "parent": null,
-   "props": {
-    "socket_idname": "NodeSocketVector"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    1890,
-    215
-   ],
-   "mute": false,
-   "name": "Reroute.053",
-   "outputs": [
-    "Output"
-   ],
-   "parent": "[Bounce]",
-   "props": {
-    "socket_idname": "NodeSocketVector"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    2637,
-    -27
+    822,
+    443
    ],
    "mute": false,
    "name": "Reroute.054",
@@ -5079,7 +5175,7 @@
    ],
    "parent": null,
    "props": {
-    "socket_idname": "NodeSocketVector"
+    "socket_idname": "NodeSocketFloat"
    },
    "width": 140.0
   },
@@ -5094,40 +5190,15 @@
    },
    "label": "",
    "location": [
-    2923,
-    -27
+    1760,
+    -234
    ],
    "mute": false,
    "name": "Reroute.055",
    "outputs": [
     "Output"
    ],
-   "parent": "[Apply]",
-   "props": {
-    "socket_idname": "NodeSocketVector"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    862,
-    103
-   ],
-   "mute": false,
-   "name": "Reroute.056",
-   "outputs": [
-    "Output"
-   ],
-   "parent": null,
+   "parent": "[Bounce]",
    "props": {
     "socket_idname": "NodeSocketInt"
    },
@@ -5144,8 +5215,33 @@
    },
    "label": "",
    "location": [
-    -1178,
-    713
+    2080,
+    -240
+   ],
+   "mute": false,
+   "name": "Reroute.056",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Bounce]",
+   "props": {
+    "socket_idname": "NodeSocketInt"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -1090,
+    930
    ],
    "mute": false,
    "name": "Reroute.057",
@@ -5169,8 +5265,8 @@
    },
    "label": "",
    "location": [
-    528,
-    713
+    608,
+    930
    ],
    "mute": false,
    "name": "Reroute.058",
@@ -5194,8 +5290,8 @@
    },
    "label": "",
    "location": [
-    862,
-    -210
+    905,
+    -688
    ],
    "mute": false,
    "name": "Reroute.059",
@@ -5219,15 +5315,15 @@
    },
    "label": "",
    "location": [
-    2685,
-    -210
+    3160,
+    -688
    ],
    "mute": false,
    "name": "Reroute.060",
    "outputs": [
     "Output"
    ],
-   "parent": null,
+   "parent": "[Apply]",
    "props": {
     "socket_idname": "NodeSocketFloat"
    },
@@ -5244,8 +5340,8 @@
    },
    "label": "",
    "location": [
-    762,
-    -201
+    1662,
+    78
    ],
    "mute": false,
    "name": "Reroute.061",
@@ -5269,15 +5365,15 @@
    },
    "label": "",
    "location": [
-    -1014,
-    -1024
+    -530,
+    -892
    ],
    "mute": false,
    "name": "Reroute.062",
    "outputs": [
     "Output"
    ],
-   "parent": "[Time]",
+   "parent": null,
    "props": {
     "socket_idname": "NodeSocketFloat"
    },
@@ -5294,8 +5390,8 @@
    },
    "label": "",
    "location": [
-    2685,
-    -1020
+    2715,
+    -892
    ],
    "mute": false,
    "name": "Reroute.063",
@@ -5305,6 +5401,56 @@
    "parent": null,
    "props": {
     "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -2220,
+    -874
+   ],
+   "mute": false,
+   "name": "Reroute.064",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketInt"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    2715,
+    -874
+   ],
+   "mute": false,
+   "name": "Reroute.065",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketInt"
    },
    "width": 140.0
   },
@@ -5323,8 +5469,8 @@
    },
    "label": "Right to Left",
    "location": [
-    -2100,
-    -480
+    -2020,
+    -180
    ],
    "mute": false,
    "name": "Right to Left",
@@ -5361,8 +5507,8 @@
    },
    "label": "Rotated",
    "location": [
-    1180,
-    500
+    1240,
+    800
    ],
    "mute": false,
    "name": "Rotated",
@@ -5391,8 +5537,8 @@
    },
    "label": "Rotation Now",
    "location": [
-    860,
-    300
+    920,
+    580
    ],
    "mute": false,
    "name": "Rotation Now",
@@ -5424,8 +5570,8 @@
    },
    "label": "Scale - 1",
    "location": [
-    880,
-    440
+    940,
+    740
    ],
    "mute": false,
    "name": "Scale - 1",
@@ -5457,8 +5603,8 @@
    },
    "label": "Scale Now",
    "location": [
-    880,
-    360
+    940,
+    660
    ],
    "mute": false,
    "name": "Scale Now",
@@ -5486,8 +5632,8 @@
    },
    "label": "Scale Δ × w",
    "location": [
-    860,
-    400
+    920,
+    700
    ],
    "mute": false,
    "name": "Scale Δ × w",
@@ -5515,8 +5661,8 @@
    },
    "label": "Scaled",
    "location": [
-    1040,
-    420
+    1100,
+    720
    ],
    "mute": false,
    "name": "Scaled",
@@ -5535,8 +5681,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    -1640,
-    -940
+    -1560,
+    -760
    ],
    "mute": false,
    "name": "Scene Time",
@@ -5562,8 +5708,8 @@
    },
    "label": "Seconds × Speed",
    "location": [
-    1900,
-    -140
+    1940,
+    -440
    ],
    "mute": false,
    "name": "Seconds × Speed",
@@ -5600,8 +5746,8 @@
    },
    "label": "Store et_weight",
    "location": [
-    3180,
-    180
+    3200,
+    -460
    ],
    "mute": false,
    "name": "Store et_weight",
@@ -5634,8 +5780,8 @@
    },
    "label": "Text Pivot",
    "location": [
-    -1640,
-    680
+    -1560,
+    1020
    ],
    "mute": false,
    "name": "Text Pivot",
@@ -5671,8 +5817,8 @@
    },
    "label": "Time Raw",
    "location": [
-    -1180,
-    -780
+    -1080,
+    -520
    ],
    "mute": false,
    "name": "Time Raw",
@@ -5701,8 +5847,8 @@
    },
    "label": "Time ≥ 0",
    "location": [
-    -1180,
-    -820
+    -1080,
+    -560
    ],
    "mute": false,
    "name": "Time ≥ 0",
@@ -5727,8 +5873,8 @@
    },
    "label": "Wave",
    "location": [
-    2100,
-    -20
+    2140,
+    -420
    ],
    "mute": false,
    "name": "Wave",
@@ -5757,8 +5903,8 @@
    },
    "label": "Weight In",
    "location": [
-    100,
-    400
+    200,
+    640
    ],
    "mute": false,
    "name": "Weight In",
@@ -5791,8 +5937,8 @@
    },
    "label": "Word Count XYZ",
    "location": [
-    -1840,
-    640
+    -1760,
+    940
    ],
    "mute": false,
    "name": "Word Count XYZ",
@@ -5813,8 +5959,8 @@
    },
    "label": "Word Index",
    "location": [
-    -2940,
-    620
+    -2860,
+    -180
    ],
    "mute": false,
    "name": "Word Index",
@@ -5843,8 +5989,8 @@
    },
    "label": "Word Pivot",
    "location": [
-    -1620,
-    740
+    -1540,
+    1080
    ],
    "mute": false,
    "name": "Word Pivot",
@@ -5872,8 +6018,8 @@
    },
    "label": "Word Pivot Sum",
    "location": [
-    -1840,
-    920
+    -1760,
+    1220
    ],
    "mute": false,
    "name": "Word Pivot Sum",
@@ -5904,8 +6050,8 @@
    },
    "label": "Word Point Count",
    "location": [
-    -2100,
-    700
+    -2020,
+    1000
    ],
    "mute": false,
    "name": "Word Point Count",
@@ -6069,8 +6215,8 @@
    },
    "label": "back terms",
    "location": [
-    -280,
-    -60
+    -180,
+    220
    ],
    "mute": false,
    "name": "back terms",
@@ -6099,8 +6245,8 @@
    },
    "label": "c1 (t-1)²",
    "location": [
-    -280,
-    -20
+    -180,
+    280
    ],
    "mute": false,
    "name": "c1 (t-1)²",
@@ -6129,8 +6275,8 @@
    },
    "label": "c3 (t-1)³",
    "location": [
-    -460,
-    -60
+    -360,
+    220
    ],
    "mute": false,
    "name": "c3 (t-1)³",
@@ -6159,8 +6305,8 @@
    },
    "label": "t - 1",
    "location": [
-    -460,
-    20
+    -360,
+    320
    ],
    "mute": false,
    "name": "t - 1",
