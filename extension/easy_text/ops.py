@@ -169,7 +169,7 @@ class EASYTEXT_OT_load_font(bpy.types.Operator, ImportHelper):
     bl_options = {"REGISTER", "UNDO"}
 
     filename_ext = ".ttf"
-    filter_glob: StringProperty(default="*.ttf;*.otf;*.ttc", options={"HIDDEN"})
+    filter_glob: StringProperty(default="*.ttf;*.otf;*.ttc;*.woff;*.woff2", options={"HIDDEN"})
 
     def execute(self, context):
         _ob, mod = _active_text(context)
@@ -204,42 +204,6 @@ class EASYTEXT_OT_preset(bpy.types.Operator):
             except KeyError:
                 pass  # the control-panel tree has no inputs
         return {"FINISHED"}
-
-
-class EASYTEXT_OT_set_menu(bpy.types.Operator):
-    """Choose an option of a menu input"""
-
-    bl_idname = "easytext.set_menu"
-    bl_label = "Set Option"
-    bl_options = {"REGISTER", "UNDO", "INTERNAL"}
-
-    socket: StringProperty(name="Input", options={"HIDDEN"})
-    option: StringProperty(name="Option", options={"HIDDEN"})
-
-    def execute(self, context):
-        _ob, mod = _active_text(context)
-        if mod is None:
-            return {"CANCELLED"}
-        rigs.set_modifier_input(mod, self.socket, self.option)
-        return {"FINISHED"}
-
-
-class EASYTEXT_OT_open_menu(bpy.types.Operator):
-    """Show the options of this input"""
-
-    bl_idname = "easytext.open_menu"
-    bl_label = "Options"
-    bl_options = {"INTERNAL"}
-
-    socket: StringProperty(name="Input", options={"HIDDEN"})
-
-    def invoke(self, context, _event):
-        context.window_manager["easytext_menu_input"] = self.socket
-        bpy.ops.wm.call_menu(name="EASYTEXT_MT_menu_input")
-        return {"FINISHED"}
-
-    def execute(self, context):
-        return self.invoke(context, None)
 
 
 class EASYTEXT_OT_add_light_rig(bpy.types.Operator):
@@ -336,8 +300,6 @@ CLASSES = (
     EASYTEXT_OT_set_font,
     EASYTEXT_OT_load_font,
     EASYTEXT_OT_preset,
-    EASYTEXT_OT_set_menu,
-    EASYTEXT_OT_open_menu,
     EASYTEXT_OT_add_light_rig,
     EASYTEXT_OT_add_camera_orbit,
     EASYTEXT_OT_fit_camera,

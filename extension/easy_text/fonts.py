@@ -8,7 +8,7 @@ import sys
 
 import bpy
 
-FONT_EXTENSIONS = {".ttf", ".otf", ".ttc"}
+FONT_EXTENSIONS = {".ttf", ".otf", ".ttc", ".woff", ".woff2"}
 _cache: list[tuple[str, str]] = []  # (path, display name); kept alive for the dynamic enum
 _enum_items: list[tuple[str, str, str]] = []
 
@@ -62,6 +62,6 @@ def enum_items(_self, _context) -> list[tuple[str, str, str]]:
 
 
 def load_font(path: str) -> bpy.types.VectorFont:
-    font = bpy.data.fonts.load(path, check_existing=True)
+    font = bpy.data.fonts.load(path, check_existing=True)  # 5.2 names the data-block from the font's metadata
     font.use_fake_user = True
     return font

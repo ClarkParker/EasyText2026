@@ -79,22 +79,19 @@ attaches the test group as a modifier to an object and evaluates it.
 - Camera orbit without node assets: a POLY spline arc with `use_path`, Follow Path with `use_fixed_location` and
   `offset_factor` keyframed through `camera.keyframe_insert('constraints["Orbit"].offset_factor', frame=...)`,
   plus Track To (-Z, up Y). Follow Path needs a real Curve object, not a Geometry Nodes curve.
-- Modifier inputs from Python: `mod.properties.inputs[identifier]["value"]`, identifier from the group's
-  `et_sockets` map (panel toggles are renamed) or `interface.items_tree[name].identifier`, then reassign
-  `mod.node_group` and `update_tag()` to re-evaluate (`rigs.set_modifier_input`).
+- Modifier inputs from Python: `getattr(mod.properties.inputs, identifier).value = ...`, identifier from the
+  group's `et_sockets` map (panel toggles are renamed), then `object.update_tag()` (`rigs.set_modifier_input`).
 
 ### Add-on (found while building extension/easy_text)
 
-- Modifier inputs in 5.2: `mod.properties.inputs` is an RNA struct with one pointer property per socket identifier
-  (`inputs.Socket_19`), each holding the ID properties `value` (and attribute settings). A sidebar draws one with
-  `layout.prop(getattr(inputs, identifier), '["value"]', text=...)`; `layout.prop(idprop_group, ...)` on the
-  Python wrapper fails ("expected AnyType"). ID inputs draw as searches: `layout.prop_search(..., bpy.data,
-  "materials")`.
-- Menu inputs are stored as the menu item's identifier (an int Python cannot read from the nodes: Menu Switch items
-  expose only name and description; Blender's own menu sockets use their enum values). The builder therefore probes
-  every option through a temporary modifier at build time and stores `et_menus` (name → {option: int}) on the
-  group; the add-on draws dropdowns and sets values by option name through it. Ints of a cleared Menu Switch start
-  at 2 (A and B used 0 and 1).
+- Modifier inputs in 5.2 (breaking change, see `docs/reference/research-5.2-rigs-and-extension.md`):
+  `mod["Socket_3"]` raises TypeError. `mod.properties.inputs` is an RNA struct with one property group per
+  socket identifier; `slot = getattr(mod.properties.inputs, identifier)` and `slot.value` is typed: floats with
+  their subtype, menus as enums whose identifiers are the option names ("Center"), ID pointers with a fixed type.
+  So `slot.value = "Right"` sets a menu and `layout.prop(slot, "value")` draws the right widget (dropdown, ID
+  search, unit slider). `mod.properties.inputs[identifier]["value"]` also works but bypasses RNA; after a write
+  call `object.update_tag()`. Names can repeat across panels (the panel "Text" and the input "Text"), so look
+  inputs up by identifier (`et_sockets` map, or filter `items_tree` by item_type).
 - `Region.active_panel_category` is read-only, so a script cannot open the "Easy Text" tab; the window test draws
   the panels in the "Item" tab instead.
 - Extensions: `blender --command extension validate <dir>` and `extension build` work headless with the real

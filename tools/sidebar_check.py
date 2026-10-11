@@ -42,16 +42,17 @@ def steps():
     for ob in list(bpy.data.objects):
         bpy.data.objects.remove(ob)
     with demo_ui._override(window, area):
-        log(f"create_text: {bpy.ops.easytext.create_text(text='Easy Text\\nSidebar')}")
+        log(f"create_text: {bpy.ops.easytext.create_text(text='Easy Text')}")
         text = bpy.data.objects["Easy Text"]
         mod = text.modifiers[0]
+        rigs.set_modifier_input(mod, "Line 2", "Sidebar")
         log(f"preset SIGN: {bpy.ops.easytext.preset(preset='SIGN')} -> Plate={rigs.get_modifier_input(mod, 'Plate')}")
         log(
             f"preset REVEAL: {bpy.ops.easytext.preset(preset='REVEAL')} -> "
             f"Direction={rigs.get_modifier_input(mod, 'Direction')}, Order={rigs.get_modifier_input(mod, 'Order')}"
         )
-        result = bpy.ops.easytext.set_menu(socket="Align X", option="Right")
-        log(f"set_menu: {result} -> {rigs.get_modifier_input(mod, 'Align X')}")
+        rigs.set_modifier_input(mod, "Align X", "Right")
+        log(f"menu by name: Align X -> {rigs.get_modifier_input(mod, 'Align X')}")
         log(f"light rig: {bpy.ops.easytext.add_light_rig()}")
         log(f"camera orbit: {bpy.ops.easytext.add_camera_orbit()}")
         log(f"mesh copy: {bpy.ops.easytext.apply_mesh()}")

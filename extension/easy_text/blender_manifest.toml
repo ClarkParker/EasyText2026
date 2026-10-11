@@ -8,7 +8,7 @@ maintainer = "Clark Parker"
 type = "add-on"
 
 website = "https://github.com/ClarkParker/EasyText2026"
-tags = ["Modeling", "Animation"]
+tags = ["Modeling", "Animation", "Geometry Nodes", "Lighting", "Camera"]
 
 blender_version_min = "5.2.0"
 

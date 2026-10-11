@@ -20,7 +20,7 @@ def ensure_group(name: str) -> bpy.types.NodeTree:
         return tree
     if not ASSET_FILE.exists():
         raise FileNotFoundError(f"Easy Text asset file missing: {ASSET_FILE}")
-    with bpy.data.libraries.load(str(ASSET_FILE), link=False) as (data_from, data_to):
+    with bpy.data.libraries.load(str(ASSET_FILE), link=False, reuse_local_id=True) as (data_from, data_to):
         if name not in data_from.node_groups:
             raise KeyError(f"{name!r} is not in {ASSET_FILE.name}")
         data_to.node_groups = [name]

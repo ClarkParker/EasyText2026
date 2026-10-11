@@ -20,7 +20,7 @@ __all__ = (
     "SOCKET_MAP_KEY",
     "set_modifier_input",
     "get_modifier_input",
-    "menu_options",
+    "input_slot",
     "socket_identifier",
     "world_bounds",
     "add_light_rig",
@@ -29,7 +29,6 @@ __all__ = (
 )
 
 SOCKET_MAP_KEY = "et_sockets"  # ID property on every built group: input name -> socket identifier
-MENU_MAP_KEY = "et_menus"  # ID property on every built group: menu input name -> {option name: stored int}
 LIGHTS = {  # name: (type, energy, size)
     "Key": ("AREA", 400.0, 3.0),
     "Fill": ("AREA", 120.0, 4.0),
@@ -43,37 +42,29 @@ def socket_identifier(tree: bpy.types.NodeTree, name: str) -> str:
     """Identifier of an interface input by name; panel toggles are renamed by Blender, the map resolves them."""
     identifier = (tree.get(SOCKET_MAP_KEY) or {}).get(name)
     if identifier is None:
-        identifier = tree.interface.items_tree[name].identifier
+        for item in tree.interface.items_tree:
+            if item.item_type == "SOCKET" and item.in_out == "INPUT" and item.name == name:
+                return item.identifier
+        raise KeyError(f"{tree.name} has no input {name!r}")
     return identifier
 
 
-def menu_options(tree: bpy.types.NodeTree, name: str) -> dict:
-    """Option name -> stored int for a menu input (empty for other inputs)."""
-    return dict((tree.get(MENU_MAP_KEY) or {}).get(name, {}))
+def input_slot(mod: bpy.types.Modifier, name: str):
+    """The RNA property group of one modifier input: `.value` is typed (floats with units, menus as enums with the
+    option names as identifiers, ID pointers), so it can be read, written and drawn with layout.prop."""
+    return getattr(mod.properties.inputs, socket_identifier(mod.node_group, name))
 
 
 def set_modifier_input(mod: bpy.types.Modifier, name: str, value) -> None:
-    """Set an input of a Geometry Nodes modifier by its interface name (panel toggles included). Menu inputs
-    accept the option name ("Center") or the stored int."""
-    tree = mod.node_group
-    if isinstance(value, str):
-        options = menu_options(tree, name)
-        if options:
-            value = options[value]
-    mod.properties.inputs[socket_identifier(tree, name)]["value"] = value
-    mod.node_group = tree  # re-evaluate with the new values
+    """Set an input of a Geometry Nodes modifier by its interface name (panel toggles included); menu inputs
+    take the option name ("Center")."""
+    input_slot(mod, name).value = value
     mod.id_data.update_tag()
 
 
 def get_modifier_input(mod: bpy.types.Modifier, name: str):
     """Value of an input by interface name; menu inputs come back as the option name."""
-    value = mod.properties.inputs[socket_identifier(mod.node_group, name)]["value"]
-    options = menu_options(mod.node_group, name)
-    if options:
-        for option, stored in options.items():
-            if stored == value:
-                return option
-    return value
+    return input_slot(mod, name).value
 
 
 def world_bounds(ob: bpy.types.Object) -> tuple[Vector, Vector]:
@@ -193,13 +184,15 @@ def add_camera_orbit(
 
 def fit_camera(camera: bpy.types.Object, target: bpy.types.Object, *, margin: float = 1.1) -> None:
     """Move the camera (keeping its rotation) so the target's bounds fill the frame, with a margin."""
-    depsgraph = bpy.context.evaluated_depsgraph_get()
-    depsgraph.update()
+    centre, _size = world_bounds(target)
     coords = [v for corner in world_corners(target) for v in corner]
-    location, scale = camera.camera_fit_coords(depsgraph, coords)
-    if camera.data.type == "ORTHO":
-        camera.data.ortho_scale = scale * margin
-        camera.location = location
-    else:
-        centre, _size = world_bounds(target)
-        camera.location = centre + (Vector(location) - centre) * margin
+    for _pass in range(2):  # a Track To constraint changes the orientation with the location: settle it
+        depsgraph = bpy.context.evaluated_depsgraph_get()
+        depsgraph.update()
+        location, scale = camera.camera_fit_coords(depsgraph, coords)
+        if camera.data.type == "ORTHO":
+            camera.data.ortho_scale = scale * margin
+            camera.location = location
+        else:
+            camera.location = centre + (Vector(location) - centre) * margin
+        bpy.context.view_layer.update()
