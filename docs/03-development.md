@@ -96,6 +96,10 @@ attaches the test group as a modifier to an object and evaluates it.
   the panels in the "Item" tab instead.
 - Extensions: `blender --command extension validate <dir>` and `extension build` work headless with the real
   binary and check the manifest; the bpy wheel has no such command, CI zips with `easytext_build.package`.
+  End-to-end check used here: `blender -b --command extension install-file dist/easy_text-3.0.0.zip --repo
+  user_default --enable` into an empty `XDG_CONFIG_HOME`, then a `-b --python-expr` run confirms the module
+  `bl_ext.user_default.easy_text` is enabled, the panel and operators are registered and Create Text appends
+  ET Text Mesh from the bundled file.
 - Appending a node group with `bpy.data.libraries.load(path, link=False)` brings its sub-groups, materials and
   fonts along; the add-on appends on first use and sets a fake user.
 

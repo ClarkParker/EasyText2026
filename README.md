@@ -4,9 +4,10 @@ Geometry Nodes typography and text animation for **Blender 5.2 LTS**: node-group
 (work as a modifier without any add-on) plus an optional extension for a font picker,
 multi-line text, presets, and camera and light rigs.
 
-Status: Phase 2 in progress. Node group `ET Text Mesh` (text → clean mesh with extrusion, bevel, materials, UVs,
-per-letter animation) and the control panel `Easy Text`, the v3 of the v2.1 GUI: four settings nodes inside the
-node editor.
+Status: ready for the first test round. Node group `ET Text Mesh` (text → clean mesh with extrusion, bevel, plate,
+materials, UVs, per-letter animation), the control panel `Easy Text` (the v3 of the v2.1 GUI: four settings nodes
+inside the node editor), the light rig `ET Light Rig`, and the add-on with the sidebar tab. Test guide:
+`docs/06-test-guide.md`.
 Analysis of the previous version: `docs/01-analysis-v2.1.md`, target picture: `docs/02-target-v3.md`,
 development rules and API pitfalls: `docs/03-development.md`, architecture: `docs/04-architecture-v3.md`,
 node layout rules: `docs/05-node-layout.md`.
