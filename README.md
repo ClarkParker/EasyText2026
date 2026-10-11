@@ -16,10 +16,11 @@ node layout rules: `docs/05-node-layout.md`.
    on top, the node editor with the control panel directly below, the properties editor on the modifier tab.
    A text object with the modifier, a camera and two area lights are set up.
 2. Two ways to operate the tool, same nodes inside:
-   - `Easy Text` (the demo): the control panel in the node editor, laid out like the v2.1 GUI. Three settings
-     nodes carry every control as a widget: **Text Input** (four line fields), **Font Settings** (font, size,
-     alignment, spacing, text box) and **Mesh Settings** (outline, shape with bevel switch, materials, UV switch,
-     output), plus a note with the export hint. Three wires, nothing else to connect.
+   - `Easy Text` (the demo): the control panel in the node editor, laid out like the v2.1 GUI and in the user's
+     order. Three settings nodes carry every control as a widget: **1. Text Input** (four line fields),
+     **2. Font Settings** (font, size, alignment, spacing, text box) and **3. Mesh Settings** (shape with bevel
+     switch, materials, UV switch; outline and output folded away), a tip box under each, a note with the export
+     hint. Three wires with markers, nothing else to connect.
    - `ET Text Mesh`: one node group with inputs as modifier panels: Text (4 lines), Typography (font socket, size,
      alignment, spacing, text box), Outline (resolution, simplify, fill), Shape (depth, bevel, smooth angle),
      Material, UV, Output.

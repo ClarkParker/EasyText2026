@@ -375,99 +375,6 @@
   },
   {
    "default_closed": false,
-   "description": "Quality of the glyph outlines.",
-   "item_type": "PANEL",
-   "name": "Outline",
-   "parent": null
-  },
-  {
-   "attribute_domain": "POINT",
-   "default_attribute_name": "",
-   "default_input": "VALUE",
-   "default_value": 12,
-   "description": "Points per curve segment.",
-   "hide_in_modifier": false,
-   "hide_value": false,
-   "identifier": "Socket_19",
-   "in_out": "INPUT",
-   "is_panel_toggle": false,
-   "item_type": "SOCKET",
-   "layer_selection_field": false,
-   "max_value": 64,
-   "menu_expanded": false,
-   "min_value": 1,
-   "name": "Resolution",
-   "optional_label": false,
-   "parent": "Outline",
-   "socket_type": "NodeSocketInt",
-   "structure_type": "AUTO",
-   "subtype": "NONE"
-  },
-  {
-   "attribute_domain": "POINT",
-   "default_attribute_name": "",
-   "default_input": "VALUE",
-   "default_value": 0.5,
-   "description": "Remove points whose direction changes less than this angle (degrees). 0 = off.",
-   "hide_in_modifier": false,
-   "hide_value": false,
-   "identifier": "Socket_20",
-   "in_out": "INPUT",
-   "is_panel_toggle": false,
-   "item_type": "SOCKET",
-   "layer_selection_field": false,
-   "max_value": 10.0,
-   "menu_expanded": false,
-   "min_value": 0.0,
-   "name": "Simplify",
-   "optional_label": false,
-   "parent": "Outline",
-   "socket_type": "NodeSocketFloat",
-   "structure_type": "AUTO",
-   "subtype": "NONE"
-  },
-  {
-   "attribute_domain": "POINT",
-   "default_attribute_name": "",
-   "default_input": "VALUE",
-   "default_value": "N-gons",
-   "description": "N-gons or triangles on the caps.",
-   "hide_in_modifier": false,
-   "hide_value": false,
-   "identifier": "Socket_21",
-   "in_out": "INPUT",
-   "is_panel_toggle": false,
-   "item_type": "SOCKET",
-   "layer_selection_field": false,
-   "menu_expanded": false,
-   "name": "Fill Mode",
-   "optional_label": false,
-   "parent": "Outline",
-   "socket_type": "NodeSocketMenu",
-   "structure_type": "AUTO"
-  },
-  {
-   "attribute_domain": "POINT",
-   "default_attribute_name": "",
-   "default_input": "VALUE",
-   "default_value": "Even-Odd",
-   "description": "Even-Odd or Non-Zero for overlapping outlines.",
-   "hide_in_modifier": false,
-   "hide_value": false,
-   "identifier": "Socket_22",
-   "in_out": "INPUT",
-   "is_panel_toggle": false,
-   "item_type": "SOCKET",
-   "layer_selection_field": false,
-   "menu_expanded": false,
-   "name": "Fill Rule",
-   "optional_label": false,
-   "parent": "Outline",
-   "socket_type": "NodeSocketMenu",
-   "structure_type": "AUTO"
-  },
-  {
-   "default_closed": false,
    "description": "",
    "item_type": "PANEL",
    "name": "Shape",
@@ -481,7 +388,7 @@
    "description": "Extrusion depth.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_24",
+   "identifier": "Socket_19",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -504,7 +411,7 @@
    "description": "Edges above this angle (degrees) stay sharp.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_30",
+   "identifier": "Socket_25",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -534,7 +441,7 @@
    "description": "",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_26",
+   "identifier": "Socket_21",
    "in_out": "INPUT",
    "is_panel_toggle": true,
    "item_type": "SOCKET",
@@ -554,7 +461,7 @@
    "description": "Bevel width, at most half the depth.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_27",
+   "identifier": "Socket_22",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -577,7 +484,7 @@
    "description": "Bevel subdivisions.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_28",
+   "identifier": "Socket_23",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -600,7 +507,7 @@
    "description": "0.5 = round.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_29",
+   "identifier": "Socket_24",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -633,7 +540,7 @@
    "description": "Also used for the back face.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_32",
+   "identifier": "Socket_27",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -656,7 +563,7 @@
    "description": "",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_33",
+   "identifier": "Socket_28",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -679,7 +586,7 @@
    "description": "",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_34",
+   "identifier": "Socket_29",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -706,7 +613,7 @@
    "description": "",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_36",
+   "identifier": "Socket_31",
    "in_out": "INPUT",
    "is_panel_toggle": true,
    "item_type": "SOCKET",
@@ -726,7 +633,7 @@
    "description": "Scale the caps into 0..1; off = Blender units (tileable).",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_37",
+   "identifier": "Socket_32",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -746,7 +653,7 @@
    "description": "Additional UV factor.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_38",
+   "identifier": "Socket_33",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -760,6 +667,99 @@
    "socket_type": "NodeSocketFloat",
    "structure_type": "AUTO",
    "subtype": "NONE"
+  },
+  {
+   "default_closed": true,
+   "description": "Quality of the glyph outlines.",
+   "item_type": "PANEL",
+   "name": "Outline",
+   "parent": null
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 12,
+   "description": "Points per curve segment.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_35",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 64,
+   "menu_expanded": false,
+   "min_value": 1,
+   "name": "Resolution",
+   "optional_label": false,
+   "parent": "Outline",
+   "socket_type": "NodeSocketInt",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.5,
+   "description": "Remove points whose direction changes less than this angle (degrees). 0 = off.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_36",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 10.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
+   "name": "Simplify",
+   "optional_label": false,
+   "parent": "Outline",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": "N-gons",
+   "description": "N-gons or triangles on the caps.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_37",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Fill Mode",
+   "optional_label": false,
+   "parent": "Outline",
+   "socket_type": "NodeSocketMenu",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": "Even-Odd",
+   "description": "Even-Odd or Non-Zero for overlapping outlines.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_38",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Fill Rule",
+   "optional_label": false,
+   "parent": "Outline",
+   "socket_type": "NodeSocketMenu",
+   "structure_type": "AUTO"
   },
   {
    "default_closed": true,
@@ -822,12 +822,6 @@
   ],
   [
    "Group Input (Mesh)",
-   "Socket_20",
-   "Mesh Generation",
-   "Socket_3"
-  ],
-  [
-   "Group Input (Mesh)",
    "Socket_21",
    "Mesh Generation",
    "Socket_4"
@@ -840,15 +834,21 @@
   ],
   [
    "Group Input (Mesh)",
+   "Socket_23",
+   "Mesh Generation",
+   "Socket_6"
+  ],
+  [
+   "Group Input (Mesh)",
    "Socket_24",
    "Mesh Generation",
    "Socket_7"
   ],
   [
    "Group Input (Mesh)",
-   "Socket_26",
+   "Socket_25",
    "Mesh Generation",
-   "Socket_9"
+   "Socket_8"
   ],
   [
    "Group Input (Mesh)",
@@ -870,9 +870,9 @@
   ],
   [
    "Group Input (Mesh)",
-   "Socket_30",
+   "Socket_31",
    "Mesh Generation",
-   "Socket_13"
+   "Socket_14"
   ],
   [
    "Group Input (Mesh)",
@@ -888,9 +888,9 @@
   ],
   [
    "Group Input (Mesh)",
-   "Socket_34",
+   "Socket_35",
    "Mesh Generation",
-   "Socket_17"
+   "Socket_18"
   ],
   [
    "Group Input (Mesh)",
@@ -995,16 +995,10 @@
    "Socket_41"
   ],
   [
-   "Reroute",
-   "Output",
-   "Mesh Generation",
-   "Socket_0"
-  ],
-  [
    "Text Source",
    "Socket_16",
-   "Reroute",
-   "Input"
+   "Mesh Generation",
+   "Socket_0"
   ]
  ],
  "name": "ET Text Mesh",
@@ -1015,8 +1009,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    -640,
-    20
+    -620,
+    40
    ],
    "mute": false,
    "name": "Group Input (Lines)",
@@ -1037,18 +1031,18 @@
     "Socket_16",
     "Socket_17",
     "Socket_19",
-    "Socket_20",
+    "Socket_25",
     "Socket_21",
     "Socket_22",
+    "Socket_23",
     "Socket_24",
-    "Socket_30",
-    "Socket_26",
     "Socket_27",
     "Socket_28",
     "Socket_29",
+    "Socket_31",
     "Socket_32",
     "Socket_33",
-    "Socket_34",
+    "Socket_35",
     "Socket_36",
     "Socket_37",
     "Socket_38",
@@ -1064,8 +1058,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    280,
-    -40
+    300,
+    -60
    ],
    "mute": false,
    "name": "Group Input (Mesh)",
@@ -1086,18 +1080,18 @@
     "Socket_16",
     "Socket_17",
     "Socket_19",
-    "Socket_20",
+    "Socket_25",
     "Socket_21",
     "Socket_22",
+    "Socket_23",
     "Socket_24",
-    "Socket_30",
-    "Socket_26",
     "Socket_27",
     "Socket_28",
     "Socket_29",
+    "Socket_31",
     "Socket_32",
     "Socket_33",
-    "Socket_34",
+    "Socket_35",
     "Socket_36",
     "Socket_37",
     "Socket_38",
@@ -1113,8 +1107,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    -440,
-    -180
+    -420,
+    -160
    ],
    "mute": false,
    "name": "Group Input (Typography)",
@@ -1135,18 +1129,18 @@
     "Socket_16",
     "Socket_17",
     "Socket_19",
-    "Socket_20",
+    "Socket_25",
     "Socket_21",
     "Socket_22",
+    "Socket_23",
     "Socket_24",
-    "Socket_30",
-    "Socket_26",
     "Socket_27",
     "Socket_28",
     "Socket_29",
+    "Socket_31",
     "Socket_32",
     "Socket_33",
-    "Socket_34",
+    "Socket_35",
     "Socket_36",
     "Socket_37",
     "Socket_38",
@@ -1170,8 +1164,8 @@
    },
    "label": "",
    "location": [
-    860,
-    80
+    880,
+    60
    ],
    "mute": false,
    "name": "Group Output",
@@ -1205,8 +1199,8 @@
    },
    "label": "Lines Join",
    "location": [
-    -460,
-    20
+    -440,
+    40
    ],
    "mute": false,
    "name": "Lines Join",
@@ -1232,77 +1226,77 @@
     },
     "Socket_10": {
      "linked": true,
-     "name": "Bevel Width"
+     "name": "Front Material"
     },
     "Socket_11": {
      "linked": true,
-     "name": "Segments"
+     "name": "Side Material"
     },
     "Socket_12": {
      "linked": true,
-     "name": "Profile"
-    },
-    "Socket_13": {
-     "linked": true,
-     "name": "Smooth Angle"
-    },
-    "Socket_15": {
-     "linked": true,
-     "name": "Front Material"
-    },
-    "Socket_16": {
-     "linked": true,
-     "name": "Side Material"
-    },
-    "Socket_17": {
-     "linked": true,
      "name": "Bevel Material"
     },
-    "Socket_19": {
+    "Socket_14": {
      "linked": true,
      "name": "-=| UV |=-"
     },
-    "Socket_2": {
-     "linked": true,
-     "name": "Resolution"
-    },
-    "Socket_20": {
+    "Socket_15": {
      "linked": true,
      "name": "Normalize to Text"
     },
-    "Socket_21": {
+    "Socket_16": {
      "linked": true,
      "name": "UV Scale"
+    },
+    "Socket_18": {
+     "linked": true,
+     "name": "Resolution"
+    },
+    "Socket_19": {
+     "linked": true,
+     "name": "Simplify"
+    },
+    "Socket_2": {
+     "linked": true,
+     "name": "Depth"
+    },
+    "Socket_20": {
+     "linked": true,
+     "name": "Fill Mode"
+    },
+    "Socket_21": {
+     "linked": true,
+     "name": "Fill Rule"
     },
     "Socket_23": {
      "linked": true,
      "name": "Keep Helper Attributes"
     },
-    "Socket_3": {
-     "linked": true,
-     "name": "Simplify"
-    },
     "Socket_4": {
      "linked": true,
-     "name": "Fill Mode"
+     "name": "-- Bevel --"
     },
     "Socket_5": {
      "linked": true,
-     "name": "Fill Rule"
+     "name": "Bevel Width"
+    },
+    "Socket_6": {
+     "linked": true,
+     "name": "Segments"
     },
     "Socket_7": {
      "linked": true,
-     "name": "Depth"
+     "name": "Profile"
     },
-    "Socket_9": {
+    "Socket_8": {
      "linked": true,
-     "name": "-- Bevel --"
+     "name": "Smooth Angle"
     }
    },
    "label": "Mesh Generation",
    "location": [
-    460,
-    80
+    480,
+    60
    ],
    "mute": false,
    "name": "Mesh Generation",
@@ -1317,31 +1311,6 @@
     }
    },
    "width": 320.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    154,
-    -1
-   ],
-   "mute": false,
-   "name": "Reroute",
-   "outputs": [
-    "Output"
-   ],
-   "parent": null,
-   "props": {
-    "socket_idname": "NodeSocketGeometry"
-   },
-   "width": 140.0
   },
   {
    "hide": false,
@@ -1398,8 +1367,8 @@
    },
    "label": "Text Source",
    "location": [
-    -220,
-    -40
+    -200,
+    -20
    ],
    "mute": false,
    "name": "Text Source",

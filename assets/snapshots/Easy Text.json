@@ -32,19 +32,37 @@
   [
    "Mesh Generation",
    "Socket_24",
-   "Group Output",
-   "Socket_0"
+   "mesh",
+   "Input"
   ],
   [
    "Text Lines",
    "Socket_4",
-   "Text Settings",
-   "Socket_0"
+   "text",
+   "Input"
   ],
   [
    "Text Settings",
    "Socket_16",
+   "glyphs",
+   "Input"
+  ],
+  [
+   "glyphs",
+   "Output",
    "Mesh Generation",
+   "Socket_0"
+  ],
+  [
+   "mesh",
+   "Output",
+   "Group Output",
+   "Socket_0"
+  ],
+  [
+   "text",
+   "Output",
+   "Text Settings",
    "Socket_0"
   ]
  ],
@@ -62,15 +80,15 @@
      "name": ""
     }
    },
-   "label": "",
+   "label": "Easy Text Mesh",
    "location": [
-    1320,
-    0
+    1380,
+    4
    ],
    "mute": false,
    "name": "Group Output",
    "outputs": [],
-   "parent": "[Easy Text Geometry Node 3]",
+   "parent": "[-=| Result |=-]",
    "props": {
     "is_active_output": true
    },
@@ -85,94 +103,94 @@
      "name": "Curves"
     },
     "Socket_10": {
-     "name": "Bevel Width",
-     "value": 0.01
-    },
-    "Socket_11": {
-     "name": "Segments",
-     "value": 3
-    },
-    "Socket_12": {
-     "name": "Profile",
-     "value": 0.5
-    },
-    "Socket_13": {
-     "name": "Smooth Angle",
-     "value": 30.0
-    },
-    "Socket_15": {
      "name": "Front Material",
      "value": {
       "id": "ET Front",
       "type": "Material"
      }
     },
-    "Socket_16": {
+    "Socket_11": {
      "name": "Side Material",
      "value": {
       "id": "ET Side",
       "type": "Material"
      }
     },
-    "Socket_17": {
+    "Socket_12": {
      "name": "Bevel Material",
      "value": {
       "id": "ET Bevel",
       "type": "Material"
      }
     },
-    "Socket_19": {
+    "Socket_14": {
      "name": "-=| UV |=-",
      "value": true
     },
-    "Socket_2": {
-     "name": "Resolution",
-     "value": 12
-    },
-    "Socket_20": {
+    "Socket_15": {
      "name": "Normalize to Text",
      "value": true
     },
-    "Socket_21": {
+    "Socket_16": {
      "name": "UV Scale",
      "value": 1.0
+    },
+    "Socket_18": {
+     "name": "Resolution",
+     "value": 12
+    },
+    "Socket_19": {
+     "name": "Simplify",
+     "value": 0.5
+    },
+    "Socket_2": {
+     "name": "Depth",
+     "value": 0.1
+    },
+    "Socket_20": {
+     "name": "Fill Mode",
+     "value": "N-gons"
+    },
+    "Socket_21": {
+     "name": "Fill Rule",
+     "value": "Even-Odd"
     },
     "Socket_23": {
      "name": "Keep Helper Attributes",
      "value": false
     },
-    "Socket_3": {
-     "name": "Simplify",
-     "value": 0.5
-    },
     "Socket_4": {
-     "name": "Fill Mode",
-     "value": "N-gons"
+     "name": "-- Bevel --",
+     "value": true
     },
     "Socket_5": {
-     "name": "Fill Rule",
-     "value": "Even-Odd"
+     "name": "Bevel Width",
+     "value": 0.01
+    },
+    "Socket_6": {
+     "name": "Segments",
+     "value": 3
     },
     "Socket_7": {
-     "name": "Depth",
-     "value": 0.1
+     "name": "Profile",
+     "value": 0.5
     },
-    "Socket_9": {
-     "name": "-- Bevel --",
-     "value": false
+    "Socket_8": {
+     "name": "Smooth Angle",
+     "value": 30.0
     }
    },
    "label": "Mesh Generation",
    "location": [
-    880,
-    0
+    920,
+    4
    ],
    "mute": false,
    "name": "Mesh Generation",
    "outputs": [
     "Socket_24"
    ],
-   "parent": "[-=| Mesh Settings |=-]",
+   "parent": "[-=| 3. Mesh Settings |=-]",
    "props": {
     "node_tree": {
      "id": ".ET Mesh Generation",
@@ -205,14 +223,14 @@
    "label": "Text Lines",
    "location": [
     0,
-    -50
+    -18
    ],
    "mute": false,
    "name": "Text Lines",
    "outputs": [
     "Socket_4"
    ],
-   "parent": "[-=| Text Input |=-]",
+   "parent": "[-=| 1. Text Input |=-]",
    "props": {
     "node_tree": {
      "id": ".ET Lines Join",
@@ -279,7 +297,7 @@
    },
    "label": "Text Settings",
    "location": [
-    440,
+    460,
     0
    ],
    "mute": false,
@@ -288,7 +306,7 @@
     "Socket_16",
     "Socket_17"
    ],
-   "parent": "[-=| Font Settings |=-]",
+   "parent": "[-=| 2. Font Settings |=-]",
    "props": {
     "node_tree": {
      "id": ".ET Text Source",
@@ -301,13 +319,13 @@
    "hide": false,
    "idname": "NodeFrame",
    "inputs": {},
-   "label": "-=| Font Settings |=-",
+   "label": "-=| 1. Text Input |=-",
    "location": [
     0,
     0
    ],
    "mute": false,
-   "name": "[-=| Font Settings |=-]",
+   "name": "[-=| 1. Text Input |=-]",
    "outputs": [],
    "parent": "[Easy Text Geometry Node 3]",
    "props": {
@@ -320,13 +338,13 @@
    "hide": false,
    "idname": "NodeFrame",
    "inputs": {},
-   "label": "-=| Mesh Settings |=-",
+   "label": "-=| 2. Font Settings |=-",
    "location": [
     0,
     0
    ],
    "mute": false,
-   "name": "[-=| Mesh Settings |=-]",
+   "name": "[-=| 2. Font Settings |=-]",
    "outputs": [],
    "parent": "[Easy Text Geometry Node 3]",
    "props": {
@@ -339,13 +357,32 @@
    "hide": false,
    "idname": "NodeFrame",
    "inputs": {},
-   "label": "-=| Text Input |=-",
+   "label": "-=| 3. Mesh Settings |=-",
    "location": [
     0,
     0
    ],
    "mute": false,
-   "name": "[-=| Text Input |=-]",
+   "name": "[-=| 3. Mesh Settings |=-]",
+   "outputs": [],
+   "parent": "[Easy Text Geometry Node 3]",
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "-=| Result |=-",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[-=| Result |=-]",
    "outputs": [],
    "parent": "[Easy Text Geometry Node 3]",
    "props": {
@@ -368,7 +405,7 @@
    "outputs": [],
    "parent": null,
    "props": {
-    "label_size": 28,
+    "label_size": 32,
     "shrink": true
    },
    "width": 160.0
@@ -377,24 +414,210 @@
    "hide": false,
    "idname": "NodeFrame",
    "inputs": {},
+   "label": "",
+   "location": [
+    920,
+    -660
+   ],
+   "mute": false,
+   "name": "[Footer]",
+   "outputs": [],
+   "parent": "[Easy Text Geometry Node 3]",
+   "props": {
+    "label_size": 14,
+    "shrink": false,
+    "text": {
+     "id": "Easy Text – Footer",
+     "type": "Text"
+    }
+   },
+   "width": 460.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
    "label": "Note",
    "location": [
-    -30,
-    -300
+    0,
+    -320
    ],
    "mute": false,
    "name": "[Note]",
    "outputs": [],
    "parent": "[Easy Text Geometry Node 3]",
    "props": {
-    "label_size": 20,
+    "label_size": 14,
     "shrink": false,
     "text": {
      "id": "Easy Text – Note",
      "type": "Text"
     }
    },
-   "width": 360.0
+   "width": 300.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "",
+   "location": [
+    460,
+    -375
+   ],
+   "mute": false,
+   "name": "[Tip Font]",
+   "outputs": [],
+   "parent": "[-=| 2. Font Settings |=-]",
+   "props": {
+    "label_size": 14,
+    "shrink": false,
+    "text": {
+     "id": "Easy Text – Tip Font",
+     "type": "Text"
+    }
+   },
+   "width": 300.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "",
+   "location": [
+    920,
+    -480
+   ],
+   "mute": false,
+   "name": "[Tip Mesh]",
+   "outputs": [],
+   "parent": "[-=| 3. Mesh Settings |=-]",
+   "props": {
+    "label_size": 14,
+    "shrink": false,
+    "text": {
+     "id": "Easy Text – Tip Mesh",
+     "type": "Text"
+    }
+   },
+   "width": 320.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "",
+   "location": [
+    0,
+    -195
+   ],
+   "mute": false,
+   "name": "[Tip Text]",
+   "outputs": [],
+   "parent": "[-=| 1. Text Input |=-]",
+   "props": {
+    "label_size": 14,
+    "shrink": false,
+    "text": {
+     "id": "Easy Text – Tip Text",
+     "type": "Text"
+    }
+   },
+   "width": 300.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "",
+   "location": [
+    -30,
+    96
+   ],
+   "mute": false,
+   "name": "[Title Rule]",
+   "outputs": [],
+   "parent": "[Easy Text Geometry Node 3]",
+   "props": {
+    "label_size": 20,
+    "shrink": false
+   },
+   "width": 1600.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "glyphs",
+   "location": [
+    850,
+    -41
+   ],
+   "mute": false,
+   "name": "glyphs",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[-=| 3. Mesh Settings |=-]",
+   "props": {
+    "socket_idname": "NodeSocketGeometry"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "mesh",
+   "location": [
+    1310,
+    -41
+   ],
+   "mute": false,
+   "name": "mesh",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[-=| Result |=-]",
+   "props": {
+    "socket_idname": "NodeSocketGeometry"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "text",
+   "location": [
+    390,
+    -63
+   ],
+   "mute": false,
+   "name": "text",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[-=| 2. Font Settings |=-]",
+   "props": {
+    "socket_idname": "NodeSocketString"
+   },
+   "width": 140.0
   }
  ],
  "tree_type": "GeometryNodeTree"

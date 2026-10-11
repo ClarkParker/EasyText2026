@@ -43,16 +43,22 @@ itself: frames, group nodes with their input widgets, reroutes and wires.
 
 1. The group nodes are the panels. Every control is an input of one of three nodes, shown as a widget on the node
    (text field, slider, dropdown, checkbox, font and material picker). No value nodes, no wire per control.
-2. Grouped by what the user does, not by how the mesh is computed: Text Input (four line fields), Font Settings
-   (font, alignment, spacing, text box), Mesh Settings (outline, shape, material, UV, output). The pipeline stays
-   inside the nodes; Tab shows it.
+2. Reading order is the user's order: `1. Text Input` (four line fields), `2. Font Settings` (font, alignment,
+   spacing, text box), `3. Mesh Settings` (shape with bevel, material, UV; outline and output closed), `Result`.
+   Panels inside a node are ordered the same way: what is touched most comes first, advanced panels start closed.
+   The pipeline stays inside the nodes; Tab shows it.
 3. Headings in the ASCII style of v2.1: panel and frame titles read `-=| Name |=-`, nested panels `-- Name --`
    (`core.heading`, `core.subheading`). In 5.2 they are real panels: collapsible, nested, with a switch in the
-   header where a boolean gates the panel (Bevel, UV). Rarely used panels start closed (Text Box, Output).
-4. Three wires: lines → Text Settings, curves → Mesh Generation, mesh → Group Output. Text Lines sits lower so
-   its output meets the Text input on one level; nodes are 300 px wide so fields and sliders are readable.
-5. One outer frame carries the title, the three section frames are dark teal like v2.1, a purple note frame
-   holds the export hint as frame text. Nothing is selected when the file opens, the node editor sidebar and the
-   "Named Attributes" overlay are off, the view is framed on the panel.
-6. `ET Text Mesh` is the same three nodes with Group Input copies instead of widgets, so both trees are always
+   header where a boolean gates the panel (Bevel, UV).
+4. Three wires, each with a labelled reroute as a marker between the sections (`text`, `glyphs`, `mesh`). The
+   markers sit on the socket level of both ends, so the wires run straight; the node positions are tuned for it.
+5. Colours as in v2.1 and used as signals: dark teal outer frame, lighter teal sections, an accent rule under the
+   title, the Text Lines node tinted red (the v2.1 string nodes), Text Settings teal, Mesh Generation green, purple
+   tip boxes and note. Tips are fixed-size frames with frame text, one per section, text size 14; the export note
+   and a small footer are the same element.
+6. Panel nodes hide what a user does not need: the data-block selector (`show_options` off), unlinked outputs
+   meant for builders (Character Count), the "Named Attributes" overlay. Nothing is selected when the file opens,
+   the sidebar is off, the view is framed on the panel. The bevel is on by default because that is the look people
+   want first.
+7. `ET Text Mesh` is the same three nodes with Group Input copies instead of widgets, so both trees are always
    wired identically; its interface keeps plain panel names for the properties editor.

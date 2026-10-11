@@ -41,18 +41,6 @@ def build():
             g.input("Box Width", "float", 0.0, min=0.0, max=1000.0, subtype="DISTANCE", description="0 = no wrapping.")
             g.input("Box Height", "float", 0.0, min=0.0, max=1000.0, subtype="DISTANCE", description="0 = unlimited.")
             g.input("Overflow", "menu", description="What happens when the text does not fit the box.")
-    with g.panel("Outline", description="Quality of the glyph outlines."):
-        g.input("Resolution", "int", 12, min=1, max=64, description="Points per curve segment.")
-        g.input(
-            "Simplify",
-            "float",
-            0.5,
-            min=0.0,
-            max=10.0,
-            description="Remove points whose direction changes less than this angle (degrees). 0 = off.",
-        )
-        g.input("Fill Mode", "menu", description="N-gons or triangles on the caps.")
-        g.input("Fill Rule", "menu", description="Even-Odd or Non-Zero for overlapping outlines.")
     with g.panel("Shape"):
         g.input("Depth", "float", 0.1, min=0.0, max=10.0, subtype="DISTANCE", description="Extrusion depth.")
         with g.panel("Bevel", description="Rounded front and back edges."):
@@ -89,6 +77,18 @@ def build():
             description="Scale the caps into 0..1; off = Blender units (tileable).",
         )
         g.input("UV Scale", "float", 1.0, min=0.0001, max=1000.0, description="Additional UV factor.")
+    with g.panel("Outline", description="Quality of the glyph outlines.", default_closed=True):
+        g.input("Resolution", "int", 12, min=1, max=64, description="Points per curve segment.")
+        g.input(
+            "Simplify",
+            "float",
+            0.5,
+            min=0.0,
+            max=10.0,
+            description="Remove points whose direction changes less than this angle (degrees). 0 = off.",
+        )
+        g.input("Fill Mode", "menu", description="N-gons or triangles on the caps.")
+        g.input("Fill Rule", "menu", description="Even-Odd or Non-Zero for overlapping outlines.")
     with g.panel("Output", default_closed=True):
         g.input(
             "Keep Helper Attributes",

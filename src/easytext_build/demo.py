@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import math
 
-from .core import group_socket
 from .groups import registry
 
 
@@ -17,7 +16,6 @@ def populate_scene(scene) -> None:
     scene.collection.objects.link(text_ob)
     mod = text_ob.modifiers.new("Easy Text", "NODES")
     mod.node_group = tree
-    group_socket(tree.nodes["Mesh Generation"], "Bevel").default_value = True  # show the bevel in the demo
     text_ob.rotation_euler = (math.radians(90), 0.0, 0.0)  # upright, readable from the front (-Y)
 
     cam_data = bpy.data.cameras.new("Camera")

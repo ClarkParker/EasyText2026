@@ -39,18 +39,6 @@ def build():
 
     # ------------------------------------------------------------------ Interface (order defines identifiers)
     g.input("Curves", "geometry", description="Glyph outlines from Text Settings.")
-    with g.panel(heading("Outline"), description="Quality of the glyph outlines."):
-        g.input("Resolution", "int", 12, min=1, max=64, description="Points per curve segment.")
-        g.input(
-            "Simplify",
-            "float",
-            0.5,
-            min=0.0,
-            max=10.0,
-            description="Remove points whose direction changes less than this angle (degrees). 0 = off.",
-        )
-        g.input("Fill Mode", "menu", description="N-gons or triangles on the caps.")
-        g.input("Fill Rule", "menu", description="Even-Odd or Non-Zero for overlapping outlines.")
     with g.panel(heading("Shape")):
         g.input("Depth", "float", 0.1, min=0.0, max=10.0, subtype="DISTANCE", description="Extrusion depth.")
         with g.panel(subheading("Bevel"), description="Rounded front and back edges."):
@@ -87,6 +75,18 @@ def build():
             description="Scale the caps into 0..1; off = Blender units (tileable).",
         )
         g.input("UV Scale", "float", 1.0, min=0.0001, max=1000.0, description="Additional UV factor.")
+    with g.panel(heading("Outline"), description="Quality of the glyph outlines.", default_closed=True):
+        g.input("Resolution", "int", 12, min=1, max=64, description="Points per curve segment.")
+        g.input(
+            "Simplify",
+            "float",
+            0.5,
+            min=0.0,
+            max=10.0,
+            description="Remove points whose direction changes less than this angle (degrees). 0 = off.",
+        )
+        g.input("Fill Mode", "menu", description="N-gons or triangles on the caps.")
+        g.input("Fill Rule", "menu", description="Even-Odd or Non-Zero for overlapping outlines.")
     with g.panel(heading("Output"), default_closed=True):
         g.input(
             "Keep Helper Attributes",
