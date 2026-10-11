@@ -1,9 +1,10 @@
-"""Demo scene: one object with ET Text Mesh, a camera and lights, so the file shows text right after opening."""
+"""Demo scene: the text with the control panel, a camera orbit and a light rig, so the file shows text right away."""
 
 from __future__ import annotations
 
 import math
 
+from . import rigs
 from .core import group_socket
 from .groups import registry
 
@@ -21,41 +22,22 @@ def populate_scene(scene) -> None:
     plate = tree.nodes["Mesh Generation"]
     group_socket(plate, "Plate").default_value = True  # the demo shows the base plate with relief
     group_socket(plate, "Relief").default_value = True
-    anim = tree.nodes["Animation"]
-    group_socket(anim, "Animate").default_value = True  # the demo shows the letters arriving
-    group_socket(anim, "Rotation").default_value = (0.0, 0.0, math.radians(90))
     scene.frame_start, scene.frame_end = 1, 120
-    scene.frame_current = 30  # half the letters are in place, the rest still travelling
 
-    cam_data = bpy.data.cameras.new("Camera")
-    cam_data.lens = 35
-    cam = bpy.data.objects.new("Camera", cam_data)
-    cam.location = (0.0, -10.0, 1.0)
-    cam.rotation_euler = (math.radians(85), 0.0, 0.0)
-    scene.collection.objects.link(cam)
-    scene.camera = cam
-
-    key = bpy.data.lights.new("Key", "AREA")
-    key.energy = 400.0
-    key.size = 3.0
-    key_ob = bpy.data.objects.new("Key", key)
-    key_ob.location = (-2.5, -3.0, 3.5)
-    key_ob.rotation_euler = (math.radians(50), 0.0, math.radians(-35))
-    scene.collection.objects.link(key_ob)
-
-    fill = bpy.data.lights.new("Fill", "AREA")
-    fill.energy = 120.0
-    fill.size = 4.0
-    fill_ob = bpy.data.objects.new("Fill", fill)
-    fill_ob.location = (3.0, -3.0, 1.5)
-    fill_ob.rotation_euler = (math.radians(70), 0.0, math.radians(40))
-    scene.collection.objects.link(fill_ob)
+    # camera orbit and three-point light rig around the text (rest pose: animation is switched on afterwards)
+    rigs.add_camera_orbit(scene, text_ob, frame_start=1, frame_end=120)
+    rigs.add_light_rig(scene, text_ob)
 
     world = bpy.data.worlds.get("World") or bpy.data.worlds.new("World")
     world.color = (0.05, 0.05, 0.06)
     scene.world = world
     scene.render.resolution_x = 1920
     scene.render.resolution_y = 1080
+
+    anim = tree.nodes["Animation"]
+    group_socket(anim, "Animate").default_value = True  # the demo shows the letters arriving
+    group_socket(anim, "Rotation").default_value = (0.0, 0.0, math.radians(90))
+    scene.frame_current = 30  # half the letters are in place, the rest still travelling
 
     # On opening: text object active and the properties editor on the modifier tab. The window layout itself
     # (workspace "Easy Text": 3D viewport on top, node editor with the control panel below) needs a real Blender

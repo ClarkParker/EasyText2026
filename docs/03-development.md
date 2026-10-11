@@ -66,6 +66,23 @@ attaches the test group as a modifier to an object and evaluates it.
 - Geometry Proximity (target faces) against the text mesh gives the relief; Map Range with Smooth Step turns the
   distance into the bump, Triangulate + Subdivide Mesh give the top enough vertices.
 
+### Rigs (found while building ET Light Rig and the camera orbit)
+
+- Geometry Nodes instances of Light objects (Object Info with As Instance → Instance on Points) render as lights:
+  verified headless with Cycles 5.2.0 (plane lit 0.82 vs 0.02 without the rig). EEVEE cannot be tested headless
+  here (no EGL); it supports instanced lights as well.
+- A light shines along its local -Z. Axes to Rotation with primary axis Z = direction away from the target and
+  secondary axis Y = world up gives the aim rotation; Object Info in ORIGINAL space keeps the instance free of
+  the light object's own transform.
+- Empties take Geometry Nodes modifiers in 5.2, so the rig lives on an Empty; the source lights sit in a hidden
+  collection and are still evaluated through the Object Info dependency.
+- Camera orbit without node assets: a POLY spline arc with `use_path`, Follow Path with `use_fixed_location` and
+  `offset_factor` keyframed through `camera.keyframe_insert('constraints["Orbit"].offset_factor', frame=...)`,
+  plus Track To (-Z, up Y). Follow Path needs a real Curve object, not a Geometry Nodes curve.
+- Modifier inputs from Python: `mod.properties.inputs[identifier]["value"]`, identifier from the group's
+  `et_sockets` map (panel toggles are renamed) or `interface.items_tree[name].identifier`, then reassign
+  `mod.node_group` and `update_tag()` to re-evaluate (`rigs.set_modifier_input`).
+
 ### Demo file: window layout and screenshots
 
 `build` writes the demo scene headless. The window layout (workspace "Easy Text", camera view on top, node editor

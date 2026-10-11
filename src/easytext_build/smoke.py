@@ -86,6 +86,18 @@ def main() -> int:
         if attr not in anim_attrs:
             errors.append(f"animation: attribute {attr} missing on the mesh")
 
+    # light rig: three instances of the light objects around the text
+    from . import rigs
+
+    rig = rigs.add_light_rig(bpy.context.scene, obj)
+    depsgraph.update()
+    rig_geo = rig.evaluated_get(depsgraph).evaluated_geometry()
+    rig_points = rig_geo.instances_pointcloud()
+    rig_count = len(rig_points.points) if rig_points is not None else 0
+    print(f"[smoke] light rig: {rig_count} light instances")
+    if rig_count != 3:
+        errors.append(f"light rig: expected 3 light instances, got {rig_count}")
+
     if errors:
         print("[smoke] FAILED:\n  " + "\n  ".join(errors))
         return 1

@@ -1,0 +1,4047 @@
+{
+ "asset_catalog_id": "780b7588-35f0-4fd5-880b-4f8e140bc779",
+ "description": "Three-point light rig: instances of your key, fill and rim lights around a target, aimed at it.",
+ "flags": {
+  "color_tag": "GEOMETRY",
+  "default_group_node_width": 260,
+  "is_modifier": true,
+  "is_tool": false
+ },
+ "interface": [
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_20",
+   "in_out": "OUTPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Lights",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketGeometry",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": null,
+   "description": "The text (or any object); the rig aims at the centre of its bounds.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_0",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Target",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketObject",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": true,
+   "description": "Point every light at the target centre.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_1",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Aim at Target",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketBool",
+   "structure_type": "AUTO"
+  },
+  {
+   "default_closed": false,
+   "description": "",
+   "item_type": "PANEL",
+   "name": "-=| Key Light |=-",
+   "parent": null
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": true,
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_3",
+   "in_out": "INPUT",
+   "is_panel_toggle": true,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "-=| Key Light |=-",
+   "optional_label": false,
+   "parent": "-=| Key Light |=-",
+   "socket_type": "NodeSocketBool",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": null,
+   "description": "A light object; it is instanced here and can stay hidden.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_4",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Key Light",
+   "optional_label": false,
+   "parent": "-=| Key Light |=-",
+   "socket_type": "NodeSocketObject",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": -0.61087,
+   "description": "Around the target; 0 = in front.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_5",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 3.14159,
+   "menu_expanded": false,
+   "min_value": -3.14159,
+   "name": "Key Angle",
+   "optional_label": false,
+   "parent": "-=| Key Light |=-",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "ANGLE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.61087,
+   "description": "Above (positive) or below the target.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_6",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 1.5708,
+   "menu_expanded": false,
+   "min_value": -1.5708,
+   "name": "Key Elevation",
+   "optional_label": false,
+   "parent": "-=| Key Light |=-",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "ANGLE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 5.0,
+   "description": "From the centre.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_7",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 1000.0,
+   "menu_expanded": false,
+   "min_value": 0.01,
+   "name": "Key Distance",
+   "optional_label": false,
+   "parent": "-=| Key Light |=-",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "default_closed": false,
+   "description": "",
+   "item_type": "PANEL",
+   "name": "-=| Fill Light |=-",
+   "parent": null
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": true,
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_9",
+   "in_out": "INPUT",
+   "is_panel_toggle": true,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "-=| Fill Light |=-",
+   "optional_label": false,
+   "parent": "-=| Fill Light |=-",
+   "socket_type": "NodeSocketBool",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": null,
+   "description": "A light object; it is instanced here and can stay hidden.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_10",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Fill Light",
+   "optional_label": false,
+   "parent": "-=| Fill Light |=-",
+   "socket_type": "NodeSocketObject",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.7854,
+   "description": "Around the target; 0 = in front.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_11",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 3.14159,
+   "menu_expanded": false,
+   "min_value": -3.14159,
+   "name": "Fill Angle",
+   "optional_label": false,
+   "parent": "-=| Fill Light |=-",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "ANGLE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.2618,
+   "description": "Above (positive) or below the target.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_12",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 1.5708,
+   "menu_expanded": false,
+   "min_value": -1.5708,
+   "name": "Fill Elevation",
+   "optional_label": false,
+   "parent": "-=| Fill Light |=-",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "ANGLE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 6.0,
+   "description": "From the centre.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_13",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 1000.0,
+   "menu_expanded": false,
+   "min_value": 0.01,
+   "name": "Fill Distance",
+   "optional_label": false,
+   "parent": "-=| Fill Light |=-",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "default_closed": false,
+   "description": "",
+   "item_type": "PANEL",
+   "name": "-=| Rim Light |=-",
+   "parent": null
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": true,
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_15",
+   "in_out": "INPUT",
+   "is_panel_toggle": true,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "-=| Rim Light |=-",
+   "optional_label": false,
+   "parent": "-=| Rim Light |=-",
+   "socket_type": "NodeSocketBool",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": null,
+   "description": "A light object; it is instanced here and can stay hidden.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_16",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Rim Light",
+   "optional_label": false,
+   "parent": "-=| Rim Light |=-",
+   "socket_type": "NodeSocketObject",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 2.79253,
+   "description": "Around the target; 0 = in front.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_17",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 3.14159,
+   "menu_expanded": false,
+   "min_value": -3.14159,
+   "name": "Rim Angle",
+   "optional_label": false,
+   "parent": "-=| Rim Light |=-",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "ANGLE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.69813,
+   "description": "Above (positive) or below the target.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_18",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 1.5708,
+   "menu_expanded": false,
+   "min_value": -1.5708,
+   "name": "Rim Elevation",
+   "optional_label": false,
+   "parent": "-=| Rim Light |=-",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "ANGLE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 5.0,
+   "description": "From the centre.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_19",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 1000.0,
+   "menu_expanded": false,
+   "min_value": 0.01,
+   "name": "Rim Distance",
+   "optional_label": false,
+   "parent": "-=| Rim Light |=-",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  }
+ ],
+ "links": [
+  [
+   "-cos Angle",
+   "Value",
+   "Dir Y",
+   "Value"
+  ],
+  [
+   "-cos Angle.001",
+   "Value",
+   "Dir Y.001",
+   "Value"
+  ],
+  [
+   "-cos Angle.002",
+   "Value",
+   "Dir Y.002",
+   "Value"
+  ],
+  [
+   "Aim",
+   "Rotation",
+   "Rotation",
+   "True"
+  ],
+  [
+   "Aim.001",
+   "Rotation",
+   "Rotation.001",
+   "True"
+  ],
+  [
+   "Aim.002",
+   "Rotation",
+   "Rotation.002",
+   "True"
+  ],
+  [
+   "Dir X",
+   "Value",
+   "Reroute.011",
+   "Input"
+  ],
+  [
+   "Dir X.001",
+   "Value",
+   "Reroute.012",
+   "Input"
+  ],
+  [
+   "Dir X.002",
+   "Value",
+   "Reroute.013",
+   "Input"
+  ],
+  [
+   "Dir Y",
+   "Value",
+   "Direction",
+   "Y"
+  ],
+  [
+   "Dir Y.001",
+   "Value",
+   "Direction.001",
+   "Y"
+  ],
+  [
+   "Dir Y.002",
+   "Value",
+   "Direction.002",
+   "Y"
+  ],
+  [
+   "Dir Z",
+   "Value",
+   "Reroute.014",
+   "Input"
+  ],
+  [
+   "Dir Z.001",
+   "Value",
+   "Reroute.015",
+   "Input"
+  ],
+  [
+   "Dir Z.002",
+   "Value",
+   "Direction.002",
+   "Z"
+  ],
+  [
+   "Direction",
+   "Vector",
+   "Aim",
+   "Primary Axis"
+  ],
+  [
+   "Direction",
+   "Vector",
+   "Offset",
+   "Vector"
+  ],
+  [
+   "Direction.001",
+   "Vector",
+   "Aim.001",
+   "Primary Axis"
+  ],
+  [
+   "Direction.001",
+   "Vector",
+   "Offset.001",
+   "Vector"
+  ],
+  [
+   "Direction.002",
+   "Vector",
+   "Aim.002",
+   "Primary Axis"
+  ],
+  [
+   "Direction.002",
+   "Vector",
+   "Offset.002",
+   "Vector"
+  ],
+  [
+   "Fill Object",
+   "Geometry",
+   "Reroute.020",
+   "Input"
+  ],
+  [
+   "Fill?",
+   "Output",
+   "Join Lights",
+   "Geometry"
+  ],
+  [
+   "Group Input (Fill)",
+   "Socket_1",
+   "Reroute.026",
+   "Input"
+  ],
+  [
+   "Group Input (Fill)",
+   "Socket_10",
+   "Reroute.010",
+   "Input"
+  ],
+  [
+   "Group Input (Fill)",
+   "Socket_11",
+   "Reroute.006",
+   "Input"
+  ],
+  [
+   "Group Input (Fill)",
+   "Socket_11",
+   "sin Angle.001",
+   "Value"
+  ],
+  [
+   "Group Input (Fill)",
+   "Socket_12",
+   "Dir Z.001",
+   "Value"
+  ],
+  [
+   "Group Input (Fill)",
+   "Socket_12",
+   "Reroute.004",
+   "Input"
+  ],
+  [
+   "Group Input (Fill)",
+   "Socket_13",
+   "Offset.001",
+   "Scale"
+  ],
+  [
+   "Group Input (Fill)",
+   "Socket_9",
+   "Reroute.019",
+   "Input"
+  ],
+  [
+   "Group Input (Key)",
+   "Socket_1",
+   "Reroute.022",
+   "Input"
+  ],
+  [
+   "Group Input (Key)",
+   "Socket_3",
+   "Reroute.025",
+   "Input"
+  ],
+  [
+   "Group Input (Key)",
+   "Socket_4",
+   "Key Object",
+   "Object"
+  ],
+  [
+   "Group Input (Key)",
+   "Socket_5",
+   "Reroute.003",
+   "Input"
+  ],
+  [
+   "Group Input (Key)",
+   "Socket_5",
+   "sin Angle",
+   "Value"
+  ],
+  [
+   "Group Input (Key)",
+   "Socket_6",
+   "Dir Z",
+   "Value"
+  ],
+  [
+   "Group Input (Key)",
+   "Socket_6",
+   "Reroute.001",
+   "Input"
+  ],
+  [
+   "Group Input (Key)",
+   "Socket_7",
+   "Offset",
+   "Scale"
+  ],
+  [
+   "Group Input (Rim)",
+   "Socket_1",
+   "Reroute",
+   "Input"
+  ],
+  [
+   "Group Input (Rim)",
+   "Socket_15",
+   "Reroute.029",
+   "Input"
+  ],
+  [
+   "Group Input (Rim)",
+   "Socket_16",
+   "Rim Object",
+   "Object"
+  ],
+  [
+   "Group Input (Rim)",
+   "Socket_17",
+   "Reroute.009",
+   "Input"
+  ],
+  [
+   "Group Input (Rim)",
+   "Socket_17",
+   "sin Angle.002",
+   "Value"
+  ],
+  [
+   "Group Input (Rim)",
+   "Socket_18",
+   "Reroute.007",
+   "Input"
+  ],
+  [
+   "Group Input (Rim)",
+   "Socket_19",
+   "Reroute.017",
+   "Input"
+  ],
+  [
+   "Group Input (Target)",
+   "Socket_0",
+   "Target Info",
+   "Object"
+  ],
+  [
+   "Join Lights",
+   "Geometry",
+   "Group Output",
+   "Socket_20"
+  ],
+  [
+   "Key Object",
+   "Geometry",
+   "Reroute.024",
+   "Input"
+  ],
+  [
+   "Key?",
+   "Output",
+   "Join Lights",
+   "Geometry"
+  ],
+  [
+   "Min + Max",
+   "Vector",
+   "Target Centre",
+   "Vector"
+  ],
+  [
+   "Nothing",
+   "Geometry",
+   "Key?",
+   "False"
+  ],
+  [
+   "Nothing.001",
+   "Geometry",
+   "Fill?",
+   "False"
+  ],
+  [
+   "Nothing.002",
+   "Geometry",
+   "Rim?",
+   "False"
+  ],
+  [
+   "Offset",
+   "Vector",
+   "Position",
+   "Vector_001"
+  ],
+  [
+   "Offset.001",
+   "Vector",
+   "Position.001",
+   "Vector_001"
+  ],
+  [
+   "Offset.002",
+   "Vector",
+   "Position.002",
+   "Vector_001"
+  ],
+  [
+   "Place Fill",
+   "Instances",
+   "Fill?",
+   "True"
+  ],
+  [
+   "Place Key",
+   "Instances",
+   "Key?",
+   "True"
+  ],
+  [
+   "Place Rim",
+   "Instances",
+   "Rim?",
+   "True"
+  ],
+  [
+   "Point",
+   "Geometry",
+   "Place Key",
+   "Points"
+  ],
+  [
+   "Point.001",
+   "Geometry",
+   "Place Fill",
+   "Points"
+  ],
+  [
+   "Point.002",
+   "Geometry",
+   "Place Rim",
+   "Points"
+  ],
+  [
+   "Position",
+   "Vector",
+   "Point",
+   "Position"
+  ],
+  [
+   "Position.001",
+   "Vector",
+   "Point.001",
+   "Position"
+  ],
+  [
+   "Position.002",
+   "Vector",
+   "Point.002",
+   "Position"
+  ],
+  [
+   "Reroute",
+   "Output",
+   "Reroute.016",
+   "Input"
+  ],
+  [
+   "Reroute.001",
+   "Output",
+   "Reroute.002",
+   "Input"
+  ],
+  [
+   "Reroute.002",
+   "Output",
+   "cos Elevation",
+   "Value"
+  ],
+  [
+   "Reroute.003",
+   "Output",
+   "cos Angle",
+   "Value"
+  ],
+  [
+   "Reroute.004",
+   "Output",
+   "Reroute.005",
+   "Input"
+  ],
+  [
+   "Reroute.005",
+   "Output",
+   "cos Elevation.001",
+   "Value"
+  ],
+  [
+   "Reroute.006",
+   "Output",
+   "cos Angle.001",
+   "Value"
+  ],
+  [
+   "Reroute.007",
+   "Output",
+   "Reroute.008",
+   "Input"
+  ],
+  [
+   "Reroute.008",
+   "Output",
+   "Dir Z.002",
+   "Value"
+  ],
+  [
+   "Reroute.008",
+   "Output",
+   "cos Elevation.002",
+   "Value"
+  ],
+  [
+   "Reroute.009",
+   "Output",
+   "cos Angle.002",
+   "Value"
+  ],
+  [
+   "Reroute.010",
+   "Output",
+   "Fill Object",
+   "Object"
+  ],
+  [
+   "Reroute.011",
+   "Output",
+   "Direction",
+   "X"
+  ],
+  [
+   "Reroute.012",
+   "Output",
+   "Direction.001",
+   "X"
+  ],
+  [
+   "Reroute.013",
+   "Output",
+   "Direction.002",
+   "X"
+  ],
+  [
+   "Reroute.014",
+   "Output",
+   "Direction",
+   "Z"
+  ],
+  [
+   "Reroute.015",
+   "Output",
+   "Direction.001",
+   "Z"
+  ],
+  [
+   "Reroute.016",
+   "Output",
+   "Rotation.002",
+   "Switch"
+  ],
+  [
+   "Reroute.017",
+   "Output",
+   "Offset.002",
+   "Scale"
+  ],
+  [
+   "Reroute.018",
+   "Output",
+   "Key?",
+   "Switch"
+  ],
+  [
+   "Reroute.019",
+   "Output",
+   "Reroute.021",
+   "Input"
+  ],
+  [
+   "Reroute.020",
+   "Output",
+   "Place Fill",
+   "Instance"
+  ],
+  [
+   "Reroute.021",
+   "Output",
+   "Fill?",
+   "Switch"
+  ],
+  [
+   "Reroute.022",
+   "Output",
+   "Reroute.023",
+   "Input"
+  ],
+  [
+   "Reroute.023",
+   "Output",
+   "Rotation",
+   "Switch"
+  ],
+  [
+   "Reroute.024",
+   "Output",
+   "Place Key",
+   "Instance"
+  ],
+  [
+   "Reroute.025",
+   "Output",
+   "Reroute.018",
+   "Input"
+  ],
+  [
+   "Reroute.026",
+   "Output",
+   "Reroute.027",
+   "Input"
+  ],
+  [
+   "Reroute.027",
+   "Output",
+   "Rotation.001",
+   "Switch"
+  ],
+  [
+   "Reroute.028",
+   "Output",
+   "Place Rim",
+   "Instance"
+  ],
+  [
+   "Reroute.029",
+   "Output",
+   "Reroute.030",
+   "Input"
+  ],
+  [
+   "Reroute.030",
+   "Output",
+   "Rim?",
+   "Switch"
+  ],
+  [
+   "Reroute.031",
+   "Output",
+   "Reroute.032",
+   "Input"
+  ],
+  [
+   "Reroute.032",
+   "Output",
+   "Position",
+   "Vector"
+  ],
+  [
+   "Reroute.033",
+   "Output",
+   "Reroute.034",
+   "Input"
+  ],
+  [
+   "Reroute.034",
+   "Output",
+   "Position.002",
+   "Vector"
+  ],
+  [
+   "Rim Object",
+   "Geometry",
+   "Reroute.028",
+   "Input"
+  ],
+  [
+   "Rim?",
+   "Output",
+   "Join Lights",
+   "Geometry"
+  ],
+  [
+   "Rotation",
+   "Output",
+   "Place Key",
+   "Rotation"
+  ],
+  [
+   "Rotation.001",
+   "Output",
+   "Place Fill",
+   "Rotation"
+  ],
+  [
+   "Rotation.002",
+   "Output",
+   "Place Rim",
+   "Rotation"
+  ],
+  [
+   "Target Bounds",
+   "Max",
+   "Min + Max",
+   "Vector_001"
+  ],
+  [
+   "Target Bounds",
+   "Min",
+   "Min + Max",
+   "Vector"
+  ],
+  [
+   "Target Centre",
+   "Vector",
+   "Position.001",
+   "Vector"
+  ],
+  [
+   "Target Centre",
+   "Vector",
+   "Reroute.031",
+   "Input"
+  ],
+  [
+   "Target Centre",
+   "Vector",
+   "Reroute.033",
+   "Input"
+  ],
+  [
+   "Target Info",
+   "Geometry",
+   "Target Bounds",
+   "Geometry"
+  ],
+  [
+   "cos Angle",
+   "Value",
+   "-cos Angle",
+   "Value"
+  ],
+  [
+   "cos Angle.001",
+   "Value",
+   "-cos Angle.001",
+   "Value"
+  ],
+  [
+   "cos Angle.002",
+   "Value",
+   "-cos Angle.002",
+   "Value"
+  ],
+  [
+   "cos Elevation",
+   "Value",
+   "Dir X",
+   "Value_001"
+  ],
+  [
+   "cos Elevation",
+   "Value",
+   "Dir Y",
+   "Value_001"
+  ],
+  [
+   "cos Elevation.001",
+   "Value",
+   "Dir X.001",
+   "Value_001"
+  ],
+  [
+   "cos Elevation.001",
+   "Value",
+   "Dir Y.001",
+   "Value_001"
+  ],
+  [
+   "cos Elevation.002",
+   "Value",
+   "Dir X.002",
+   "Value_001"
+  ],
+  [
+   "cos Elevation.002",
+   "Value",
+   "Dir Y.002",
+   "Value_001"
+  ],
+  [
+   "sin Angle",
+   "Value",
+   "Dir X",
+   "Value"
+  ],
+  [
+   "sin Angle.001",
+   "Value",
+   "Dir X.001",
+   "Value"
+  ],
+  [
+   "sin Angle.002",
+   "Value",
+   "Dir X.002",
+   "Value"
+  ]
+ ],
+ "name": "ET Light Rig",
+ "nodes": [
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "name": "Value",
+     "value": -1.0
+    }
+   },
+   "label": "-cos Angle",
+   "location": [
+    -100,
+    900
+   ],
+   "mute": false,
+   "name": "-cos Angle",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Key Light]",
+   "props": {
+    "operation": "MULTIPLY",
+    "use_clamp": false
+   },
+   "width": 106.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "name": "Value",
+     "value": -1.0
+    }
+   },
+   "label": "-cos Angle",
+   "location": [
+    -100,
+    -60
+   ],
+   "mute": false,
+   "name": "-cos Angle.001",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Fill Light]",
+   "props": {
+    "operation": "MULTIPLY",
+    "use_clamp": false
+   },
+   "width": 106.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "name": "Value",
+     "value": -1.0
+    }
+   },
+   "label": "-cos Angle",
+   "location": [
+    -100,
+    -1020
+   ],
+   "mute": false,
+   "name": "-cos Angle.002",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Rim Light]",
+   "props": {
+    "operation": "MULTIPLY",
+    "use_clamp": false
+   },
+   "width": 106.0
+  },
+  {
+   "hide": false,
+   "idname": "FunctionNodeAxesToRotation",
+   "inputs": {
+    "Primary Axis": {
+     "linked": true,
+     "name": "Primary Axis"
+    },
+    "Secondary Axis": {
+     "name": "Secondary Axis",
+     "value": [
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "label": "Aim",
+   "location": [
+    300,
+    960
+   ],
+   "mute": false,
+   "name": "Aim",
+   "outputs": [
+    "Rotation"
+   ],
+   "parent": "[Key Light]",
+   "props": {
+    "primary_axis": "Z",
+    "secondary_axis": "Y"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "FunctionNodeAxesToRotation",
+   "inputs": {
+    "Primary Axis": {
+     "linked": true,
+     "name": "Primary Axis"
+    },
+    "Secondary Axis": {
+     "name": "Secondary Axis",
+     "value": [
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "label": "Aim",
+   "location": [
+    300,
+    0
+   ],
+   "mute": false,
+   "name": "Aim.001",
+   "outputs": [
+    "Rotation"
+   ],
+   "parent": "[Fill Light]",
+   "props": {
+    "primary_axis": "Z",
+    "secondary_axis": "Y"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "FunctionNodeAxesToRotation",
+   "inputs": {
+    "Primary Axis": {
+     "linked": true,
+     "name": "Primary Axis"
+    },
+    "Secondary Axis": {
+     "name": "Secondary Axis",
+     "value": [
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "label": "Aim",
+   "location": [
+    300,
+    -960
+   ],
+   "mute": false,
+   "name": "Aim.002",
+   "outputs": [
+    "Rotation"
+   ],
+   "parent": "[Rim Light]",
+   "props": {
+    "primary_axis": "Z",
+    "secondary_axis": "Y"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Dir X",
+   "location": [
+    -280,
+    1000
+   ],
+   "mute": false,
+   "name": "Dir X",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Key Light]",
+   "props": {
+    "operation": "MULTIPLY",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Dir X",
+   "location": [
+    -280,
+    60
+   ],
+   "mute": false,
+   "name": "Dir X.001",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Fill Light]",
+   "props": {
+    "operation": "MULTIPLY",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Dir X",
+   "location": [
+    -280,
+    -920
+   ],
+   "mute": false,
+   "name": "Dir X.002",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Rim Light]",
+   "props": {
+    "operation": "MULTIPLY",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Dir Y",
+   "location": [
+    -80,
+    860
+   ],
+   "mute": false,
+   "name": "Dir Y",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Key Light]",
+   "props": {
+    "operation": "MULTIPLY",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Dir Y",
+   "location": [
+    -80,
+    -100
+   ],
+   "mute": false,
+   "name": "Dir Y.001",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Fill Light]",
+   "props": {
+    "operation": "MULTIPLY",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    },
+    "Value_001": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Dir Y",
+   "location": [
+    -80,
+    -1060
+   ],
+   "mute": false,
+   "name": "Dir Y.002",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Rim Light]",
+   "props": {
+    "operation": "MULTIPLY",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Dir Z",
+   "location": [
+    -480,
+    780
+   ],
+   "mute": false,
+   "name": "Dir Z",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Key Light]",
+   "props": {
+    "operation": "SINE",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Dir Z",
+   "location": [
+    -480,
+    -180
+   ],
+   "mute": false,
+   "name": "Dir Z.001",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Fill Light]",
+   "props": {
+    "operation": "SINE",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "Dir Z",
+   "location": [
+    -80,
+    -1140
+   ],
+   "mute": false,
+   "name": "Dir Z.002",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Rim Light]",
+   "props": {
+    "operation": "SINE",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeCombineXYZ",
+   "inputs": {
+    "X": {
+     "linked": true,
+     "name": "X"
+    },
+    "Y": {
+     "linked": true,
+     "name": "Y"
+    },
+    "Z": {
+     "linked": true,
+     "name": "Z"
+    }
+   },
+   "label": "Direction",
+   "location": [
+    100,
+    860
+   ],
+   "mute": false,
+   "name": "Direction",
+   "outputs": [
+    "Vector"
+   ],
+   "parent": "[Key Light]",
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeCombineXYZ",
+   "inputs": {
+    "X": {
+     "linked": true,
+     "name": "X"
+    },
+    "Y": {
+     "linked": true,
+     "name": "Y"
+    },
+    "Z": {
+     "linked": true,
+     "name": "Z"
+    }
+   },
+   "label": "Direction",
+   "location": [
+    100,
+    -80
+   ],
+   "mute": false,
+   "name": "Direction.001",
+   "outputs": [
+    "Vector"
+   ],
+   "parent": "[Fill Light]",
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeCombineXYZ",
+   "inputs": {
+    "X": {
+     "linked": true,
+     "name": "X"
+    },
+    "Y": {
+     "linked": true,
+     "name": "Y"
+    },
+    "Z": {
+     "linked": true,
+     "name": "Z"
+    }
+   },
+   "label": "Direction",
+   "location": [
+    100,
+    -1060
+   ],
+   "mute": false,
+   "name": "Direction.002",
+   "outputs": [
+    "Vector"
+   ],
+   "parent": "[Rim Light]",
+   "width": 100.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeObjectInfo",
+   "inputs": {
+    "As Instance": {
+     "name": "As Instance",
+     "value": true
+    },
+    "Object": {
+     "linked": true,
+     "name": "Object"
+    }
+   },
+   "label": "Fill Object",
+   "location": [
+    80,
+    320
+   ],
+   "mute": false,
+   "name": "Fill Object",
+   "outputs": [
+    "Transform",
+    "Location",
+    "Rotation",
+    "Scale",
+    "Geometry"
+   ],
+   "parent": "[Fill Light]",
+   "props": {
+    "transform_space": "ORIGINAL"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSwitch",
+   "inputs": {
+    "False": {
+     "linked": true,
+     "name": "False"
+    },
+    "Switch": {
+     "linked": true,
+     "name": "Switch"
+    },
+    "True": {
+     "linked": true,
+     "name": "True"
+    }
+   },
+   "label": "Fill?",
+   "location": [
+    1000,
+    360
+   ],
+   "mute": false,
+   "name": "Fill?",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Fill Light]",
+   "props": {
+    "input_type": "GEOMETRY"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    -740,
+    160
+   ],
+   "mute": false,
+   "name": "Group Input (Fill)",
+   "outputs": [
+    "Socket_0",
+    "Socket_1",
+    "Socket_3",
+    "Socket_4",
+    "Socket_5",
+    "Socket_6",
+    "Socket_7",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_12",
+    "Socket_13",
+    "Socket_15",
+    "Socket_16",
+    "Socket_17",
+    "Socket_18",
+    "Socket_19",
+    "__extend__"
+   ],
+   "parent": "[Fill Light]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    -740,
+    1120
+   ],
+   "mute": false,
+   "name": "Group Input (Key)",
+   "outputs": [
+    "Socket_0",
+    "Socket_1",
+    "Socket_3",
+    "Socket_4",
+    "Socket_5",
+    "Socket_6",
+    "Socket_7",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_12",
+    "Socket_13",
+    "Socket_15",
+    "Socket_16",
+    "Socket_17",
+    "Socket_18",
+    "Socket_19",
+    "__extend__"
+   ],
+   "parent": "[Key Light]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    -740,
+    -800
+   ],
+   "mute": false,
+   "name": "Group Input (Rim)",
+   "outputs": [
+    "Socket_0",
+    "Socket_1",
+    "Socket_3",
+    "Socket_4",
+    "Socket_5",
+    "Socket_6",
+    "Socket_7",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_12",
+    "Socket_13",
+    "Socket_15",
+    "Socket_16",
+    "Socket_17",
+    "Socket_18",
+    "Socket_19",
+    "__extend__"
+   ],
+   "parent": "[Rim Light]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    -1620,
+    -700
+   ],
+   "mute": false,
+   "name": "Group Input (Target)",
+   "outputs": [
+    "Socket_0",
+    "Socket_1",
+    "Socket_3",
+    "Socket_4",
+    "Socket_5",
+    "Socket_6",
+    "Socket_7",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_12",
+    "Socket_13",
+    "Socket_15",
+    "Socket_16",
+    "Socket_17",
+    "Socket_18",
+    "Socket_19",
+    "__extend__"
+   ],
+   "parent": "[Target]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupOutput",
+   "inputs": {
+    "Socket_20": {
+     "linked": true,
+     "name": "Lights"
+    },
+    "__extend__": {
+     "name": ""
+    }
+   },
+   "label": "",
+   "location": [
+    1580,
+    -380
+   ],
+   "mute": false,
+   "name": "Group Output",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "is_active_output": true
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeJoinGeometry",
+   "inputs": {
+    "Geometry": {
+     "linked": true,
+     "name": "Geometry"
+    }
+   },
+   "label": "Join Lights",
+   "location": [
+    1360,
+    -380
+   ],
+   "mute": false,
+   "name": "Join Lights",
+   "outputs": [
+    "Geometry"
+   ],
+   "parent": "[Rig]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeObjectInfo",
+   "inputs": {
+    "As Instance": {
+     "name": "As Instance",
+     "value": true
+    },
+    "Object": {
+     "linked": true,
+     "name": "Object"
+    }
+   },
+   "label": "Key Object",
+   "location": [
+    -300,
+    1300
+   ],
+   "mute": false,
+   "name": "Key Object",
+   "outputs": [
+    "Transform",
+    "Location",
+    "Rotation",
+    "Scale",
+    "Geometry"
+   ],
+   "parent": "[Key Light]",
+   "props": {
+    "transform_space": "ORIGINAL"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSwitch",
+   "inputs": {
+    "False": {
+     "linked": true,
+     "name": "False"
+    },
+    "Switch": {
+     "linked": true,
+     "name": "Switch"
+    },
+    "True": {
+     "linked": true,
+     "name": "True"
+    }
+   },
+   "label": "Key?",
+   "location": [
+    1000,
+    1340
+   ],
+   "mute": false,
+   "name": "Key?",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Key Light]",
+   "props": {
+    "input_type": "GEOMETRY"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeVectorMath",
+   "inputs": {
+    "Vector": {
+     "linked": true,
+     "name": "Vector"
+    },
+    "Vector_001": {
+     "linked": true,
+     "name": "Vector"
+    }
+   },
+   "label": "Min + Max",
+   "location": [
+    -1060,
+    -760
+   ],
+   "mute": false,
+   "name": "Min + Max",
+   "outputs": [
+    "Vector"
+   ],
+   "parent": "[Target]",
+   "props": {
+    "operation": "ADD"
+   },
+   "width": 101.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodePoints",
+   "inputs": {
+    "Count": {
+     "name": "Count",
+     "value": 0
+    },
+    "Position": {
+     "name": "Position",
+     "value": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "Radius": {
+     "name": "Radius",
+     "value": 0.1
+    }
+   },
+   "label": "Nothing",
+   "location": [
+    760,
+    1340
+   ],
+   "mute": false,
+   "name": "Nothing",
+   "outputs": [
+    "Geometry"
+   ],
+   "parent": "[Key Light]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodePoints",
+   "inputs": {
+    "Count": {
+     "name": "Count",
+     "value": 0
+    },
+    "Position": {
+     "name": "Position",
+     "value": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "Radius": {
+     "name": "Radius",
+     "value": 0.1
+    }
+   },
+   "label": "Nothing",
+   "location": [
+    760,
+    360
+   ],
+   "mute": false,
+   "name": "Nothing.001",
+   "outputs": [
+    "Geometry"
+   ],
+   "parent": "[Fill Light]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodePoints",
+   "inputs": {
+    "Count": {
+     "name": "Count",
+     "value": 0
+    },
+    "Position": {
+     "name": "Position",
+     "value": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "Radius": {
+     "name": "Radius",
+     "value": 0.1
+    }
+   },
+   "label": "Nothing",
+   "location": [
+    760,
+    -620
+   ],
+   "mute": false,
+   "name": "Nothing.002",
+   "outputs": [
+    "Geometry"
+   ],
+   "parent": "[Rim Light]",
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeVectorMath",
+   "inputs": {
+    "Scale": {
+     "linked": true,
+     "name": "Scale"
+    },
+    "Vector": {
+     "linked": true,
+     "name": "Vector"
+    }
+   },
+   "label": "Offset",
+   "location": [
+    320,
+    700
+   ],
+   "mute": false,
+   "name": "Offset",
+   "outputs": [
+    "Vector"
+   ],
+   "parent": "[Key Light]",
+   "props": {
+    "operation": "SCALE"
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeVectorMath",
+   "inputs": {
+    "Scale": {
+     "linked": true,
+     "name": "Scale"
+    },
+    "Vector": {
+     "linked": true,
+     "name": "Vector"
+    }
+   },
+   "label": "Offset",
+   "location": [
+    320,
+    -240
+   ],
+   "mute": false,
+   "name": "Offset.001",
+   "outputs": [
+    "Vector"
+   ],
+   "parent": "[Fill Light]",
+   "props": {
+    "operation": "SCALE"
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeVectorMath",
+   "inputs": {
+    "Scale": {
+     "linked": true,
+     "name": "Scale"
+    },
+    "Vector": {
+     "linked": true,
+     "name": "Vector"
+    }
+   },
+   "label": "Offset",
+   "location": [
+    320,
+    -1220
+   ],
+   "mute": false,
+   "name": "Offset.002",
+   "outputs": [
+    "Vector"
+   ],
+   "parent": "[Rim Light]",
+   "props": {
+    "operation": "SCALE"
+   },
+   "width": 100.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeInstanceOnPoints",
+   "inputs": {
+    "Instance": {
+     "linked": true,
+     "name": "Instance"
+    },
+    "Instance Index": {
+     "name": "Instance Index",
+     "value": 0
+    },
+    "Pick Instance": {
+     "name": "Pick Instance",
+     "value": false
+    },
+    "Points": {
+     "linked": true,
+     "name": "Points"
+    },
+    "Rotation": {
+     "linked": true,
+     "name": "Rotation"
+    },
+    "Scale": {
+     "name": "Scale",
+     "value": [
+      1.0,
+      1.0,
+      1.0
+     ]
+    },
+    "Selection": {
+     "name": "Selection",
+     "value": true
+    }
+   },
+   "label": "Place Fill",
+   "location": [
+    760,
+    140
+   ],
+   "mute": false,
+   "name": "Place Fill",
+   "outputs": [
+    "Instances"
+   ],
+   "parent": "[Fill Light]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeInstanceOnPoints",
+   "inputs": {
+    "Instance": {
+     "linked": true,
+     "name": "Instance"
+    },
+    "Instance Index": {
+     "name": "Instance Index",
+     "value": 0
+    },
+    "Pick Instance": {
+     "name": "Pick Instance",
+     "value": false
+    },
+    "Points": {
+     "linked": true,
+     "name": "Points"
+    },
+    "Rotation": {
+     "linked": true,
+     "name": "Rotation"
+    },
+    "Scale": {
+     "name": "Scale",
+     "value": [
+      1.0,
+      1.0,
+      1.0
+     ]
+    },
+    "Selection": {
+     "name": "Selection",
+     "value": true
+    }
+   },
+   "label": "Place Key",
+   "location": [
+    760,
+    1060
+   ],
+   "mute": false,
+   "name": "Place Key",
+   "outputs": [
+    "Instances"
+   ],
+   "parent": "[Key Light]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeInstanceOnPoints",
+   "inputs": {
+    "Instance": {
+     "linked": true,
+     "name": "Instance"
+    },
+    "Instance Index": {
+     "name": "Instance Index",
+     "value": 0
+    },
+    "Pick Instance": {
+     "name": "Pick Instance",
+     "value": false
+    },
+    "Points": {
+     "linked": true,
+     "name": "Points"
+    },
+    "Rotation": {
+     "linked": true,
+     "name": "Rotation"
+    },
+    "Scale": {
+     "name": "Scale",
+     "value": [
+      1.0,
+      1.0,
+      1.0
+     ]
+    },
+    "Selection": {
+     "name": "Selection",
+     "value": true
+    }
+   },
+   "label": "Place Rim",
+   "location": [
+    760,
+    -840
+   ],
+   "mute": false,
+   "name": "Place Rim",
+   "outputs": [
+    "Instances"
+   ],
+   "parent": "[Rim Light]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodePoints",
+   "inputs": {
+    "Count": {
+     "name": "Count",
+     "value": 1
+    },
+    "Position": {
+     "linked": true,
+     "name": "Position"
+    },
+    "Radius": {
+     "name": "Radius",
+     "value": 0.1
+    }
+   },
+   "label": "Point",
+   "location": [
+    560,
+    1040
+   ],
+   "mute": false,
+   "name": "Point",
+   "outputs": [
+    "Geometry"
+   ],
+   "parent": "[Key Light]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodePoints",
+   "inputs": {
+    "Count": {
+     "name": "Count",
+     "value": 1
+    },
+    "Position": {
+     "linked": true,
+     "name": "Position"
+    },
+    "Radius": {
+     "name": "Radius",
+     "value": 0.1
+    }
+   },
+   "label": "Point",
+   "location": [
+    560,
+    120
+   ],
+   "mute": false,
+   "name": "Point.001",
+   "outputs": [
+    "Geometry"
+   ],
+   "parent": "[Fill Light]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodePoints",
+   "inputs": {
+    "Count": {
+     "name": "Count",
+     "value": 1
+    },
+    "Position": {
+     "linked": true,
+     "name": "Position"
+    },
+    "Radius": {
+     "name": "Radius",
+     "value": 0.1
+    }
+   },
+   "label": "Point",
+   "location": [
+    560,
+    -860
+   ],
+   "mute": false,
+   "name": "Point.002",
+   "outputs": [
+    "Geometry"
+   ],
+   "parent": "[Rim Light]",
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeVectorMath",
+   "inputs": {
+    "Vector": {
+     "linked": true,
+     "name": "Vector"
+    },
+    "Vector_001": {
+     "linked": true,
+     "name": "Vector"
+    }
+   },
+   "label": "Position",
+   "location": [
+    320,
+    660
+   ],
+   "mute": false,
+   "name": "Position",
+   "outputs": [
+    "Vector"
+   ],
+   "parent": "[Key Light]",
+   "props": {
+    "operation": "ADD"
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeVectorMath",
+   "inputs": {
+    "Vector": {
+     "linked": true,
+     "name": "Vector"
+    },
+    "Vector_001": {
+     "linked": true,
+     "name": "Vector"
+    }
+   },
+   "label": "Position",
+   "location": [
+    320,
+    -280
+   ],
+   "mute": false,
+   "name": "Position.001",
+   "outputs": [
+    "Vector"
+   ],
+   "parent": "[Fill Light]",
+   "props": {
+    "operation": "ADD"
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeVectorMath",
+   "inputs": {
+    "Vector": {
+     "linked": true,
+     "name": "Vector"
+    },
+    "Vector_001": {
+     "linked": true,
+     "name": "Vector"
+    }
+   },
+   "label": "Position",
+   "location": [
+    320,
+    -1260
+   ],
+   "mute": false,
+   "name": "Position.002",
+   "outputs": [
+    "Vector"
+   ],
+   "parent": "[Rim Light]",
+   "props": {
+    "operation": "ADD"
+   },
+   "width": 100.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -470,
+    -512
+   ],
+   "mute": false,
+   "name": "Reroute",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Rim Light]",
+   "props": {
+    "socket_idname": "NodeSocketBool"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -480,
+    861
+   ],
+   "mute": false,
+   "name": "Reroute.001",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Key Light]",
+   "props": {
+    "socket_idname": "NodeSocketFloatAngle"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -380,
+    861
+   ],
+   "mute": false,
+   "name": "Reroute.002",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Key Light]",
+   "props": {
+    "socket_idname": "NodeSocketFloatAngle"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -480,
+    940
+   ],
+   "mute": false,
+   "name": "Reroute.003",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Key Light]",
+   "props": {
+    "socket_idname": "NodeSocketFloatAngle"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -480,
+    -90
+   ],
+   "mute": false,
+   "name": "Reroute.004",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Fill Light]",
+   "props": {
+    "socket_idname": "NodeSocketFloatAngle"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -380,
+    -90
+   ],
+   "mute": false,
+   "name": "Reroute.005",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Fill Light]",
+   "props": {
+    "socket_idname": "NodeSocketFloatAngle"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -480,
+    -10
+   ],
+   "mute": false,
+   "name": "Reroute.006",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Fill Light]",
+   "props": {
+    "socket_idname": "NodeSocketFloatAngle"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -480,
+    -1150
+   ],
+   "mute": false,
+   "name": "Reroute.007",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Rim Light]",
+   "props": {
+    "socket_idname": "NodeSocketFloatAngle"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -380,
+    -1150
+   ],
+   "mute": false,
+   "name": "Reroute.008",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Rim Light]",
+   "props": {
+    "socket_idname": "NodeSocketFloatAngle"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -480,
+    -977
+   ],
+   "mute": false,
+   "name": "Reroute.009",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Rim Light]",
+   "props": {
+    "socket_idname": "NodeSocketFloatAngle"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -480,
+    152
+   ],
+   "mute": false,
+   "name": "Reroute.010",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Fill Light]",
+   "props": {
+    "socket_idname": "NodeSocketObject"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    23,
+    993
+   ],
+   "mute": false,
+   "name": "Reroute.011",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Key Light]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    23,
+    53
+   ],
+   "mute": false,
+   "name": "Reroute.012",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Fill Light]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    23,
+    -927
+   ],
+   "mute": false,
+   "name": "Reroute.013",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Rim Light]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    23,
+    766
+   ],
+   "mute": false,
+   "name": "Reroute.014",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Key Light]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    23,
+    -204
+   ],
+   "mute": false,
+   "name": "Reroute.015",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Fill Light]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    440,
+    -515
+   ],
+   "mute": false,
+   "name": "Reroute.016",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Rim Light]",
+   "props": {
+    "socket_idname": "NodeSocketBool"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -480,
+    -1217
+   ],
+   "mute": false,
+   "name": "Reroute.017",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Rim Light]",
+   "props": {
+    "socket_idname": "NodeSocketFloatDistance"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    900,
+    1371
+   ],
+   "mute": false,
+   "name": "Reroute.018",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Key Light]",
+   "props": {
+    "socket_idname": "NodeSocketBool"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -480,
+    396
+   ],
+   "mute": false,
+   "name": "Reroute.019",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Fill Light]",
+   "props": {
+    "socket_idname": "NodeSocketBool"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    700,
+    198
+   ],
+   "mute": false,
+   "name": "Reroute.020",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Fill Light]",
+   "props": {
+    "socket_idname": "NodeSocketGeometry"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    900,
+    400
+   ],
+   "mute": false,
+   "name": "Reroute.021",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Fill Light]",
+   "props": {
+    "socket_idname": "NodeSocketBool"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -470,
+    1389
+   ],
+   "mute": false,
+   "name": "Reroute.022",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Key Light]",
+   "props": {
+    "socket_idname": "NodeSocketBool"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    430,
+    1389
+   ],
+   "mute": false,
+   "name": "Reroute.023",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Key Light]",
+   "props": {
+    "socket_idname": "NodeSocketBool"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    690,
+    1178
+   ],
+   "mute": false,
+   "name": "Reroute.024",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Key Light]",
+   "props": {
+    "socket_idname": "NodeSocketGeometry"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -470,
+    1367
+   ],
+   "mute": false,
+   "name": "Reroute.025",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Key Light]",
+   "props": {
+    "socket_idname": "NodeSocketBool"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -480,
+    423
+   ],
+   "mute": false,
+   "name": "Reroute.026",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Fill Light]",
+   "props": {
+    "socket_idname": "NodeSocketBool"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    440,
+    410
+   ],
+   "mute": false,
+   "name": "Reroute.027",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Fill Light]",
+   "props": {
+    "socket_idname": "NodeSocketBool"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    690,
+    -722
+   ],
+   "mute": false,
+   "name": "Reroute.028",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Rim Light]",
+   "props": {
+    "socket_idname": "NodeSocketGeometry"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -470,
+    -536
+   ],
+   "mute": false,
+   "name": "Reroute.029",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Rim Light]",
+   "props": {
+    "socket_idname": "NodeSocketBool"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    900,
+    -536
+   ],
+   "mute": false,
+   "name": "Reroute.030",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Rim Light]",
+   "props": {
+    "socket_idname": "NodeSocketBool"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -866,
+    651
+   ],
+   "mute": false,
+   "name": "Reroute.031",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketVector"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    230,
+    638
+   ],
+   "mute": false,
+   "name": "Reroute.032",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Key Light]",
+   "props": {
+    "socket_idname": "NodeSocketVector"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -866,
+    -1267
+   ],
+   "mute": false,
+   "name": "Reroute.033",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketVector"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    230,
+    -1282
+   ],
+   "mute": false,
+   "name": "Reroute.034",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Rim Light]",
+   "props": {
+    "socket_idname": "NodeSocketVector"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeObjectInfo",
+   "inputs": {
+    "As Instance": {
+     "name": "As Instance",
+     "value": true
+    },
+    "Object": {
+     "linked": true,
+     "name": "Object"
+    }
+   },
+   "label": "Rim Object",
+   "location": [
+    -300,
+    -600
+   ],
+   "mute": false,
+   "name": "Rim Object",
+   "outputs": [
+    "Transform",
+    "Location",
+    "Rotation",
+    "Scale",
+    "Geometry"
+   ],
+   "parent": "[Rim Light]",
+   "props": {
+    "transform_space": "ORIGINAL"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSwitch",
+   "inputs": {
+    "False": {
+     "linked": true,
+     "name": "False"
+    },
+    "Switch": {
+     "linked": true,
+     "name": "Switch"
+    },
+    "True": {
+     "linked": true,
+     "name": "True"
+    }
+   },
+   "label": "Rim?",
+   "location": [
+    1000,
+    -620
+   ],
+   "mute": false,
+   "name": "Rim?",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Rim Light]",
+   "props": {
+    "input_type": "GEOMETRY"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSwitch",
+   "inputs": {
+    "False": {
+     "name": "False",
+     "value": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "Switch": {
+     "linked": true,
+     "name": "Switch"
+    },
+    "True": {
+     "linked": true,
+     "name": "True"
+    }
+   },
+   "label": "Rotation",
+   "location": [
+    560,
+    880
+   ],
+   "mute": false,
+   "name": "Rotation",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Key Light]",
+   "props": {
+    "input_type": "ROTATION"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSwitch",
+   "inputs": {
+    "False": {
+     "name": "False",
+     "value": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "Switch": {
+     "linked": true,
+     "name": "Switch"
+    },
+    "True": {
+     "linked": true,
+     "name": "True"
+    }
+   },
+   "label": "Rotation",
+   "location": [
+    560,
+    -40
+   ],
+   "mute": false,
+   "name": "Rotation.001",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Fill Light]",
+   "props": {
+    "input_type": "ROTATION"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeSwitch",
+   "inputs": {
+    "False": {
+     "name": "False",
+     "value": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "Switch": {
+     "linked": true,
+     "name": "Switch"
+    },
+    "True": {
+     "linked": true,
+     "name": "True"
+    }
+   },
+   "label": "Rotation",
+   "location": [
+    560,
+    -1020
+   ],
+   "mute": false,
+   "name": "Rotation.002",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Rim Light]",
+   "props": {
+    "input_type": "ROTATION"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeBoundBox",
+   "inputs": {
+    "Geometry": {
+     "linked": true,
+     "name": "Geometry"
+    },
+    "Use Radius": {
+     "name": "Use Radius",
+     "value": true
+    }
+   },
+   "label": "Target Bounds",
+   "location": [
+    -1260,
+    -700
+   ],
+   "mute": false,
+   "name": "Target Bounds",
+   "outputs": [
+    "Bounding Box",
+    "Min",
+    "Max"
+   ],
+   "parent": "[Target]",
+   "width": 140.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeVectorMath",
+   "inputs": {
+    "Scale": {
+     "name": "Scale",
+     "value": 0.5
+    },
+    "Vector": {
+     "linked": true,
+     "name": "Vector"
+    }
+   },
+   "label": "Target Centre",
+   "location": [
+    -1080,
+    -800
+   ],
+   "mute": false,
+   "name": "Target Centre",
+   "outputs": [
+    "Vector"
+   ],
+   "parent": "[Target]",
+   "props": {
+    "operation": "SCALE"
+   },
+   "width": 118.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeObjectInfo",
+   "inputs": {
+    "As Instance": {
+     "name": "As Instance",
+     "value": false
+    },
+    "Object": {
+     "linked": true,
+     "name": "Object"
+    }
+   },
+   "label": "Target Info",
+   "location": [
+    -1440,
+    -700
+   ],
+   "mute": false,
+   "name": "Target Info",
+   "outputs": [
+    "Transform",
+    "Location",
+    "Rotation",
+    "Scale",
+    "Geometry"
+   ],
+   "parent": "[Target]",
+   "props": {
+    "transform_space": "RELATIVE"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Fill Light",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Fill Light]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Key Light",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Key Light]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Rig",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Rig]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Rim Light",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Rim Light]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Target",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Target]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "cos Angle",
+   "location": [
+    -80,
+    940
+   ],
+   "mute": false,
+   "name": "cos Angle",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Key Light]",
+   "props": {
+    "operation": "COSINE",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "cos Angle",
+   "location": [
+    -80,
+    0
+   ],
+   "mute": false,
+   "name": "cos Angle.001",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Fill Light]",
+   "props": {
+    "operation": "COSINE",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "cos Angle",
+   "location": [
+    -80,
+    -980
+   ],
+   "mute": false,
+   "name": "cos Angle.002",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Rim Light]",
+   "props": {
+    "operation": "COSINE",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "cos Elevation",
+   "location": [
+    -280,
+    1040
+   ],
+   "mute": false,
+   "name": "cos Elevation",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Key Light]",
+   "props": {
+    "operation": "COSINE",
+    "use_clamp": false
+   },
+   "width": 117.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "cos Elevation",
+   "location": [
+    -280,
+    100
+   ],
+   "mute": false,
+   "name": "cos Elevation.001",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Fill Light]",
+   "props": {
+    "operation": "COSINE",
+    "use_clamp": false
+   },
+   "width": 117.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "cos Elevation",
+   "location": [
+    -280,
+    -860
+   ],
+   "mute": false,
+   "name": "cos Elevation.002",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Rim Light]",
+   "props": {
+    "operation": "COSINE",
+    "use_clamp": false
+   },
+   "width": 117.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "sin Angle",
+   "location": [
+    -480,
+    1020
+   ],
+   "mute": false,
+   "name": "sin Angle",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Key Light]",
+   "props": {
+    "operation": "SINE",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "sin Angle",
+   "location": [
+    -480,
+    60
+   ],
+   "mute": false,
+   "name": "sin Angle.001",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Fill Light]",
+   "props": {
+    "operation": "SINE",
+    "use_clamp": false
+   },
+   "width": 100.0
+  },
+  {
+   "hide": true,
+   "idname": "ShaderNodeMath",
+   "inputs": {
+    "Value": {
+     "linked": true,
+     "name": "Value"
+    }
+   },
+   "label": "sin Angle",
+   "location": [
+    -480,
+    -900
+   ],
+   "mute": false,
+   "name": "sin Angle.002",
+   "outputs": [
+    "Value"
+   ],
+   "parent": "[Rim Light]",
+   "props": {
+    "operation": "SINE",
+    "use_clamp": false
+   },
+   "width": 100.0
+  }
+ ],
+ "tree_type": "GeometryNodeTree"
+}

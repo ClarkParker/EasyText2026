@@ -39,6 +39,12 @@ Plate (switch **Plate**): a rounded base plate behind the text, sized from the t
 thickness, a bevelled rim, a gap to the text and an optional relief that rises around the letters; own UVMap and
 material slot. The v2.1 "Beveled Plate" without the dense grid.
 
+Scene: the demo file comes with a **camera orbit** (a path around the text, Follow Path with a keyframed offset,
+Track To the text) and a **light rig**: the node group `ET Light Rig` on an Empty instances three light objects
+(key, fill, rim) around the target and aims them, with angle, elevation and distance per light. Instanced lights
+render in Cycles (verified headless) and EEVEE. Both rigs are created by `easytext_build.rigs`, which the extension
+reuses.
+
 Animation (switch **Animate**): every letter, word or line gets its own local time from Start, Duration, Stagger and
 Order (left to right, right to left, centre out, random), an easing (linear, ease in/out, in-out, overshoot) and a
 loop mode, and travels from its start state (Offset, Rotation, Scale around the glyph, word, line or text pivot)

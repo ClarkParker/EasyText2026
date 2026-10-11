@@ -5,6 +5,7 @@ from . import (
     et_bevel,
     et_easy_text,
     et_finish,
+    et_light_rig,
     et_lines_join,
     et_mesh_generation,
     et_outline,
@@ -28,6 +29,7 @@ MODULES = [
     et_animation,
     et_text_mesh,
     et_easy_text,
+    et_light_rig,
 ]
 PANEL = et_easy_text.NAME
 MAIN = et_text_mesh.NAME

@@ -93,7 +93,9 @@ remain unchanged.
 | `ET Scramble` | Animators | 2 | Replace characters with random characters before fading in (string nodes, Index Switch). |
 | `ET Plate` (SDF halo) | Mesh | 5 | Optional later variant: plate outline following the letters via Mesh to SDF Grid → Grid to Mesh with offset threshold. |
 | `ET Outline` | Mesh | 5 | Outline via Curve to Mesh (profile) or SDF. |
-| `ET Fit Camera` | Scene | 3 | Helper group: bounding box → distance/ortho scale for the camera operator (Camera Info). |
+| `ET Light Rig` | Scene | 3 (built) | Modifier for an Empty: instances of key, fill and rim light objects on a sphere around the target's bounds, aimed at the centre; angle, elevation, distance and a switch per light. |
+| camera orbit | Scene | 3 (built, Python) | `rigs.add_camera_orbit`: poly-curve arc around the target, Follow Path (fixed location, keyframed offset) + Track To. Plain Blender, no node asset needed; the extension calls the same function. |
+| `ET Fit Camera` | Scene | 4 | Operator in the extension: `camera_fit_coords` on the text bounds. |
 
 Presets in `ET Text` are fixed combinations: a preset menu (Menu Switch) selects selector + animator parameters.
 Users with a node editor assemble the groups directly.
