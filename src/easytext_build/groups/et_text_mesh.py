@@ -1,80 +1,15 @@
-"""ET Text Mesh: text -> clean, export-ready mesh with UVs (core of Easy Text v3, no animation yet).
+"""ET Text Mesh: text -> clean, export-ready mesh with UVs, as one node group for the properties editor.
 
-Six stages, left to right, each one a frame with a single sub-group node: Text Source, Outline Clean, Solid,
-Bevel, Text UV and Finish. `build_pipeline` wires the stages and is shared with the Easy Text control panel,
-which feeds the same pipeline from value nodes instead of the group interface.
+Its inputs are the modifier panels; inside, the same three nodes as the Easy Text control panel do the work:
+Lines Join, Text Source ("Text Settings") and Mesh Generation.
 """
 
 from .. import catalog, materials
-from ..core import GroupBuilder, SocketRef, builtin_font
-from . import et_bevel, et_finish, et_outline, et_solid, et_text_source, et_uv
+from ..core import GroupBuilder, builtin_font
+from . import et_lines_join, et_mesh_generation, et_text_source
 
 NAME = "ET Text Mesh"
-
-
-def _wire(gi: dict, names) -> dict:
-    """Only the inputs the provider has; a provider may leave some out (the panel has no Line 2-4)."""
-    return {n: gi[n] for n in names if n in gi}
-
-
-def build_pipeline(g: GroupBuilder, provide) -> SocketRef:
-    """The six stages. `provide(stage, *names)` returns {name: SocketRef} for the inputs a stage needs: local
-    Group Input copies in ET Text Mesh, value nodes (controls) in the Easy Text panel. Returns the final mesh."""
-    with g.frame("Text"):
-        names = et_text_source.LINE_INPUTS + et_text_source.TYPOGRAPHY_INPUTS
-        gi = provide("Text", *names)
-        curves = g.group(et_text_source.NAME, inputs=_wire(gi, names))["Curves"]
-
-    with g.frame("Outline"):
-        gi = provide("Outline", "Resolution", "Simplify")
-        outline = g.group(et_outline.NAME, inputs={"Curves": curves, **_wire(gi, ("Resolution", "Simplify"))})["Curves"]
-
-    with g.frame("Solid"):
-        # Depth last: in the panel it sits closest to the bus that carries it on to Bevel and UV.
-        gi = provide("Solid", "Fill Mode", "Fill Rule", "Front Material", "Depth")
-        solid = g.group(
-            et_solid.NAME,
-            inputs={"Curves": outline, **_wire(gi, ("Fill Mode", "Fill Rule", "Front Material", "Depth"))},
-        )["Mesh"]
-
-    with g.frame("Bevel"):
-        gi = provide("Bevel", "Bevel", "Bevel Width", "Segments", "Profile", "Depth")
-        bevel = g.group(
-            et_bevel.NAME,
-            inputs={
-                "Mesh": solid,
-                "Bevel": gi["Bevel"],
-                "Width": gi["Bevel Width"],
-                "Segments": gi["Segments"],
-                "Profile": gi["Profile"],
-                "Depth": gi["Depth"],
-            },
-        )
-
-    with g.frame("UV"):
-        gi = provide("UV", "UV", "Normalize to Text", "UV Scale", "Depth")
-        mesh = g.group(
-            et_uv.NAME,
-            inputs={
-                "Mesh": bevel["Mesh"],
-                "UV": gi["UV"],
-                "Depth": gi["Depth"],
-                "Radius": bevel["Radius"],
-                "Normalize to Text": gi["Normalize to Text"],
-                "Scale": gi["UV Scale"],
-            },
-        )["Mesh"]
-
-    with g.frame("Finish"):
-        gi = provide("Finish", "Side Material", "Bevel Material", "Smooth Angle", "Keep Helper Attributes")
-        final = g.group(
-            et_finish.NAME,
-            inputs={
-                "Mesh": mesh,
-                **_wire(gi, ("Side Material", "Bevel Material", "Smooth Angle", "Keep Helper Attributes")),
-            },
-        )["Mesh"]
-    return final
+LINE_INPUTS = ("Text", "Line 2", "Line 3", "Line 4")
 
 
 def build():
@@ -172,7 +107,28 @@ def build():
     ):
         g.menu_default(name, value)
 
-    # ------------------------------------------------------------------ Stages: local Group Input copies
-    final = build_pipeline(g, lambda stage, *names: g.inputs(*names, label=stage))
-    g.set_output("Geometry", final)
+    # ------------------------------------------------------------------ Text: lines -> glyph curves
+    with g.frame("Text"):
+        gi = g.inputs(*LINE_INPUTS, label="Lines")
+        joined = g.group(
+            et_lines_join.NAME,
+            "Lines Join",
+            inputs={f"Line {i}": gi[name] for i, name in enumerate(LINE_INPUTS, start=1)},
+        )["String"]
+        gi = g.inputs(*et_text_source.TYPOGRAPHY_INPUTS, label="Typography")
+        curves = g.group(
+            et_text_source.NAME,
+            "Text Source",
+            inputs={"Text": joined, **{name: gi[name] for name in et_text_source.TYPOGRAPHY_INPUTS}},
+        )["Curves"]
+
+    # ------------------------------------------------------------------ Mesh: curves -> finished mesh
+    with g.frame("Mesh"):
+        gi = g.inputs(*et_mesh_generation.MESH_INPUTS, label="Mesh")
+        mesh = g.group(
+            et_mesh_generation.NAME,
+            "Mesh Generation",
+            inputs={"Curves": curves, **{name: gi[name] for name in et_mesh_generation.MESH_INPUTS}},
+        )["Mesh"]
+    g.set_output("Geometry", mesh)
     return g.finish()

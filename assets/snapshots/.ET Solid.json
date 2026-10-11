@@ -197,8 +197,8 @@
   [
    "Flip Back",
    "Mesh",
-   "Join Solid",
-   "Geometry"
+   "Reroute.007",
+   "Input"
   ],
   [
    "Front Material Fallback",
@@ -389,13 +389,19 @@
   [
    "Reroute.007",
    "Output",
+   "Join Solid",
+   "Geometry"
+  ],
+  [
+   "Reroute.008",
+   "Output",
    "Store et_u",
    "Geometry"
   ],
   [
    "Set Front Material",
    "Geometry",
-   "Reroute.007",
+   "Reroute.008",
    "Input"
   ],
   [
@@ -460,8 +466,8 @@
    },
    "label": "Close Solid",
    "location": [
-    1960,
-    80
+    1920,
+    0
    ],
    "mute": false,
    "name": "Close Solid",
@@ -502,8 +508,8 @@
    },
    "label": "Extrude",
    "location": [
-    1180,
-    20
+    1140,
+    120
    ],
    "mute": false,
    "name": "Extrude",
@@ -533,7 +539,7 @@
    },
    "label": "Face +Z",
    "location": [
-    -1120,
+    -1180,
     120
    ],
    "mute": false,
@@ -559,7 +565,7 @@
    },
    "label": "Faces Down",
    "location": [
-    -1320,
+    -1360,
     -60
    ],
    "mute": false,
@@ -594,7 +600,7 @@
    },
    "label": "Fetch et_char_index",
    "location": [
-    0,
+    -40,
     -300
    ],
    "mute": false,
@@ -629,7 +635,7 @@
    },
    "label": "Fetch et_loop_len",
    "location": [
-    0,
+    -40,
     80
    ],
    "mute": false,
@@ -664,7 +670,7 @@
    },
    "label": "Fetch et_u",
    "location": [
-    0,
+    -40,
     300
    ],
    "mute": false,
@@ -703,7 +709,7 @@
    },
    "label": "Fill",
    "location": [
-    -1320,
+    -1380,
     120
    ],
    "mute": false,
@@ -729,8 +735,8 @@
    },
    "label": "Flip Back",
    "location": [
-    1180,
-    120
+    1140,
+    -140
    ],
    "mute": false,
    "name": "Flip Back",
@@ -762,7 +768,7 @@
    },
    "label": "Front Material Fallback",
    "location": [
-    -1120,
+    -1180,
     -60
    ],
    "mute": false,
@@ -791,7 +797,7 @@
    },
    "label": "Front Material Is None",
    "location": [
-    -1340,
+    -1380,
     -120
    ],
    "mute": false,
@@ -830,8 +836,8 @@
    },
    "label": "Group Back",
    "location": [
-    980,
-    80
+    920,
+    0
    ],
    "mute": false,
    "name": "Group Back",
@@ -868,8 +874,8 @@
    },
    "label": "Group Front",
    "location": [
-    1360,
-    20
+    1320,
+    120
    ],
    "mute": false,
    "name": "Group Front",
@@ -889,7 +895,7 @@
    "inputs": {},
    "label": "",
    "location": [
-    -600,
+    -640,
     -100
    ],
    "mute": false,
@@ -911,7 +917,7 @@
    "inputs": {},
    "label": "",
    "location": [
-    -1540,
+    -1580,
     120
    ],
    "mute": false,
@@ -933,8 +939,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    980,
-    -120
+    940,
+    120
    ],
    "mute": false,
    "name": "Group Input (Depth)",
@@ -963,8 +969,8 @@
    },
    "label": "",
    "location": [
-    2160,
-    80
+    2140,
+    0
    ],
    "mute": false,
    "name": "Group Output",
@@ -998,8 +1004,8 @@
    },
    "label": "Group Side",
    "location": [
-    1580,
-    20
+    1540,
+    120
    ],
    "mute": false,
    "name": "Group Side",
@@ -1024,8 +1030,8 @@
    },
    "label": "Join Solid",
    "location": [
-    1780,
-    80
+    1740,
+    0
    ],
    "mute": false,
    "name": "Join Solid",
@@ -1050,7 +1056,7 @@
    },
    "label": "Nearest Outline Point",
    "location": [
-    -220,
+    -260,
     -240
    ],
    "mute": false,
@@ -1070,7 +1076,7 @@
    "inputs": {},
    "label": "",
    "location": [
-    -1720,
+    -1760,
     -40
    ],
    "mute": false,
@@ -1096,7 +1102,7 @@
    },
    "label": "Normal XYZ",
    "location": [
-    -1520,
+    -1580,
     -80
    ],
    "mute": false,
@@ -1120,7 +1126,7 @@
    },
    "label": "Outline Points",
    "location": [
-    -420,
+    -460,
     -100
    ],
    "mute": false,
@@ -1143,7 +1149,7 @@
    "inputs": {},
    "label": "",
    "location": [
-    -420,
+    -460,
     -300
    ],
    "mute": false,
@@ -1165,7 +1171,7 @@
    },
    "label": "",
    "location": [
-    -220,
+    -260,
     -46
    ],
    "mute": false,
@@ -1190,7 +1196,7 @@
    },
    "label": "",
    "location": [
-    -80,
+    -120,
     -46
    ],
    "mute": false,
@@ -1215,7 +1221,7 @@
    },
    "label": "",
    "location": [
-    -1340,
+    -1380,
     -181
    ],
    "mute": false,
@@ -1240,7 +1246,7 @@
    },
    "label": "",
    "location": [
-    -1175,
+    -1215,
     -181
    ],
    "mute": false,
@@ -1265,7 +1271,7 @@
    },
    "label": "",
    "location": [
-    550,
+    510,
     -335
    ],
    "mute": false,
@@ -1290,8 +1296,8 @@
    },
    "label": "",
    "location": [
-    1370,
-    -210
+    1330,
+    -118
    ],
    "mute": false,
    "name": "Reroute.005",
@@ -1315,8 +1321,8 @@
    },
    "label": "",
    "location": [
-    1520,
-    -210
+    1480,
+    -118
    ],
    "mute": false,
    "name": "Reroute.006",
@@ -1340,11 +1346,36 @@
    },
    "label": "",
    "location": [
-    -720,
-    341
+    1690,
+    -175
    ],
    "mute": false,
    "name": "Reroute.007",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Back Face + Extrude]",
+   "props": {
+    "socket_idname": "NodeSocketGeometry"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -760,
+    341
+   ],
+   "mute": false,
+   "name": "Reroute.008",
    "outputs": [
     "Output"
    ],
@@ -1373,7 +1404,7 @@
    },
    "label": "Set Front Material",
    "location": [
-    -940,
+    -980,
     120
    ],
    "mute": false,
@@ -1407,7 +1438,7 @@
    },
    "label": "Store et_char_index",
    "location": [
-    600,
+    560,
     420
    ],
    "mute": false,
@@ -1445,7 +1476,7 @@
    },
    "label": "Store et_loop_len",
    "location": [
-    400,
+    360,
     420
    ],
    "mute": false,
@@ -1483,7 +1514,7 @@
    },
    "label": "Store et_u",
    "location": [
-    180,
+    140,
     420
    ],
    "mute": false,
@@ -1566,7 +1597,7 @@
    },
    "label": "et_char_index (points)",
    "location": [
-    -220,
+    -260,
     -400
    ],
    "mute": false,
@@ -1592,7 +1623,7 @@
    },
    "label": "et_loop_len (points)",
    "location": [
-    -220,
+    -260,
     -80
    ],
    "mute": false,
@@ -1618,7 +1649,7 @@
    },
    "label": "et_u (points)",
    "location": [
-    -220,
+    -260,
     300
    ],
    "mute": false,

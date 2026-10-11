@@ -1,9 +1,9 @@
 {
  "asset_catalog_id": null,
- "description": "Up to four lines of text as realized glyph curves with et_char_index.",
+ "description": "Text as realized glyph curves with et_char_index; font, alignment, spacing and text box.",
  "flags": {
   "color_tag": "NONE",
-  "default_group_node_width": 200,
+  "default_group_node_width": 300,
   "is_modifier": false,
   "is_tool": false
  },
@@ -15,7 +15,7 @@
    "description": "",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_15",
+   "identifier": "Socket_16",
    "in_out": "OUTPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -32,10 +32,10 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": 0,
-   "description": "Number of characters in the joined text.",
+   "description": "Number of characters in the text.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_16",
+   "identifier": "Socket_17",
    "in_out": "OUTPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -55,7 +55,7 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": "Easy Text",
-   "description": "",
+   "description": "The text; line breaks start new lines.",
    "hide_in_modifier": false,
    "hide_value": false,
    "identifier": "Socket_0",
@@ -72,67 +72,11 @@
    "subtype": "NONE"
   },
   {
-   "attribute_domain": "POINT",
-   "default_attribute_name": "",
-   "default_input": "VALUE",
-   "default_value": "",
+   "default_closed": false,
    "description": "",
-   "hide_in_modifier": false,
-   "hide_value": false,
-   "identifier": "Socket_1",
-   "in_out": "INPUT",
-   "is_panel_toggle": false,
-   "item_type": "SOCKET",
-   "layer_selection_field": false,
-   "menu_expanded": false,
-   "name": "Line 2",
-   "optional_label": false,
-   "parent": null,
-   "socket_type": "NodeSocketString",
-   "structure_type": "AUTO",
-   "subtype": "NONE"
-  },
-  {
-   "attribute_domain": "POINT",
-   "default_attribute_name": "",
-   "default_input": "VALUE",
-   "default_value": "",
-   "description": "",
-   "hide_in_modifier": false,
-   "hide_value": false,
-   "identifier": "Socket_2",
-   "in_out": "INPUT",
-   "is_panel_toggle": false,
-   "item_type": "SOCKET",
-   "layer_selection_field": false,
-   "menu_expanded": false,
-   "name": "Line 3",
-   "optional_label": false,
-   "parent": null,
-   "socket_type": "NodeSocketString",
-   "structure_type": "AUTO",
-   "subtype": "NONE"
-  },
-  {
-   "attribute_domain": "POINT",
-   "default_attribute_name": "",
-   "default_input": "VALUE",
-   "default_value": "",
-   "description": "",
-   "hide_in_modifier": false,
-   "hide_value": false,
-   "identifier": "Socket_3",
-   "in_out": "INPUT",
-   "is_panel_toggle": false,
-   "item_type": "SOCKET",
-   "layer_selection_field": false,
-   "menu_expanded": false,
-   "name": "Line 4",
-   "optional_label": false,
-   "parent": null,
-   "socket_type": "NodeSocketString",
-   "structure_type": "AUTO",
-   "subtype": "NONE"
+   "item_type": "PANEL",
+   "name": "-=| Font |=-",
+   "parent": null
   },
   {
    "attribute_domain": "POINT",
@@ -142,10 +86,10 @@
     "id": "Bfont Regular",
     "type": "VectorFont"
    },
-   "description": "",
+   "description": "Font data-block.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_4",
+   "identifier": "Socket_2",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -153,7 +97,7 @@
    "menu_expanded": false,
    "name": "Font",
    "optional_label": false,
-   "parent": null,
+   "parent": "-=| Font |=-",
    "socket_type": "NodeSocketFont",
    "structure_type": "AUTO"
   },
@@ -162,10 +106,10 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": 1.0,
-   "description": "",
+   "description": "Font size.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_5",
+   "identifier": "Socket_3",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -175,20 +119,27 @@
    "min_value": 0.001,
    "name": "Size",
    "optional_label": false,
-   "parent": null,
+   "parent": "-=| Font |=-",
    "socket_type": "NodeSocketFloat",
    "structure_type": "AUTO",
    "subtype": "DISTANCE"
+  },
+  {
+   "default_closed": false,
+   "description": "",
+   "item_type": "PANEL",
+   "name": "-=| Alignment |=-",
+   "parent": null
   },
   {
    "attribute_domain": "POINT",
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": "Center",
-   "description": "",
+   "description": "Horizontal alignment of the lines.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_6",
+   "identifier": "Socket_5",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -196,7 +147,7 @@
    "menu_expanded": false,
    "name": "Align X",
    "optional_label": false,
-   "parent": null,
+   "parent": "-=| Alignment |=-",
    "socket_type": "NodeSocketMenu",
    "structure_type": "AUTO"
   },
@@ -205,10 +156,10 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": "Middle",
-   "description": "",
+   "description": "Vertical alignment of the text block.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_7",
+   "identifier": "Socket_6",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -216,7 +167,7 @@
    "menu_expanded": false,
    "name": "Align Y",
    "optional_label": false,
-   "parent": null,
+   "parent": "-=| Alignment |=-",
    "socket_type": "NodeSocketMenu",
    "structure_type": "AUTO"
   },
@@ -225,10 +176,10 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": "Midpoint",
-   "description": "",
+   "description": "Origin of the text block.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_8",
+   "identifier": "Socket_7",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -236,16 +187,23 @@
    "menu_expanded": false,
    "name": "Pivot",
    "optional_label": false,
-   "parent": null,
+   "parent": "-=| Alignment |=-",
    "socket_type": "NodeSocketMenu",
    "structure_type": "AUTO"
+  },
+  {
+   "default_closed": false,
+   "description": "",
+   "item_type": "PANEL",
+   "name": "-=| Spacing |=-",
+   "parent": null
   },
   {
    "attribute_domain": "POINT",
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": 1.0,
-   "description": "",
+   "description": "Spacing factor between characters.",
    "hide_in_modifier": false,
    "hide_value": false,
    "identifier": "Socket_9",
@@ -258,7 +216,7 @@
    "min_value": 0.0,
    "name": "Character Spacing",
    "optional_label": false,
-   "parent": null,
+   "parent": "-=| Spacing |=-",
    "socket_type": "NodeSocketFloat",
    "structure_type": "AUTO",
    "subtype": "NONE"
@@ -268,7 +226,7 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": 1.0,
-   "description": "",
+   "description": "Spacing factor between words.",
    "hide_in_modifier": false,
    "hide_value": false,
    "identifier": "Socket_10",
@@ -281,7 +239,7 @@
    "min_value": 0.0,
    "name": "Word Spacing",
    "optional_label": false,
-   "parent": null,
+   "parent": "-=| Spacing |=-",
    "socket_type": "NodeSocketFloat",
    "structure_type": "AUTO",
    "subtype": "NONE"
@@ -291,7 +249,7 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": 1.0,
-   "description": "",
+   "description": "Spacing factor between lines.",
    "hide_in_modifier": false,
    "hide_value": false,
    "identifier": "Socket_11",
@@ -304,40 +262,24 @@
    "min_value": 0.0,
    "name": "Line Spacing",
    "optional_label": false,
-   "parent": null,
+   "parent": "-=| Spacing |=-",
    "socket_type": "NodeSocketFloat",
    "structure_type": "AUTO",
    "subtype": "NONE"
   },
   {
-   "attribute_domain": "POINT",
-   "default_attribute_name": "",
-   "default_input": "VALUE",
-   "default_value": 0.0,
-   "description": "",
-   "hide_in_modifier": false,
-   "hide_value": false,
-   "identifier": "Socket_12",
-   "in_out": "INPUT",
-   "is_panel_toggle": false,
-   "item_type": "SOCKET",
-   "layer_selection_field": false,
-   "max_value": 1000.0,
-   "menu_expanded": false,
-   "min_value": 0.0,
-   "name": "Box Width",
-   "optional_label": false,
-   "parent": null,
-   "socket_type": "NodeSocketFloat",
-   "structure_type": "AUTO",
-   "subtype": "DISTANCE"
+   "default_closed": true,
+   "description": "Wrapping and overflow.",
+   "item_type": "PANEL",
+   "name": "-=| Text Box |=-",
+   "parent": null
   },
   {
    "attribute_domain": "POINT",
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": 0.0,
-   "description": "",
+   "description": "0 = no wrapping.",
    "hide_in_modifier": false,
    "hide_value": false,
    "identifier": "Socket_13",
@@ -348,9 +290,32 @@
    "max_value": 1000.0,
    "menu_expanded": false,
    "min_value": 0.0,
+   "name": "Box Width",
+   "optional_label": false,
+   "parent": "-=| Text Box |=-",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.0,
+   "description": "0 = unlimited.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_14",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 1000.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
    "name": "Box Height",
    "optional_label": false,
-   "parent": null,
+   "parent": "-=| Text Box |=-",
    "socket_type": "NodeSocketFloat",
    "structure_type": "AUTO",
    "subtype": "DISTANCE"
@@ -360,10 +325,10 @@
    "default_attribute_name": "",
    "default_input": "VALUE",
    "default_value": "Overflow",
-   "description": "",
+   "description": "What happens when the text does not fit the box.",
    "hide_in_modifier": false,
    "hide_value": false,
-   "identifier": "Socket_14",
+   "identifier": "Socket_15",
    "in_out": "INPUT",
    "is_panel_toggle": false,
    "item_type": "SOCKET",
@@ -371,7 +336,7 @@
    "menu_expanded": false,
    "name": "Overflow",
    "optional_label": false,
-   "parent": null,
+   "parent": "-=| Text Box |=-",
    "socket_type": "NodeSocketMenu",
    "structure_type": "AUTO"
   }
@@ -380,19 +345,19 @@
   [
    "Character Count",
    "Length",
-   "Reroute.008",
+   "Reroute.010",
    "Input"
   ],
   [
    "Curves",
    "Output",
    "Group Output",
-   "Socket_15"
+   "Socket_16"
   ],
   [
    "Font Fallback",
    "Output",
-   "Reroute.004",
+   "Reroute.006",
    "Input"
   ],
   [
@@ -403,39 +368,27 @@
   ],
   [
    "Group Input (Font)",
-   "Socket_4",
+   "Socket_2",
    "Font Is None",
    "A"
   ],
   [
    "Group Input (Font)",
-   "Socket_4",
-   "Reroute",
+   "Socket_2",
+   "Reroute.002",
    "Input"
   ],
   [
-   "Group Input (Lines)",
+   "Group Input (Text)",
    "Socket_0",
-   "Lines Join",
-   "Socket_0"
+   "Character Count",
+   "String"
   ],
   [
-   "Group Input (Lines)",
-   "Socket_1",
-   "Lines Join",
-   "Socket_1"
-  ],
-  [
-   "Group Input (Lines)",
-   "Socket_2",
-   "Lines Join",
-   "Socket_2"
-  ],
-  [
-   "Group Input (Lines)",
-   "Socket_3",
-   "Lines Join",
-   "Socket_3"
+   "Group Input (Text)",
+   "Socket_0",
+   "Reroute",
+   "Input"
   ],
   [
    "Group Input (Typography)",
@@ -451,43 +404,43 @@
   ],
   [
    "Group Input (Typography)",
-   "Socket_12",
+   "Socket_13",
    "String to Curves",
    "Text Box Width"
   ],
   [
    "Group Input (Typography)",
-   "Socket_13",
+   "Socket_14",
    "String to Curves",
    "Text Box Height"
   ],
   [
    "Group Input (Typography)",
-   "Socket_14",
+   "Socket_15",
    "String to Curves",
    "Overflow"
   ],
   [
    "Group Input (Typography)",
-   "Socket_5",
+   "Socket_3",
    "String to Curves",
    "Size"
   ],
   [
    "Group Input (Typography)",
-   "Socket_6",
+   "Socket_5",
    "String to Curves",
    "Align X"
   ],
   [
    "Group Input (Typography)",
-   "Socket_7",
+   "Socket_6",
    "String to Curves",
    "Align Y"
   ],
   [
    "Group Input (Typography)",
-   "Socket_8",
+   "Socket_7",
    "String to Curves",
    "Pivot Point"
   ],
@@ -502,18 +455,6 @@
    "Index",
    "Store et_char_index",
    "Value"
-  ],
-  [
-   "Lines Join",
-   "Socket_4",
-   "Character Count",
-   "String"
-  ],
-  [
-   "Lines Join",
-   "Socket_4",
-   "Reroute.002",
-   "Input"
   ],
   [
    "No Text",
@@ -542,8 +483,8 @@
   [
    "Reroute.001",
    "Output",
-   "Font Fallback",
-   "False"
+   "Reroute.004",
+   "Input"
   ],
   [
    "Reroute.002",
@@ -554,8 +495,8 @@
   [
    "Reroute.003",
    "Output",
-   "String to Curves",
-   "String"
+   "Font Fallback",
+   "False"
   ],
   [
    "Reroute.004",
@@ -567,7 +508,7 @@
    "Reroute.005",
    "Output",
    "String to Curves",
-   "Font"
+   "String"
   ],
   [
    "Reroute.006",
@@ -578,19 +519,31 @@
   [
    "Reroute.007",
    "Output",
-   "Group Output",
-   "Socket_16"
+   "String to Curves",
+   "Font"
   ],
   [
    "Reroute.008",
+   "Output",
+   "Reroute.009",
+   "Input"
+  ],
+  [
+   "Reroute.009",
+   "Output",
+   "Group Output",
+   "Socket_17"
+  ],
+  [
+   "Reroute.010",
    "Output",
    "No Text",
    "A"
   ],
   [
-   "Reroute.008",
+   "Reroute.010",
    "Output",
-   "Reroute.006",
+   "Reroute.008",
    "Input"
   ],
   [
@@ -626,14 +579,14 @@
    "label": "Character Count",
    "location": [
     -700,
-    160
+    200
    ],
    "mute": false,
    "name": "Character Count",
    "outputs": [
     "Length"
    ],
-   "parent": "[Lines]",
+   "parent": "[Text]",
    "width": 140.0
   },
   {
@@ -655,8 +608,8 @@
    },
    "label": "Curves",
    "location": [
-    1280,
-    120
+    1260,
+    80
    ],
    "mute": false,
    "name": "Curves",
@@ -692,7 +645,7 @@
    "label": "Font Fallback",
    "location": [
     -700,
-    -100
+    20
    ],
    "mute": false,
    "name": "Font Fallback",
@@ -720,8 +673,8 @@
    },
    "label": "Font Is None",
    "location": [
-    -900,
-    -180
+    -880,
+    -60
    ],
    "mute": false,
    "name": "Font Is None",
@@ -742,27 +695,24 @@
    "inputs": {},
    "label": "",
    "location": [
-    -1120,
-    -180
+    -1100,
+    -60
    ],
    "mute": false,
    "name": "Group Input (Font)",
    "outputs": [
     "Socket_0",
-    "Socket_1",
     "Socket_2",
     "Socket_3",
-    "Socket_4",
     "Socket_5",
     "Socket_6",
     "Socket_7",
-    "Socket_8",
     "Socket_9",
     "Socket_10",
     "Socket_11",
-    "Socket_12",
     "Socket_13",
     "Socket_14",
+    "Socket_15",
     "__extend__"
    ],
    "parent": "[Font]",
@@ -774,30 +724,27 @@
    "inputs": {},
    "label": "",
    "location": [
-    -1120,
-    160
+    -880,
+    200
    ],
    "mute": false,
-   "name": "Group Input (Lines)",
+   "name": "Group Input (Text)",
    "outputs": [
     "Socket_0",
-    "Socket_1",
     "Socket_2",
     "Socket_3",
-    "Socket_4",
     "Socket_5",
     "Socket_6",
     "Socket_7",
-    "Socket_8",
     "Socket_9",
     "Socket_10",
     "Socket_11",
-    "Socket_12",
     "Socket_13",
     "Socket_14",
+    "Socket_15",
     "__extend__"
    ],
-   "parent": "[Lines]",
+   "parent": "[Text]",
    "width": 140.0
   },
   {
@@ -813,20 +760,17 @@
    "name": "Group Input (Typography)",
    "outputs": [
     "Socket_0",
-    "Socket_1",
     "Socket_2",
     "Socket_3",
-    "Socket_4",
     "Socket_5",
     "Socket_6",
     "Socket_7",
-    "Socket_8",
     "Socket_9",
     "Socket_10",
     "Socket_11",
-    "Socket_12",
     "Socket_13",
     "Socket_14",
+    "Socket_15",
     "__extend__"
    ],
    "parent": "[Typeset]",
@@ -836,11 +780,11 @@
    "hide": false,
    "idname": "NodeGroupOutput",
    "inputs": {
-    "Socket_15": {
+    "Socket_16": {
      "linked": true,
      "name": "Curves"
     },
-    "Socket_16": {
+    "Socket_17": {
      "linked": true,
      "name": "Character Count"
     },
@@ -850,8 +794,8 @@
    },
    "label": "",
    "location": [
-    1500,
-    120
+    1480,
+    80
    ],
    "mute": false,
    "name": "Group Output",
@@ -868,8 +812,8 @@
    "inputs": {},
    "label": "",
    "location": [
-    240,
-    -60
+    220,
+    -100
    ],
    "mute": false,
    "name": "Index",
@@ -878,46 +822,6 @@
    ],
    "parent": "[Instances]",
    "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeGroup",
-   "inputs": {
-    "Socket_0": {
-     "linked": true,
-     "name": "Line 1"
-    },
-    "Socket_1": {
-     "linked": true,
-     "name": "Line 2"
-    },
-    "Socket_2": {
-     "linked": true,
-     "name": "Line 3"
-    },
-    "Socket_3": {
-     "linked": true,
-     "name": "Line 4"
-    }
-   },
-   "label": "Lines Join",
-   "location": [
-    -940,
-    160
-   ],
-   "mute": false,
-   "name": "Lines Join",
-   "outputs": [
-    "Socket_4"
-   ],
-   "parent": "[Lines]",
-   "props": {
-    "node_tree": {
-     "id": ".ET Lines Join",
-     "type": "GeometryNodeTree"
-    }
-   },
-   "width": 200.0
   },
   {
    "hide": true,
@@ -934,8 +838,8 @@
    },
    "label": "No Text",
    "location": [
-    960,
-    100
+    940,
+    80
    ],
    "mute": false,
    "name": "No Text",
@@ -973,8 +877,8 @@
    },
    "label": "Realize Glyphs",
    "location": [
-    620,
-    60
+    600,
+    20
    ],
    "mute": false,
    "name": "Realize Glyphs",
@@ -998,65 +902,15 @@
    },
    "label": "",
    "location": [
-    -942,
-    -232
+    -700,
+    94
    ],
    "mute": false,
    "name": "Reroute",
    "outputs": [
     "Output"
    ],
-   "parent": "[Font]",
-   "props": {
-    "socket_idname": "NodeSocketFont"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    -742,
-    -232
-   ],
-   "mute": false,
-   "name": "Reroute.001",
-   "outputs": [
-    "Output"
-   ],
-   "parent": "[Font]",
-   "props": {
-    "socket_idname": "NodeSocketFont"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    -700,
-    55
-   ],
-   "mute": false,
-   "name": "Reroute.002",
-   "outputs": [
-    "Output"
-   ],
-   "parent": "[Lines]",
+   "parent": "[Text]",
    "props": {
     "socket_idname": "NodeSocketString"
    },
@@ -1073,11 +927,111 @@
    },
    "label": "",
    "location": [
-    -220,
-    55
+    -560,
+    94
+   ],
+   "mute": false,
+   "name": "Reroute.001",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketString"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -892,
+    -113
+   ],
+   "mute": false,
+   "name": "Reroute.002",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Font]",
+   "props": {
+    "socket_idname": "NodeSocketFont"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -752,
+    -113
    ],
    "mute": false,
    "name": "Reroute.003",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[Font]",
+   "props": {
+    "socket_idname": "NodeSocketFont"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -490,
+    11
+   ],
+   "mute": false,
+   "name": "Reroute.004",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketString"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    -230,
+    11
+   ],
+   "mute": false,
+   "name": "Reroute.005",
    "outputs": [
     "Output"
    ],
@@ -1099,10 +1053,10 @@
    "label": "",
    "location": [
     -490,
-    -79
+    -74
    ],
    "mute": false,
-   "name": "Reroute.004",
+   "name": "Reroute.006",
    "outputs": [
     "Output"
    ],
@@ -1123,11 +1077,11 @@
    },
    "label": "",
    "location": [
-    -220,
-    -79
+    -230,
+    -74
    ],
    "mute": false,
-   "name": "Reroute.005",
+   "name": "Reroute.007",
    "outputs": [
     "Output"
    ],
@@ -1148,61 +1102,61 @@
    },
    "label": "",
    "location": [
-    960,
-    -86
-   ],
-   "mute": false,
-   "name": "Reroute.006",
-   "outputs": [
-    "Output"
-   ],
-   "parent": null,
-   "props": {
-    "socket_idname": "NodeSocketInt"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    1420,
-    -86
-   ],
-   "mute": false,
-   "name": "Reroute.007",
-   "outputs": [
-    "Output"
-   ],
-   "parent": null,
-   "props": {
-    "socket_idname": "NodeSocketInt"
-   },
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeReroute",
-   "inputs": {
-    "Input": {
-     "linked": true,
-     "name": "Input"
-    }
-   },
-   "label": "",
-   "location": [
-    872,
-    125
+    940,
+    -119
    ],
    "mute": false,
    "name": "Reroute.008",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketInt"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    1400,
+    -119
+   ],
+   "mute": false,
+   "name": "Reroute.009",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketInt"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    852,
+    165
+   ],
+   "mute": false,
+   "name": "Reroute.010",
    "outputs": [
     "Output"
    ],
@@ -1235,8 +1189,8 @@
    },
    "label": "Store et_char_index",
    "location": [
-    420,
-    60
+    400,
+    20
    ],
    "mute": false,
    "name": "Store et_char_index",
@@ -1305,8 +1259,8 @@
    },
    "label": "",
    "location": [
-    -160,
-    40
+    -180,
+    0
    ],
    "mute": false,
    "name": "String to Curves",
@@ -1335,8 +1289,8 @@
    },
    "label": "Warn Empty",
    "location": [
-    1100,
-    160
+    1080,
+    120
    ],
    "mute": false,
    "name": "Warn Empty",
@@ -1391,13 +1345,13 @@
    "hide": false,
    "idname": "NodeFrame",
    "inputs": {},
-   "label": "Lines",
+   "label": "Text",
    "location": [
     0,
     0
    ],
    "mute": false,
-   "name": "[Lines]",
+   "name": "[Text]",
    "outputs": [],
    "parent": null,
    "props": {

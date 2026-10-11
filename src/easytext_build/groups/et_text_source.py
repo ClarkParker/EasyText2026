@@ -1,10 +1,9 @@
-"""Text source: join lines, String to Curves with every option exposed, store the character index, realize glyphs."""
+"""Text source ("Text Settings" on the control panel): String to Curves with every option exposed in panels,
+the character index stored per glyph, glyphs realized. Takes the already joined text (see .ET Lines Join)."""
 
-from ..core import GroupBuilder, builtin_font
-from . import et_lines_join
+from ..core import GroupBuilder, builtin_font, heading
 
 NAME = ".ET Text Source"
-LINE_INPUTS = ("Text", "Line 2", "Line 3", "Line 4")
 TYPOGRAPHY_INPUTS = (
     "Font",
     "Size",
@@ -21,32 +20,36 @@ TYPOGRAPHY_INPUTS = (
 
 
 def build():
-    g = GroupBuilder(NAME, description="Up to four lines of text as realized glyph curves with et_char_index.")
-    g.input("Text", "string", "Easy Text")
-    for i in (2, 3, 4):
-        g.input(f"Line {i}", "string", "")
-    g.input("Font", "font", builtin_font())
-    g.input("Size", "float", 1.0, min=0.001, max=100.0, subtype="DISTANCE")
-    g.input("Align X", "menu")
-    g.input("Align Y", "menu")
-    g.input("Pivot", "menu")
-    g.input("Character Spacing", "float", 1.0, min=0.0, max=10.0)
-    g.input("Word Spacing", "float", 1.0, min=0.0, max=10.0)
-    g.input("Line Spacing", "float", 1.0, min=0.0, max=10.0)
-    g.input("Box Width", "float", 0.0, min=0.0, max=1000.0, subtype="DISTANCE")
-    g.input("Box Height", "float", 0.0, min=0.0, max=1000.0, subtype="DISTANCE")
-    g.input("Overflow", "menu")
+    g = GroupBuilder(
+        NAME,
+        description="Text as realized glyph curves with et_char_index; font, alignment, spacing and text box.",
+        default_width=300,
+    )
+    g.input("Text", "string", "Easy Text", description="The text; line breaks start new lines.")
+    with g.panel(heading("Font")):
+        g.input("Font", "font", builtin_font(), description="Font data-block.")
+        g.input("Size", "float", 1.0, min=0.001, max=100.0, subtype="DISTANCE", description="Font size.")
+    with g.panel(heading("Alignment")):
+        g.input("Align X", "menu", description="Horizontal alignment of the lines.")
+        g.input("Align Y", "menu", description="Vertical alignment of the text block.")
+        g.input("Pivot", "menu", description="Origin of the text block.")
+    with g.panel(heading("Spacing")):
+        g.input("Character Spacing", "float", 1.0, min=0.0, max=10.0, description="Spacing factor between characters.")
+        g.input("Word Spacing", "float", 1.0, min=0.0, max=10.0, description="Spacing factor between words.")
+        g.input("Line Spacing", "float", 1.0, min=0.0, max=10.0, description="Spacing factor between lines.")
+    with g.panel(heading("Text Box"), description="Wrapping and overflow.", default_closed=True):
+        g.input("Box Width", "float", 0.0, min=0.0, max=1000.0, subtype="DISTANCE", description="0 = no wrapping.")
+        g.input("Box Height", "float", 0.0, min=0.0, max=1000.0, subtype="DISTANCE", description="0 = unlimited.")
+        g.input("Overflow", "menu", description="What happens when the text does not fit the box.")
     g.output("Curves", "geometry")
-    g.output("Character Count", "int", description="Number of characters in the joined text.")
+    g.output("Character Count", "int", description="Number of characters in the text.")
     for name, value in (("Align X", "Center"), ("Align Y", "Middle"), ("Pivot", "Midpoint"), ("Overflow", "Overflow")):
         g.menu_default(name, value)
 
-    with g.frame("Lines"):
-        gi = g.inputs(*LINE_INPUTS, label="Lines")
-        joined = g.group(
-            et_lines_join.NAME, "Lines Join", inputs={f"Line {i}": gi[n] for i, n in enumerate(LINE_INPUTS, start=1)}
-        )["String"]
-        char_count = g.node("FunctionNodeStringLength", "Character Count", inputs={"String": joined})["Length"]
+    with g.frame("Text"):
+        gi = g.inputs("Text")
+        text = gi["Text"]
+        char_count = g.node("FunctionNodeStringLength", "Character Count", inputs={"String": text})["Length"]
 
     with g.frame("Font"):
         gi = g.inputs("Font")
@@ -59,7 +62,7 @@ def build():
             "GeometryNodeStringToCurves",
             "String to Curves",
             inputs={
-                "String": joined,
+                "String": text,
                 "Size": gi["Size"],
                 "Font": font,
                 "Align X": gi["Align X"],

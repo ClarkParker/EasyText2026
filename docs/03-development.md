@@ -30,6 +30,20 @@ ruff check .
 The smoke test loads the built file, checks that no node was loaded as `NodeUndefined`,
 attaches the test group as a modifier to an object and evaluates it.
 
+### Group nodes as panels (found while building the Easy Text control panel)
+
+- A panel-toggle socket is renamed by Blender to its panel's name: the toggle of panel `-- Bevel --` is the
+  socket `-- Bevel --`, not `Bevel`. Every built group therefore stores its input name → identifier map as the
+  ID property `et_sockets`; `SocketRef.resolve` and `core.group_socket` fall back to it, so wiring and the demo
+  keep using the logical name (`Bevel`, `UV`).
+- Links into a multi-input socket (Join Strings, Join Geometry) are inserted on top, so a list of sources has to
+  be linked in reverse to keep its order. Visible as reversed text lines before the fix.
+- Unlinked group-node inputs are editable widgets on the node (text fields, sliders, dropdowns, font and material
+  pickers) and keep their values per node; `hide_value` on the interface socket would hide them.
+- Frame text wraps to the frame width but is clipped at the frame height; size the frame for the text.
+- The node editor overlay "Named Attributes" adds an "n Named Attribute" row to every group node that stores
+  attributes; the demo turns it off for the panel view (`space.overlay.show_named_attributes`).
+
 ### Demo file: window layout and screenshots
 
 `build` writes the demo scene headless. The window layout (workspace "Easy Text", camera view on top, node editor

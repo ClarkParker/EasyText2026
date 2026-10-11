@@ -134,6 +134,7 @@ def steps():
             area.spaces.active.context = "MODIFIER"
         elif area.type == "NODE_EDITOR":
             area.spaces.active.show_region_ui = False  # the control panel needs the width
+            area.spaces.active.overlay.show_named_attributes = False  # no "n Named Attribute" rows on the panels
 
     # ---- framing of the big viewport -------------------------------------------------------------------------
     viewport = max((a for a in screen.areas if a.type == "VIEW_3D"), key=lambda a: a.width * a.height, default=None)

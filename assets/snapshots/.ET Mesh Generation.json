@@ -1,0 +1,1207 @@
+{
+ "asset_catalog_id": null,
+ "description": "Glyph curves to a clean mesh: outline, extrusion, bevel, materials, export-ready UVs.",
+ "flags": {
+  "color_tag": "NONE",
+  "default_group_node_width": 320,
+  "is_modifier": false,
+  "is_tool": false
+ },
+ "interface": [
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_24",
+   "in_out": "OUTPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Mesh",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketGeometry",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "description": "Glyph outlines from Text Settings.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_0",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Curves",
+   "optional_label": false,
+   "parent": null,
+   "socket_type": "NodeSocketGeometry",
+   "structure_type": "AUTO"
+  },
+  {
+   "default_closed": false,
+   "description": "Quality of the glyph outlines.",
+   "item_type": "PANEL",
+   "name": "-=| Outline |=-",
+   "parent": null
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 12,
+   "description": "Points per curve segment.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_2",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 64,
+   "menu_expanded": false,
+   "min_value": 1,
+   "name": "Resolution",
+   "optional_label": false,
+   "parent": "-=| Outline |=-",
+   "socket_type": "NodeSocketInt",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.5,
+   "description": "Remove points whose direction changes less than this angle (degrees). 0 = off.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_3",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 10.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
+   "name": "Simplify",
+   "optional_label": false,
+   "parent": "-=| Outline |=-",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": "N-gons",
+   "description": "N-gons or triangles on the caps.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_4",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Fill Mode",
+   "optional_label": false,
+   "parent": "-=| Outline |=-",
+   "socket_type": "NodeSocketMenu",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": "Even-Odd",
+   "description": "Even-Odd or Non-Zero for overlapping outlines.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_5",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Fill Rule",
+   "optional_label": false,
+   "parent": "-=| Outline |=-",
+   "socket_type": "NodeSocketMenu",
+   "structure_type": "AUTO"
+  },
+  {
+   "default_closed": false,
+   "description": "",
+   "item_type": "PANEL",
+   "name": "-=| Shape |=-",
+   "parent": null
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.1,
+   "description": "Extrusion depth.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_7",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 10.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
+   "name": "Depth",
+   "optional_label": false,
+   "parent": "-=| Shape |=-",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 30.0,
+   "description": "Edges above this angle (degrees) stay sharp.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_13",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 180.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
+   "name": "Smooth Angle",
+   "optional_label": false,
+   "parent": "-=| Shape |=-",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  },
+  {
+   "default_closed": false,
+   "description": "Rounded front and back edges.",
+   "item_type": "PANEL",
+   "name": "-- Bevel --",
+   "parent": "-=| Shape |=-"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": false,
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_9",
+   "in_out": "INPUT",
+   "is_panel_toggle": true,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "-- Bevel --",
+   "optional_label": false,
+   "parent": "-- Bevel --",
+   "socket_type": "NodeSocketBool",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.01,
+   "description": "Bevel width, at most half the depth.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_10",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 1.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
+   "name": "Bevel Width",
+   "optional_label": false,
+   "parent": "-- Bevel --",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "DISTANCE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 3,
+   "description": "Bevel subdivisions.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_11",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 16,
+   "menu_expanded": false,
+   "min_value": 1,
+   "name": "Segments",
+   "optional_label": false,
+   "parent": "-- Bevel --",
+   "socket_type": "NodeSocketInt",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 0.5,
+   "description": "0.5 = round.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_12",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 1.0,
+   "menu_expanded": false,
+   "min_value": 0.0,
+   "name": "Profile",
+   "optional_label": false,
+   "parent": "-- Bevel --",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "FACTOR"
+  },
+  {
+   "default_closed": false,
+   "description": "",
+   "item_type": "PANEL",
+   "name": "-=| Material |=-",
+   "parent": null
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": {
+    "id": "ET Front",
+    "type": "Material"
+   },
+   "description": "Also used for the back face.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_15",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Front Material",
+   "optional_label": false,
+   "parent": "-=| Material |=-",
+   "socket_type": "NodeSocketMaterial",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": {
+    "id": "ET Side",
+    "type": "Material"
+   },
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_16",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Side Material",
+   "optional_label": false,
+   "parent": "-=| Material |=-",
+   "socket_type": "NodeSocketMaterial",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": {
+    "id": "ET Bevel",
+    "type": "Material"
+   },
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_17",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Bevel Material",
+   "optional_label": false,
+   "parent": "-=| Material |=-",
+   "socket_type": "NodeSocketMaterial",
+   "structure_type": "AUTO"
+  },
+  {
+   "default_closed": false,
+   "description": "UV map 'UVMap': planar caps, sides and bevel along the outline.",
+   "item_type": "PANEL",
+   "name": "-=| UV |=-",
+   "parent": null
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": true,
+   "description": "",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_19",
+   "in_out": "INPUT",
+   "is_panel_toggle": true,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "-=| UV |=-",
+   "optional_label": false,
+   "parent": "-=| UV |=-",
+   "socket_type": "NodeSocketBool",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": true,
+   "description": "Scale the caps into 0..1; off = Blender units (tileable).",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_20",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Normalize to Text",
+   "optional_label": false,
+   "parent": "-=| UV |=-",
+   "socket_type": "NodeSocketBool",
+   "structure_type": "AUTO"
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": 1.0,
+   "description": "Additional UV factor.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_21",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "max_value": 1000.0,
+   "menu_expanded": false,
+   "min_value": 0.0001,
+   "name": "UV Scale",
+   "optional_label": false,
+   "parent": "-=| UV |=-",
+   "socket_type": "NodeSocketFloat",
+   "structure_type": "AUTO",
+   "subtype": "NONE"
+  },
+  {
+   "default_closed": true,
+   "description": "",
+   "item_type": "PANEL",
+   "name": "-=| Output |=-",
+   "parent": null
+  },
+  {
+   "attribute_domain": "POINT",
+   "default_attribute_name": "",
+   "default_input": "VALUE",
+   "default_value": false,
+   "description": "Keep the et_* attributes (character index, contour length, face group) on the mesh.",
+   "hide_in_modifier": false,
+   "hide_value": false,
+   "identifier": "Socket_23",
+   "in_out": "INPUT",
+   "is_panel_toggle": false,
+   "item_type": "SOCKET",
+   "layer_selection_field": false,
+   "menu_expanded": false,
+   "name": "Keep Helper Attributes",
+   "optional_label": false,
+   "parent": "-=| Output |=-",
+   "socket_type": "NodeSocketBool",
+   "structure_type": "AUTO"
+  }
+ ],
+ "links": [
+  [
+   "ET Bevel",
+   "Socket_6",
+   "ET Text UV",
+   "Socket_0"
+  ],
+  [
+   "ET Bevel",
+   "Socket_7",
+   "Reroute",
+   "Input"
+  ],
+  [
+   "ET Finish",
+   "Socket_5",
+   "Group Output",
+   "Socket_24"
+  ],
+  [
+   "ET Outline Clean",
+   "Socket_3",
+   "ET Solid",
+   "Socket_0"
+  ],
+  [
+   "ET Solid",
+   "Socket_5",
+   "ET Bevel",
+   "Socket_0"
+  ],
+  [
+   "ET Text UV",
+   "Socket_6",
+   "ET Finish",
+   "Socket_0"
+  ],
+  [
+   "Group Input (Bevel)",
+   "Socket_10",
+   "ET Bevel",
+   "Socket_2"
+  ],
+  [
+   "Group Input (Bevel)",
+   "Socket_11",
+   "ET Bevel",
+   "Socket_3"
+  ],
+  [
+   "Group Input (Bevel)",
+   "Socket_12",
+   "ET Bevel",
+   "Socket_4"
+  ],
+  [
+   "Group Input (Bevel)",
+   "Socket_7",
+   "ET Bevel",
+   "Socket_5"
+  ],
+  [
+   "Group Input (Bevel)",
+   "Socket_9",
+   "ET Bevel",
+   "Socket_1"
+  ],
+  [
+   "Group Input (Finish)",
+   "Socket_13",
+   "ET Finish",
+   "Socket_3"
+  ],
+  [
+   "Group Input (Finish)",
+   "Socket_16",
+   "ET Finish",
+   "Socket_1"
+  ],
+  [
+   "Group Input (Finish)",
+   "Socket_17",
+   "ET Finish",
+   "Socket_2"
+  ],
+  [
+   "Group Input (Finish)",
+   "Socket_23",
+   "ET Finish",
+   "Socket_4"
+  ],
+  [
+   "Group Input (Outline)",
+   "Socket_0",
+   "ET Outline Clean",
+   "Socket_0"
+  ],
+  [
+   "Group Input (Outline)",
+   "Socket_2",
+   "ET Outline Clean",
+   "Socket_1"
+  ],
+  [
+   "Group Input (Outline)",
+   "Socket_3",
+   "ET Outline Clean",
+   "Socket_2"
+  ],
+  [
+   "Group Input (Solid)",
+   "Socket_15",
+   "ET Solid",
+   "Socket_4"
+  ],
+  [
+   "Group Input (Solid)",
+   "Socket_4",
+   "ET Solid",
+   "Socket_2"
+  ],
+  [
+   "Group Input (Solid)",
+   "Socket_5",
+   "ET Solid",
+   "Socket_3"
+  ],
+  [
+   "Group Input (Solid)",
+   "Socket_7",
+   "ET Solid",
+   "Socket_1"
+  ],
+  [
+   "Group Input (UV)",
+   "Socket_19",
+   "ET Text UV",
+   "Socket_1"
+  ],
+  [
+   "Group Input (UV)",
+   "Socket_20",
+   "ET Text UV",
+   "Socket_4"
+  ],
+  [
+   "Group Input (UV)",
+   "Socket_21",
+   "ET Text UV",
+   "Socket_5"
+  ],
+  [
+   "Group Input (UV)",
+   "Socket_7",
+   "ET Text UV",
+   "Socket_2"
+  ],
+  [
+   "Reroute",
+   "Output",
+   "Reroute.001",
+   "Input"
+  ],
+  [
+   "Reroute.001",
+   "Output",
+   "ET Text UV",
+   "Socket_3"
+  ]
+ ],
+ "name": ".ET Mesh Generation",
+ "nodes": [
+  {
+   "hide": false,
+   "idname": "GeometryNodeGroup",
+   "inputs": {
+    "Socket_0": {
+     "linked": true,
+     "name": "Mesh"
+    },
+    "Socket_1": {
+     "linked": true,
+     "name": "Bevel"
+    },
+    "Socket_2": {
+     "linked": true,
+     "name": "Width"
+    },
+    "Socket_3": {
+     "linked": true,
+     "name": "Segments"
+    },
+    "Socket_4": {
+     "linked": true,
+     "name": "Profile"
+    },
+    "Socket_5": {
+     "linked": true,
+     "name": "Depth"
+    }
+   },
+   "label": "ET Bevel",
+   "location": [
+    -100,
+    60
+   ],
+   "mute": false,
+   "name": "ET Bevel",
+   "outputs": [
+    "Socket_6",
+    "Socket_7",
+    "Socket_8"
+   ],
+   "parent": "[Bevel]",
+   "props": {
+    "node_tree": {
+     "id": ".ET Bevel",
+     "type": "GeometryNodeTree"
+    }
+   },
+   "width": 200.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeGroup",
+   "inputs": {
+    "Socket_0": {
+     "linked": true,
+     "name": "Mesh"
+    },
+    "Socket_1": {
+     "linked": true,
+     "name": "Side Material"
+    },
+    "Socket_2": {
+     "linked": true,
+     "name": "Bevel Material"
+    },
+    "Socket_3": {
+     "linked": true,
+     "name": "Smooth Angle"
+    },
+    "Socket_4": {
+     "linked": true,
+     "name": "Keep Helper Attributes"
+    }
+   },
+   "label": "ET Finish",
+   "location": [
+    1040,
+    140
+   ],
+   "mute": false,
+   "name": "ET Finish",
+   "outputs": [
+    "Socket_5"
+   ],
+   "parent": "[Finish]",
+   "props": {
+    "node_tree": {
+     "id": ".ET Finish",
+     "type": "GeometryNodeTree"
+    }
+   },
+   "width": 200.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeGroup",
+   "inputs": {
+    "Socket_0": {
+     "linked": true,
+     "name": "Curves"
+    },
+    "Socket_1": {
+     "linked": true,
+     "name": "Resolution"
+    },
+    "Socket_2": {
+     "linked": true,
+     "name": "Simplify"
+    }
+   },
+   "label": "ET Outline Clean",
+   "location": [
+    -1260,
+    -80
+   ],
+   "mute": false,
+   "name": "ET Outline Clean",
+   "outputs": [
+    "Socket_3"
+   ],
+   "parent": "[Outline]",
+   "props": {
+    "node_tree": {
+     "id": ".ET Outline Clean",
+     "type": "GeometryNodeTree"
+    }
+   },
+   "width": 200.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeGroup",
+   "inputs": {
+    "Socket_0": {
+     "linked": true,
+     "name": "Curves"
+    },
+    "Socket_1": {
+     "linked": true,
+     "name": "Depth"
+    },
+    "Socket_2": {
+     "linked": true,
+     "name": "Fill Mode"
+    },
+    "Socket_3": {
+     "linked": true,
+     "name": "Fill Rule"
+    },
+    "Socket_4": {
+     "linked": true,
+     "name": "Front Material"
+    }
+   },
+   "label": "ET Solid",
+   "location": [
+    -680,
+    -40
+   ],
+   "mute": false,
+   "name": "ET Solid",
+   "outputs": [
+    "Socket_5"
+   ],
+   "parent": "[Solid]",
+   "props": {
+    "node_tree": {
+     "id": ".ET Solid",
+     "type": "GeometryNodeTree"
+    }
+   },
+   "width": 200.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeGroup",
+   "inputs": {
+    "Socket_0": {
+     "linked": true,
+     "name": "Mesh"
+    },
+    "Socket_1": {
+     "linked": true,
+     "name": "UV"
+    },
+    "Socket_2": {
+     "linked": true,
+     "name": "Depth"
+    },
+    "Socket_3": {
+     "linked": true,
+     "name": "Radius"
+    },
+    "Socket_4": {
+     "linked": true,
+     "name": "Normalize to Text"
+    },
+    "Socket_5": {
+     "linked": true,
+     "name": "Scale"
+    }
+   },
+   "label": "ET Text UV",
+   "location": [
+    480,
+    100
+   ],
+   "mute": false,
+   "name": "ET Text UV",
+   "outputs": [
+    "Socket_6"
+   ],
+   "parent": "[UV]",
+   "props": {
+    "node_tree": {
+     "id": ".ET Text UV",
+     "type": "GeometryNodeTree"
+    }
+   },
+   "width": 200.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    -280,
+    -120
+   ],
+   "mute": false,
+   "name": "Group Input (Bevel)",
+   "outputs": [
+    "Socket_0",
+    "Socket_2",
+    "Socket_3",
+    "Socket_4",
+    "Socket_5",
+    "Socket_7",
+    "Socket_13",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_12",
+    "Socket_15",
+    "Socket_16",
+    "Socket_17",
+    "Socket_19",
+    "Socket_20",
+    "Socket_21",
+    "Socket_23",
+    "__extend__"
+   ],
+   "parent": "[Bevel]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    860,
+    20
+   ],
+   "mute": false,
+   "name": "Group Input (Finish)",
+   "outputs": [
+    "Socket_0",
+    "Socket_2",
+    "Socket_3",
+    "Socket_4",
+    "Socket_5",
+    "Socket_7",
+    "Socket_13",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_12",
+    "Socket_15",
+    "Socket_16",
+    "Socket_17",
+    "Socket_19",
+    "Socket_20",
+    "Socket_21",
+    "Socket_23",
+    "__extend__"
+   ],
+   "parent": "[Finish]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    -1440,
+    -80
+   ],
+   "mute": false,
+   "name": "Group Input (Outline)",
+   "outputs": [
+    "Socket_0",
+    "Socket_2",
+    "Socket_3",
+    "Socket_4",
+    "Socket_5",
+    "Socket_7",
+    "Socket_13",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_12",
+    "Socket_15",
+    "Socket_16",
+    "Socket_17",
+    "Socket_19",
+    "Socket_20",
+    "Socket_21",
+    "Socket_23",
+    "__extend__"
+   ],
+   "parent": "[Outline]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    -860,
+    -160
+   ],
+   "mute": false,
+   "name": "Group Input (Solid)",
+   "outputs": [
+    "Socket_0",
+    "Socket_2",
+    "Socket_3",
+    "Socket_4",
+    "Socket_5",
+    "Socket_7",
+    "Socket_13",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_12",
+    "Socket_15",
+    "Socket_16",
+    "Socket_17",
+    "Socket_19",
+    "Socket_20",
+    "Socket_21",
+    "Socket_23",
+    "__extend__"
+   ],
+   "parent": "[Solid]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
+   "location": [
+    300,
+    -40
+   ],
+   "mute": false,
+   "name": "Group Input (UV)",
+   "outputs": [
+    "Socket_0",
+    "Socket_2",
+    "Socket_3",
+    "Socket_4",
+    "Socket_5",
+    "Socket_7",
+    "Socket_13",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_12",
+    "Socket_15",
+    "Socket_16",
+    "Socket_17",
+    "Socket_19",
+    "Socket_20",
+    "Socket_21",
+    "Socket_23",
+    "__extend__"
+   ],
+   "parent": "[UV]",
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeGroupOutput",
+   "inputs": {
+    "Socket_24": {
+     "linked": true,
+     "name": "Mesh"
+    },
+    "__extend__": {
+     "name": ""
+    }
+   },
+   "label": "",
+   "location": [
+    1320,
+    140
+   ],
+   "mute": false,
+   "name": "Group Output",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "is_active_output": true
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    170,
+    -4
+   ],
+   "mute": false,
+   "name": "Reroute",
+   "outputs": [
+    "Output"
+   ],
+   "parent": null,
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeReroute",
+   "inputs": {
+    "Input": {
+     "linked": true,
+     "name": "Input"
+    }
+   },
+   "label": "",
+   "location": [
+    440,
+    -4
+   ],
+   "mute": false,
+   "name": "Reroute.001",
+   "outputs": [
+    "Output"
+   ],
+   "parent": "[UV]",
+   "props": {
+    "socket_idname": "NodeSocketFloat"
+   },
+   "width": 140.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Bevel",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Bevel]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Finish",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Finish]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Outline",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Outline]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "Solid",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[Solid]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  },
+  {
+   "hide": false,
+   "idname": "NodeFrame",
+   "inputs": {},
+   "label": "UV",
+   "location": [
+    0,
+    0
+   ],
+   "mute": false,
+   "name": "[UV]",
+   "outputs": [],
+   "parent": null,
+   "props": {
+    "label_size": 20,
+    "shrink": true
+   },
+   "width": 160.0
+  }
+ ],
+ "tree_type": "GeometryNodeTree"
+}

@@ -8,7 +8,7 @@ NAME = ".ET Lines Join"
 def build():
     g = GroupBuilder(NAME, description="Four lines to one string with line breaks; empty lines are dropped.")
     for i in range(1, 5):
-        g.input(f"Line {i}", "string", "", hide_value=True)
+        g.input(f"Line {i}", "string", "", description=f"Line {i}; empty lines are skipped.")
     g.output("String", "string")
 
     with g.frame("Join Lines"):

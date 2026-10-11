@@ -5,7 +5,7 @@ Geometry Nodes typography and text animation for **Blender 5.2 LTS**: node-group
 multi-line text, presets, and camera and light rigs.
 
 Status: Phase 1. Node group `ET Text Mesh` (text → clean mesh with extrusion, bevel, materials, UVs) and the
-control panel `Easy Text`, the same pipeline operated inside the node editor.
+control panel `Easy Text`, the v3 of the v2.1 GUI: three settings nodes inside the node editor.
 Analysis of the previous version: `docs/01-analysis-v2.1.md`, target picture: `docs/02-target-v3.md`,
 development rules and API pitfalls: `docs/03-development.md`, architecture: `docs/04-architecture-v3.md`,
 node layout rules: `docs/05-node-layout.md`.
@@ -15,9 +15,11 @@ node layout rules: `docs/05-node-layout.md`.
 1. Download `assets/easytext_v3_demo.blend` and open it. It opens in the workspace "Easy Text": the camera view
    on top, the node editor with the control panel directly below, the properties editor on the modifier tab.
    A text object with the modifier, a camera and two area lights are set up.
-2. Two ways to operate the tool, same pipeline:
-   - `Easy Text` (the demo): a control panel in the node editor. Six stages from left to right, Text → Outline →
-     Solid → Bevel → UV → Finish; the value nodes next to each stage are the controls, the mesh flows along the top.
+2. Two ways to operate the tool, same nodes inside:
+   - `Easy Text` (the demo): the control panel in the node editor, laid out like the v2.1 GUI. Three settings
+     nodes carry every control as a widget: **Text Input** (four line fields), **Font Settings** (font, size,
+     alignment, spacing, text box) and **Mesh Settings** (outline, shape with bevel switch, materials, UV switch,
+     output), plus a note with the export hint. Three wires, nothing else to connect.
    - `ET Text Mesh`: one node group with inputs as modifier panels: Text (4 lines), Typography (font socket, size,
      alignment, spacing, text box), Outline (resolution, simplify, fill), Shape (depth, bevel, smooth angle),
      Material, UV, Output.

@@ -68,9 +68,10 @@ remain unchanged.
 
 | Group | Catalog | Phase | Content |
 |---|---|---|---|
-| `Easy Text` | Easy Text | 1 (built) | Control panel in the node editor: the ET Text Mesh pipeline with value nodes as controls next to each stage, Depth reroute bus, Read Me frame. |
-| `ET Text Mesh` | Text | 1 (built) | Main modifier for the properties editor: inputs as panels (Text, Typography, Outline, Shape, Material, UV, Output); six stage frames, one sub-group each. From Phase 2 an animation panel with preset menu. |
-| `.ET Text Source` | internal | 1 (built) | Line join, String to Curves (all options as inputs), `et_char_index`, "No text" warning. |
+| `Easy Text` | Easy Text | 1 (built) | Control panel in the node editor, the v3 of the v2.1 GUI: three settings nodes with every control as a widget (Text Lines, Text Settings, Mesh Generation) in the frames Text Input, Font Settings, Mesh Settings; a note with the export hint. |
+| `ET Text Mesh` | Text | 1 (built) | Main modifier for the properties editor: inputs as panels (Text, Typography, Outline, Shape, Material, UV, Output); inside the same three nodes as the panel. From Phase 2 an animation panel with preset menu. |
+| `.ET Mesh Generation` | internal | 1 (built) | "Mesh Generation" on the panel: curves → mesh through Outline Clean, Solid, Bevel, Text UV, Finish; inputs in panels (Outline, Shape with Bevel switch, Material, UV switch, Output). |
+| `.ET Text Source` | internal | 1 (built) | "Text Settings" on the panel: String to Curves with the options in panels (Font, Alignment, Spacing, Text Box), `et_char_index`, "No text" warning. |
 | `.ET Lines Join` | internal | 1 (built) | 4 string inputs → one string with Line Break, empty lines skipped. |
 | `.ET Outline Clean` | internal | 1 (built) | Spline resolution, resample, collinear/duplicate point removal, `et_u` and `et_loop_len`. |
 | `.ET Solid` | internal | 1 (built) | Fill (Mode/Fill Rule) → front material → attribute transfer → back copy + extrude → merge; `et_face_group`. |

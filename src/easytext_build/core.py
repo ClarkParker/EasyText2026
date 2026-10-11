@@ -44,6 +44,7 @@ PROP_H = 24.0  # height of one property row (dropdown)
 COLLAPSED_H = 32.0
 REROUTE_SIZE = 16.0
 GROUP_INPUT_COLOR = (0.510, 0.208, 0.298)  # theme Input class colour, as used by Blender's Essentials
+SOCKET_MAP_KEY = "et_sockets"  # ID property on every built group: input name -> socket identifier
 COMPACT_TYPES = {
     "ShaderNodeMath",
     "ShaderNodeVectorMath",
@@ -52,6 +53,16 @@ COMPACT_TYPES = {
     "ShaderNodeSeparateXYZ",
     "ShaderNodeCombineXYZ",
 }
+
+
+def heading(name: str) -> str:
+    """Panel or frame title in the ASCII style of the v2.1 GUI, e.g. '-=| Mesh Settings |=-'."""
+    return f"-=| {name} |=-"
+
+
+def subheading(name: str) -> str:
+    """Nested panel title, e.g. '-- Bevel --'."""
+    return f"-- {name} --"
 
 
 def socket_type(alias: str) -> str:
@@ -87,7 +98,21 @@ class SocketRef:
 
     def resolve(self) -> bpy.types.NodeSocket:
         sockets = self.node.outputs if self.is_output else self.node.inputs
-        return find_socket(sockets, self.key)
+        try:
+            return find_socket(sockets, self.key)
+        except KeyError:
+            # Group node: Blender 5.2 renames a panel-toggle socket to its panel's name ("-- Bevel --"), so the
+            # builder's own name -> identifier map, stored on the group, resolves the logical name ("Bevel").
+            tree = getattr(self.node, "node_tree", None)
+            identifier = (tree.get(SOCKET_MAP_KEY) or {}).get(self.key) if tree is not None else None
+            if identifier is None:
+                raise
+            return find_socket(sockets, identifier)
+
+
+def group_socket(node: bpy.types.Node, name: str, *, output: bool = False) -> bpy.types.NodeSocket:
+    """Socket of a group node by interface name, including panel toggles (shown under the panel's name)."""
+    return SocketRef(node, name, output).resolve()
 
 
 class NodeRef:
@@ -333,7 +358,9 @@ class GroupBuilder:
         elif isinstance(value, bpy.types.NodeSocket):
             self.tree.links.new(value, sock)
         elif isinstance(value, list | tuple) and value and isinstance(value[0], SocketRef | NodeRef):
-            for item in value:  # multi-input socket (e.g. Join Geometry)
+            # Multi-input socket (Join Strings, Join Geometry): Blender puts every new link on top, so link in
+            # reverse to keep the list order (matters for strings).
+            for item in reversed(value):
                 self._connect(target, item)
         else:
             sock.default_value = value
@@ -437,6 +464,7 @@ class GroupBuilder:
             self._layout()
         for node in self.tree.nodes:
             node.select = False  # a saved file should not open with every node highlighted
+        self.tree[SOCKET_MAP_KEY] = dict(self._input_sockets)  # logical names survive panel-toggle renames
         if self.catalog is not None:
             self.tree.asset_mark()
             self.tree.asset_data.catalog_id = self.catalog.uuid

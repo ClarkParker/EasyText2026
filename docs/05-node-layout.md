@@ -38,21 +38,21 @@ Theme-level looks (noodle curving, wire colours, dashed field links) are not sto
 
 ## Control panel (Easy Text)
 
-The node-editor front end is built only from what Blender 5.2 draws itself: frames, constant input nodes, group
-nodes, reroutes and wires. Rules, derived from the conventions above and from what works in a landscape editor:
+The node-editor front end follows the v2.1 GUI (see `docs/01-analysis-v2.1.md`) and uses what Blender 5.2 draws
+itself: frames, group nodes with their input widgets, reroutes and wires.
 
-1. Same shape as the engine: the panel is the ET Text Mesh pipeline (frames as stages, left to right, mesh along the
-   top), not a tall column of inputs feeding one node. A user who tabs into `ET Text Mesh` sees the same picture.
-2. Controls are Blender's constant input nodes, one per value, labelled with the value's name: String (multi-line
-   text box), Font, Value, Integer, Boolean, Menu (items appear once linked, defaults set after wiring), Material.
-   They are placed by hand in a grid left of the stage node they feed (two columns when a stage has more than four),
-   starting one socket row below the geometry bus so the bus passes above them.
-3. A value that several stages need (Depth) exists once; the later stages get a labelled reroute in their own
-   frame, and the reroutes form a bus below the frames involved (Essentials rule 4).
-4. Stage nodes hide sockets the panel does not use (Line 2–4: the text box carries all lines).
-5. One outer frame carries the title (label size 32) and a "Read Me" note frame (frame text, full panel width) with
-   the five lines a new user needs. Explanations live in frame texts, never in socket names.
-6. Nothing is selected or active when the file opens; the node editor has its sidebar hidden so the panel gets the
-   width, and the view is framed on the whole panel.
-7. Layout lives in `groups/et_easy_text.py` (`Controls` provider + `_layout`); the engine stays in
-   `et_text_mesh.build_pipeline`, so both trees are always wired identically.
+1. The group nodes are the panels. Every control is an input of one of three nodes, shown as a widget on the node
+   (text field, slider, dropdown, checkbox, font and material picker). No value nodes, no wire per control.
+2. Grouped by what the user does, not by how the mesh is computed: Text Input (four line fields), Font Settings
+   (font, alignment, spacing, text box), Mesh Settings (outline, shape, material, UV, output). The pipeline stays
+   inside the nodes; Tab shows it.
+3. Headings in the ASCII style of v2.1: panel and frame titles read `-=| Name |=-`, nested panels `-- Name --`
+   (`core.heading`, `core.subheading`). In 5.2 they are real panels: collapsible, nested, with a switch in the
+   header where a boolean gates the panel (Bevel, UV). Rarely used panels start closed (Text Box, Output).
+4. Three wires: lines → Text Settings, curves → Mesh Generation, mesh → Group Output. Text Lines sits lower so
+   its output meets the Text input on one level; nodes are 300 px wide so fields and sliders are readable.
+5. One outer frame carries the title, the three section frames are dark teal like v2.1, a purple note frame
+   holds the export hint as frame text. Nothing is selected when the file opens, the node editor sidebar and the
+   "Named Attributes" overlay are off, the view is framed on the panel.
+6. `ET Text Mesh` is the same three nodes with Group Input copies instead of widgets, so both trees are always
+   wired identically; its interface keeps plain panel names for the properties editor.

@@ -791,566 +791,272 @@
  ],
  "links": [
   [
-   "ET Bevel",
-   "Socket_6",
-   "ET Text UV",
+   "Group Input (Lines)",
+   "Socket_1",
+   "Lines Join",
    "Socket_0"
   ],
   [
-   "ET Bevel",
-   "Socket_7",
-   "Reroute",
-   "Input"
+   "Group Input (Lines)",
+   "Socket_2",
+   "Lines Join",
+   "Socket_1"
   ],
   [
-   "ET Finish",
-   "Socket_5",
+   "Group Input (Lines)",
+   "Socket_3",
+   "Lines Join",
+   "Socket_2"
+  ],
+  [
+   "Group Input (Lines)",
+   "Socket_4",
+   "Lines Join",
+   "Socket_3"
+  ],
+  [
+   "Group Input (Mesh)",
+   "Socket_19",
+   "Mesh Generation",
+   "Socket_2"
+  ],
+  [
+   "Group Input (Mesh)",
+   "Socket_20",
+   "Mesh Generation",
+   "Socket_3"
+  ],
+  [
+   "Group Input (Mesh)",
+   "Socket_21",
+   "Mesh Generation",
+   "Socket_4"
+  ],
+  [
+   "Group Input (Mesh)",
+   "Socket_22",
+   "Mesh Generation",
+   "Socket_5"
+  ],
+  [
+   "Group Input (Mesh)",
+   "Socket_24",
+   "Mesh Generation",
+   "Socket_7"
+  ],
+  [
+   "Group Input (Mesh)",
+   "Socket_26",
+   "Mesh Generation",
+   "Socket_9"
+  ],
+  [
+   "Group Input (Mesh)",
+   "Socket_27",
+   "Mesh Generation",
+   "Socket_10"
+  ],
+  [
+   "Group Input (Mesh)",
+   "Socket_28",
+   "Mesh Generation",
+   "Socket_11"
+  ],
+  [
+   "Group Input (Mesh)",
+   "Socket_29",
+   "Mesh Generation",
+   "Socket_12"
+  ],
+  [
+   "Group Input (Mesh)",
+   "Socket_30",
+   "Mesh Generation",
+   "Socket_13"
+  ],
+  [
+   "Group Input (Mesh)",
+   "Socket_32",
+   "Mesh Generation",
+   "Socket_15"
+  ],
+  [
+   "Group Input (Mesh)",
+   "Socket_33",
+   "Mesh Generation",
+   "Socket_16"
+  ],
+  [
+   "Group Input (Mesh)",
+   "Socket_34",
+   "Mesh Generation",
+   "Socket_17"
+  ],
+  [
+   "Group Input (Mesh)",
+   "Socket_36",
+   "Mesh Generation",
+   "Socket_19"
+  ],
+  [
+   "Group Input (Mesh)",
+   "Socket_37",
+   "Mesh Generation",
+   "Socket_20"
+  ],
+  [
+   "Group Input (Mesh)",
+   "Socket_38",
+   "Mesh Generation",
+   "Socket_21"
+  ],
+  [
+   "Group Input (Mesh)",
+   "Socket_40",
+   "Mesh Generation",
+   "Socket_23"
+  ],
+  [
+   "Group Input (Typography)",
+   "Socket_10",
+   "Text Source",
+   "Socket_7"
+  ],
+  [
+   "Group Input (Typography)",
+   "Socket_11",
+   "Text Source",
+   "Socket_9"
+  ],
+  [
+   "Group Input (Typography)",
+   "Socket_12",
+   "Text Source",
+   "Socket_10"
+  ],
+  [
+   "Group Input (Typography)",
+   "Socket_13",
+   "Text Source",
+   "Socket_11"
+  ],
+  [
+   "Group Input (Typography)",
+   "Socket_15",
+   "Text Source",
+   "Socket_13"
+  ],
+  [
+   "Group Input (Typography)",
+   "Socket_16",
+   "Text Source",
+   "Socket_14"
+  ],
+  [
+   "Group Input (Typography)",
+   "Socket_17",
+   "Text Source",
+   "Socket_15"
+  ],
+  [
+   "Group Input (Typography)",
+   "Socket_6",
+   "Text Source",
+   "Socket_2"
+  ],
+  [
+   "Group Input (Typography)",
+   "Socket_7",
+   "Text Source",
+   "Socket_3"
+  ],
+  [
+   "Group Input (Typography)",
+   "Socket_8",
+   "Text Source",
+   "Socket_5"
+  ],
+  [
+   "Group Input (Typography)",
+   "Socket_9",
+   "Text Source",
+   "Socket_6"
+  ],
+  [
+   "Lines Join",
+   "Socket_4",
+   "Text Source",
+   "Socket_0"
+  ],
+  [
+   "Mesh Generation",
+   "Socket_24",
    "Group Output",
    "Socket_41"
   ],
   [
-   "ET Outline Clean",
-   "Socket_3",
-   "ET Solid",
-   "Socket_0"
-  ],
-  [
-   "ET Solid",
-   "Socket_5",
-   "ET Bevel",
-   "Socket_0"
-  ],
-  [
-   "ET Text Source",
-   "Socket_15",
-   "ET Outline Clean",
-   "Socket_0"
-  ],
-  [
-   "ET Text UV",
-   "Socket_6",
-   "ET Finish",
-   "Socket_0"
-  ],
-  [
-   "Group Input (Bevel)",
-   "Socket_24",
-   "ET Bevel",
-   "Socket_5"
-  ],
-  [
-   "Group Input (Bevel)",
-   "Socket_26",
-   "ET Bevel",
-   "Socket_1"
-  ],
-  [
-   "Group Input (Bevel)",
-   "Socket_27",
-   "ET Bevel",
-   "Socket_2"
-  ],
-  [
-   "Group Input (Bevel)",
-   "Socket_28",
-   "ET Bevel",
-   "Socket_3"
-  ],
-  [
-   "Group Input (Bevel)",
-   "Socket_29",
-   "ET Bevel",
-   "Socket_4"
-  ],
-  [
-   "Group Input (Finish)",
-   "Socket_30",
-   "ET Finish",
-   "Socket_3"
-  ],
-  [
-   "Group Input (Finish)",
-   "Socket_33",
-   "ET Finish",
-   "Socket_1"
-  ],
-  [
-   "Group Input (Finish)",
-   "Socket_34",
-   "ET Finish",
-   "Socket_2"
-  ],
-  [
-   "Group Input (Finish)",
-   "Socket_40",
-   "ET Finish",
-   "Socket_4"
-  ],
-  [
-   "Group Input (Outline)",
-   "Socket_19",
-   "ET Outline Clean",
-   "Socket_1"
-  ],
-  [
-   "Group Input (Outline)",
-   "Socket_20",
-   "ET Outline Clean",
-   "Socket_2"
-  ],
-  [
-   "Group Input (Solid)",
-   "Socket_21",
-   "ET Solid",
-   "Socket_2"
-  ],
-  [
-   "Group Input (Solid)",
-   "Socket_22",
-   "ET Solid",
-   "Socket_3"
-  ],
-  [
-   "Group Input (Solid)",
-   "Socket_24",
-   "ET Solid",
-   "Socket_1"
-  ],
-  [
-   "Group Input (Solid)",
-   "Socket_32",
-   "ET Solid",
-   "Socket_4"
-  ],
-  [
-   "Group Input (Text)",
-   "Socket_1",
-   "ET Text Source",
-   "Socket_0"
-  ],
-  [
-   "Group Input (Text)",
-   "Socket_10",
-   "ET Text Source",
-   "Socket_8"
-  ],
-  [
-   "Group Input (Text)",
-   "Socket_11",
-   "ET Text Source",
-   "Socket_9"
-  ],
-  [
-   "Group Input (Text)",
-   "Socket_12",
-   "ET Text Source",
-   "Socket_10"
-  ],
-  [
-   "Group Input (Text)",
-   "Socket_13",
-   "ET Text Source",
-   "Socket_11"
-  ],
-  [
-   "Group Input (Text)",
-   "Socket_15",
-   "ET Text Source",
-   "Socket_12"
-  ],
-  [
-   "Group Input (Text)",
-   "Socket_16",
-   "ET Text Source",
-   "Socket_13"
-  ],
-  [
-   "Group Input (Text)",
-   "Socket_17",
-   "ET Text Source",
-   "Socket_14"
-  ],
-  [
-   "Group Input (Text)",
-   "Socket_2",
-   "ET Text Source",
-   "Socket_1"
-  ],
-  [
-   "Group Input (Text)",
-   "Socket_3",
-   "ET Text Source",
-   "Socket_2"
-  ],
-  [
-   "Group Input (Text)",
-   "Socket_4",
-   "ET Text Source",
-   "Socket_3"
-  ],
-  [
-   "Group Input (Text)",
-   "Socket_6",
-   "ET Text Source",
-   "Socket_4"
-  ],
-  [
-   "Group Input (Text)",
-   "Socket_7",
-   "ET Text Source",
-   "Socket_5"
-  ],
-  [
-   "Group Input (Text)",
-   "Socket_8",
-   "ET Text Source",
-   "Socket_6"
-  ],
-  [
-   "Group Input (Text)",
-   "Socket_9",
-   "ET Text Source",
-   "Socket_7"
-  ],
-  [
-   "Group Input (UV)",
-   "Socket_24",
-   "ET Text UV",
-   "Socket_2"
-  ],
-  [
-   "Group Input (UV)",
-   "Socket_36",
-   "ET Text UV",
-   "Socket_1"
-  ],
-  [
-   "Group Input (UV)",
-   "Socket_37",
-   "ET Text UV",
-   "Socket_4"
-  ],
-  [
-   "Group Input (UV)",
-   "Socket_38",
-   "ET Text UV",
-   "Socket_5"
-  ],
-  [
    "Reroute",
    "Output",
-   "ET Text UV",
-   "Socket_3"
+   "Mesh Generation",
+   "Socket_0"
+  ],
+  [
+   "Text Source",
+   "Socket_16",
+   "Reroute",
+   "Input"
   ]
  ],
  "name": "ET Text Mesh",
  "nodes": [
   {
    "hide": false,
-   "idname": "GeometryNodeGroup",
-   "inputs": {
-    "Socket_0": {
-     "linked": true,
-     "name": "Mesh"
-    },
-    "Socket_1": {
-     "linked": true,
-     "name": "Bevel"
-    },
-    "Socket_2": {
-     "linked": true,
-     "name": "Width"
-    },
-    "Socket_3": {
-     "linked": true,
-     "name": "Segments"
-    },
-    "Socket_4": {
-     "linked": true,
-     "name": "Profile"
-    },
-    "Socket_5": {
-     "linked": true,
-     "name": "Depth"
-    }
-   },
-   "label": "ET Bevel",
+   "idname": "NodeGroupInput",
+   "inputs": {},
+   "label": "",
    "location": [
-    180,
-    80
+    -640,
+    20
    ],
    "mute": false,
-   "name": "ET Bevel",
+   "name": "Group Input (Lines)",
    "outputs": [
+    "Socket_1",
+    "Socket_2",
+    "Socket_3",
+    "Socket_4",
     "Socket_6",
     "Socket_7",
-    "Socket_8"
-   ],
-   "parent": "[Bevel]",
-   "props": {
-    "node_tree": {
-     "id": ".ET Bevel",
-     "type": "GeometryNodeTree"
-    }
-   },
-   "width": 200.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeGroup",
-   "inputs": {
-    "Socket_0": {
-     "linked": true,
-     "name": "Mesh"
-    },
-    "Socket_1": {
-     "linked": true,
-     "name": "Side Material"
-    },
-    "Socket_2": {
-     "linked": true,
-     "name": "Bevel Material"
-    },
-    "Socket_3": {
-     "linked": true,
-     "name": "Smooth Angle"
-    },
-    "Socket_4": {
-     "linked": true,
-     "name": "Keep Helper Attributes"
-    }
-   },
-   "label": "ET Finish",
-   "location": [
-    1340,
-    180
-   ],
-   "mute": false,
-   "name": "ET Finish",
-   "outputs": [
-    "Socket_5"
-   ],
-   "parent": "[Finish]",
-   "props": {
-    "node_tree": {
-     "id": ".ET Finish",
-     "type": "GeometryNodeTree"
-    }
-   },
-   "width": 200.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeGroup",
-   "inputs": {
-    "Socket_0": {
-     "linked": true,
-     "name": "Curves"
-    },
-    "Socket_1": {
-     "linked": true,
-     "name": "Resolution"
-    },
-    "Socket_2": {
-     "linked": true,
-     "name": "Simplify"
-    }
-   },
-   "label": "ET Outline Clean",
-   "location": [
-    -960,
-    -60
-   ],
-   "mute": false,
-   "name": "ET Outline Clean",
-   "outputs": [
-    "Socket_3"
-   ],
-   "parent": "[Outline]",
-   "props": {
-    "node_tree": {
-     "id": ".ET Outline Clean",
-     "type": "GeometryNodeTree"
-    }
-   },
-   "width": 200.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeGroup",
-   "inputs": {
-    "Socket_0": {
-     "linked": true,
-     "name": "Curves"
-    },
-    "Socket_1": {
-     "linked": true,
-     "name": "Depth"
-    },
-    "Socket_2": {
-     "linked": true,
-     "name": "Fill Mode"
-    },
-    "Socket_3": {
-     "linked": true,
-     "name": "Fill Rule"
-    },
-    "Socket_4": {
-     "linked": true,
-     "name": "Front Material"
-    }
-   },
-   "label": "ET Solid",
-   "location": [
-    -400,
-    0
-   ],
-   "mute": false,
-   "name": "ET Solid",
-   "outputs": [
-    "Socket_5"
-   ],
-   "parent": "[Solid]",
-   "props": {
-    "node_tree": {
-     "id": ".ET Solid",
-     "type": "GeometryNodeTree"
-    }
-   },
-   "width": 200.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeGroup",
-   "inputs": {
-    "Socket_0": {
-     "linked": true,
-     "name": "Text"
-    },
-    "Socket_1": {
-     "linked": true,
-     "name": "Line 2"
-    },
-    "Socket_10": {
-     "linked": true,
-     "name": "Word Spacing"
-    },
-    "Socket_11": {
-     "linked": true,
-     "name": "Line Spacing"
-    },
-    "Socket_12": {
-     "linked": true,
-     "name": "Box Width"
-    },
-    "Socket_13": {
-     "linked": true,
-     "name": "Box Height"
-    },
-    "Socket_14": {
-     "linked": true,
-     "name": "Overflow"
-    },
-    "Socket_2": {
-     "linked": true,
-     "name": "Line 3"
-    },
-    "Socket_3": {
-     "linked": true,
-     "name": "Line 4"
-    },
-    "Socket_4": {
-     "linked": true,
-     "name": "Font"
-    },
-    "Socket_5": {
-     "linked": true,
-     "name": "Size"
-    },
-    "Socket_6": {
-     "linked": true,
-     "name": "Align X"
-    },
-    "Socket_7": {
-     "linked": true,
-     "name": "Align Y"
-    },
-    "Socket_8": {
-     "linked": true,
-     "name": "Pivot"
-    },
-    "Socket_9": {
-     "linked": true,
-     "name": "Character Spacing"
-    }
-   },
-   "label": "ET Text Source",
-   "location": [
-    -1540,
-    -100
-   ],
-   "mute": false,
-   "name": "ET Text Source",
-   "outputs": [
+    "Socket_8",
+    "Socket_9",
+    "Socket_10",
+    "Socket_11",
+    "Socket_12",
+    "Socket_13",
     "Socket_15",
-    "Socket_16"
+    "Socket_16",
+    "Socket_17",
+    "Socket_19",
+    "Socket_20",
+    "Socket_21",
+    "Socket_22",
+    "Socket_24",
+    "Socket_30",
+    "Socket_26",
+    "Socket_27",
+    "Socket_28",
+    "Socket_29",
+    "Socket_32",
+    "Socket_33",
+    "Socket_34",
+    "Socket_36",
+    "Socket_37",
+    "Socket_38",
+    "Socket_40",
+    "__extend__"
    ],
    "parent": "[Text]",
-   "props": {
-    "node_tree": {
-     "id": ".ET Text Source",
-     "type": "GeometryNodeTree"
-    }
-   },
-   "width": 200.0
-  },
-  {
-   "hide": false,
-   "idname": "GeometryNodeGroup",
-   "inputs": {
-    "Socket_0": {
-     "linked": true,
-     "name": "Mesh"
-    },
-    "Socket_1": {
-     "linked": true,
-     "name": "UV"
-    },
-    "Socket_2": {
-     "linked": true,
-     "name": "Depth"
-    },
-    "Socket_3": {
-     "linked": true,
-     "name": "Radius"
-    },
-    "Socket_4": {
-     "linked": true,
-     "name": "Normalize to Text"
-    },
-    "Socket_5": {
-     "linked": true,
-     "name": "Scale"
-    }
-   },
-   "label": "ET Text UV",
-   "location": [
-    760,
-    120
-   ],
-   "mute": false,
-   "name": "ET Text UV",
-   "outputs": [
-    "Socket_6"
-   ],
-   "parent": "[UV]",
-   "props": {
-    "node_tree": {
-     "id": ".ET Text UV",
-     "type": "GeometryNodeTree"
-    }
-   },
-   "width": 200.0
+   "width": 140.0
   },
   {
    "hide": false,
@@ -1358,11 +1064,11 @@
    "inputs": {},
    "label": "",
    "location": [
-    0,
-    -80
+    280,
+    -40
    ],
    "mute": false,
-   "name": "Group Input (Bevel)",
+   "name": "Group Input (Mesh)",
    "outputs": [
     "Socket_1",
     "Socket_2",
@@ -1398,7 +1104,7 @@
     "Socket_40",
     "__extend__"
    ],
-   "parent": "[Bevel]",
+   "parent": "[Mesh]",
    "width": 140.0
   },
   {
@@ -1407,158 +1113,11 @@
    "inputs": {},
    "label": "",
    "location": [
-    1160,
-    60
-   ],
-   "mute": false,
-   "name": "Group Input (Finish)",
-   "outputs": [
-    "Socket_1",
-    "Socket_2",
-    "Socket_3",
-    "Socket_4",
-    "Socket_6",
-    "Socket_7",
-    "Socket_8",
-    "Socket_9",
-    "Socket_10",
-    "Socket_11",
-    "Socket_12",
-    "Socket_13",
-    "Socket_15",
-    "Socket_16",
-    "Socket_17",
-    "Socket_19",
-    "Socket_20",
-    "Socket_21",
-    "Socket_22",
-    "Socket_24",
-    "Socket_30",
-    "Socket_26",
-    "Socket_27",
-    "Socket_28",
-    "Socket_29",
-    "Socket_32",
-    "Socket_33",
-    "Socket_34",
-    "Socket_36",
-    "Socket_37",
-    "Socket_38",
-    "Socket_40",
-    "__extend__"
-   ],
-   "parent": "[Finish]",
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeGroupInput",
-   "inputs": {},
-   "label": "",
-   "location": [
-    -1140,
+    -440,
     -180
    ],
    "mute": false,
-   "name": "Group Input (Outline)",
-   "outputs": [
-    "Socket_1",
-    "Socket_2",
-    "Socket_3",
-    "Socket_4",
-    "Socket_6",
-    "Socket_7",
-    "Socket_8",
-    "Socket_9",
-    "Socket_10",
-    "Socket_11",
-    "Socket_12",
-    "Socket_13",
-    "Socket_15",
-    "Socket_16",
-    "Socket_17",
-    "Socket_19",
-    "Socket_20",
-    "Socket_21",
-    "Socket_22",
-    "Socket_24",
-    "Socket_30",
-    "Socket_26",
-    "Socket_27",
-    "Socket_28",
-    "Socket_29",
-    "Socket_32",
-    "Socket_33",
-    "Socket_34",
-    "Socket_36",
-    "Socket_37",
-    "Socket_38",
-    "Socket_40",
-    "__extend__"
-   ],
-   "parent": "[Outline]",
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeGroupInput",
-   "inputs": {},
-   "label": "",
-   "location": [
-    -580,
-    -120
-   ],
-   "mute": false,
-   "name": "Group Input (Solid)",
-   "outputs": [
-    "Socket_1",
-    "Socket_2",
-    "Socket_3",
-    "Socket_4",
-    "Socket_6",
-    "Socket_7",
-    "Socket_8",
-    "Socket_9",
-    "Socket_10",
-    "Socket_11",
-    "Socket_12",
-    "Socket_13",
-    "Socket_15",
-    "Socket_16",
-    "Socket_17",
-    "Socket_19",
-    "Socket_20",
-    "Socket_21",
-    "Socket_22",
-    "Socket_24",
-    "Socket_30",
-    "Socket_26",
-    "Socket_27",
-    "Socket_28",
-    "Socket_29",
-    "Socket_32",
-    "Socket_33",
-    "Socket_34",
-    "Socket_36",
-    "Socket_37",
-    "Socket_38",
-    "Socket_40",
-    "__extend__"
-   ],
-   "parent": "[Solid]",
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeGroupInput",
-   "inputs": {},
-   "label": "",
-   "location": [
-    -1720,
-    -100
-   ],
-   "mute": false,
-   "name": "Group Input (Text)",
+   "name": "Group Input (Typography)",
    "outputs": [
     "Socket_1",
     "Socket_2",
@@ -1595,55 +1154,6 @@
     "__extend__"
    ],
    "parent": "[Text]",
-   "width": 140.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeGroupInput",
-   "inputs": {},
-   "label": "",
-   "location": [
-    580,
-    -20
-   ],
-   "mute": false,
-   "name": "Group Input (UV)",
-   "outputs": [
-    "Socket_1",
-    "Socket_2",
-    "Socket_3",
-    "Socket_4",
-    "Socket_6",
-    "Socket_7",
-    "Socket_8",
-    "Socket_9",
-    "Socket_10",
-    "Socket_11",
-    "Socket_12",
-    "Socket_13",
-    "Socket_15",
-    "Socket_16",
-    "Socket_17",
-    "Socket_19",
-    "Socket_20",
-    "Socket_21",
-    "Socket_22",
-    "Socket_24",
-    "Socket_30",
-    "Socket_26",
-    "Socket_27",
-    "Socket_28",
-    "Socket_29",
-    "Socket_32",
-    "Socket_33",
-    "Socket_34",
-    "Socket_36",
-    "Socket_37",
-    "Socket_38",
-    "Socket_40",
-    "__extend__"
-   ],
-   "parent": "[UV]",
    "width": 140.0
   },
   {
@@ -1660,8 +1170,8 @@
    },
    "label": "",
    "location": [
-    1600,
-    180
+    860,
+    80
    ],
    "mute": false,
    "name": "Group Output",
@@ -1674,6 +1184,142 @@
   },
   {
    "hide": false,
+   "idname": "GeometryNodeGroup",
+   "inputs": {
+    "Socket_0": {
+     "linked": true,
+     "name": "Line 1"
+    },
+    "Socket_1": {
+     "linked": true,
+     "name": "Line 2"
+    },
+    "Socket_2": {
+     "linked": true,
+     "name": "Line 3"
+    },
+    "Socket_3": {
+     "linked": true,
+     "name": "Line 4"
+    }
+   },
+   "label": "Lines Join",
+   "location": [
+    -460,
+    20
+   ],
+   "mute": false,
+   "name": "Lines Join",
+   "outputs": [
+    "Socket_4"
+   ],
+   "parent": "[Text]",
+   "props": {
+    "node_tree": {
+     "id": ".ET Lines Join",
+     "type": "GeometryNodeTree"
+    }
+   },
+   "width": 200.0
+  },
+  {
+   "hide": false,
+   "idname": "GeometryNodeGroup",
+   "inputs": {
+    "Socket_0": {
+     "linked": true,
+     "name": "Curves"
+    },
+    "Socket_10": {
+     "linked": true,
+     "name": "Bevel Width"
+    },
+    "Socket_11": {
+     "linked": true,
+     "name": "Segments"
+    },
+    "Socket_12": {
+     "linked": true,
+     "name": "Profile"
+    },
+    "Socket_13": {
+     "linked": true,
+     "name": "Smooth Angle"
+    },
+    "Socket_15": {
+     "linked": true,
+     "name": "Front Material"
+    },
+    "Socket_16": {
+     "linked": true,
+     "name": "Side Material"
+    },
+    "Socket_17": {
+     "linked": true,
+     "name": "Bevel Material"
+    },
+    "Socket_19": {
+     "linked": true,
+     "name": "-=| UV |=-"
+    },
+    "Socket_2": {
+     "linked": true,
+     "name": "Resolution"
+    },
+    "Socket_20": {
+     "linked": true,
+     "name": "Normalize to Text"
+    },
+    "Socket_21": {
+     "linked": true,
+     "name": "UV Scale"
+    },
+    "Socket_23": {
+     "linked": true,
+     "name": "Keep Helper Attributes"
+    },
+    "Socket_3": {
+     "linked": true,
+     "name": "Simplify"
+    },
+    "Socket_4": {
+     "linked": true,
+     "name": "Fill Mode"
+    },
+    "Socket_5": {
+     "linked": true,
+     "name": "Fill Rule"
+    },
+    "Socket_7": {
+     "linked": true,
+     "name": "Depth"
+    },
+    "Socket_9": {
+     "linked": true,
+     "name": "-- Bevel --"
+    }
+   },
+   "label": "Mesh Generation",
+   "location": [
+    460,
+    80
+   ],
+   "mute": false,
+   "name": "Mesh Generation",
+   "outputs": [
+    "Socket_24"
+   ],
+   "parent": "[Mesh]",
+   "props": {
+    "node_tree": {
+     "id": ".ET Mesh Generation",
+     "type": "GeometryNodeTree"
+    }
+   },
+   "width": 320.0
+  },
+  {
+   "hide": false,
    "idname": "NodeReroute",
    "inputs": {
     "Input": {
@@ -1683,88 +1329,104 @@
    },
    "label": "",
    "location": [
-    720,
-    20
+    154,
+    -1
    ],
    "mute": false,
    "name": "Reroute",
    "outputs": [
     "Output"
    ],
-   "parent": "[UV]",
+   "parent": null,
    "props": {
-    "socket_idname": "NodeSocketFloat"
+    "socket_idname": "NodeSocketGeometry"
    },
    "width": 140.0
   },
   {
    "hide": false,
-   "idname": "NodeFrame",
-   "inputs": {},
-   "label": "Bevel",
+   "idname": "GeometryNodeGroup",
+   "inputs": {
+    "Socket_0": {
+     "linked": true,
+     "name": "Text"
+    },
+    "Socket_10": {
+     "linked": true,
+     "name": "Word Spacing"
+    },
+    "Socket_11": {
+     "linked": true,
+     "name": "Line Spacing"
+    },
+    "Socket_13": {
+     "linked": true,
+     "name": "Box Width"
+    },
+    "Socket_14": {
+     "linked": true,
+     "name": "Box Height"
+    },
+    "Socket_15": {
+     "linked": true,
+     "name": "Overflow"
+    },
+    "Socket_2": {
+     "linked": true,
+     "name": "Font"
+    },
+    "Socket_3": {
+     "linked": true,
+     "name": "Size"
+    },
+    "Socket_5": {
+     "linked": true,
+     "name": "Align X"
+    },
+    "Socket_6": {
+     "linked": true,
+     "name": "Align Y"
+    },
+    "Socket_7": {
+     "linked": true,
+     "name": "Pivot"
+    },
+    "Socket_9": {
+     "linked": true,
+     "name": "Character Spacing"
+    }
+   },
+   "label": "Text Source",
    "location": [
-    0,
-    0
+    -220,
+    -40
    ],
    "mute": false,
-   "name": "[Bevel]",
-   "outputs": [],
-   "parent": null,
+   "name": "Text Source",
+   "outputs": [
+    "Socket_16",
+    "Socket_17"
+   ],
+   "parent": "[Text]",
    "props": {
-    "label_size": 20,
-    "shrink": true
+    "node_tree": {
+     "id": ".ET Text Source",
+     "type": "GeometryNodeTree"
+    }
    },
-   "width": 160.0
+   "width": 300.0
   },
   {
    "hide": false,
    "idname": "NodeFrame",
    "inputs": {},
-   "label": "Finish",
+   "label": "Mesh",
    "location": [
     0,
     0
    ],
    "mute": false,
-   "name": "[Finish]",
-   "outputs": [],
-   "parent": null,
-   "props": {
-    "label_size": 20,
-    "shrink": true
-   },
-   "width": 160.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeFrame",
-   "inputs": {},
-   "label": "Outline",
-   "location": [
-    0,
-    0
-   ],
-   "mute": false,
-   "name": "[Outline]",
-   "outputs": [],
-   "parent": null,
-   "props": {
-    "label_size": 20,
-    "shrink": true
-   },
-   "width": 160.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeFrame",
-   "inputs": {},
-   "label": "Solid",
-   "location": [
-    0,
-    0
-   ],
-   "mute": false,
-   "name": "[Solid]",
+   "name": "[Mesh]",
    "outputs": [],
    "parent": null,
    "props": {
@@ -1784,25 +1446,6 @@
    ],
    "mute": false,
    "name": "[Text]",
-   "outputs": [],
-   "parent": null,
-   "props": {
-    "label_size": 20,
-    "shrink": true
-   },
-   "width": 160.0
-  },
-  {
-   "hide": false,
-   "idname": "NodeFrame",
-   "inputs": {},
-   "label": "UV",
-   "location": [
-    0,
-    0
-   ],
-   "mute": false,
-   "name": "[UV]",
    "outputs": [],
    "parent": null,
    "props": {
