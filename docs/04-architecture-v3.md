@@ -100,6 +100,17 @@ remain unchanged.
 Presets in `ET Text` are fixed combinations: a preset menu (Menu Switch) selects selector + animator parameters.
 Users with a node editor assemble the groups directly.
 
+## 3b. Add-on (Phase 4, built)
+
+| Part | Content |
+|---|---|
+| `easy_text/ui.py` | Sidebar tab "Easy Text": main panel drawn from the node group interface (panels, toggles, menus as dropdowns, ID searches), font row, presets, camera and light, export. |
+| `easy_text/ops.py` | Operators: create_text, set_font (search popup over system fonts), load_font, preset, set_menu/open_menu, add_light_rig, add_camera_orbit, fit_camera, apply_mesh. |
+| `easy_text/fonts.py` | Font folders per OS plus Blender's own, cached list, load with `bpy.data.fonts.load`. |
+| `easy_text/assets.py` | Append node groups from the bundled `assets/easytext_v3.blend` on first use. |
+| `easy_text/rigs.py` | Camera orbit, camera fit, light rig objects, modifier input helpers; also used by the demo build. |
+| `blender_manifest.toml` | Extension manifest (5.2, GPL-3.0-or-later code, CC0 assets, files permission for fonts). |
+
 ## 4. Modifier UI of `ET Text Mesh` (Phase 1, as built)
 
 ```

@@ -29,6 +29,8 @@ jobs:
         run: python -m easytext_build.smoke
       - name: Snapshots must be committed
         run: git diff --exit-code -- assets/snapshots assets/blender_assets.cats.txt
+      - name: Package the add-on
+        run: python -m easytext_build.package
       - uses: actions/upload-artifact@v4
         with:
           name: easytext_v3-assets
@@ -36,3 +38,7 @@ jobs:
             assets/easytext_v3.blend
             assets/blender_assets.cats.txt
             assets/snapshots
+      - uses: actions/upload-artifact@v4
+        with:
+          name: easy_text-addon
+          path: dist/*.zip

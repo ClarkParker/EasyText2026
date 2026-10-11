@@ -45,6 +45,15 @@ COLLAPSED_H = 32.0
 REROUTE_SIZE = 16.0
 GROUP_INPUT_COLOR = (0.510, 0.208, 0.298)  # theme Input class colour, as used by Blender's Essentials
 SOCKET_MAP_KEY = "et_sockets"  # ID property on every built group: input name -> socket identifier
+MENU_MAP_KEY = "et_menus"  # ID property on every built group: menu input name -> {option name: stored int}
+NATIVE_MENUS = {  # options of Blender's own menu sockets that groups pass through
+    "Align X": ["Left", "Center", "Right"],
+    "Align Y": ["Top", "Top Baseline", "Middle", "Bottom Baseline", "Bottom"],
+    "Pivot": ["Midpoint", "Top Left", "Top Center", "Top Right", "Bottom Left", "Bottom Center", "Bottom Right"],
+    "Overflow": ["Overflow", "Scale To Fit", "Truncate"],
+    "Fill Mode": ["Triangles", "N-gons"],
+    "Fill Rule": ["Non-Zero", "Even-Odd"],
+}
 COMPACT_TYPES = {
     "ShaderNodeMath",
     "ShaderNodeVectorMath",
@@ -179,6 +188,7 @@ class GroupBuilder:
         self._frames: list[bpy.types.Node] = []
         self._frame_order: list[bpy.types.Node] = []
         self._input_sockets: dict[str, str] = {}  # name -> identifier (first definition wins)
+        self._menu_options: dict[str, list[str]] = {}  # menu input name -> option names (from Menu Switch nodes)
 
     # ---------------------------------------------------------------- interface
     @contextlib.contextmanager
@@ -410,6 +420,10 @@ class GroupBuilder:
             ref.node.enum_items.new(label)
         if select is not None:
             self.set_input(ref, "Menu", select)
+            if isinstance(select, SocketRef) and isinstance(select.key, str):
+                # a Group Input copy refers to the socket by identifier; the map is keyed by the input name
+                names = [n for n, ident in self._input_sockets.items() if ident == select.key] or [select.key]
+                self._menu_options[names[0]] = list(options)
         for label, value in options.items():
             self.set_input(ref, label, value)
         return ref
@@ -478,6 +492,7 @@ class GroupBuilder:
         for node in self.tree.nodes:
             node.select = False  # a saved file should not open with every node highlighted
         self.tree[SOCKET_MAP_KEY] = dict(self._input_sockets)  # logical names survive panel-toggle renames
+        self.tree[MENU_MAP_KEY] = self._menu_map()  # option names -> the ints a modifier stores
         if self.catalog is not None:
             self.tree.asset_mark()
             self.tree.asset_data.catalog_id = self.catalog.uuid
@@ -485,6 +500,64 @@ class GroupBuilder:
             self.tree.asset_data.author = "Easy Text 2026"
             self.tree.asset_data.license = "CC0-1.0"
         return self.tree
+
+    # ---------------------------------------------------------------- menus
+    def _menu_map(self) -> dict:
+        """For every menu input: option name -> the int a modifier stores for it. Blender keeps menu values as
+        item identifiers that Python cannot read from the nodes, so each option is probed through a temporary
+        modifier (interface default -> fresh modifier -> stored value)."""
+        result: dict[str, dict[str, int]] = {}
+        items = [
+            i
+            for i in self.tree.interface.items_tree
+            if i.item_type == "SOCKET" and i.in_out == "INPUT" and i.socket_type == "NodeSocketMenu"
+        ]
+        if not items:
+            return result
+        probe_mesh = bpy.data.meshes.new("et_menu_probe")
+        probe = bpy.data.objects.new("et_menu_probe", probe_mesh)
+        try:
+            for item in items:
+                options = (
+                    self._menu_options.get(item.name) or self._linked_menu_options(item) or NATIVE_MENUS.get(item.name)
+                )
+                if not options:
+                    print(f"[build] {self.tree.name}: no option list for menu input {item.name!r}")
+                    continue
+                original = item.default_value
+                values: dict[str, int] = {}
+                for option in options:
+                    try:
+                        item.default_value = option
+                    except TypeError:
+                        print(f"[build] {self.tree.name}: menu {item.name!r} has no option {option!r}")
+                        continue
+                    mod = probe.modifiers.new("probe", "NODES")
+                    mod.node_group = self.tree
+                    values[option] = int(mod.properties.inputs[item.identifier]["value"])
+                    probe.modifiers.remove(mod)
+                if original:
+                    item.default_value = original
+                result[item.name] = values
+        finally:
+            bpy.data.objects.remove(probe)
+            bpy.data.meshes.remove(probe_mesh)
+        return result
+
+    def _linked_menu_options(self, item) -> list[str] | None:
+        """Options of a menu input that is passed straight into a sub-group: read that group's map."""
+        for link in self.tree.links:
+            if (
+                link.from_node.bl_idname == "NodeGroupInput"
+                and link.from_socket.identifier == item.identifier
+                and link.to_node.bl_idname == "GeometryNodeGroup"
+                and link.to_node.node_tree is not None
+            ):
+                sub_map = link.to_node.node_tree.get(MENU_MAP_KEY) or {}
+                options = sub_map.get(link.to_socket.name)
+                if options:
+                    return list(options.keys())
+        return None
 
     # ---------------------------------------------------------------- layout
     def _arrange(self) -> bool:

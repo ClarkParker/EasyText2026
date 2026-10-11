@@ -1,0 +1,23 @@
+schema_version = "1.0.0"
+
+id = "easy_text"
+version = "3.0.0"
+name = "Easy Text"
+tagline = "Typography and text animation with Geometry Nodes"
+maintainer = "Clark Parker"
+type = "add-on"
+
+website = "https://github.com/ClarkParker/EasyText2026"
+tags = ["Modeling", "Animation"]
+
+blender_version_min = "5.2.0"
+
+# The code is GPL; the bundled node assets (assets/easytext_v3.blend) are CC0, see assets/LICENSE in the repository.
+license = ["SPDX:GPL-3.0-or-later"]
+copyright = ["2026 Clark Parker"]
+
+[permissions]
+files = "Load font files from the system font folders"
+
+[build]
+paths_exclude_pattern = ["__pycache__/", "*.pyc", "/.git/", "*.zip"]
